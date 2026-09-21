@@ -1,7 +1,22 @@
 /* Shared page-analysis probe. Identical code runs against the reference
  * site and against our reconstruction, so the two measurement sets are
  * produced the same way and are therefore comparable. */
-export const ANALYZE = () => {
+export const ANALYZE = (forcedSelector) => {
+  // A per-reference selector overrides the scorer where it picks the wrong
+  // element or none at all. Everything after the pick is identical, so an
+  // overridden measurement stays comparable with every other one.
+  let forced = null;
+  if (forcedSelector) {
+    for (const cand of document.querySelectorAll(forcedSelector)) {
+      const cr = cand.getBoundingClientRect();
+      const cc = getComputedStyle(cand);
+      if (cc.display === 'none' || cc.visibility === 'hidden') continue;
+      if (cr.width < 80 || cr.height < 6) continue;
+      if (!cand.querySelector('a,button,[role="button"]')) continue;
+      forced = cand;
+      break;
+    }
+  }
   const px = v => Math.round(parseFloat(v) || 0);
   const vis = e => {
     const c = getComputedStyle(e);
@@ -37,14 +52,16 @@ export const ANALYZE = () => {
     cands.push({ e, s, r, c, tag, links });
   }
   cands.sort((a, b) => b.s - a.s);
-  if (!cands.length) return { found: false };
+  if (!forced && !cands.length) return { found: false };
 
   // Prefer the outermost among top-scoring overlapping candidates
   let best = cands[0];
-  for (const cd of cands.slice(0, 12)) {
-    if (cd.s >= best.s - 12 && cd.e.contains(best.e) && cd.e !== best.e && cd.r.height <= best.r.height * 2.4) best = cd;
+  if (!forced) {
+    for (const cd of cands.slice(0, 12)) {
+      if (cd.s >= best.s - 12 && cd.e.contains(best.e) && cd.e !== best.e && cd.r.height <= best.r.height * 2.4) best = cd;
+    }
   }
-  const el = best.e;
+  const el = forced || best.e;
   const cs = getComputedStyle(el);
   const rect = el.getBoundingClientRect();
 
@@ -96,7 +113,7 @@ export const ANALYZE = () => {
     found: true,
     selectorTag: el.tagName,
     selectorCls: (typeof el.className === 'string' ? el.className : '').slice(0, 90),
-    score: best.s,
+    score: forced ? 'forced-selector' : best.s,
     container: {
       ...styleOf(el),
       position: cs.position, top: cs.top, left: cs.left, right: cs.right,

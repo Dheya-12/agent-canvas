@@ -8,7 +8,7 @@
   ],
   "reason": "The probe selects the reference's pinned-layer wrapper, which is 167px tall, but the navigation blocks inside it end at y=96 (two 20px strip rows plus a 56px action block - see the per-element extents in the evidence). The remaining 71px is empty and shows the hero through it, so the container height is not the bar height. The reconstruction matches the BLOCK geometry: 20px strips and a 56px action block. Tablet and mobile heights measure the real collapsed bar and remain enforced."
  },
- "at": "2026-09-21T12:21:02.272Z",
+ "at": "2026-09-21T13:35:41.031Z",
  "viewports": {
   "desktop": {
    "h": 116,

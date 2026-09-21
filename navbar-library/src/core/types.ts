@@ -82,6 +82,12 @@ export interface NavbarContent {
    * `NavbarProps.onThemeChange` and renders whatever `theme` it is given.
    */
   themeToggle?: { toLight: string; toDark: string };
+  /**
+   * A live clock rendered in the bar, as several studio sites do. Honoured
+   * only by navbars whose metadata reports `supportsClock`. `timeZone` is an
+   * IANA zone; an invalid one falls back to UTC rather than throwing.
+   */
+  clock?: { timeZone?: string; label?: string };
   theme?: ThemeName;
   dir?: Direction;
   locale?: string;
@@ -152,6 +158,8 @@ export interface NavbarMeta {
   supportsUtilities?: boolean;
   /** Renders `content.themeToggle` as an in-bar light/dark switch. */
   supportsThemeToggle?: boolean;
+  /** Renders `content.clock` as a live clock in the bar. */
+  supportsClock?: boolean;
   /** Item count the design holds without degrading at 1440px. */
   comfortableItems: [min: number, max: number];
   /** Longest single label (chars) that fits at 1440px without wrapping. */

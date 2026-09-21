@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const SPKI = 'KnP1OnzHv/y42eRQmbGwoYTHcSJF448m6CU5mdngwKk=';
+const SELECTORS = JSON.parse(fs.readFileSync(new URL('./selectors.json', import.meta.url), 'utf8'));
 const EV = path.resolve('evidence');
 const VIEWPORTS = [
   { k: 'desktop', width: 1440, height: 900 },
@@ -35,9 +36,10 @@ async function shot(page, file, opts = {}) {
 }
 
 async function run(site) {
+  const forced = SELECTORS[site.id] || null;
   const dir = path.join(EV, site.id);
   fs.mkdirSync(dir, { recursive: true });
-  const rec = { id: site.id, name: site.name, url: site.url, at: new Date().toISOString(), viewports: {}, errors: [] };
+  const rec = { id: site.id, name: site.name, url: site.url, at: new Date().toISOString(), forcedSelector: forced, viewports: {}, errors: [] };
 
   const browser = await chromium.launch({ args: ['--no-sandbox', `--ignore-certificate-errors-spki-list=${SPKI}`, '--disable-dev-shm-usage'] });
   const ctx = await browser.newContext({
@@ -77,23 +79,23 @@ async function run(site) {
       await page.waitForTimeout(900);
 
       const v = {};
-      try { v.initial = await page.evaluate(ANALYZE); } catch (e) { v.initialErr = e.message.slice(0, 120); }
+      try { v.initial = await page.evaluate(ANALYZE, forced); } catch (e) { v.initialErr = e.message.slice(0, 120); }
       const clipH = Math.min(vp.height, Math.max(200, Math.round((v.initial?.container?.rect?.h || 90) + 130)));
       await shot(page, path.join(dir, `${vp.k}-initial.png`), { clip: { x: 0, y: 0, width: vp.width, height: clipH } });
 
       // scrolled state
       await page.evaluate(() => window.scrollTo({ top: 1100, behavior: 'instant' }));
       await page.waitForTimeout(1500);
-      try { v.scrolled = await page.evaluate(ANALYZE); } catch (e) { v.scrolledErr = e.message.slice(0, 120); }
+      try { v.scrolled = await page.evaluate(ANALYZE, forced); } catch (e) { v.scrolledErr = e.message.slice(0, 120); }
       await shot(page, path.join(dir, `${vp.k}-scrolled.png`), { clip: { x: 0, y: 0, width: vp.width, height: clipH } });
 
       // further scroll -> detect hide-on-scroll-down / show-on-scroll-up
       await page.evaluate(() => window.scrollTo({ top: 2200, behavior: 'instant' }));
       await page.waitForTimeout(1100);
-      try { v.deepScroll = (await page.evaluate(ANALYZE))?.container?.rect; } catch {}
+      try { v.deepScroll = (await page.evaluate(ANALYZE, forced))?.container?.rect; } catch {}
       await page.evaluate(() => window.scrollTo({ top: 900, behavior: 'instant' }));
       await page.waitForTimeout(1100);
-      try { v.scrollUp = (await page.evaluate(ANALYZE))?.container?.rect; } catch {}
+      try { v.scrollUp = (await page.evaluate(ANALYZE, forced))?.container?.rect; } catch {}
 
       await page.evaluate(() => window.scrollTo(0, 0));
       await page.waitForTimeout(900);

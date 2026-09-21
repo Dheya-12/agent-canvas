@@ -2,14 +2,15 @@
  "id": "griflan",
  "name": "Griflan Design",
  "url": "https://griflan.com/",
- "at": "2026-09-21T06:52:31.325Z",
+ "at": "2026-09-21T13:28:00.685Z",
+ "forcedSelector": "header.sh",
  "viewports": {
   "desktop": {
    "initial": {
     "found": true,
     "selectorTag": "HEADER",
     "selectorCls": "sh sh-blended fixed top-0 left-0 right-0 z-[100]",
-    "score": 130,
+    "score": "forced-selector",
     "container": {
      "rect": {
       "x": 0,
@@ -370,7 +371,7 @@
     "found": true,
     "selectorTag": "HEADER",
     "selectorCls": "sh sh-blended fixed top-0 left-0 right-0 z-[100]",
-    "score": 130,
+    "score": "forced-selector",
     "container": {
      "rect": {
       "x": 0,
@@ -718,7 +719,7 @@
     "found": true,
     "selectorTag": "HEADER",
     "selectorCls": "sh sh-blended fixed top-0 left-0 right-0 z-[100]",
-    "score": 130,
+    "score": "forced-selector",
     "container": {
      "rect": {
       "x": 0,
@@ -1079,7 +1080,7 @@
     "found": true,
     "selectorTag": "HEADER",
     "selectorCls": "sh sh-blended fixed top-0 left-0 right-0 z-[100]",
-    "score": 130,
+    "score": "forced-selector",
     "container": {
      "rect": {
       "x": 0,
@@ -1426,7 +1427,7 @@
     "found": true,
     "selectorTag": "HEADER",
     "selectorCls": "sh sh-blended fixed top-0 left-0 right-0 z-[100]",
-    "score": 130,
+    "score": "forced-selector",
     "container": {
      "rect": {
       "x": 0,
@@ -1787,7 +1788,7 @@
     "found": true,
     "selectorTag": "HEADER",
     "selectorCls": "sh sh-blended fixed top-0 left-0 right-0 z-[100]",
-    "score": 130,
+    "score": "forced-selector",
     "container": {
      "rect": {
       "x": 0,
@@ -2173,7 +2174,7 @@
     "found": true,
     "selectorTag": "HEADER",
     "selectorCls": "sh sh-blended fixed top-0 left-0 right-0 z-[100]",
-    "score": 106,
+    "score": "forced-selector",
     "container": {
      "rect": {
       "x": 0,
@@ -2242,19 +2243,47 @@
       "mixBlendMode": "normal",
       "opacity": "1",
       "transform": "none"
+     },
+     {
+      "tag": "BUTTON",
+      "text": "",
+      "aria": "",
+      "cls": "relative [.is-dark_&]:pointer-events-none [.is-dark_&]:opaci",
+      "hasImg": true,
+      "rect": {
+       "x": 20.8,
+       "y": 33.3,
+       "w": 109.3,
+       "h": 28.1
+      },
+      "font": "sans",
+      "fontSize": "16.64px",
+      "fontWeight": "400",
+      "lineHeight": "23.296px",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 253, 219)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "radius": "0px",
+      "border": "0px solid rgb(255, 253, 219)",
+      "padding": "0px",
+      "transition": "opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1)",
+      "mixBlendMode": "normal",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
      }
     ],
     "logo": {
      "tag": "BUTTON",
      "text": "",
-     "aria": "Toggle menu",
-     "cls": "sh__box relative s:absolute s:top-0 s:left-0 size-45 s:size-",
-     "hasImg": false,
+     "aria": "",
+     "cls": "relative [.is-dark_&]:pointer-events-none [.is-dark_&]:opaci",
+     "hasImg": true,
      "rect": {
-      "x": 322.4,
-      "y": 20.8,
-      "w": 46.8,
-      "h": 46.8
+      "x": 20.8,
+      "y": 33.3,
+      "w": 109.3,
+      "h": 28.1
      },
      "font": "sans",
      "fontSize": "16.64px",
@@ -2263,26 +2292,26 @@
      "letterSpacing": "normal",
      "textTransform": "none",
      "color": "rgb(255, 253, 219)",
-     "bg": "rgb(255, 56, 49)",
-     "radius": "6.5px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "radius": "0px",
      "border": "0px solid rgb(255, 253, 219)",
      "padding": "0px",
-     "transition": "all",
+     "transition": "opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1)",
      "mixBlendMode": "normal",
      "opacity": "1",
-     "transform": "none"
+     "transform": "matrix(1, 0, 0, 1, 0, 0)"
     },
     "fonts": [
      "sans"
     ],
     "docBg": "rgb(24, 22, 22)",
-    "interactiveCount": 1
+    "interactiveCount": 2
    },
    "scrolled": {
     "found": true,
     "selectorTag": "HEADER",
     "selectorCls": "sh sh-blended fixed top-0 left-0 right-0 z-[100]",
-    "score": 106,
+    "score": "forced-selector",
     "container": {
      "rect": {
       "x": 0,

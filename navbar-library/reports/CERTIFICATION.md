@@ -1,6 +1,6 @@
 # Navbar library — certification matrix
 
-Generated 2026-09-21T12:22:54Z from `reports/certification.json`.
+Generated 2026-09-21T13:37:36Z from `reports/certification.json`.
 
 Every entry is measured, not asserted. A component is certified only after its
 reconstruction has been rendered, captured and numerically compared against the
@@ -28,6 +28,7 @@ live reference, then put through the content, fatigue and damage-tolerance passe
 | `inset-rail-text-roll` | Merci-Michel | PASS | 60px | 60px | 60px | 60px | static | 10/10 | 0 |
 | `justified-row-blend` | Studio Dumbar | PASS WITH OBSERVATIONS | 67px | 67px | 40px | 40px | static | 10/10 | 0 |
 | `lightweight-type-theme-switch` | Stink Studios | PASS WITH OBSERVATIONS | 66px | 66px | 61px | 66px | hide-on-scroll | 10/10 | 0 |
+| `mono-rail-clock` | Koto | PASS WITH OBSERVATIONS | 48px | 48px | 48px | 48px | static | 10/10 | 0 |
 | `pill-chip-split-ticker` | Instrument | PASS | 50px | 50px | 64px | 53px | transparent-to-solid | 10/10 | 0 |
 | `shrink-container-commerce` | Bonhomme | PASS WITH OBSERVATIONS | 104px | 125px | 71px | 72px | shrink | 10/10 | 0 |
 | `stacked-column-micro` | Zajno | PASS WITH OBSERVATIONS | 45px | 41px | 41px | 26px | static | 10/10 | 5 |
@@ -248,6 +249,28 @@ live reference, then put through the content, fatigue and damage-tolerance passe
 - **Runtime status:** no page errors across all render conditions
 - **Certification:** PASS WITH OBSERVATIONS
 
+#### `mono-rail-clock` — Monospace Rail with Live Clock
+
+- **Reference:** Koto (https://koto.studio/)
+- **Captures:** `evidence/koto/` (reference) and `evidence/koto/impl/` (reconstruction)
+- **Viewports tested:** 1440×900, 1024×768, 768×1024, 390×844
+- **Content variants tested:** 18 fixtures × 2 viewports = 36 render conditions
+- **Interactions tested:** open/close ×10 (alternating Escape and toggle), resize while open, scroll churn ×6, hover, dropdown open/close
+- **Dependencies:** none beyond react
+- **Assets:** none — self-contained
+- **Fidelity fixture:** `clocked`
+- **Measurement skips** (probe mis-measures this reference): startGutter, endGutter, height
+  - The per-reference selector for this site (div.flex.h-12) isolates the LINK GROUP, not the bar. The reference composes its navigation from three separate floating groups inset 16px - mark plus toggle at 151x48@16,16, links at 452x48@132,16, and a clock group at 370x48@1428,16 - and the diagnostic could isolate only the middle one; there is no element wrapping all three. So the measured container spans x=132..584 rather than the full bar, and its gutters describe the link group. At tablet and mobile that selector does not match at all and the generic scorer falls back to an unrelated 418px/485px element, so heights there are not comparable either. What IS comparable and does match: the 48px group height and the 16px top inset at desktop and laptop.
+- **Known differences (non-blocking):**
+  - position fixed vs ref static
+  - position fixed vs ref static
+  - position fixed vs ref relative
+  - position fixed vs ref static
+- **Limitations / notes:** Dark-first monospace rail, inset 16px from the top, with uppercase 12px links on a measured 36px gap and an accent-coloured mark (--nb-accent). The only navbar here carrying a LIVE CLOCK: it is minute-aligned rather than drifting on a 60s interval, renders only after mount so server and client markup agree, and falls back to UTC if given an invalid time zone - the zone arrives as generated content. Needs a monospace face to read as intended; the digits are set tabular so the clock does not jitter on each tick.
+- **Build status:** included in the production build (`npm run build`)
+- **Runtime status:** no page errors across all render conditions
+- **Certification:** PASS WITH OBSERVATIONS
+
 #### `pill-chip-split-ticker` — Pill-Chip Split Rail with Centre Announcement
 
 - **Reference:** Instrument (https://www.instrument.com/)
@@ -379,7 +402,6 @@ These are recorded rather than worked around. No component claims a reference it
 | Fantasy | https://fantasy.co/ | USABLE | 108px fixed, 2 interactive, 4/4 viewports |
 | Griflan Design | https://griflan.com/ | USABLE | 36px fixed, 10 interactive, 4/4 viewports |
 | Jam3 | https://www.jam3.com/ | USABLE | 100px absolute, 7 interactive, 4/4 viewports |
-| Koto | https://koto.studio/ | USABLE | 48px static, 6 interactive, 4/4 viewports |
 | Lusion | https://lusion.co/ | USABLE | 146px fixed, 10 interactive, 4/4 viewports |
 | Makemepulse | https://makemepulse.com/ | USABLE | 88px fixed, 8 interactive, 4/4 viewports |
 | MamboMambo | https://mambomambo.ca/ | USABLE | 75px fixed, 5 interactive, 4/4 viewports |
@@ -388,12 +410,14 @@ These are recorded rather than worked around. No component claims a reference it
 | Rejouice | https://www.rejouice.com/ | USABLE | 62px fixed, 7 interactive, 4/4 viewports |
 | Ueno | https://ueno.co/ | USABLE | 86px absolute, 6 interactive, 4/4 viewports |
 | Uncommon | https://www.uncommon.london/ | USABLE | 90px relative, 1 interactive, 4/4 viewports |
+| Unseen Studio | https://unseen.co/ | USABLE | 82px fixed, 5 interactive, 4/4 viewports |
 | Active Theory | https://activetheory.net/ | NAV-WEAK | container found (244px static) but 0 interactive children detected |
 | AKQA | https://www.akqa.com/ | NAV-WEAK | container found (100px static) but 0 interactive children detected |
 | B-Reel | https://www.b-reel.com/ | NAV-WEAK | container found (104px fixed) but 0 interactive children detected |
 | Build in Amsterdam | https://www.buildinamsterdam.com/ | NAV-WEAK | container found (73px relative) but 0 interactive children detected |
 | Garden Eight | https://garden-eight.com/ | NAV-WEAK | container found (60px absolute) but 0 interactive children detected |
 | Hello Monday | https://hellomonday.com/ | NAV-WEAK | container found (101px absolute) but 0 interactive children detected |
+| Bruno Simon | https://bruno-simon.com/ | NAV-NOT-FOUND | page loaded (HTTP 200) but no navbar candidate scored above threshold |
 | Caffe Design | https://caffe.design/ | NAV-NOT-FOUND | page loaded (HTTP 200) but no navbar candidate scored above threshold |
 | Immersive Garden | https://immersive-g.com/ | NAV-NOT-FOUND | page loaded (HTTP 200) but no navbar candidate scored above threshold |
 | Resn | https://resn.co.nz/ | NAV-NOT-FOUND | page loaded (HTTP 200) but no navbar candidate scored above threshold |
@@ -402,9 +426,7 @@ These are recorded rather than worked around. No component claims a reference it
 | OFF+BRAND | https://offbrand.agency/ | BLOCKED | HTTP 502 |
 | Spring I/O | https://springio.net/ | BLOCKED | HTTP 502 |
 | Vogue Adria | https://vogueadria.com/ | BLOCKED | HTTP 403 |
-| Bruno Simon | https://bruno-simon.com/ | ERROR | page.screenshot: Timeout 30000ms exceeded. Call log: [2m - taking page screenshot[22m [2m - waiting for fonts to load...[22m [2m - fonts loaded[22m  |
 | Locomotive FUNCTION | https://function.locomotive.ca/ | ERROR | page.goto: net::ERR_TUNNEL_CONNECTION_FAILED at https://function.locomotive.ca/ Call log: [2m - navigating to "https://function.locomotive.ca/", waiting until  |
-| Unseen Studio | https://unseen.co/ | ERROR | page.screenshot: Timeout 30000ms exceeded. Call log: [2m - taking page screenshot[22m [2m - waiting for fonts to load...[22m [2m - fonts loaded[22m  |
 
 ## Duplicate detection
 
@@ -415,10 +437,11 @@ Components sharing a structural trait, and what actually separates them.
   - `chunky-pill-emblem`: balanced density, motion 3, mobile overlay-fullscreen, comfortable 0–4 items
   - `colorflood-word-toggle`: airy density, motion 3, mobile overlay-fullscreen, comfortable 2–5 items
   - `inset-blend-giant-mark`: airy density, motion 2, mobile overlay-fullscreen, comfortable 2–5 items
-- **split / dropdown / static** — `fluid-clamp-inline`, `inset-rail-text-roll`, `justified-row-blend`, `tall-padded-pushdown`
+- **split / dropdown / static** — `fluid-clamp-inline`, `inset-rail-text-roll`, `justified-row-blend`, `mono-rail-clock`, `tall-padded-pushdown`
   - `fluid-clamp-inline`: airy density, motion 1, mobile inline, comfortable 2–5 items
   - `inset-rail-text-roll`: compact density, motion 3, mobile inline, comfortable 2–5 items
   - `justified-row-blend`: airy density, motion 2, mobile overlay-fullscreen, comfortable 3–6 items
+  - `mono-rail-clock`: compact density, motion 2, mobile overlay-fullscreen, comfortable 3–7 items
   - `tall-padded-pushdown`: airy density, motion 3, mobile overlay-fullscreen, comfortable 2–5 items
 - **split / dropdown / hide-on-scroll** — `fluid-rail-pill`, `lightweight-type-theme-switch`
   - `fluid-rail-pill`: airy density, motion 3, mobile drawer, comfortable 2–6 items

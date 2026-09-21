@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-21T12:22:41.398Z",
+ "generatedAt": "2026-09-21T13:37:21.472Z",
  "results": [
   {
    "id": "blend-difference-trizone",
@@ -2916,6 +2916,247 @@
       "pos": "fixed",
       "upY": 0,
       "items": 3
+     }
+    }
+   },
+   "status": "PASS WITH OBSERVATIONS"
+  },
+  {
+   "id": "mono-rail-clock",
+   "refId": "koto",
+   "displayName": "Monospace Rail with Live Clock",
+   "stress": {
+    "short@desktop": {
+     "headerH": 48,
+     "links": 4,
+     "issues": 0
+    },
+    "short@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "normal@desktop": {
+     "headerH": 48,
+     "links": 5,
+     "issues": 0
+    },
+    "normal@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "long@desktop": {
+     "headerH": 48,
+     "links": 5,
+     "issues": 0
+    },
+    "long@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "oneItem@desktop": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "oneItem@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "fiveItems@desktop": {
+     "headerH": 48,
+     "links": 7,
+     "issues": 0
+    },
+    "fiveItems@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "manyItems@desktop": {
+     "headerH": 48,
+     "links": 11,
+     "issues": 0
+    },
+    "manyItems@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "noCta@desktop": {
+     "headerH": 48,
+     "links": 4,
+     "issues": 0
+    },
+    "noCta@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "dropdowns@desktop": {
+     "headerH": 48,
+     "links": 6,
+     "issues": 0
+    },
+    "dropdowns@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "imageLogo@desktop": {
+     "headerH": 48,
+     "links": 5,
+     "issues": 0
+    },
+    "imageLogo@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "brokenLogo@desktop": {
+     "headerH": 48,
+     "links": 4,
+     "issues": 0
+    },
+    "brokenLogo@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "empty@desktop": {
+     "headerH": 48,
+     "links": 0,
+     "issues": 0
+    },
+    "empty@mobile": {
+     "headerH": 48,
+     "links": 1,
+     "issues": 0
+    },
+    "arabic@desktop": {
+     "headerH": 48,
+     "links": 5,
+     "issues": 0
+    },
+    "arabic@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "mixed@desktop": {
+     "headerH": 48,
+     "links": 5,
+     "issues": 0
+    },
+    "mixed@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "accents@desktop": {
+     "headerH": 48,
+     "links": 5,
+     "issues": 0
+    },
+    "accents@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "longWords@desktop": {
+     "headerH": 48,
+     "links": 4,
+     "issues": 0
+    },
+    "longWords@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "numeric@desktop": {
+     "headerH": 48,
+     "links": 5,
+     "issues": 0
+    },
+    "numeric@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "darkTheme@desktop": {
+     "headerH": 48,
+     "links": 5,
+     "issues": 0
+    },
+    "darkTheme@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "withSocials@desktop": {
+     "headerH": 48,
+     "links": 4,
+     "issues": 0
+    },
+    "withSocials@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    }
+   },
+   "issues": [],
+   "pageErrors": [],
+   "fatigue": {
+    "cycles": 10,
+    "issues": [],
+    "resizeClosed": true,
+    "restingTop": 16
+   },
+   "fidelity": {
+    "fixture": "clocked",
+    "fails": [],
+    "warns": [
+     "position fixed vs ref static",
+     "position fixed vs ref static",
+     "position fixed vs ref relative",
+     "position fixed vs ref static"
+    ],
+    "deviations": [],
+    "viewports": {
+     "desktop": {
+      "h": 48,
+      "pos": "fixed",
+      "scrolledY": 16,
+      "deepY": 16,
+      "upY": 16,
+      "items": 7
+     },
+     "laptop": {
+      "h": 48,
+      "pos": "fixed",
+      "scrolledY": 16,
+      "deepY": 16,
+      "upY": 16,
+      "items": 7
+     },
+     "tablet": {
+      "h": 48,
+      "pos": "fixed",
+      "scrolledY": 16,
+      "deepY": 16,
+      "upY": 16,
+      "items": 2
+     },
+     "mobile": {
+      "h": 48,
+      "pos": "fixed",
+      "scrolledY": 16,
+      "deepY": 16,
+      "upY": 16,
+      "items": 2
      }
     }
    },

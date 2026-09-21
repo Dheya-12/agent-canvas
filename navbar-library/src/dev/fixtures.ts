@@ -182,6 +182,19 @@ export const fixtures: Record<string, NavbarContent> = {
     secondaryAction: { label: 'Se connecter', href: '/account' },
     utilities: [{ label: 'Panier', href: '/cart', icon: 'cart', count: 0 }],
   },
+  clocked: {
+    brand: { name: 'Northline' },
+    items: [
+      { label: 'Work', href: '/work' },
+      { label: 'About', href: '/about' },
+      { label: 'Services', href: '/services' },
+      { label: 'Latest', href: '/latest' },
+      { label: 'Careers', href: '/careers' },
+      { label: 'Contact', href: '/contact' },
+    ],
+    clock: { timeZone: 'UTC', label: 'UTC+0' },
+    theme: 'dark',
+  },
   withSocials: {
     brand: { name: 'Field Notes' },
     items: [{ label: 'Archive', href: '/a' }, { label: 'About', href: '/ab' }],
