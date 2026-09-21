@@ -1,0 +1,170 @@
+/*
+ * Reconstructed from evidence/zajno/inspection.json.
+ * Signature trait: navigation is not a row. Links are STACKED into narrow
+ * vertical columns set across the page - the reference puts three links at
+ * x=728 and two at x=965, so the whole bar is 45px tall (three 15px lines)
+ * while the type stays tiny. The bar is absolute, not fixed: it scrolls away
+ * with the page. Scale is fully viewport-relative (3.125vw tall, 0.833vw type).
+ */
+
+.root {
+  --nb-inset-y: 1.11vw;
+  --nb-inset-x: 1.18vw;
+  /* The reference type is 0.833vw, which is 6.4px at 768 and 3.2px at 390.
+   * The fluid ramp is kept but floored at 11px. See meta.notes. */
+  --nb-type: max(11px, 0.833vw);
+  --nb-line: 1.25;
+  --nb-fg: #111;
+  --nb-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  position: absolute;
+  top: var(--nb-inset-y);
+  inset-inline: var(--nb-inset-x);
+  z-index: 1;
+  color: var(--nb-fg);
+  font-family: var(--nb-font, inherit);
+}
+.root[data-theme='dark'] { --nb-fg: #f3f3f3; }
+
+/* The columns are PLACED, not packed: the reference sets them at ~50.5% and
+ * ~67% of the width and leaves the trailing ~27% empty. Right-aligning them
+ * would lose the composition, so the tracks are explicit. */
+.inner {
+  display: grid;
+  grid-template-columns: 50.5% 16.5% minmax(0, 1fr);
+  align-items: start;
+  /* With no brand and no items the bar must still occupy a line rather
+   * than collapsing to nothing. */
+  min-height: calc(var(--nb-type) * var(--nb-line));
+}
+
+.brand {
+  display: inline-flex;
+  align-items: flex-start;
+  color: inherit;
+  text-decoration: none;
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 34vw;
+  overflow: hidden;
+}
+.brandText {
+  font-size: var(--nb-type);
+  font-weight: 400;
+  line-height: var(--nb-line);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.brandImg { height: calc(var(--nb-type) * 1.3); width: auto; display: block; max-width: 100%; object-fit: contain; }
+
+/* Columns are placed by fraction of the width, as in the reference
+ * (first column at ~50.5%, second at ~67%). */
+.col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  flex: 0 0 auto;
+}
+.colNav { grid-column: 2; }
+.colAux { grid-column: 3; }
+.item { position: relative; min-width: 0; max-width: 100%; }
+
+.link {
+  display: block;
+  font-size: var(--nb-type);
+  font-weight: 400;
+  line-height: var(--nb-line);
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity 0.25s var(--nb-ease);
+}
+.link:hover { opacity: 0.5; }
+.link[data-current='true'] { text-decoration: underline; text-underline-offset: 0.25em; }
+.badge { margin-inline-start: 0.35em; font-size: 0.8em; vertical-align: super; opacity: 0.65; }
+
+/* Children continue the stack, indented, rather than opening a panel: a
+ * floating dropdown would be out of scale with 11px type. */
+.sub { list-style: none; margin: 0; padding: 0 0 0 0.8em; }
+.subLink {
+  display: block;
+  font-size: var(--nb-type);
+  line-height: var(--nb-line);
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0.62;
+  transition: opacity 0.25s var(--nb-ease);
+}
+.subLink:hover { opacity: 1; }
+
+.cta, .secondary {
+  display: block;
+  font-size: var(--nb-type);
+  line-height: var(--nb-line);
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.25s var(--nb-ease);
+}
+.cta { text-decoration: underline; text-underline-offset: 0.25em; }
+.cta:hover, .secondary:hover { opacity: 0.55; }
+.secondary { opacity: 0.62; }
+
+.toggle { display: none; }
+
+/* The column set is too fine-grained for a phone, so below 700px the stack
+ * becomes a single disclosure column under the mark. */
+@media (max-width: 699px) {
+  .root { --nb-inset-y: 14px; --nb-inset-x: 16px; --nb-type: 13px; }
+  .inner { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+  .toggle {
+    display: inline-flex;
+    align-items: center;
+    margin-inline-start: auto;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    font-size: var(--nb-type);
+    line-height: var(--nb-line);
+    flex: 0 0 auto;
+  }
+  .stack {
+    flex-basis: 100%;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.42s var(--nb-ease);
+  }
+  .root[data-open='true'] .stack { grid-template-rows: 1fr; }
+  .stackInner { overflow: hidden; display: flex; flex-direction: column; gap: 10px; }
+  .col { flex-direction: column; margin: 0; }
+  .item { max-width: 100%; }
+  /* Long unbroken words must wrap here: the stack has vertical room, and
+   * truncating a whole label to an ellipsis would hide the navigation. */
+  .link, .subLink {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    text-overflow: clip;
+  }
+  .link { font-size: 21px; line-height: 1.35; }
+  .subLink { font-size: 15px; }
+  .cta, .secondary { font-size: 15px; }
+}
+@media (min-width: 700px) {
+  .stack { display: contents; }
+  .stackInner { display: contents; }
+}
+
+@media (prefers-reduced-motion: reduce) { .root, .root * { transition-duration: 0.01ms !important; } }

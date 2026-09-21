@@ -40,5 +40,43 @@
    }
   ],
   "verifiedBy": "evidence/obys/inspection.json; evidence/obys/mobile-initial.png"
+ },
+ "zajno": {
+  "skip": [
+   "endGutter",
+   "startGutter"
+  ],
+  "skipViewports": [
+   "tablet",
+   "mobile"
+  ],
+  "reason": "At tablet and mobile the reference header expands to wrap unrelated page content (148px tall at 390 with position:relative), so its container box is not the nav bar and its gutters are not comparable. Desktop and laptop gutters remain enforced.",
+  "deviations": [
+   {
+    "metric": "linkFontSize",
+    "viewports": [
+     "laptop",
+     "tablet",
+     "mobile"
+    ],
+    "reason": "Reference type is 0.833vw with no floor: 8.5px at 1024, 6.4px at 768 and 3.25px at 390. The fluid ramp is kept but floored at 11px (13px below 700px) so arbitrary generated labels stay legible."
+   },
+   {
+    "metric": "height",
+    "viewports": [
+     "tablet",
+     "mobile"
+    ],
+    "reason": "Height follows from the type floor: the reference bar is 24px at 768 and its columns render at 3.25px. Below 700px this reconstruction collapses the columns into a single disclosure stack with a tappable control, which the reference does not provide at all."
+   },
+   {
+    "metric": "endGutter",
+    "viewports": [
+     "laptop"
+    ],
+    "reason": "Downstream of the declared type floor: at 1024 the reference renders 8.5px labels while this reconstruction renders 11px, so the trailing column is ~25px wider and the trailing gutter is correspondingly narrower. The column PLACEMENT (50.5% / 67% tracks) matches; only the label width differs."
+   }
+  ],
+  "verifiedBy": "evidence/zajno/inspection.json (mobile items at 3.25px); evidence/zajno/mobile-initial.png"
  }
 }
