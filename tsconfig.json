@@ -8,7 +8,9 @@
     "**/.client/**/*.tsx",
     ".react-router/types/**/*"
   ],
-  "exclude": ["__tests__/fixtures/**/*"],
+  // navbar-library/ is a standalone package with its own tsconfig, toolchain
+  // and dependencies. It is not part of the app build.
+  "exclude": ["__tests__/fixtures/**/*", "navbar-library/**/*"],
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "es2022"],
     "target": "es2022",
