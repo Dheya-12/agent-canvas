@@ -1,0 +1,251 @@
+/*
+ * Reconstructed from evidence/griflan/inspection.json + desktop-initial.png.
+ * Signature traits: the navigation is a VERTICAL STACK pinned hard-left while
+ * a serif wordmark sits centred on the viewport axis and the actions sit
+ * right - three zones on three different alignments. Every dimension is
+ * viewport-relative (the reference holds a 2.5vw bar and 1vw type at 1440 /
+ * 1024 / 768 alike), and the content deliberately overflows the 36px bar.
+ * Dark-first, with a single hot accent carrying both actions.
+ */
+
+.root,
+.panel {
+  --nb-h: 2.5vw;
+  --nb-pad: 3.06vw;
+  --nb-type: max(12px, 1vw);
+  --nb-line: 1.46vw;
+  --nb-surface: #17130f;
+  --nb-fg: #f6ecd8;
+  --nb-accent: #ff3831;
+  --nb-accent-fg: #fff;
+  --nb-ease: cubic-bezier(0.33, 1, 0.68, 1);
+}
+.root[data-theme='light'],
+.panel[data-theme='light'] { --nb-surface: #f6ecd8; --nb-fg: #17130f; }
+
+.root {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  height: var(--nb-h);
+  min-height: 26px;
+  padding-inline: var(--nb-pad);
+  background: transparent;
+  color: var(--nb-fg);
+  /* The stack, the mark and the actions all exceed the bar by design. */
+  overflow: visible;
+  transition: opacity 0.35s ease-out;
+  font-family: var(--nb-font, inherit);
+}
+
+.inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2vw;
+  position: relative;
+  padding-top: 1.7vw;
+}
+
+/* Zone 1: a vertical stack, not a row. */
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  max-width: 26vw;
+  flex: 0 1 auto;
+}
+.item { position: relative; min-width: 0; max-width: 100%; }
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  max-width: 100%;
+  min-width: 0;
+  font-size: var(--nb-type);
+  font-weight: 500;
+  line-height: var(--nb-line);
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.25s var(--nb-ease);
+}
+.linkLabel { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.link:hover { color: var(--nb-accent); }
+.link[data-current='true'] { color: var(--nb-accent); }
+/* The disclosure chevron is the accent even when the label is not. */
+.caret { flex: 0 0 auto; color: var(--nb-accent); font-size: 0.8em; transition: transform 0.25s var(--nb-ease); }
+.item[data-open='true'] .caret { transform: rotate(180deg); }
+.badge { margin-inline-start: 0.4em; font-size: 0.72em; vertical-align: super; opacity: 0.7; }
+
+/* Children continue the stack, indented, rather than opening a panel. */
+.sub {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s var(--nb-ease);
+}
+.item[data-open='true'] > .sub { grid-template-rows: 1fr; }
+.subInner {
+  overflow: hidden;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-inline-start: 1.4vw;
+}
+.subLink {
+  display: block;
+  font-size: var(--nb-type);
+  line-height: var(--nb-line);
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0.78;
+  transition: color 0.25s var(--nb-ease), opacity 0.25s var(--nb-ease);
+}
+.subLink:hover { color: var(--nb-accent); opacity: 1; }
+
+/* Zone 2: a serif wordmark centred on the VIEWPORT, not on the gap. */
+.brand {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+  max-width: 30vw;
+  overflow: hidden;
+}
+.brandText {
+  font-family: var(--nb-serif, Georgia, 'Times New Roman', serif);
+  font-size: 2vw;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.brandImg { height: 2.2vw; width: auto; display: block; max-width: 100%; object-fit: contain; }
+
+/* Zone 3: the actions, both carrying the accent. */
+.tail { display: flex; align-items: center; gap: 2vw; flex: 0 0 auto; }
+.secondary {
+  font-size: var(--nb-type);
+  line-height: var(--nb-line);
+  color: var(--nb-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.28em;
+  white-space: nowrap;
+  transition: opacity 0.25s var(--nb-ease);
+}
+.secondary:hover { opacity: 0.72; }
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.1vw 1.5vw;
+  border-radius: 0.35vw;
+  background: var(--nb-accent);
+  color: var(--nb-accent-fg);
+  font-family: var(--nb-serif, Georgia, 'Times New Roman', serif);
+  font-size: 1.45vw;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  max-width: 26vw;
+  overflow: hidden;
+  transition: filter 0.25s var(--nb-ease);
+}
+.ctaLabel { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cta:hover { filter: brightness(1.12); }
+
+.toggle { display: none; }
+.panel { display: none; }
+
+@media (max-width: 767px) {
+  .root, .panel { --nb-h: 74px; --nb-pad: 21px; --nb-type: 14px; --nb-line: 1.5; }
+  .root { height: var(--nb-h); }
+  .inner { align-items: center; padding-top: 0; height: 74px; }
+  .list, .tail { display: none; }
+  .brand { position: static; transform: none; max-width: 55vw; }
+  .brandText { font-size: 22px; }
+  .brandImg { height: 28px; }
+
+  /* A filled accent square, the reference's one strong control. */
+  .toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 47px;
+    height: 47px;
+    padding: 0;
+    border: 0;
+    border-radius: 6.5px;
+    background: var(--nb-accent);
+    color: var(--nb-accent-fg);
+    cursor: pointer;
+    position: relative;
+    margin-inline-start: auto;
+    flex: 0 0 auto;
+  }
+  .toggleBar { position: absolute; width: 19px; height: 2px; background: currentColor; transition: transform 0.35s var(--nb-ease); }
+  .toggleBar:nth-child(1) { transform: translateY(-4px); }
+  .toggleBar:nth-child(2) { transform: translateY(4px); }
+  .toggle[aria-expanded='true'] .toggleBar:nth-child(1) { transform: rotate(45deg); }
+  .toggle[aria-expanded='true'] .toggleBar:nth-child(2) { transform: rotate(-45deg); }
+
+  .panel {
+    display: block;
+    position: fixed;
+    inset: var(--nb-h) 0 0 0;
+    z-index: 99;
+    background: var(--nb-surface);
+    color: var(--nb-fg);
+    padding: 22px var(--nb-pad) 30px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s var(--nb-ease), visibility 0.35s;
+  }
+  .panel[data-open='true'] { opacity: 1; visibility: visible; }
+  .panelList { list-style: none; margin: 0; padding: 0; }
+  .panelLink {
+    display: block;
+    padding: 8px 0;
+    font-family: var(--nb-serif, Georgia, 'Times New Roman', serif);
+    font-size: clamp(26px, 8vw, 40px);
+    line-height: 1.16;
+    color: inherit;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+  .panelSub { list-style: none; margin: 0 0 6px; padding-inline-start: 14px; }
+  .panelSubLink { display: block; padding: 4px 0; font-size: 15px; color: inherit; text-decoration: none; opacity: 0.75; }
+  .panelCta {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 18px;
+    padding: 13px 20px;
+    border-radius: 6.5px;
+    background: var(--nb-accent);
+    color: var(--nb-accent-fg);
+    font-family: var(--nb-serif, Georgia, 'Times New Roman', serif);
+    font-size: 19px;
+    text-decoration: none;
+  }
+  .panelFoot { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 14px; }
+  .panelFoot a { color: var(--nb-accent); text-decoration: underline; text-underline-offset: 3px; }
+}
+
+@media (prefers-reduced-motion: reduce) { .root, .root *, .panel, .panel * { transition-duration: 0.01ms !important; } }

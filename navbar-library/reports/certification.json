@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-21T13:37:21.472Z",
+ "generatedAt": "2026-09-21T14:57:56.764Z",
  "results": [
   {
    "id": "blend-difference-trizone",
@@ -3872,6 +3872,246 @@
       "h": 26.3,
       "pos": "absolute",
       "items": 6
+     }
+    }
+   },
+   "status": "PASS WITH OBSERVATIONS"
+  },
+  {
+   "id": "stacked-left-serif-accent",
+   "refId": "griflan",
+   "displayName": "Stacked-Left Nav with Centred Serif Wordmark",
+   "stress": {
+    "short@desktop": {
+     "headerH": 36,
+     "links": 4,
+     "issues": 0
+    },
+    "short@mobile": {
+     "headerH": 74,
+     "links": 2,
+     "issues": 0
+    },
+    "normal@desktop": {
+     "headerH": 36,
+     "links": 5,
+     "issues": 0
+    },
+    "normal@mobile": {
+     "headerH": 74,
+     "links": 2,
+     "issues": 0
+    },
+    "long@desktop": {
+     "headerH": 36,
+     "links": 5,
+     "issues": 0
+    },
+    "long@mobile": {
+     "headerH": 74,
+     "links": 2,
+     "issues": 0
+    },
+    "oneItem@desktop": {
+     "headerH": 36,
+     "links": 2,
+     "issues": 0
+    },
+    "oneItem@mobile": {
+     "headerH": 74,
+     "links": 2,
+     "issues": 0
+    },
+    "fiveItems@desktop": {
+     "headerH": 36,
+     "links": 7,
+     "issues": 0
+    },
+    "fiveItems@mobile": {
+     "headerH": 74,
+     "links": 2,
+     "issues": 0
+    },
+    "manyItems@desktop": {
+     "headerH": 36,
+     "links": 11,
+     "issues": 0
+    },
+    "manyItems@mobile": {
+     "headerH": 74,
+     "links": 2,
+     "issues": 0
+    },
+    "noCta@desktop": {
+     "headerH": 36,
+     "links": 4,
+     "issues": 0
+    },
+    "noCta@mobile": {
+     "headerH": 74,
+     "links": 2,
+     "issues": 0
+    },
+    "dropdowns@desktop": {
+     "headerH": 36,
+     "links": 11,
+     "issues": 0
+    },
+    "dropdowns@mobile": {
+     "headerH": 74,
+     "links": 2,
+     "issues": 0
+    },
+    "imageLogo@desktop": {
+     "headerH": 36,
+     "links": 5,
+     "issues": 0
+    },
+    "imageLogo@mobile": {
+     "headerH": 74,
+     "links": 2,
+     "issues": 0
+    },
+    "brokenLogo@desktop": {
+     "headerH": 36,
+     "links": 4,
+     "issues": 0
+    },
+    "brokenLogo@mobile": {
+     "headerH": 74,
+     "links": 2,
+     "issues": 0
+    },
+    "empty@desktop": {
+     "headerH": 36,
+     "links": 0,
+     "issues": 0
+    },
+    "empty@mobile": {
+     "headerH": 74,
+     "links": 1,
+     "issues": 0
+    },
+    "arabic@desktop": {
+     "headerH": 36,
+     "links": 5,
+     "issues": 0
+    },
+    "arabic@mobile": {
+     "headerH": 74,
+     "links": 2,
+     "issues": 0
+    },
+    "mixed@desktop": {
+     "headerH": 36,
+     "links": 5,
+     "issues": 0
+    },
+    "mixed@mobile": {
+     "headerH": 74,
+     "links": 2,
+     "issues": 0
+    },
+    "accents@desktop": {
+     "headerH": 36,
+     "links": 5,
+     "issues": 0
+    },
+    "accents@mobile": {
+     "headerH": 74,
+     "links": 2,
+     "issues": 0
+    },
+    "longWords@desktop": {
+     "headerH": 36,
+     "links": 4,
+     "issues": 0
+    },
+    "longWords@mobile": {
+     "headerH": 74,
+     "links": 2,
+     "issues": 0
+    },
+    "numeric@desktop": {
+     "headerH": 36,
+     "links": 5,
+     "issues": 0
+    },
+    "numeric@mobile": {
+     "headerH": 74,
+     "links": 2,
+     "issues": 0
+    },
+    "darkTheme@desktop": {
+     "headerH": 36,
+     "links": 5,
+     "issues": 0
+    },
+    "darkTheme@mobile": {
+     "headerH": 74,
+     "links": 2,
+     "issues": 0
+    },
+    "withSocials@desktop": {
+     "headerH": 36,
+     "links": 4,
+     "issues": 0
+    },
+    "withSocials@mobile": {
+     "headerH": 74,
+     "links": 2,
+     "issues": 0
+    }
+   },
+   "issues": [],
+   "pageErrors": [],
+   "fatigue": {
+    "cycles": 10,
+    "issues": [],
+    "resizeClosed": true,
+    "restingTop": 0
+   },
+   "fidelity": {
+    "fixture": "dropdowns",
+    "fails": [],
+    "warns": [],
+    "deviations": [
+     "link font-size 12px vs ref 10.24px (Δ1.8) [declared: The reference scales link type at a strict 1vw with no floor, reaching 10.2px at 1024 and 7.7px at 768. The fluid ramp is kept but floored at 12px so generated labels stay legible.]",
+     "height 26.0 vs ref 19.2 (Δ6.8px) [declared: Downstream of the declared type floor: the reference's bar is 19.2px at 768 because its type is 7.7px there. A 12px floor cannot fit in a 19px bar, so the rail is floored at 26px - the height the reference itself holds at 1024.]",
+     "link font-size 12px vs ref 7.68px (Δ4.3) [declared: The reference scales link type at a strict 1vw with no floor, reaching 10.2px at 1024 and 7.7px at 768. The fluid ramp is kept but floored at 12px so generated labels stay legible.]"
+    ],
+    "viewports": {
+     "desktop": {
+      "h": 36,
+      "pos": "fixed",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 11
+     },
+     "laptop": {
+      "h": 26,
+      "pos": "fixed",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 11
+     },
+     "tablet": {
+      "h": 26,
+      "pos": "fixed",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 11
+     },
+     "mobile": {
+      "h": 74,
+      "pos": "fixed",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 2
      }
     }
    },

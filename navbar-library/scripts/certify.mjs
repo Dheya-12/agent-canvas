@@ -13,7 +13,8 @@ const STRESS = ['short', 'normal', 'long', 'oneItem', 'fiveItems', 'manyItems', 
 const SIZES = [{ k: 'desktop', width: 1440, height: 900 }, { k: 'mobile', width: 390, height: 844 }];
 
 /* ---------------- in-page structural checks ---------------- */
-const AUDIT = () => {
+const AUDIT = (opts) => {
+  const allowSpill = !!(opts && opts.allowSpill);
   const out = { issues: [] };
   const doc = document.documentElement;
   out.pageScrollW = doc.scrollWidth;
@@ -132,7 +133,7 @@ const AUDIT = () => {
     const hc = getComputedStyle(header);
     return /hidden|clip/.test(hc.overflow) || /hidden|clip/.test(hc.overflowY);
   };
-  for (const el of [...header.querySelectorAll('ul a, ul button')].filter(vis)) {
+  for (const el of allowSpill ? [] : [...header.querySelectorAll('ul a, ul button')].filter(vis)) {
     if (isClipped(el)) continue;
     const r = el.getBoundingClientRect();
     if (r.bottom > hr.bottom + 4) {
@@ -141,16 +142,20 @@ const AUDIT = () => {
     }
   }
 
-  // Overlapping siblings (a real symptom of a broken layout)
-  for (let i = 0; i < links.length; i++) {
-    for (let j = i + 1; j < links.length; j++) {
-      const a = links[i].getBoundingClientRect(), b = links[j].getBoundingClientRect();
-      if (links[i].contains(links[j]) || links[j].contains(links[i])) continue;
+  // Overlapping siblings (a real symptom of a broken layout). A clipped
+  // element cannot overlap anything visibly: a collapsed disclosure keeps its
+  // children positioned at zero height, so their rects still intersect the
+  // items below even though nothing is painted.
+  const visibleLinks = links.filter(e => !isClipped(e));
+  for (let i = 0; i < visibleLinks.length; i++) {
+    for (let j = i + 1; j < visibleLinks.length; j++) {
+      const a = visibleLinks[i].getBoundingClientRect(), b = visibleLinks[j].getBoundingClientRect();
+      if (visibleLinks[i].contains(visibleLinks[j]) || visibleLinks[j].contains(visibleLinks[i])) continue;
       const ox = Math.min(a.right, b.right) - Math.max(a.left, b.left);
       const oy = Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top);
       if (ox > 4 && oy > 4) {
-        out.issues.push({ kind: 'overlap', detail: `"${(links[i].textContent || '').trim().slice(0, 14)}" overlaps "${(links[j].textContent || '').trim().slice(0, 14)}" by ${Math.round(ox)}x${Math.round(oy)}px` });
-        i = links.length; break;
+        out.issues.push({ kind: 'overlap', detail: `"${(visibleLinks[i].textContent || '').trim().slice(0, 14)}" overlaps "${(visibleLinks[j].textContent || '').trim().slice(0, 14)}" by ${Math.round(ox)}x${Math.round(oy)}px` });
+        i = visibleLinks.length; break;
       }
     }
   }
@@ -306,7 +311,7 @@ async function certifyOne(page, m) {
       await page.goto(`${BASE}/?nav=${m.id}&fixture=${fx}`, { waitUntil: 'load', timeout: 20000 });
       await page.waitForTimeout(340);
       let a;
-      try { a = await page.evaluate(AUDIT); } catch (e) { a = { issues: [{ kind: 'audit-threw', detail: String(e.message).slice(0, 120) }] }; }
+      try { a = await page.evaluate(AUDIT, { allowSpill: !!m.contentOverflowsBar }); } catch (e) { a = { issues: [{ kind: 'audit-threw', detail: String(e.message).slice(0, 120) }] }; }
       const key = `${fx}@${vp.k}`;
       entry.stress[key] = { headerH: a.headerH, links: a.linkCount, issues: a.issues.length };
       for (const is of a.issues) entry.issues.push({ where: key, ...is });

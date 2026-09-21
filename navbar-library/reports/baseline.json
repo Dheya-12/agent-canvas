@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-21T14:22:58.049Z",
+ "generatedAt": "2026-09-21T14:58:06.468Z",
  "fixtures": [
   "normal",
   "fiveItems",
@@ -1955,6 +1955,128 @@
     "controls": 6,
     "lead": 16,
     "trail": -16,
+    "docScrollW": 390
+   }
+  },
+  "stacked-left-serif-accent": {
+   "normal@desktop": {
+    "h": 36,
+    "y": 0,
+    "position": "fixed",
+    "zIndex": "100",
+    "controls": 5,
+    "lead": 44.1,
+    "trail": 44.1,
+    "docScrollW": 1440
+   },
+   "normal@laptop": {
+    "h": 26,
+    "y": 0,
+    "position": "fixed",
+    "zIndex": "100",
+    "controls": 5,
+    "lead": 31.3,
+    "trail": 31.3,
+    "docScrollW": 1024
+   },
+   "normal@tablet": {
+    "h": 26,
+    "y": 0,
+    "position": "fixed",
+    "zIndex": "100",
+    "controls": 5,
+    "lead": 23.5,
+    "trail": 23.5,
+    "docScrollW": 768
+   },
+   "normal@mobile": {
+    "h": 74,
+    "y": 0,
+    "position": "fixed",
+    "zIndex": "100",
+    "controls": 2,
+    "lead": 21,
+    "trail": 21,
+    "docScrollW": 390
+   },
+   "fiveItems@desktop": {
+    "h": 36,
+    "y": 0,
+    "position": "fixed",
+    "zIndex": "100",
+    "controls": 7,
+    "lead": 44.1,
+    "trail": 44.1,
+    "docScrollW": 1440
+   },
+   "fiveItems@laptop": {
+    "h": 26,
+    "y": 0,
+    "position": "fixed",
+    "zIndex": "100",
+    "controls": 7,
+    "lead": 31.3,
+    "trail": 31.3,
+    "docScrollW": 1024
+   },
+   "fiveItems@tablet": {
+    "h": 26,
+    "y": 0,
+    "position": "fixed",
+    "zIndex": "100",
+    "controls": 7,
+    "lead": 23.5,
+    "trail": 23.5,
+    "docScrollW": 768
+   },
+   "fiveItems@mobile": {
+    "h": 74,
+    "y": 0,
+    "position": "fixed",
+    "zIndex": "100",
+    "controls": 2,
+    "lead": 21,
+    "trail": 21,
+    "docScrollW": 390
+   },
+   "long@desktop": {
+    "h": 36,
+    "y": 0,
+    "position": "fixed",
+    "zIndex": "100",
+    "controls": 5,
+    "lead": 44.1,
+    "trail": 44.1,
+    "docScrollW": 1440
+   },
+   "long@laptop": {
+    "h": 26,
+    "y": 0,
+    "position": "fixed",
+    "zIndex": "100",
+    "controls": 5,
+    "lead": 31.3,
+    "trail": 31.3,
+    "docScrollW": 1024
+   },
+   "long@tablet": {
+    "h": 26,
+    "y": 0,
+    "position": "fixed",
+    "zIndex": "100",
+    "controls": 5,
+    "lead": 23.5,
+    "trail": 23.5,
+    "docScrollW": 768
+   },
+   "long@mobile": {
+    "h": 74,
+    "y": 0,
+    "position": "fixed",
+    "zIndex": "100",
+    "controls": 2,
+    "lead": 21,
+    "trail": 21,
     "docScrollW": 390
    }
   },

@@ -1,6 +1,6 @@
 # Navbar library — certification matrix
 
-Generated 2026-09-21T13:37:36Z from `reports/certification.json`.
+Generated 2026-09-21T15:02:16Z from `reports/certification.json`.
 
 Every entry is measured, not asserted. A component is certified only after its
 reconstruction has been rendered, captured and numerically compared against the
@@ -32,6 +32,7 @@ live reference, then put through the content, fatigue and damage-tolerance passe
 | `pill-chip-split-ticker` | Instrument | PASS | 50px | 50px | 64px | 53px | transparent-to-solid | 10/10 | 0 |
 | `shrink-container-commerce` | Bonhomme | PASS WITH OBSERVATIONS | 104px | 125px | 71px | 72px | shrink | 10/10 | 0 |
 | `stacked-column-micro` | Zajno | PASS WITH OBSERVATIONS | 45px | 41px | 41px | 26px | static | 10/10 | 5 |
+| `stacked-left-serif-accent` | Griflan Design | PASS WITH OBSERVATIONS | 36px | 26px | 26px | 74px | static | 10/10 | 3 |
 | `sticky-rail-blur-overlay` | AREA 17 | PASS | 64px | 64px | 56px | 56px | sticky | 10/10 | 0 |
 | `tall-airy-dual-trigger` | BASIC/DEPT | PASS | 126px | 101px | 88px | 70px | hide-on-scroll | 10/10 | 0 |
 | `tall-padded-pushdown` | ManvsMachine | PASS WITH OBSERVATIONS | 128px | 115px | 102px | 80px | static | 10/10 | 0 |
@@ -339,6 +340,27 @@ live reference, then put through the content, fatigue and damage-tolerance passe
 - **Runtime status:** no page errors across all render conditions
 - **Certification:** PASS WITH OBSERVATIONS
 
+#### `stacked-left-serif-accent` — Stacked-Left Nav with Centred Serif Wordmark
+
+- **Reference:** Griflan Design (https://griflan.com/)
+- **Captures:** `evidence/griflan/` (reference) and `evidence/griflan/impl/` (reconstruction)
+- **Viewports tested:** 1440×900, 1024×768, 768×1024, 390×844
+- **Content variants tested:** 18 fixtures × 2 viewports = 36 render conditions
+- **Interactions tested:** open/close ×10 (alternating Escape and toggle), resize while open, scroll churn ×6, hover, dropdown open/close
+- **Dependencies:** none beyond react
+- **Assets:** none — self-contained
+- **Fidelity fixture:** `dropdowns`
+- **Measurement skips** (probe mis-measures this reference): endGutter
+  - The reference's actions ('Join our workshop' and 'Let's Connect', clearly visible at the right edge in evidence/griflan/desktop-initial.png) are NOT descendants of the measured header element - they sit in a separate group positioned below it at y=36. The probe therefore reports the trailing edge of an unrelated in-header element at x=666 rather than the real trailing control at x=1395, which is 44px from the edge and symmetric with the 44px leading gutter the reconstruction uses.
+- **Declared deviations:**
+  - link font-size 12px vs ref 10.24px (Δ1.8) [declared: The reference scales link type at a strict 1vw with no floor, reaching 10.2px at 1024 and 7.7px at 768. The fluid ramp is kept but floored at 12px so generated labels stay legible.]
+  - height 26.0 vs ref 19.2 (Δ6.8px) [declared: Downstream of the declared type floor: the reference's bar is 19.2px at 768 because its type is 7.7px there. A 12px floor cannot fit in a 19px bar, so the rail is floored at 26px - the height the reference itself holds at 1024.]
+  - link font-size 12px vs ref 7.68px (Δ4.3) [declared: The reference scales link type at a strict 1vw with no floor, reaching 10.2px at 1024 and 7.7px at 768. The fluid ramp is kept but floored at 12px so generated labels stay legible.]
+- **Limitations / notes:** Three zones on three different alignments: navigation stacked VERTICALLY hard-left, a serif wordmark centred on the viewport axis, and the actions right. All of it deliberately overflows a very shallow bar (2.5vw), so the page beneath needs top whitespace to receive it. Dark-first, with one hot accent (--nb-accent) carrying both actions and the disclosure chevrons, and a serif face (--nb-serif) for the mark and the primary action. Because the nav is a stack rather than a row, item COUNT costs vertical space instead of horizontal: six items already reach about 9vw down the page. Children expand in place, indented, rather than opening a floating panel. DEVIATION: the reference scales type at a strict 1vw, reaching 7.7px at 768; the fluid ramp is kept but floored at 12px.
+- **Build status:** included in the production build (`npm run build`)
+- **Runtime status:** no page errors across all render conditions
+- **Certification:** PASS WITH OBSERVATIONS
+
 #### `sticky-rail-blur-overlay` — Sticky Rail, Oversized Mark, Frosted Overlay
 
 - **Reference:** AREA 17 (https://area17.com/)
@@ -400,7 +422,7 @@ These are recorded rather than worked around. No component claims a reference it
 | Code and Theory | https://codeandtheory.com/ | USABLE | 71px fixed, 6 interactive, 4/4 viewports |
 | Dogstudio | https://dogstudio.co/ | USABLE | 129px absolute, 2 interactive, 4/4 viewports |
 | Fantasy | https://fantasy.co/ | USABLE | 108px fixed, 2 interactive, 4/4 viewports |
-| Griflan Design | https://griflan.com/ | USABLE | 36px fixed, 10 interactive, 4/4 viewports |
+| Garden Eight | https://garden-eight.com/ | USABLE | 90px static, 5 interactive, 4/4 viewports |
 | Jam3 | https://www.jam3.com/ | USABLE | 100px absolute, 7 interactive, 4/4 viewports |
 | Lusion | https://lusion.co/ | USABLE | 146px fixed, 10 interactive, 4/4 viewports |
 | Makemepulse | https://makemepulse.com/ | USABLE | 88px fixed, 8 interactive, 4/4 viewports |
@@ -415,7 +437,6 @@ These are recorded rather than worked around. No component claims a reference it
 | AKQA | https://www.akqa.com/ | NAV-WEAK | container found (100px static) but 0 interactive children detected |
 | B-Reel | https://www.b-reel.com/ | NAV-WEAK | container found (104px fixed) but 0 interactive children detected |
 | Build in Amsterdam | https://www.buildinamsterdam.com/ | NAV-WEAK | container found (73px relative) but 0 interactive children detected |
-| Garden Eight | https://garden-eight.com/ | NAV-WEAK | container found (60px absolute) but 0 interactive children detected |
 | Hello Monday | https://hellomonday.com/ | NAV-WEAK | container found (101px absolute) but 0 interactive children detected |
 | Bruno Simon | https://bruno-simon.com/ | NAV-NOT-FOUND | page loaded (HTTP 200) but no navbar candidate scored above threshold |
 | Caffe Design | https://caffe.design/ | NAV-NOT-FOUND | page loaded (HTTP 200) but no navbar candidate scored above threshold |
@@ -432,11 +453,12 @@ These are recorded rather than worked around. No component claims a reference it
 
 Components sharing a structural trait, and what actually separates them.
 
-- **split-center / dropdown / static** — `blend-difference-trizone`, `chunky-pill-emblem`, `colorflood-word-toggle`, `inset-blend-giant-mark`
+- **split-center / dropdown / static** — `blend-difference-trizone`, `chunky-pill-emblem`, `colorflood-word-toggle`, `inset-blend-giant-mark`, `stacked-left-serif-accent`
   - `blend-difference-trizone`: compact density, motion 2, mobile overlay-fullscreen, comfortable 2–6 items
   - `chunky-pill-emblem`: balanced density, motion 3, mobile overlay-fullscreen, comfortable 0–4 items
   - `colorflood-word-toggle`: airy density, motion 3, mobile overlay-fullscreen, comfortable 2–5 items
   - `inset-blend-giant-mark`: airy density, motion 2, mobile overlay-fullscreen, comfortable 2–5 items
+  - `stacked-left-serif-accent`: compact density, motion 2, mobile overlay-fullscreen, comfortable 3–6 items
 - **split / dropdown / static** — `fluid-clamp-inline`, `inset-rail-text-roll`, `justified-row-blend`, `mono-rail-clock`, `tall-padded-pushdown`
   - `fluid-clamp-inline`: airy density, motion 1, mobile inline, comfortable 2–5 items
   - `inset-rail-text-roll`: compact density, motion 3, mobile inline, comfortable 2–5 items

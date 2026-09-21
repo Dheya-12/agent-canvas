@@ -160,6 +160,13 @@ export interface NavbarMeta {
   supportsThemeToggle?: boolean;
   /** Renders `content.clock` as a live clock in the bar. */
   supportsClock?: boolean;
+  /**
+   * The navigation deliberately extends BELOW the bar's own box, as a few
+   * designs do. Declaring it tells the certification pass that a vertical
+   * spill is intended here, and tells a planner that the page needs top
+   * whitespace to receive it. Only set this where the reference does it.
+   */
+  contentOverflowsBar?: boolean;
   /** Item count the design holds without degrading at 1440px. */
   comfortableItems: [min: number, max: number];
   /** Longest single label (chars) that fits at 1440px without wrapping. */

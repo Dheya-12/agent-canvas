@@ -156,5 +156,29 @@
   ],
   "reason": "The per-reference selector for this site (div.flex.h-12) isolates the LINK GROUP, not the bar. The reference composes its navigation from three separate floating groups inset 16px - mark plus toggle at 151x48@16,16, links at 452x48@132,16, and a clock group at 370x48@1428,16 - and the diagnostic could isolate only the middle one; there is no element wrapping all three. So the measured container spans x=132..584 rather than the full bar, and its gutters describe the link group. At tablet and mobile that selector does not match at all and the generic scorer falls back to an unrelated 418px/485px element, so heights there are not comparable either. What IS comparable and does match: the 48px group height and the 16px top inset at desktop and laptop.",
   "verifiedBy": "reports/unresolved.json (koto entry, three-group geometry); evidence/koto/desktop-initial.png"
+ },
+ "griflan": {
+  "skip": [
+   "endGutter"
+  ],
+  "deviations": [
+   {
+    "metric": "linkFontSize",
+    "viewports": [
+     "laptop",
+     "tablet"
+    ],
+    "reason": "The reference scales link type at a strict 1vw with no floor, reaching 10.2px at 1024 and 7.7px at 768. The fluid ramp is kept but floored at 12px so generated labels stay legible."
+   },
+   {
+    "metric": "height",
+    "viewports": [
+     "tablet"
+    ],
+    "reason": "Downstream of the declared type floor: the reference's bar is 19.2px at 768 because its type is 7.7px there. A 12px floor cannot fit in a 19px bar, so the rail is floored at 26px - the height the reference itself holds at 1024."
+   }
+  ],
+  "reason": "The reference's actions ('Join our workshop' and 'Let's Connect', clearly visible at the right edge in evidence/griflan/desktop-initial.png) are NOT descendants of the measured header element - they sit in a separate group positioned below it at y=36. The probe therefore reports the trailing edge of an unrelated in-header element at x=666 rather than the real trailing control at x=1395, which is 44px from the edge and symmetric with the 44px leading gutter the reconstruction uses.",
+  "verifiedBy": "evidence/griflan/desktop-initial.png; reports/unresolved.json (griflan entry names the separate 324x52 action group at y=36)"
  }
 }

@@ -10,7 +10,7 @@
   ],
   "reason": "The per-reference selector for this site (div.flex.h-12) isolates the LINK GROUP, not the bar. The reference composes its navigation from three separate floating groups inset 16px - mark plus toggle at 151x48@16,16, links at 452x48@132,16, and a clock group at 370x48@1428,16 - and the diagnostic could isolate only the middle one; there is no element wrapping all three. So the measured container spans x=132..584 rather than the full bar, and its gutters describe the link group. At tablet and mobile that selector does not match at all and the generic scorer falls back to an unrelated 418px/485px element, so heights there are not comparable either. What IS comparable and does match: the 48px group height and the 16px top inset at desktop and laptop."
  },
- "at": "2026-09-21T13:36:22.673Z",
+ "at": "2026-09-21T14:56:57.788Z",
  "viewports": {
   "desktop": {
    "h": 48,
