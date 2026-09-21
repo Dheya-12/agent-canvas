@@ -26,13 +26,20 @@ function diffOne(ref, impl, vp, refId) {
   // An override may be scoped to specific viewports; elsewhere the metric stands.
   const inScope = !o?.skipViewports || o.skipViewports.includes(vp);
   const skip = new Set(inScope ? (o?.skip || []) : []);
+  // Declared intentional differences: reported, never silently passed.
+  const devs = new Map();
+  for (const d of o?.deviations || []) {
+    if (!d.viewports || d.viewports.includes(vp)) devs.set(d.metric, d.reason);
+  }
+  const grade = (metric, level) => (devs.has(metric) ? 'deviation' : level);
+  const note = metric => (devs.has(metric) ? ` [declared: ${devs.get(metric)}]` : '');
   const out = [];
   if (!ref?.found) return [{ level: 'info', msg: `no reference measurement at ${vp}` }];
   if (!impl?.found) return [{ level: 'fail', msg: `reconstruction navbar not detected at ${vp}` }];
 
   const rc = ref.container, ic = impl.container;
   const dh = Math.abs(rc.rect.h - ic.rect.h);
-  if (dh > TOL.height && !skip.has('height')) out.push({ level: dh > TOL.height * 3 ? 'fail' : 'warn', msg: `height ${ic.rect.h.toFixed(1)} vs ref ${rc.rect.h.toFixed(1)} (Δ${dh.toFixed(1)}px)` });
+  if (dh > TOL.height && !skip.has('height')) out.push({ level: grade('height', dh > TOL.height * 3 ? 'fail' : 'warn'), metric: 'height', msg: `height ${ic.rect.h.toFixed(1)} vs ref ${rc.rect.h.toFixed(1)} (Δ${dh.toFixed(1)}px)${note('height')}` });
   if (rc.position !== ic.position) out.push({ level: 'warn', msg: `position ${ic.position} vs ref ${rc.position}` });
   if (Math.abs(numeric(rc.zIndex) - numeric(ic.zIndex)) > 0 && numeric(rc.zIndex) > 0)
     out.push({ level: 'info', msg: `z-index ${ic.zIndex} vs ref ${rc.zIndex}` });
@@ -41,14 +48,14 @@ function diffOne(ref, impl, vp, refId) {
   const rx = ref.logo?.rect?.x, ix = impl.logo?.rect?.x;
   if (rx != null && ix != null && !skip.has('startGutter')) {
     const d = Math.abs(rx - ix);
-    if (d > TOL.x) out.push({ level: d > TOL.x * 3 ? 'fail' : 'warn', msg: `start gutter ${ix.toFixed(1)} vs ref ${rx.toFixed(1)} (Δ${d.toFixed(1)}px)` });
+    if (d > TOL.x) out.push({ level: grade('startGutter', d > TOL.x * 3 ? 'fail' : 'warn'), metric: 'startGutter', msg: `start gutter ${ix.toFixed(1)} vs ref ${rx.toFixed(1)} (Δ${d.toFixed(1)}px)${note('startGutter')}` });
   }
   // Right gutter from rightmost interactive
   const rr = Math.max(...(ref.interactive || []).map(o => o.rect.x + o.rect.w), 0);
   const ir = Math.max(...(impl.interactive || []).map(o => o.rect.x + o.rect.w), 0);
   if (rr > 0 && ir > 0 && !skip.has('endGutter')) {
     const d = Math.abs((rc.rect.w - rr) - (ic.rect.w - ir));
-    if (d > TOL.x) out.push({ level: d > TOL.x * 3 ? 'fail' : 'warn', msg: `end gutter Δ${d.toFixed(1)}px` });
+    if (d > TOL.x) out.push({ level: grade('endGutter', d > TOL.x * 3 ? 'fail' : 'warn'), metric: 'endGutter', msg: `end gutter Δ${d.toFixed(1)}px${note('endGutter')}` });
   }
   // Link type scale: median font-size of non-logo text links
   // (mobile link typography is certified separately, in the open state)
@@ -56,7 +63,7 @@ function diffOne(ref, impl, vp, refId) {
   const rf = fs_(ref.interactive), iff = fs_(impl.interactive);
   if (rf && iff && vp !== 'mobile' && !skip.has('linkFontSize')) {
     const d = Math.abs(rf - iff);
-    if (d > TOL.fontSize) out.push({ level: d > TOL.fontSize * 3 ? 'fail' : 'warn', msg: `link font-size ${iff}px vs ref ${rf}px (Δ${d.toFixed(1)})` });
+    if (d > TOL.fontSize) out.push({ level: grade('linkFontSize', d > TOL.fontSize * 3 ? 'fail' : 'warn'), metric: 'linkFontSize', msg: `link font-size ${iff}px vs ref ${rf}px (Δ${d.toFixed(1)})${note('linkFontSize')}` });
   }
   return out;
 }
@@ -147,6 +154,8 @@ if (process.argv[1].endsWith('compare.mjs')) {
   for (const [k, d] of Object.entries(r.diffs)) { for (const x of d) console.log(`  [${x.level.toUpperCase()}] ${k}: ${x.msg}`); }
   if (r.menuOpen) console.log(` menuOpen=${JSON.stringify(r.menuOpen)} afterEscape=${JSON.stringify(r.afterEscape)}`);
   if (r.pageErrors.length) console.log(` pageErrors: ${r.pageErrors.join(' | ')}`);
-  const fails = Object.values(r.diffs).flat().filter(x => x.level === 'fail').length;
-  console.log(` => ${fails === 0 ? 'no blocking diffs' : fails + ' BLOCKING diffs'}`);
+  const flat = Object.values(r.diffs).flat();
+  const fails = flat.filter(x => x.level === 'fail').length;
+  const devs = flat.filter(x => x.level === 'deviation').length;
+  console.log(` => ${fails ? fails + ' BLOCKING diffs' : devs ? `no blocking diffs, ${devs} declared deviation(s)` : 'no blocking diffs'}`);
 }

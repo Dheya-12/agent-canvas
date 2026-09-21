@@ -17,5 +17,28 @@
   ],
   "reason": "At tablet and mobile the reference header exposes exactly one detectable interactive element (the logo) - its menu control is not an <a>/<button>/[role=button], so the probe's rightmost-interactive figure is the logo's right edge (x=36) rather than the real trailing control. End-gutter is therefore not comparable at those two viewports. Desktop and laptop end-gutter remain enforced.",
   "verifiedBy": "evidence/studiofreight/inspection.json (tablet/mobile items(1)); evidence/studiofreight/mobile-initial.png"
+ },
+ "_doc2": "'skip' suppresses a metric the probe measures WRONGLY (instrument fault). 'deviations' declares a metric where the reconstruction INTENTIONALLY differs from the reference and says why. A deviation never becomes a pass: it downgrades certification to PASS WITH OBSERVATIONS and is listed in the certification matrix.",
+ "obys": {
+  "deviations": [
+   {
+    "metric": "linkFontSize",
+    "viewports": [
+     "laptop",
+     "tablet",
+     "mobile"
+    ],
+    "reason": "The reference scales link type strictly with viewport width, reaching 7.8px at 1024, 5.9px at 768 and 3.0px at 390. That is legible only for its own two-word uppercase labels and fails WCAG for arbitrary generated content. This reconstruction keeps the fluid ramp but floors it at 12px."
+   },
+   {
+    "metric": "height",
+    "viewports": [
+     "tablet",
+     "mobile"
+    ],
+    "reason": "The reference rail is 34px tall at 768 and 17.5px at 390 because its height is also pure vw. A 17.5px bar cannot hold a touch target (44px minimum). This reconstruction floors the rail at 46px below 860px and moves the links into a panel."
+   }
+  ],
+  "verifiedBy": "evidence/obys/inspection.json; evidence/obys/mobile-initial.png"
  }
 }

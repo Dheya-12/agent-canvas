@@ -1,0 +1,79 @@
+{
+ "navId": "inset-blend-giant-mark",
+ "refId": "obys",
+ "fixture": "normal",
+ "overrides": {},
+ "at": "2026-09-21T07:05:04.212Z",
+ "viewports": {
+  "desktop": {
+   "h": 64.8,
+   "pos": "fixed",
+   "scrolledY": 10.1,
+   "deepY": 10.1,
+   "upY": 10.1,
+   "items": 5
+  },
+  "laptop": {
+   "h": 46.1,
+   "pos": "fixed",
+   "scrolledY": 7.2,
+   "deepY": 7.2,
+   "upY": 7.2,
+   "items": 5
+  },
+  "tablet": {
+   "h": 46,
+   "pos": "fixed",
+   "scrolledY": 10,
+   "deepY": 10,
+   "upY": 10,
+   "items": 2
+  },
+  "mobile": {
+   "h": 46,
+   "pos": "fixed",
+   "scrolledY": 10,
+   "deepY": 10,
+   "upY": 10,
+   "items": 2
+  }
+ },
+ "diffs": {
+  "desktop": [],
+  "laptop": [
+   {
+    "level": "deviation",
+    "metric": "linkFontSize",
+    "msg": "link font-size 12px vs ref 7.82222px (Δ4.2) [declared: The reference scales link type strictly with viewport width, reaching 7.8px at 1024, 5.9px at 768 and 3.0px at 390. That is legible only for its own two-word uppercase labels and fails WCAG for arbitrary generated content. This reconstruction keeps the fluid ramp but floors it at 12px.]"
+   }
+  ],
+  "tablet": [
+   {
+    "level": "deviation",
+    "metric": "height",
+    "msg": "height 46.0 vs ref 34.4 (Δ11.6px) [declared: The reference rail is 34px tall at 768 and 17.5px at 390 because its height is also pure vw. A 17.5px bar cannot hold a touch target (44px minimum). This reconstruction floors the rail at 46px below 860px and moves the links into a panel.]"
+   },
+   {
+    "level": "deviation",
+    "metric": "linkFontSize",
+    "msg": "link font-size 16px vs ref 5.86666px (Δ10.1) [declared: The reference scales link type strictly with viewport width, reaching 7.8px at 1024, 5.9px at 768 and 3.0px at 390. That is legible only for its own two-word uppercase labels and fails WCAG for arbitrary generated content. This reconstruction keeps the fluid ramp but floors it at 12px.]"
+   }
+  ],
+  "mobile": [
+   {
+    "level": "deviation",
+    "metric": "height",
+    "msg": "height 46.0 vs ref 17.5 (Δ28.5px) [declared: The reference rail is 34px tall at 768 and 17.5px at 390 because its height is also pure vw. A 17.5px bar cannot hold a touch target (44px minimum). This reconstruction floors the rail at 46px below 860px and moves the links into a panel.]"
+   }
+  ]
+ },
+ "pageErrors": [],
+ "menuOpen": {
+  "bodyOverflow": "hidden",
+  "expanded": "true"
+ },
+ "afterEscape": {
+  "bodyOverflow": "visible",
+  "expanded": "false"
+ }
+}
