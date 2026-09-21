@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-21T11:17:46.806Z",
+ "generatedAt": "2026-09-21T12:22:41.398Z",
  "results": [
   {
    "id": "blend-difference-trizone",
@@ -1184,6 +1184,336 @@
     }
    },
    "status": "PASS"
+  },
+  {
+   "id": "colour-block-grid",
+   "refId": "offf",
+   "displayName": "Colour-Block Grid",
+   "stress": {
+    "short@desktop": {
+     "headerH": 56,
+     "links": 4,
+     "issues": 0
+    },
+    "short@mobile": {
+     "headerH": 28,
+     "links": 5,
+     "issues": 1
+    },
+    "normal@desktop": {
+     "headerH": 76,
+     "links": 5,
+     "issues": 0
+    },
+    "normal@mobile": {
+     "headerH": 28,
+     "links": 6,
+     "issues": 1
+    },
+    "long@desktop": {
+     "headerH": 76,
+     "links": 5,
+     "issues": 0
+    },
+    "long@mobile": {
+     "headerH": 28,
+     "links": 6,
+     "issues": 1
+    },
+    "oneItem@desktop": {
+     "headerH": 40,
+     "links": 2,
+     "issues": 0
+    },
+    "oneItem@mobile": {
+     "headerH": 28,
+     "links": 4,
+     "issues": 1
+    },
+    "fiveItems@desktop": {
+     "headerH": 76,
+     "links": 7,
+     "issues": 0
+    },
+    "fiveItems@mobile": {
+     "headerH": 28,
+     "links": 8,
+     "issues": 1
+    },
+    "manyItems@desktop": {
+     "headerH": 116,
+     "links": 11,
+     "issues": 0
+    },
+    "manyItems@mobile": {
+     "headerH": 28,
+     "links": 12,
+     "issues": 1
+    },
+    "noCta@desktop": {
+     "headerH": 40,
+     "links": 4,
+     "issues": 0
+    },
+    "noCta@mobile": {
+     "headerH": 28,
+     "links": 6,
+     "issues": 1
+    },
+    "dropdowns@desktop": {
+     "headerH": 130,
+     "links": 11,
+     "issues": 0
+    },
+    "dropdowns@mobile": {
+     "headerH": 28,
+     "links": 11,
+     "issues": 1
+    },
+    "imageLogo@desktop": {
+     "headerH": 76,
+     "links": 5,
+     "issues": 0
+    },
+    "imageLogo@mobile": {
+     "headerH": 28,
+     "links": 6,
+     "issues": 1
+    },
+    "brokenLogo@desktop": {
+     "headerH": 56,
+     "links": 4,
+     "issues": 0
+    },
+    "brokenLogo@mobile": {
+     "headerH": 28,
+     "links": 5,
+     "issues": 1
+    },
+    "empty@desktop": {
+     "headerH": 20,
+     "links": 1,
+     "issues": 0
+    },
+    "empty@mobile": {
+     "headerH": 28,
+     "links": 3,
+     "issues": 1
+    },
+    "arabic@desktop": {
+     "headerH": 76,
+     "links": 5,
+     "issues": 0
+    },
+    "arabic@mobile": {
+     "headerH": 28,
+     "links": 6,
+     "issues": 1
+    },
+    "mixed@desktop": {
+     "headerH": 76,
+     "links": 5,
+     "issues": 0
+    },
+    "mixed@mobile": {
+     "headerH": 28,
+     "links": 6,
+     "issues": 1
+    },
+    "accents@desktop": {
+     "headerH": 76,
+     "links": 5,
+     "issues": 0
+    },
+    "accents@mobile": {
+     "headerH": 28,
+     "links": 6,
+     "issues": 1
+    },
+    "longWords@desktop": {
+     "headerH": 56,
+     "links": 4,
+     "issues": 0
+    },
+    "longWords@mobile": {
+     "headerH": 28,
+     "links": 5,
+     "issues": 1
+    },
+    "numeric@desktop": {
+     "headerH": 76,
+     "links": 5,
+     "issues": 0
+    },
+    "numeric@mobile": {
+     "headerH": 28,
+     "links": 6,
+     "issues": 1
+    },
+    "darkTheme@desktop": {
+     "headerH": 76,
+     "links": 5,
+     "issues": 0
+    },
+    "darkTheme@mobile": {
+     "headerH": 28,
+     "links": 6,
+     "issues": 1
+    },
+    "withSocials@desktop": {
+     "headerH": 76,
+     "links": 7,
+     "issues": 0
+    },
+    "withSocials@mobile": {
+     "headerH": 28,
+     "links": 5,
+     "issues": 1
+    }
+   },
+   "issues": [
+    {
+     "where": "short@mobile",
+     "kind": "small-control",
+     "detail": "control \"Menu\" has a 28px hit area"
+    },
+    {
+     "where": "normal@mobile",
+     "kind": "small-control",
+     "detail": "control \"Menu\" has a 28px hit area"
+    },
+    {
+     "where": "long@mobile",
+     "kind": "small-control",
+     "detail": "control \"Menu\" has a 28px hit area"
+    },
+    {
+     "where": "oneItem@mobile",
+     "kind": "small-control",
+     "detail": "control \"Menu\" has a 28px hit area"
+    },
+    {
+     "where": "fiveItems@mobile",
+     "kind": "small-control",
+     "detail": "control \"Menu\" has a 28px hit area"
+    },
+    {
+     "where": "manyItems@mobile",
+     "kind": "small-control",
+     "detail": "control \"Menu\" has a 28px hit area"
+    },
+    {
+     "where": "noCta@mobile",
+     "kind": "small-control",
+     "detail": "control \"Menu\" has a 28px hit area"
+    },
+    {
+     "where": "dropdowns@mobile",
+     "kind": "small-control",
+     "detail": "control \"Menu\" has a 28px hit area"
+    },
+    {
+     "where": "imageLogo@mobile",
+     "kind": "small-control",
+     "detail": "control \"Menu\" has a 28px hit area"
+    },
+    {
+     "where": "brokenLogo@mobile",
+     "kind": "small-control",
+     "detail": "control \"Menu\" has a 28px hit area"
+    },
+    {
+     "where": "empty@mobile",
+     "kind": "small-control",
+     "detail": "control \"Menu\" has a 28px hit area"
+    },
+    {
+     "where": "arabic@mobile",
+     "kind": "small-control",
+     "detail": "control \"Menu\" has a 28px hit area"
+    },
+    {
+     "where": "mixed@mobile",
+     "kind": "small-control",
+     "detail": "control \"Menu\" has a 28px hit area"
+    },
+    {
+     "where": "accents@mobile",
+     "kind": "small-control",
+     "detail": "control \"Menu\" has a 28px hit area"
+    },
+    {
+     "where": "longWords@mobile",
+     "kind": "small-control",
+     "detail": "control \"Menu\" has a 28px hit area"
+    },
+    {
+     "where": "numeric@mobile",
+     "kind": "small-control",
+     "detail": "control \"Menu\" has a 28px hit area"
+    },
+    {
+     "where": "darkTheme@mobile",
+     "kind": "small-control",
+     "detail": "control \"Menu\" has a 28px hit area"
+    },
+    {
+     "where": "withSocials@mobile",
+     "kind": "small-control",
+     "detail": "control \"Menu\" has a 28px hit area"
+    }
+   ],
+   "pageErrors": [],
+   "fatigue": {
+    "cycles": 10,
+    "issues": [],
+    "resizeClosed": true,
+    "restingTop": 0
+   },
+   "fidelity": {
+    "fixture": "manyItems",
+    "fails": [],
+    "warns": [
+     "position fixed vs ref sticky",
+     "position fixed vs ref sticky"
+    ],
+    "deviations": [],
+    "viewports": {
+     "desktop": {
+      "h": 116,
+      "pos": "fixed",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 11
+     },
+     "laptop": {
+      "h": 116,
+      "pos": "fixed",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 11
+     },
+     "tablet": {
+      "h": 28,
+      "pos": "fixed",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 12
+     },
+     "mobile": {
+      "h": 28,
+      "pos": "fixed",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 12
+     }
+    }
+   },
+   "status": "PASS WITH OBSERVATIONS"
   },
   {
    "id": "fluid-clamp-inline",

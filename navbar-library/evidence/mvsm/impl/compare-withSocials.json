@@ -10,7 +10,7 @@
   ],
   "reason": "At 390px the probe selects the reference's inner <nav class=main-nav> (374x20 at y=96) rather than the header that wraps it, because the header scores lower once its links wrap. Height and gutters at that viewport therefore describe the link row, not the bar. Desktop, laptop and tablet all measure the header and remain enforced."
  },
- "at": "2026-09-21T11:17:30.128Z",
+ "at": "2026-09-21T12:22:25.948Z",
  "viewports": {
   "desktop": {
    "h": 128,

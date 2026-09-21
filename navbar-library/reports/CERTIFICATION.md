@@ -1,6 +1,6 @@
 # Navbar library — certification matrix
 
-Generated 2026-09-21T11:17:46Z from `reports/certification.json`.
+Generated 2026-09-21T12:22:54Z from `reports/certification.json`.
 
 Every entry is measured, not asserted. A component is certified only after its
 reconstruction has been rendered, captured and numerically compared against the
@@ -21,6 +21,7 @@ live reference, then put through the content, fatigue and damage-tolerance passe
 | `centred-cluster-float` | Bakken & Baeck | PASS | 48px | 48px | 48px | 48px | static | 10/10 | 0 |
 | `chunky-pill-emblem` | Lando Norris | PASS WITH OBSERVATIONS | 83px | 59px | 56px | 78px | static | 10/10 | 0 |
 | `colorflood-word-toggle` | Locomotive | PASS | 60px | 60px | 60px | 60px | static | 10/10 | 0 |
+| `colour-block-grid` | OFFF Barcelona | PASS WITH OBSERVATIONS | 116px | 116px | 28px | 28px | static | 10/10 | 0 |
 | `fluid-clamp-inline` | North Kingdom | PASS | 80px | 80px | 80px | 80px | static | 10/10 | 0 |
 | `fluid-rail-pill` | Cuberto | PASS | 72px | 51px | 38px | 50px | hide-on-scroll | 10/10 | 0 |
 | `inset-blend-giant-mark` | Obys | PASS WITH OBSERVATIONS | 65px | 46px | 46px | 46px | static | 10/10 | 4 |
@@ -120,6 +121,26 @@ live reference, then put through the content, fatigue and damage-tolerance passe
 - **Build status:** included in the production build (`npm run build`)
 - **Runtime status:** no page errors across all render conditions
 - **Certification:** PASS
+
+#### `colour-block-grid` — Colour-Block Grid
+
+- **Reference:** OFFF Barcelona (https://www.offf.barcelona/)
+- **Captures:** `evidence/offf/` (reference) and `evidence/offf/impl/` (reconstruction)
+- **Viewports tested:** 1440×900, 1024×768, 768×1024, 390×844
+- **Content variants tested:** 18 fixtures × 2 viewports = 36 render conditions
+- **Interactions tested:** open/close ×10 (alternating Escape and toggle), resize while open, scroll churn ×6, hover, dropdown open/close
+- **Dependencies:** none beyond react
+- **Assets:** none — self-contained
+- **Fidelity fixture:** `manyItems`
+- **Measurement skips** (probe mis-measures this reference, desktop + laptop only): height
+  - The probe selects the reference's pinned-layer wrapper, which is 167px tall, but the navigation blocks inside it end at y=96 (two 20px strip rows plus a 56px action block - see the per-element extents in the evidence). The remaining 71px is empty and shows the hero through it, so the container height is not the bar height. The reconstruction matches the BLOCK geometry: 20px strips and a 56px action block. Tablet and mobile heights measure the real collapsed bar and remain enforced.
+- **Known differences (non-blocking):**
+  - position fixed vs ref sticky
+  - position fixed vs ref sticky
+- **Limitations / notes:** Navigation is not a row of links: each item becomes a full-bleed coloured strip, laid out in three columns whose widths the reference holds at 29% / 35.5% / 35.5%. The action is a tall block filling the last column in the largest type in the bar. Colours are assigned by position from an overridable palette (--nb-block-1..6, --nb-cta-bg); the COLOUR SYSTEM is the design, the specific hues are brand identity, so the shipped palette is a generic vivid set rather than the reference’s. This is the only navbar here that gets LOUDER with more items, so it suits a content-heavy events site and overwhelms a restrained one. Below 1024px it collapses to a 28px row - the action block on one side, a Menu control on the other - revealing the blocks only when opened; stacking them instead produced a 396px bar. Light only — the blocks supply the colour, so a dark variant would fight them.
+- **Build status:** included in the production build (`npm run build`)
+- **Runtime status:** no page errors across all render conditions
+- **Certification:** PASS WITH OBSERVATIONS
 
 #### `fluid-clamp-inline` — Fluid-Clamp Inline Rail
 
@@ -363,7 +384,6 @@ These are recorded rather than worked around. No component claims a reference it
 | Makemepulse | https://makemepulse.com/ | USABLE | 88px fixed, 8 interactive, 4/4 viewports |
 | MamboMambo | https://mambomambo.ca/ | USABLE | 75px fixed, 5 interactive, 4/4 viewports |
 | Media.Monks | https://www.monks.com/ | USABLE | 100px absolute, 7 interactive, 4/4 viewports |
-| OFFF Barcelona | https://www.offf.barcelona/ | USABLE | 167px fixed, 7 interactive, 4/4 viewports |
 | Readymag | https://readymag.com/ | USABLE | 72px absolute, 9 interactive, 4/4 viewports |
 | Rejouice | https://www.rejouice.com/ | USABLE | 62px fixed, 7 interactive, 4/4 viewports |
 | Ueno | https://ueno.co/ | USABLE | 86px absolute, 6 interactive, 4/4 viewports |

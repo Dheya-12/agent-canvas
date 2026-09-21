@@ -136,5 +136,16 @@
   ],
   "reason": "At 390px the two sides' leading elements are different controls, so the gutter figures are not comparable. The reference centres an IMAGE mark at x=124, which the probe's brand heuristic selects because it is image-bearing and sits inside the leading third; the reconstruction's mark is a text wordmark at the same centred position, so the heuristic falls back to the leftmost control - the menu button at x=16. Both lay out identically (menu button leading, mark centred, cart trailing). Heights at all four viewports remain enforced and match.",
   "verifiedBy": "evidence/bonhomme/inspection.json (mobile logo IMG at x=124 alongside nm-mobile-menu-button at x=16)"
+ },
+ "offf": {
+  "skip": [
+   "height"
+  ],
+  "skipViewports": [
+   "desktop",
+   "laptop"
+  ],
+  "reason": "The probe selects the reference's pinned-layer wrapper, which is 167px tall, but the navigation blocks inside it end at y=96 (two 20px strip rows plus a 56px action block - see the per-element extents in the evidence). The remaining 71px is empty and shows the hero through it, so the container height is not the bar height. The reconstruction matches the BLOCK geometry: 20px strips and a 56px action block. Tablet and mobile heights measure the real collapsed bar and remain enforced.",
+  "verifiedBy": "evidence/offf/inspection.json (desktop items end at y=40+56=96 inside a 167px container); evidence/offf/desktop-initial.png"
  }
 }
