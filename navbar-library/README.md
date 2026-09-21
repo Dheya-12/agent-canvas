@@ -95,14 +95,51 @@ Three outcomes are kept distinct, and only the first is a measurement result:
 npm install
 npm run typecheck
 npm run build
-npx vite preview --port 4174        # then /?nav=<id>&fixture=<name>
+./scripts/serve.sh                  # preview on :4174, idempotent
+
+npm test                            # regression suite (hermetic)
+npm run certify                     # full certification pass
+npm run test:baseline               # re-record geometry after an intended change
+npm run report                      # regenerate CERTIFICATION.md
 
 node scripts/inspect.mjs <site-id>...          # measure live references
 node scripts/compare.mjs <nav-id> <site-id>    # numeric fidelity diff
-node scripts/certify.mjs [nav-id]              # full certification pass
-node scripts/report.mjs                        # regenerate CERTIFICATION.md
+node scripts/probe-nav.mjs <site-id>...        # unfiltered DOM scan for a stubborn reference
 node scripts/triage.mjs                        # reference reachability
 ```
+
+## Regression suite
+
+`npm test` is **hermetic**: it renders the built library against the local
+preview and never reaches a third-party site. Fidelity against the live
+references cannot be a regression test — five of them are blocked and eight
+have no navbar at all — so that verification lives in `scripts/compare.mjs`
+and runs separately.
+
+Three groups, currently 529 checks:
+
+- **geometry** — every navbar's shipped height, top offset, position, control
+  count and gutters, at 3 fixtures x 4 viewports, against
+  `reports/baseline.json`.
+- **contract** — every navbar survives empty content, a 404 logo URL,
+  40-character unbroken words, nine items, Arabic/RTL, a single item and no
+  CTA, at 1440 and 390, with no page error, no collapse and no horizontal
+  overflow.
+- **invariants** — rules that must hold for every navbar: a navbar whose
+  metadata declares a collapsing mobile pattern must expose an
+  `[aria-expanded]` control at 390px, open on click, close on Escape, and
+  never leave the page scroll-locked; metadata must not claim runtime
+  dependencies the library does not have.
+
+The suite is fault-injection tested: deliberately changing a bar's height and
+making a scroll lock never release produces 10 failures and a non-zero exit.
+That second fault initially slipped through, because the check compared body
+overflow against a value sampled *after* mount — a navbar that locks from
+mount looked consistent with itself. The invariant is now absolute: a closed
+navbar must leave the page scrollable.
+
+After an INTENDED geometry change, re-record with `npm run test:baseline` and
+commit the updated `reports/baseline.json` alongside the change.
 
 ## Reports
 
