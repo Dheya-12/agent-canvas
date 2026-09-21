@@ -101,5 +101,17 @@
   ],
   "reason": "At desktop, laptop and tablet the reference's brand mark is not an <a>/<button>/[role=button], so the probe reports the FIRST NAV LINK ('About', x=1123 at 1440) as the leading element. The reference's own mobile viewport, where the mark IS a link, puts it at x=45 - which is exactly the inset this reconstruction uses at every width.",
   "verifiedBy": "evidence/mercimichel/inspection.json (mobile items include the mark at x=45 while desktop items do not)"
+ },
+ "mvsm": {
+  "skip": [
+   "height",
+   "startGutter",
+   "endGutter"
+  ],
+  "skipViewports": [
+   "mobile"
+  ],
+  "reason": "At 390px the probe selects the reference's inner <nav class=main-nav> (374x20 at y=96) rather than the header that wraps it, because the header scores lower once its links wrap. Height and gutters at that viewport therefore describe the link row, not the bar. Desktop, laptop and tablet all measure the header and remain enforced.",
+  "verifiedBy": "evidence/mvsm/inspection.json (mobile container is NAV.main-nav at y=96 while the other viewports are HEADER.header at y=0)"
  }
 }

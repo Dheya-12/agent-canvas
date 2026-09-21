@@ -10,7 +10,7 @@
   ],
   "reason": "The probe's container heuristic selects the reference's inner <nav> (the right-aligned link group, 927x30 at 1440) rather than the header bar that wraps it, because the header itself scores lower. Height and both gutters therefore describe the link group, not the bar, and are not comparable with a full-width reconstruction. Link type scale, top offset and hide-on-scroll response remain enforced and all match."
  },
- "at": "2026-09-21T08:13:20.700Z",
+ "at": "2026-09-21T08:28:23.017Z",
  "viewports": {
   "desktop": {
    "h": 66.4,
