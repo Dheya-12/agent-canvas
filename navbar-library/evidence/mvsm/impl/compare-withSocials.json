@@ -10,7 +10,7 @@
   ],
   "reason": "At 390px the probe selects the reference's inner <nav class=main-nav> (374x20 at y=96) rather than the header that wraps it, because the header scores lower once its links wrap. Height and gutters at that viewport therefore describe the link row, not the bar. Desktop, laptop and tablet all measure the header and remain enforced."
  },
- "at": "2026-09-21T08:31:53.113Z",
+ "at": "2026-09-21T09:15:21.073Z",
  "viewports": {
   "desktop": {
    "h": 128,
@@ -53,6 +53,11 @@
    {
     "level": "warn",
     "msg": "position fixed vs ref relative"
+   },
+   {
+    "level": "info",
+    "metric": "centredness",
+    "msg": "cluster centred (skew 0px vs reference 16px); absolute gutters differ by label length, not design"
    }
   ]
  },

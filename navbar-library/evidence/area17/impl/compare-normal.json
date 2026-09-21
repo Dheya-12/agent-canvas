@@ -8,7 +8,7 @@
   ],
   "reason": "The probe's brand heuristic picks the leftmost interactive element inside the measured <header>, but AREA 17's brand mark is an oversized graphic that overflows the rail and is not among the header's interactive children. The probe therefore reports the first NAV LINK (x=942 at 1440) as the brand. evidence/area17/desktop-initial.png shows the actual mark at x=16, which is what the reconstruction renders."
  },
- "at": "2026-09-21T08:30:28.669Z",
+ "at": "2026-09-21T09:13:56.567Z",
  "viewports": {
   "desktop": {
    "h": 64,

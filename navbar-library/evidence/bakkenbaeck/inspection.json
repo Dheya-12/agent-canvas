@@ -2,7 +2,7 @@
  "id": "bakkenbaeck",
  "name": "Bakken & Baeck",
  "url": "https://bakkenbaeck.com/",
- "at": "2026-09-21T06:56:07.039Z",
+ "at": "2026-09-21T09:01:05.231Z",
  "viewports": {
   "desktop": {
    "initial": {
@@ -2419,13 +2419,6 @@
  "finalUrl": "https://bakkenbaeck.com/",
  "cookieDismissed": false,
  "title": "Bakken & Bæck is a design and technology studio. We build digital products, from zero to l",
- "consoleErrors": [
-  "Access to fetch at 'https://space-awx7g.video-dns.com/bku8lfOlN5/manifest.json?e=1789973770214' from origin 'https://bakkenbaeck.com' has be",
-  "Failed to load resource: net::ERR_FAILED",
-  "Access to fetch at 'https://space-awx7g.video-dns.com/LeWhY4O1xX/manifest.json?e=1789973770210' from origin 'https://bakkenbaeck.com' has be",
-  "Failed to load resource: net::ERR_FAILED",
-  "Access to fetch at 'https://space-awx7g.video-dns.com/bku8lfOlN5/manifest.json?e=1789973771493' from origin 'https://bakkenbaeck.com' has be",
-  "Failed to load resource: net::ERR_FAILED"
- ],
+ "consoleErrors": [],
  "ok": true
 }

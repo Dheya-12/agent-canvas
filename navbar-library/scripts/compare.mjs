@@ -33,6 +33,27 @@ function normalize(m) {
   return { ...m, interactive: kept, logo, interactiveCount: kept.length };
 }
 
+/* A centred cluster's absolute gutters are a function of total label length,
+ * not of the design: longer labels push both edges outward symmetrically. For
+ * a reference whose own cluster is centred, the meaningful invariant is that
+ * the reconstruction is centred too, so symmetry is compared instead. */
+function centredness(m) {
+  if (!m?.found || !m.interactive?.length) return null;
+  const w = m.container.rect.w;
+  const start = Math.min(...m.interactive.map(o => o.rect.x));
+  const end = w - Math.max(...m.interactive.map(o => o.rect.x + o.rect.w));
+  const span = (w - start - end) / w;
+  return {
+    start, end, span,
+    skew: Math.abs(start - end),
+    // A centred cluster is symmetric AND leaves real room at both edges. A
+    // symmetric edge-to-edge (space-between) bar is not centred, so it is
+    // judged on gutters as usual. Width is a property of the REFERENCE only:
+    // the reconstruction's cluster may be wider because its labels are.
+    centred: Math.abs(start - end) <= 20 && span <= 0.75,
+  };
+}
+
 function diffOne(ref, impl, vp, refId) {
   const o = OVERRIDES[refId];
   // An override may be scoped to specific viewports; elsewhere the metric stands.
@@ -55,6 +76,19 @@ function diffOne(ref, impl, vp, refId) {
   if (rc.position !== ic.position) out.push({ level: 'warn', msg: `position ${ic.position} vs ref ${rc.position}` });
   if (Math.abs(numeric(rc.zIndex) - numeric(ic.zIndex)) > 0 && numeric(rc.zIndex) > 0)
     out.push({ level: 'info', msg: `z-index ${ic.zIndex} vs ref ${rc.zIndex}` });
+
+  // Centred clusters are judged on symmetry, not on absolute gutters.
+  const rc2 = centredness(ref), ic2 = centredness(impl);
+  if (rc2?.centred) {
+    if (!ic2) {
+      out.push({ level: 'fail', metric: 'centredness', msg: 'reference cluster is centred but the reconstruction exposes no measurable controls' });
+    } else if (ic2.skew > 20) {
+      out.push({ level: 'fail', metric: 'centredness', msg: `cluster not centred: leading ${ic2.start.toFixed(0)} vs trailing ${ic2.end.toFixed(0)} (skew ${ic2.skew.toFixed(0)}px; reference skew ${rc2.skew.toFixed(0)}px)` });
+    } else {
+      out.push({ level: 'info', metric: 'centredness', msg: `cluster centred (skew ${ic2.skew.toFixed(0)}px vs reference ${rc2.skew.toFixed(0)}px); absolute gutters differ by label length, not design` });
+    }
+    return out;
+  }
 
   // Gutter: leftmost interactive element's x
   const rx = ref.logo?.rect?.x, ix = impl.logo?.rect?.x;

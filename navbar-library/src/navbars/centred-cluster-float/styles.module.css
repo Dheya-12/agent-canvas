@@ -1,0 +1,242 @@
+/*
+ * Reconstructed from evidence/bakkenbaeck/inspection.json.
+ * Signature trait: the whole navigation - mark, links AND action - is a
+ * single CENTRED cluster floating on the viewport axis, rather than being
+ * spread to the edges. The reference holds the cluster centred at 1440,
+ * 1024 and 768 alike (spans 489-967, 281-759, 153-631: all centred).
+ * The bar itself is pointer-events: none so it never blocks the page
+ * behind it; only the controls take pointer events.
+ */
+
+.root,
+.panel {
+  --nb-top: 16px;
+  --nb-h: 48px;
+  --nb-pad: 16px;
+  --nb-gap: 16px;
+  --nb-type: 14px;
+  --nb-fg: #1a1a1a;
+  --nb-solid: #2d2d2d;
+  --nb-solid-fg: #fff;
+  --nb-surface: #fff;
+  --nb-ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.root[data-theme='dark'],
+.panel[data-theme='dark'] {
+  --nb-fg: #f0f0f0;
+  --nb-solid: #f0f0f0;
+  --nb-solid-fg: #1a1a1a;
+  --nb-surface: #161616;
+}
+
+.root {
+  position: fixed;
+  top: var(--nb-top);
+  inset-inline: 0;
+  z-index: 60;
+  height: var(--nb-h);
+  padding-inline: var(--nb-pad);
+  color: var(--nb-fg);
+  /* The bar spans the viewport but must not swallow clicks meant for the
+   * page; only its controls opt back in. */
+  pointer-events: none;
+  font-family: var(--nb-font, inherit);
+}
+.root > * { pointer-events: auto; }
+
+.inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--nb-gap);
+  min-width: 0;
+  pointer-events: none;
+}
+.inner > * { pointer-events: auto; }
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 30vw;
+  overflow: hidden;
+  /* The mark sits apart from the link group, not adjacent to it. */
+  margin-inline-end: calc(var(--nb-gap) * 2.56);
+}
+.brandImg { height: 18px; width: auto; display: block; max-width: 100%; object-fit: contain; }
+.brandText {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: var(--nb-gap);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  overflow: hidden;
+}
+.item { position: relative; min-width: 0; flex: 0 1 auto; }
+
+.link {
+  display: block;
+  padding: 1px 2px;
+  border-radius: 2px;
+  font-size: var(--nb-type);
+  font-weight: 500;
+  line-height: 1.43;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity 0.25s var(--nb-ease);
+}
+.link:hover { opacity: 0.55; }
+.link[data-current='true'] { text-decoration: underline; text-underline-offset: 4px; }
+.badge { margin-inline-start: 5px; font-size: 10px; vertical-align: super; opacity: 0.7; }
+
+.sub {
+  position: absolute;
+  inset-inline-start: 0;
+  top: calc(100% + 10px);
+  min-width: 170px;
+  margin: 0;
+  padding: 7px 0;
+  list-style: none;
+  background: var(--nb-surface);
+  border-radius: 6px;
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.13);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 0.26s var(--nb-ease), transform 0.26s var(--nb-ease), visibility 0.26s;
+}
+.item[data-open='true'] > .sub { opacity: 1; visibility: visible; transform: none; }
+.subLink { display: block; padding: 6px 14px; font-size: var(--nb-type); font-weight: 500; color: inherit; text-decoration: none; white-space: nowrap; }
+.subLink:hover { opacity: 0.6; }
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding-inline: 18px;
+  border-radius: 2px;
+  background: var(--nb-solid);
+  color: var(--nb-solid-fg);
+  font-size: var(--nb-type);
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  max-width: 32vw;
+  overflow: hidden;
+  flex: 0 0 auto;
+  transition: opacity 0.25s var(--nb-ease);
+}
+.ctaLabel { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cta:hover { opacity: 0.85; }
+
+.secondary {
+  font-size: var(--nb-type);
+  font-weight: 500;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  opacity: 0.7;
+  flex: 0 0 auto;
+  transition: opacity 0.25s var(--nb-ease);
+}
+.secondary:hover { opacity: 1; }
+
+.toggle { display: none; }
+.panel { display: none; }
+
+/* Below 640px the cluster stops being centred: the mark goes to the leading
+ * edge and the controls to the trailing one, as in the reference. */
+@media (max-width: 639px) {
+  /* The reference insets its phone row further than the bar padding alone. */
+  .root, .panel { --nb-pad: 32px; }
+  .inner { justify-content: space-between; gap: 10px; }
+  .brand { margin-inline-end: 0; max-width: 45vw; }
+  .list, .cta { display: none; }
+  .tail { display: flex; align-items: center; gap: 14px; flex: 0 0 auto; }
+  .toggle {
+    display: inline-flex;
+    align-items: center;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    font-size: var(--nb-type);
+    font-weight: 500;
+    flex: 0 0 auto;
+  }
+
+  .panel {
+    display: block;
+    position: fixed;
+    inset: calc(var(--nb-top) + var(--nb-h) + 8px) var(--nb-pad) auto var(--nb-pad);
+    z-index: 59;
+    background: var(--nb-surface);
+    color: var(--nb-fg);
+    border-radius: 8px;
+    box-shadow: 0 14px 44px rgba(0, 0, 0, 0.16);
+    padding: 14px;
+    max-height: calc(100dvh - var(--nb-top) - var(--nb-h) - 28px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.3s var(--nb-ease), transform 0.3s var(--nb-ease), visibility 0.3s;
+  }
+  .panel[data-open='true'] { opacity: 1; visibility: visible; transform: none; }
+  .panelList { list-style: none; margin: 0; padding: 0; }
+  .panelLink {
+    display: block;
+    padding: 9px 2px;
+    font-size: 16px;
+    font-weight: 500;
+    color: inherit;
+    text-decoration: none;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+  .panelSub { list-style: none; margin: 0; padding: 0 0 6px; }
+  .panelSubLink { display: block; padding: 5px 2px; font-size: 14px; text-align: center; color: inherit; text-decoration: none; opacity: 0.72; }
+  /* Full-width action, as in the reference's open state. */
+  .panelCta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    margin-top: 10px;
+    border-radius: 2px;
+    background: var(--nb-solid);
+    color: var(--nb-solid-fg);
+    font-size: var(--nb-type);
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .panelFoot { margin-top: 12px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 16px; font-size: 12px; }
+  .panelFoot a { color: inherit; text-decoration: none; opacity: 0.75; }
+}
+@media (min-width: 640px) { .tail { display: contents; } }
+
+@media (prefers-reduced-motion: reduce) { .root, .root *, .panel, .panel * { transition-duration: 0.01ms !important; } }
