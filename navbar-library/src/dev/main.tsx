@@ -40,10 +40,21 @@ function App() {
   return (
     <>
       <Component content={content} onThemeChange={setTheme} />
-      <div className="spacer" />
-      <div className="filler" id="filler">
-        {['ONE', 'TWO', 'THREE', 'FOUR'].map(t => <section key={t}>{t}</section>)}
-      </div>
+      {q.get('preview') === '1' ? (
+        /* Compact backdrop for the specimen gallery. The tonal bands matter:
+           several navbars use mix-blend-mode and are invisible without
+           something behind them. */
+        <div className="preview-bed" aria-hidden="true">
+          <span /><span /><span />
+        </div>
+      ) : (
+        <>
+          <div className="spacer" />
+          <div className="filler" id="filler">
+            {['ONE', 'TWO', 'THREE', 'FOUR'].map(t => <section key={t}>{t}</section>)}
+          </div>
+        </>
+      )}
     </>
   );
 }

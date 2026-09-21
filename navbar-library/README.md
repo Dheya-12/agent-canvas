@@ -101,6 +101,7 @@ npm test                            # regression suite (hermetic)
 npm run certify                     # full certification pass
 npm run test:baseline               # re-record geometry after an intended change
 npm run report                      # regenerate CERTIFICATION.md
+npm run gallery                     # build gallery/ then open gallery/index.html
 
 node scripts/inspect.mjs <site-id>...          # measure live references
 node scripts/compare.mjs <nav-id> <site-id>    # numeric fidelity diff
@@ -140,6 +141,20 @@ navbar must leave the page scrollable.
 
 After an INTENDED geometry change, re-record with `npm run test:baseline` and
 commit the updated `reports/baseline.json` alongside the change.
+
+## Specimen gallery
+
+`npm run build && npm run gallery` writes `gallery/` — a single page showing
+every navbar running live (not screenshots) at a true 1440x200, scaled to
+fit, with its certified heights and metadata beneath. One control swaps the
+content of all of them at once: coffee shop, law firm, gym, long copy,
+Arabic/RTL, submenus, empty. That control is the point of the library made
+operable — the same data goes into every component and each keeps its own
+design character.
+
+`gallery/` is gitignored: it is derived from `dist/`, and the asset
+filenames are content-hashed, so committing it would churn a new pair of
+files on every rebuild.
 
 ## Reports
 

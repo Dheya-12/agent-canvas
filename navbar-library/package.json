@@ -12,7 +12,8 @@
     "test:baseline": "node scripts/baseline.mjs",
     "certify": "node scripts/certify.mjs",
     "inspect": "node scripts/inspect.mjs",
-    "report": "node scripts/report.mjs"
+    "report": "node scripts/report.mjs",
+    "gallery": "node scripts/gallery.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",
