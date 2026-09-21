@@ -165,6 +165,23 @@ export const fixtures: Record<string, NavbarContent> = {
     themeToggle: { toLight: 'Switch to light mode', toDark: 'Switch to dark mode' },
     theme: 'dark',
   },
+  /* Matches the SHAPE of a catalogue nav: enough long labels to make a
+   * contained row wrap, plus account and cart controls. */
+  commerceWide: {
+    brand: { name: 'Maison Lumiere' },
+    items: [
+      { label: 'Le Magasin', href: '/shop', children: [
+        { label: 'Nouveautes', href: '/shop/new' },
+        { label: 'Best-sellers', href: '/shop/best' },
+      ] },
+      { label: 'Histoire', href: '/story' },
+      { label: 'Lookbook', href: '/lookbook' },
+      { label: 'Points de vente', href: '/stockists' },
+      { label: 'Presse', href: '/press' },
+    ],
+    secondaryAction: { label: 'Se connecter', href: '/account' },
+    utilities: [{ label: 'Panier', href: '/cart', icon: 'cart', count: 0 }],
+  },
   withSocials: {
     brand: { name: 'Field Notes' },
     items: [{ label: 'Archive', href: '/a' }, { label: 'About', href: '/ab' }],

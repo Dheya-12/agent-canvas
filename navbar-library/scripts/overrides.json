@@ -125,5 +125,16 @@
   ],
   "reason": "CAPTURE ARTEFACT, not a property of the reference. The tablet pass opened the reference's menu, which does not close on Escape, and the original harness did not reload between viewports - so the tablet and mobile 'initial' records contain the OPEN menu (their item lists include the menu's own links and a Close control). Gutters at those two viewports therefore measure menu content rather than the bar. The harness now reloads between viewports after any pass that opened a menu; this reference's stored evidence predates that fix. Heights, which are unaffected, remain enforced and match exactly at all four viewports.",
   "verifiedBy": "evidence/lando/inspection.json (mobile initial items include 'HomeHome', 'On TrackOn Track' and 'Close menu')"
+ },
+ "bonhomme": {
+  "skip": [
+   "startGutter",
+   "endGutter"
+  ],
+  "skipViewports": [
+   "mobile"
+  ],
+  "reason": "At 390px the two sides' leading elements are different controls, so the gutter figures are not comparable. The reference centres an IMAGE mark at x=124, which the probe's brand heuristic selects because it is image-bearing and sits inside the leading third; the reconstruction's mark is a text wordmark at the same centred position, so the heuristic falls back to the leftmost control - the menu button at x=16. Both lay out identically (menu button leading, mark centred, cart trailing). Heights at all four viewports remain enforced and match.",
+  "verifiedBy": "evidence/bonhomme/inspection.json (mobile logo IMG at x=124 alongside nm-mobile-menu-button at x=16)"
  }
 }

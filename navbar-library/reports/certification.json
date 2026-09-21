@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-21T10:26:29.271Z",
+ "generatedAt": "2026-09-21T11:17:46.806Z",
  "results": [
   {
    "id": "blend-difference-trizone",
@@ -2826,6 +2826,251 @@
     }
    },
    "status": "PASS"
+  },
+  {
+   "id": "shrink-container-commerce",
+   "refId": "bonhomme",
+   "displayName": "Shrinking Contained Rail",
+   "stress": {
+    "short@desktop": {
+     "headerH": 104,
+     "links": 4,
+     "issues": 0
+    },
+    "short@mobile": {
+     "headerH": 72,
+     "links": 2,
+     "issues": 0
+    },
+    "normal@desktop": {
+     "headerH": 104,
+     "links": 5,
+     "issues": 0
+    },
+    "normal@mobile": {
+     "headerH": 72,
+     "links": 2,
+     "issues": 0
+    },
+    "long@desktop": {
+     "headerH": 125,
+     "links": 5,
+     "issues": 0
+    },
+    "long@mobile": {
+     "headerH": 72,
+     "links": 2,
+     "issues": 0
+    },
+    "oneItem@desktop": {
+     "headerH": 104,
+     "links": 2,
+     "issues": 0
+    },
+    "oneItem@mobile": {
+     "headerH": 72,
+     "links": 2,
+     "issues": 0
+    },
+    "fiveItems@desktop": {
+     "headerH": 104,
+     "links": 7,
+     "issues": 0
+    },
+    "fiveItems@mobile": {
+     "headerH": 72,
+     "links": 2,
+     "issues": 0
+    },
+    "manyItems@desktop": {
+     "headerH": 104,
+     "links": 11,
+     "issues": 0
+    },
+    "manyItems@mobile": {
+     "headerH": 72,
+     "links": 2,
+     "issues": 0
+    },
+    "noCta@desktop": {
+     "headerH": 104,
+     "links": 4,
+     "issues": 0
+    },
+    "noCta@mobile": {
+     "headerH": 72,
+     "links": 2,
+     "issues": 0
+    },
+    "dropdowns@desktop": {
+     "headerH": 104,
+     "links": 6,
+     "issues": 0
+    },
+    "dropdowns@mobile": {
+     "headerH": 72,
+     "links": 2,
+     "issues": 0
+    },
+    "imageLogo@desktop": {
+     "headerH": 104,
+     "links": 5,
+     "issues": 0
+    },
+    "imageLogo@mobile": {
+     "headerH": 72,
+     "links": 2,
+     "issues": 0
+    },
+    "brokenLogo@desktop": {
+     "headerH": 104,
+     "links": 4,
+     "issues": 0
+    },
+    "brokenLogo@mobile": {
+     "headerH": 72,
+     "links": 2,
+     "issues": 0
+    },
+    "empty@desktop": {
+     "headerH": 104,
+     "links": 0,
+     "issues": 0
+    },
+    "empty@mobile": {
+     "headerH": 72,
+     "links": 1,
+     "issues": 0
+    },
+    "arabic@desktop": {
+     "headerH": 104,
+     "links": 5,
+     "issues": 0
+    },
+    "arabic@mobile": {
+     "headerH": 72,
+     "links": 2,
+     "issues": 0
+    },
+    "mixed@desktop": {
+     "headerH": 104,
+     "links": 5,
+     "issues": 0
+    },
+    "mixed@mobile": {
+     "headerH": 72,
+     "links": 2,
+     "issues": 0
+    },
+    "accents@desktop": {
+     "headerH": 104,
+     "links": 5,
+     "issues": 0
+    },
+    "accents@mobile": {
+     "headerH": 72,
+     "links": 2,
+     "issues": 0
+    },
+    "longWords@desktop": {
+     "headerH": 125,
+     "links": 4,
+     "issues": 0
+    },
+    "longWords@mobile": {
+     "headerH": 72,
+     "links": 2,
+     "issues": 0
+    },
+    "numeric@desktop": {
+     "headerH": 104,
+     "links": 5,
+     "issues": 0
+    },
+    "numeric@mobile": {
+     "headerH": 72,
+     "links": 2,
+     "issues": 0
+    },
+    "darkTheme@desktop": {
+     "headerH": 104,
+     "links": 5,
+     "issues": 0
+    },
+    "darkTheme@mobile": {
+     "headerH": 72,
+     "links": 2,
+     "issues": 0
+    },
+    "withSocials@desktop": {
+     "headerH": 104,
+     "links": 4,
+     "issues": 0
+    },
+    "withSocials@mobile": {
+     "headerH": 72,
+     "links": 2,
+     "issues": 0
+    }
+   },
+   "issues": [],
+   "pageErrors": [],
+   "fatigue": {
+    "cycles": 10,
+    "issues": [],
+    "resizeClosed": true,
+    "restingTop": 0
+   },
+   "fidelity": {
+    "fixture": "commerceWide",
+    "fails": [],
+    "warns": [
+     "position sticky vs ref absolute",
+     "end gutter Δ16.0px",
+     "height 125.0 vs ref 130.0 (Δ5.0px)",
+     "position sticky vs ref absolute",
+     "end gutter Δ16.0px",
+     "position sticky vs ref absolute",
+     "end gutter Δ17.1px",
+     "position sticky vs ref absolute"
+    ],
+    "deviations": [],
+    "viewports": {
+     "desktop": {
+      "h": 104,
+      "pos": "sticky",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 8
+     },
+     "laptop": {
+      "h": 125,
+      "pos": "sticky",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 8
+     },
+     "tablet": {
+      "h": 71,
+      "pos": "sticky",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 3
+     },
+     "mobile": {
+      "h": 72,
+      "pos": "sticky",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 3
+     }
+    }
+   },
+   "status": "PASS WITH OBSERVATIONS"
   },
   {
    "id": "stacked-column-micro",

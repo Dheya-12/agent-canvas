@@ -116,6 +116,31 @@ const AUDIT = () => {
       out.issues.push({ kind: 'escapes-viewport', detail: `"${t}" at [${Math.round(r.left)}, ${Math.round(r.right)}]` });
     }
   }
+  // Navigation spilling vertically out of the bar. Several of these designs
+  // deliberately let the BRAND overflow the rail, so only list items count.
+  // An element clipped by an ancestor is not spilling: a collapsed
+  // disclosure or a closed card legitimately holds content it does not show.
+  const isClipped = el => {
+    for (let n = el.parentElement; n; n = n.parentElement) {
+      const c = getComputedStyle(n);
+      if (/hidden|clip|auto|scroll/.test(c.overflowY) || /hidden|clip/.test(c.overflow)) {
+        const nr = n.getBoundingClientRect();
+        if (el.getBoundingClientRect().bottom > nr.bottom + 1) return true;
+      }
+      if (n === header) break;
+    }
+    const hc = getComputedStyle(header);
+    return /hidden|clip/.test(hc.overflow) || /hidden|clip/.test(hc.overflowY);
+  };
+  for (const el of [...header.querySelectorAll('ul a, ul button')].filter(vis)) {
+    if (isClipped(el)) continue;
+    const r = el.getBoundingClientRect();
+    if (r.bottom > hr.bottom + 4) {
+      out.issues.push({ kind: 'spills-below-bar', detail: `"${(el.textContent || '').trim().slice(0, 20)}" bottom ${Math.round(r.bottom)} exceeds bar bottom ${Math.round(hr.bottom)}` });
+      break;
+    }
+  }
+
   // Overlapping siblings (a real symptom of a broken layout)
   for (let i = 0; i < links.length; i++) {
     for (let j = i + 1; j < links.length; j++) {

@@ -90,10 +90,10 @@ export default function StickyRailBlurOverlay({ content, className, style, onNav
             })}
 
             {c.secondaryAction?.label && (
-              <li><Link className={s.secondary} href={c.secondaryAction.href} onNavigate={nav}>{c.secondaryAction.label}</Link></li>
+              <li className={s.itemFixed}><Link className={s.secondary} href={c.secondaryAction.href} onNavigate={nav}>{c.secondaryAction.label}</Link></li>
             )}
             {hasCta(c.cta) && (
-              <li>
+              <li className={s.itemFixed}>
                 <Link className={s.cta} href={c.cta.href} onNavigate={nav}>
                   <span>{c.cta.label}</span>
                   {c.cta.icon && <span aria-hidden="true">{c.cta.icon}</span>}

@@ -1,6 +1,6 @@
 # Navbar library — certification matrix
 
-Generated 2026-09-21T10:26:29Z from `reports/certification.json`.
+Generated 2026-09-21T11:17:46Z from `reports/certification.json`.
 
 Every entry is measured, not asserted. A component is certified only after its
 reconstruction has been rendered, captured and numerically compared against the
@@ -28,6 +28,7 @@ live reference, then put through the content, fatigue and damage-tolerance passe
 | `justified-row-blend` | Studio Dumbar | PASS WITH OBSERVATIONS | 67px | 67px | 40px | 40px | static | 10/10 | 0 |
 | `lightweight-type-theme-switch` | Stink Studios | PASS WITH OBSERVATIONS | 66px | 66px | 61px | 66px | hide-on-scroll | 10/10 | 0 |
 | `pill-chip-split-ticker` | Instrument | PASS | 50px | 50px | 64px | 53px | transparent-to-solid | 10/10 | 0 |
+| `shrink-container-commerce` | Bonhomme | PASS WITH OBSERVATIONS | 104px | 125px | 71px | 72px | shrink | 10/10 | 0 |
 | `stacked-column-micro` | Zajno | PASS WITH OBSERVATIONS | 45px | 41px | 41px | 26px | static | 10/10 | 5 |
 | `sticky-rail-blur-overlay` | AREA 17 | PASS | 64px | 64px | 56px | 56px | sticky | 10/10 | 0 |
 | `tall-airy-dual-trigger` | BASIC/DEPT | PASS | 126px | 101px | 88px | 70px | hide-on-scroll | 10/10 | 0 |
@@ -241,6 +242,32 @@ live reference, then put through the content, fatigue and damage-tolerance passe
 - **Runtime status:** no page errors across all render conditions
 - **Certification:** PASS
 
+#### `shrink-container-commerce` — Shrinking Contained Rail
+
+- **Reference:** Bonhomme (https://bonhomme.fr/)
+- **Captures:** `evidence/bonhomme/` (reference) and `evidence/bonhomme/impl/` (reconstruction)
+- **Viewports tested:** 1440×900, 1024×768, 768×1024, 390×844
+- **Content variants tested:** 18 fixtures × 2 viewports = 36 render conditions
+- **Interactions tested:** open/close ×10 (alternating Escape and toggle), resize while open, scroll churn ×6, hover, dropdown open/close
+- **Dependencies:** none beyond react
+- **Assets:** none — self-contained
+- **Fidelity fixture:** `commerceWide`
+- **Measurement skips** (probe mis-measures this reference, mobile only): startGutter, endGutter
+  - At 390px the two sides' leading elements are different controls, so the gutter figures are not comparable. The reference centres an IMAGE mark at x=124, which the probe's brand heuristic selects because it is image-bearing and sits inside the leading third; the reconstruction's mark is a text wordmark at the same centred position, so the heuristic falls back to the leftmost control - the menu button at x=16. Both lay out identically (menu button leading, mark centred, cart trailing). Heights at all four viewports remain enforced and match.
+- **Known differences (non-blocking):**
+  - position sticky vs ref absolute
+  - end gutter Δ16.0px
+  - height 125.0 vs ref 130.0 (Δ5.0px)
+  - position sticky vs ref absolute
+  - end gutter Δ16.0px
+  - position sticky vs ref absolute
+  - end gutter Δ17.1px
+  - position sticky vs ref absolute
+- **Limitations / notes:** The only rail in the library that SHRINKS on scroll: bar, mark and wordmark all reduce together (104px to 91px, 0.15s linear), which suits a catalogue page where the bar must stay present but stop dominating. It is also the only one carrying a solid surface at rest rather than sitting transparent over content, and it holds its contents in a 1220px max-width container rather than running to the viewport edges - so it pairs with contained page layouts, not full-bleed heroes. Items sit flush with internal padding rather than a gap, and the row is allowed to wrap, which is why the reference is TALLER at 1024 (130px) than at 1440 (104px). `utilities` render as labelled text controls with an optional count rather than icons.
+- **Build status:** included in the production build (`npm run build`)
+- **Runtime status:** no page errors across all render conditions
+- **Certification:** PASS WITH OBSERVATIONS
+
 #### `stacked-column-micro` — Stacked-Column Micro Nav
 
 - **Reference:** Zajno (https://zajno.com/)
@@ -326,7 +353,6 @@ These are recorded rather than worked around. No component claims a reference it
 | reference | url | state | detail |
 | --- | --- | --- | --- |
 | Antinomy Studio | https://antinomy.studio/ | USABLE | 56px fixed, 5 interactive, 4/4 viewports |
-| Bonhomme | https://bonhomme.fr/ | USABLE | 104px absolute, 8 interactive, 4/4 viewports |
 | Code and Theory | https://codeandtheory.com/ | USABLE | 71px fixed, 6 interactive, 4/4 viewports |
 | Dogstudio | https://dogstudio.co/ | USABLE | 129px absolute, 2 interactive, 4/4 viewports |
 | Fantasy | https://fantasy.co/ | USABLE | 108px fixed, 2 interactive, 4/4 viewports |
