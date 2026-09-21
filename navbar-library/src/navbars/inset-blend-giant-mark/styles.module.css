@@ -1,0 +1,198 @@
+/*
+ * Reconstructed from evidence/obys/inspection.json.
+ * Signature traits: the rail is inset 0.7vw from every edge rather than
+ * full-bleed; it uses mix-blend-mode: difference; and its wordmark is
+ * enormous (16.5vw wide, the full 4.5vw rail height). Every dimension is
+ * viewport-relative - the reference holds 4.5vw height at 1440/1024/768/390
+ * alike, including its type, which reaches ~3px at 390.
+ */
+
+.root {
+  --nb-inset: 0.7vw;
+  --nb-h: 4.5vw;
+  /* The reference lets type scale to ~3px at 390px wide. That is legible
+   * only for its own two-word labels, so the reconstruction keeps the fluid
+   * ramp but floors it at 12px. Documented in meta.notes. */
+  --nb-type: max(12px, 0.764vw);
+  --nb-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  position: fixed;
+  top: var(--nb-inset);
+  inset-inline: var(--nb-inset);
+  z-index: 9997;
+  height: var(--nb-h);
+  min-height: 34px;
+  background: transparent;
+  color: #fff;
+  mix-blend-mode: difference;
+  font-family: var(--nb-font, inherit);
+}
+.root[data-theme='dark'] { color: #fff; }
+
+.inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1.2vw;
+}
+
+/* The mark is the composition. It fills the rail height and is allowed to
+ * take roughly a sixth of the viewport before it is constrained. */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 42vw;
+  overflow: hidden;
+}
+.brandImg { height: 100%; width: auto; display: block; 
+  max-width: 100%;
+  object-fit: contain;
+}
+.brandText {
+  font-size: min(3.4vw, 46px);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cluster {
+  display: flex;
+  align-items: center;
+  gap: 0.55vw;
+  list-style: none;
+  margin: 0 0 0 auto;
+  padding: 0;
+  min-width: 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.item { position: relative; }
+
+.link {
+  display: block;
+  font-size: var(--nb-type);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  text-transform: uppercase;
+  padding: 0.2vw 0.35vw;
+  transition: opacity 0.25s var(--nb-ease);
+}
+.link:hover { opacity: 0.55; }
+.link[data-current='true'] { text-decoration: underline; text-underline-offset: 0.25em; }
+.badge { margin-inline-start: 0.3em; font-size: 0.75em; vertical-align: super; opacity: 0.7; }
+
+.sub {
+  position: absolute;
+  inset-inline-start: 0;
+  top: calc(100% + 0.5vw);
+  min-width: 11vw;
+  margin: 0;
+  padding: 0.5vw 0;
+  list-style: none;
+  isolation: isolate;
+  mix-blend-mode: normal;
+  background: #111;
+  color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-0.3vw);
+  transition: opacity 0.3s var(--nb-ease), transform 0.3s var(--nb-ease), visibility 0.3s;
+}
+.item[data-open='true'] > .sub { opacity: 1; visibility: visible; transform: none; }
+.subLink { display: block; padding: 0.4vw 1vw; font-size: var(--nb-type); color: inherit; text-decoration: none; white-space: nowrap; text-transform: uppercase; }
+.subLink:hover { opacity: 0.6; }
+
+.tail { display: flex; align-items: center; gap: 1vw; flex: 0 0 auto; margin-inline-start: 4.5vw; }
+.cta, .secondary {
+  font-size: var(--nb-type);
+  letter-spacing: -0.01em;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  text-transform: uppercase;
+  transition: opacity 0.25s var(--nb-ease);
+}
+.cta:hover, .secondary:hover { opacity: 0.55; }
+.secondary { opacity: 0.7; }
+
+.toggle { display: none; }
+.panel { display: none; }
+
+@media (max-width: 860px) {
+  .root { --nb-h: 46px; --nb-inset: 10px; --nb-type: 13px; }
+  .cluster, .tail { display: none; }
+  .brandText { font-size: min(7vw, 30px); }
+
+  .toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+    margin-inline-start: auto;
+    flex: 0 0 auto;
+    font: inherit;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  .panel {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 9996;
+    isolation: isolate;
+    mix-blend-mode: normal;
+    background: #0a0a0a;
+    color: #fff;
+    padding: 76px 16px 28px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-2%);
+    transition: opacity 0.5s var(--nb-ease), transform 0.5s var(--nb-ease), visibility 0.5s;
+  }
+  .panel[data-open='true'] { opacity: 1; visibility: visible; transform: none; }
+  .panelList { list-style: none; margin: 0; padding: 0; }
+  .panelLink {
+    display: block;
+    padding: 6px 0;
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: inherit;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.45s var(--nb-ease), transform 0.45s var(--nb-ease);
+    transition-delay: calc(var(--i, 0) * 50ms + 150ms);
+  }
+  .panel[data-open='true'] .panelLink { opacity: 1; transform: none; }
+  .panelSub { list-style: none; margin: 0 0 6px; padding-inline-start: 12px; }
+  .panelSubLink { display: block; padding: 3px 0; font-size: 15px; color: inherit; text-decoration: none; opacity: 0.7; text-transform: uppercase; }
+  .panelFoot { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 13px; text-transform: uppercase; }
+  .panelFoot a { color: inherit; text-decoration: none; opacity: 0.8; }
+}
+
+@media (prefers-reduced-motion: reduce) { .root *, .panel, .panel * { transition-duration: 0.01ms !important; } }

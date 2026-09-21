@@ -1,0 +1,80 @@
+{
+ "navId": "chunky-pill-emblem",
+ "refId": "lando",
+ "fixture": "normal",
+ "overrides": {
+  "skip": [
+   "startGutter",
+   "endGutter"
+  ],
+  "reason": "CAPTURE ARTEFACT, not a property of the reference. The tablet pass opened the reference's menu, which does not close on Escape, and the original harness did not reload between viewports - so the tablet and mobile 'initial' records contain the OPEN menu (their item lists include the menu's own links and a Close control). Gutters at those two viewports therefore measure menu content rather than the bar. The harness now reloads between viewports after any pass that opened a menu; this reference's stored evidence predates that fix. Heights, which are unaffected, remain enforced and match exactly at all four viewports."
+ },
+ "at": "2026-09-21T14:55:35.589Z",
+ "viewports": {
+  "desktop": {
+   "h": 83,
+   "pos": "fixed",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 6
+  },
+  "laptop": {
+   "h": 59,
+   "pos": "fixed",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 6
+  },
+  "tablet": {
+   "h": 56,
+   "pos": "fixed",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 3
+  },
+  "mobile": {
+   "h": 78,
+   "pos": "fixed",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 3
+  }
+ },
+ "diffs": {
+  "desktop": [
+   {
+    "level": "warn",
+    "metric": "linkFontSize",
+    "msg": "link font-size 16px vs ref 14px (Δ2.0)"
+   }
+  ],
+  "laptop": [
+   {
+    "level": "warn",
+    "metric": "linkFontSize",
+    "msg": "link font-size 16px vs ref 14px (Δ2.0)"
+   }
+  ],
+  "tablet": [
+   {
+    "level": "warn",
+    "metric": "linkFontSize",
+    "msg": "link font-size 16px vs ref 14px (Δ2.0)"
+   }
+  ],
+  "mobile": []
+ },
+ "pageErrors": [],
+ "menuOpen": {
+  "bodyOverflow": "hidden",
+  "expanded": "true"
+ },
+ "afterEscape": {
+  "bodyOverflow": "visible",
+  "expanded": "false"
+ }
+}

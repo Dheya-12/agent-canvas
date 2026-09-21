@@ -1,0 +1,49 @@
+{
+ "id": "awwwards",
+ "name": "Awwwards",
+ "url": "https://www.awwwards.com/",
+ "at": "2026-09-21T07:05:29.473Z",
+ "viewports": {
+  "desktop": {
+   "initial": {
+    "found": false
+   },
+   "scrolled": {
+    "found": false
+   }
+  },
+  "laptop": {
+   "initial": {
+    "found": false
+   },
+   "scrolled": {
+    "found": false
+   }
+  },
+  "tablet": {
+   "initial": {
+    "found": false
+   },
+   "scrolled": {
+    "found": false
+   }
+  },
+  "mobile": {
+   "initial": {
+    "found": false
+   },
+   "scrolled": {
+    "found": false
+   }
+  }
+ },
+ "errors": [],
+ "status": 502,
+ "finalUrl": "https://www.awwwards.com/",
+ "cookieDismissed": false,
+ "title": "",
+ "consoleErrors": [
+  "Failed to load resource: the server responded with a status of 502 (Bad Gateway)"
+ ],
+ "ok": true
+}

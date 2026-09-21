@@ -1,0 +1,239 @@
+/*
+ * Reconstructed from evidence/offf/inspection.json + desktop-initial.png.
+ * Signature trait: navigation is not a row of links, it is a GRID OF COLOUR
+ * BLOCKS. Items become full-bleed strips, each carrying its own colour, laid
+ * out in three columns whose widths the reference holds at 29% / 35.5% /
+ * 35.5% at both 1440 and 1024. The action is a tall block filling the last
+ * column, set in large type with a corner arrow.
+ *
+ * The palette here is a generic vivid set, not the reference's brand colours:
+ * the COLOUR SYSTEM is the design, the specific hues are brand identity.
+ * Override --nb-block-1..6 and --nb-cta-bg per site.
+ */
+
+.root,
+.panel {
+  --nb-strip-h: 20px;
+  --nb-label: 10px;
+  --nb-cta-h: 56px;
+  --nb-pad: 8px;
+  --nb-block-1: #ff4032;
+  --nb-block-2: #ff873c;
+  --nb-block-3: #ff81d6;
+  --nb-block-4: #4fce62;
+  --nb-block-5: #763d2d;
+  --nb-block-6: #22d1ff;
+  --nb-cta-bg: #000;
+  --nb-cta-fg: #fff;
+  --nb-ink: #000;
+  --nb-ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.root {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 57;
+  display: grid;
+  /* The three column widths the reference holds at both viewports. */
+  grid-template-columns: 29% 35.5% 35.5%;
+  align-items: start;
+  font-family: var(--nb-font, inherit);
+}
+
+.col { display: flex; flex-direction: column; min-width: 0; }
+
+.strip {
+  display: flex;
+  align-items: center;
+  height: var(--nb-strip-h);
+  padding-inline: var(--nb-pad);
+  font-size: var(--nb-label);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--nb-ink);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* Each strip carries its own colour, assigned by position. */
+  background: var(--strip-bg, var(--nb-block-1));
+  transition: filter 0.2s var(--nb-ease), padding-inline 0.2s var(--nb-ease);
+}
+.strip:hover { filter: brightness(1.12); padding-inline-start: calc(var(--nb-pad) * 2); }
+.strip[data-current='true'] { text-decoration: underline; text-underline-offset: 2px; }
+.stripLabel { overflow: hidden; text-overflow: ellipsis; }
+.badge { margin-inline-start: 5px; font-size: 8px; opacity: 0.75; }
+
+/* Children continue the stack as inset strips rather than opening a panel:
+ * a floating dropdown would break the block composition. */
+.sub { display: flex; flex-direction: column; }
+.subStrip {
+  display: flex;
+  align-items: center;
+  height: calc(var(--nb-strip-h) - 3px);
+  padding-inline: calc(var(--nb-pad) * 2.2);
+  font-size: calc(var(--nb-label) - 1px);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--nb-ink);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background: var(--strip-bg, var(--nb-block-1));
+  filter: brightness(0.92);
+}
+.subStrip:hover { filter: brightness(1.02); }
+
+/* The action is a block, not a button: it fills its column and carries the
+ * largest type in the bar. */
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: var(--nb-cta-h);
+  padding: 6px var(--nb-pad) 6px calc(var(--nb-pad) * 0.75);
+  background: var(--nb-cta-bg);
+  color: var(--nb-cta-fg);
+  text-decoration: none;
+  transition: filter 0.2s var(--nb-ease);
+}
+.cta:hover { filter: brightness(1.35); }
+.ctaLabel {
+  font-size: clamp(22px, 3vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+.ctaArrow { flex: 0 0 auto; font-size: clamp(18px, 2.2vw, 32px); line-height: 1; }
+
+.secondary {
+  display: flex;
+  align-items: center;
+  height: var(--nb-strip-h);
+  padding-inline: var(--nb-pad);
+  font-size: var(--nb-label);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--nb-cta-fg);
+  background: var(--nb-cta-bg);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.socials { display: flex; }
+.social {
+  display: flex;
+  align-items: center;
+  height: var(--nb-strip-h);
+  padding-inline: var(--nb-pad);
+  font-size: calc(var(--nb-label) - 1px);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--nb-cta-fg);
+  background: var(--nb-cta-bg);
+  text-decoration: none;
+  white-space: nowrap;
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* The brand takes the leading strip so the bar still identifies the site. */
+.brand {
+  display: flex;
+  align-items: center;
+  height: var(--nb-strip-h);
+  padding-inline: var(--nb-pad);
+  background: var(--nb-cta-bg);
+  color: var(--nb-cta-fg);
+  font-size: var(--nb-label);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.brandImg { height: calc(var(--nb-strip-h) - 6px); width: auto; display: block; max-width: 100%; object-fit: contain; }
+
+.toggle { display: none; }
+.panel { display: none; }
+
+/*
+ * Below 720px the reference does NOT stack the blocks: it collapses to a
+ * single 28px row split exactly in half - the action block on one side, a
+ * "Menu" control on the other - and reveals the colour blocks only when
+ * opened. Stacking them instead produced a 396px bar.
+ */
+@media (max-width: 1023px) {
+  .root {
+    --nb-strip-h: 28px;
+    --nb-label: 13px;
+    --nb-pad: 10px;
+    grid-template-columns: 1fr;
+    display: block;
+  }
+  .col { display: contents; }
+
+  .mobileRow { display: grid; grid-template-columns: 1fr 1fr; height: 28px; }
+  .mobileCta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding-inline: var(--nb-pad);
+    background: var(--nb-cta-bg);
+    color: var(--nb-cta-fg);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .mobileCtaLabel { overflow: hidden; text-overflow: ellipsis; }
+  .toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding-inline: var(--nb-pad);
+    border: 0;
+    background: #fff;
+    color: var(--nb-ink);
+    cursor: pointer;
+    font: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    height: 28px;
+  }
+  .toggleGlyph { font-size: 17px; line-height: 1; transition: transform 0.25s var(--nb-ease); }
+  .toggle[aria-expanded='true'] .toggleGlyph { transform: rotate(45deg); }
+
+  /* The blocks collapse away entirely rather than merely hiding, so the bar
+   * is 28px tall when closed however many items it holds. */
+  .stack { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.32s var(--nb-ease); }
+  .root[data-open='true'] .stack { grid-template-rows: 1fr; }
+  .stackInner { overflow: hidden; }
+
+  .brand { order: -1; }
+  .cta, .secondary, .socials { display: none; }
+  .ctaLabel { font-size: 26px; }
+  .subStrip { height: 26px; font-size: 12px; }
+}
+@media (min-width: 1024px) {
+  .mobileRow, .mobileCta { display: none; }
+  .stack, .stackInner { display: contents; }
+}
+
+@media (prefers-reduced-motion: reduce) { .root, .root * { transition-duration: 0.01ms !important; } }

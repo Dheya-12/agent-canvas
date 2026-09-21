@@ -1,0 +1,594 @@
+{
+ "id": "buildinamsterdam",
+ "name": "Build in Amsterdam",
+ "url": "https://www.buildinamsterdam.com/",
+ "at": "2026-09-21T06:53:00.849Z",
+ "viewports": {
+  "desktop": {
+   "initial": {
+    "found": true,
+    "selectorTag": "DIV",
+    "selectorCls": "sc-50569ac5-2 dUjRGd",
+    "score": -30,
+    "container": {
+     "rect": {
+      "x": 900.8,
+      "y": 165.7,
+      "w": 358.4,
+      "h": 73.4
+     },
+     "font": "NHaasGroteskDSPro",
+     "fontSize": "86.4px",
+     "fontWeight": "400",
+     "lineHeight": "73.44px",
+     "letterSpacing": "-3.456px",
+     "textTransform": "uppercase",
+     "color": "rgb(0, 0, 0)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "radius": "0px",
+     "border": "0px none rgb(0, 0, 0)",
+     "padding": "0px",
+     "transition": "all",
+     "mixBlendMode": "normal",
+     "opacity": "1",
+     "transform": "none",
+     "position": "relative",
+     "top": "0px",
+     "left": "0px",
+     "right": "0px",
+     "zIndex": "auto",
+     "backdropFilter": "none",
+     "boxShadow": "none",
+     "display": "inline-block",
+     "justifyContent": "normal",
+     "alignItems": "normal",
+     "gap": "normal",
+     "width": "358.359px",
+     "height": "73.4375px",
+     "paddingTop": "0px",
+     "paddingRight": "0px",
+     "paddingBottom": "0px",
+     "paddingLeft": "0px"
+    },
+    "interactive": [],
+    "logo": null,
+    "fonts": [
+     "NHaasGroteskDSPro"
+    ],
+    "docBg": "rgba(0, 0, 0, 0)",
+    "interactiveCount": 0
+   },
+   "scrolled": {
+    "found": true,
+    "selectorTag": "DIV",
+    "selectorCls": "sc-50569ac5-2 dUjRGd",
+    "score": -30,
+    "container": {
+     "rect": {
+      "x": 900.8,
+      "y": 165.7,
+      "w": 358.4,
+      "h": 73.4
+     },
+     "font": "NHaasGroteskDSPro",
+     "fontSize": "86.4px",
+     "fontWeight": "400",
+     "lineHeight": "73.44px",
+     "letterSpacing": "-3.456px",
+     "textTransform": "uppercase",
+     "color": "rgb(0, 0, 0)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "radius": "0px",
+     "border": "0px none rgb(0, 0, 0)",
+     "padding": "0px",
+     "transition": "all",
+     "mixBlendMode": "normal",
+     "opacity": "1",
+     "transform": "none",
+     "position": "relative",
+     "top": "0px",
+     "left": "0px",
+     "right": "0px",
+     "zIndex": "auto",
+     "backdropFilter": "none",
+     "boxShadow": "none",
+     "display": "inline-block",
+     "justifyContent": "normal",
+     "alignItems": "normal",
+     "gap": "normal",
+     "width": "358.359px",
+     "height": "73.4375px",
+     "paddingTop": "0px",
+     "paddingRight": "0px",
+     "paddingBottom": "0px",
+     "paddingLeft": "0px"
+    },
+    "interactive": [],
+    "logo": null,
+    "fonts": [
+     "NHaasGroteskDSPro"
+    ],
+    "docBg": "rgba(0, 0, 0, 0)",
+    "interactiveCount": 0
+   },
+   "deepScroll": {
+    "x": 900.8,
+    "y": 165.7,
+    "w": 358.4,
+    "h": 73.4
+   },
+   "scrollUp": {
+    "x": 900.8,
+    "y": 165.7,
+    "w": 358.4,
+    "h": 73.4
+   }
+  },
+  "laptop": {
+   "initial": {
+    "found": true,
+    "selectorTag": "DIV",
+    "selectorCls": "sc-50569ac5-2 dUjRGd",
+    "score": -30,
+    "container": {
+     "rect": {
+      "x": 603.3,
+      "y": 118.1,
+      "w": 329.4,
+      "h": 68
+     },
+     "font": "NHaasGroteskDSPro",
+     "fontSize": "80px",
+     "fontWeight": "400",
+     "lineHeight": "68px",
+     "letterSpacing": "-3.2px",
+     "textTransform": "uppercase",
+     "color": "rgb(0, 0, 0)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "radius": "0px",
+     "border": "0px none rgb(0, 0, 0)",
+     "padding": "0px",
+     "transition": "all",
+     "mixBlendMode": "normal",
+     "opacity": "1",
+     "transform": "none",
+     "position": "relative",
+     "top": "0px",
+     "left": "0px",
+     "right": "0px",
+     "zIndex": "auto",
+     "backdropFilter": "none",
+     "boxShadow": "none",
+     "display": "inline-block",
+     "justifyContent": "normal",
+     "alignItems": "normal",
+     "gap": "normal",
+     "width": "329.406px",
+     "height": "68px",
+     "paddingTop": "0px",
+     "paddingRight": "0px",
+     "paddingBottom": "0px",
+     "paddingLeft": "0px"
+    },
+    "interactive": [],
+    "logo": null,
+    "fonts": [
+     "NHaasGroteskDSPro"
+    ],
+    "docBg": "rgba(0, 0, 0, 0)",
+    "interactiveCount": 0
+   },
+   "scrolled": {
+    "found": true,
+    "selectorTag": "DIV",
+    "selectorCls": "sc-50569ac5-2 dUjRGd",
+    "score": -30,
+    "container": {
+     "rect": {
+      "x": 603.3,
+      "y": 118.1,
+      "w": 329.4,
+      "h": 68
+     },
+     "font": "NHaasGroteskDSPro",
+     "fontSize": "80px",
+     "fontWeight": "400",
+     "lineHeight": "68px",
+     "letterSpacing": "-3.2px",
+     "textTransform": "uppercase",
+     "color": "rgb(0, 0, 0)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "radius": "0px",
+     "border": "0px none rgb(0, 0, 0)",
+     "padding": "0px",
+     "transition": "all",
+     "mixBlendMode": "normal",
+     "opacity": "1",
+     "transform": "none",
+     "position": "relative",
+     "top": "0px",
+     "left": "0px",
+     "right": "0px",
+     "zIndex": "auto",
+     "backdropFilter": "none",
+     "boxShadow": "none",
+     "display": "inline-block",
+     "justifyContent": "normal",
+     "alignItems": "normal",
+     "gap": "normal",
+     "width": "329.406px",
+     "height": "68px",
+     "paddingTop": "0px",
+     "paddingRight": "0px",
+     "paddingBottom": "0px",
+     "paddingLeft": "0px"
+    },
+    "interactive": [],
+    "logo": null,
+    "fonts": [
+     "NHaasGroteskDSPro"
+    ],
+    "docBg": "rgba(0, 0, 0, 0)",
+    "interactiveCount": 0
+   },
+   "deepScroll": {
+    "x": 603.3,
+    "y": 118.1,
+    "w": 329.4,
+    "h": 68
+   },
+   "scrollUp": {
+    "x": 603.3,
+    "y": 118.1,
+    "w": 329.4,
+    "h": 68
+   }
+  },
+  "tablet": {
+   "initial": {
+    "found": false
+   },
+   "scrolled": {
+    "found": false
+   },
+   "menuToggle": {
+    "label": "",
+    "cls": "sc-d6217fba-2 kheHnr"
+   },
+   "menuOpen": {
+    "overlayFound": true,
+    "bodyOverflow": "visible",
+    "bodyPosition": "relative",
+    "bg": "rgb(0, 0, 0)",
+    "w": 768,
+    "h": 400,
+    "x": 0,
+    "y": 1024,
+    "transform": "matrix(1, 0, 0, 1, 0, 400)",
+    "transition": "transform 0.65s cubic-bezier(0.45, 0.02, 0.09, 0.98)",
+    "backdropFilter": "none",
+    "zIndex": "8",
+    "links": [
+     {
+      "t": "Home",
+      "fs": "16px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "NeueHaasGrotesk-Roman"
+     },
+     {
+      "t": "Work",
+      "fs": "16px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "NeueHaasGrotesk-Roman"
+     },
+     {
+      "t": "Expertise",
+      "fs": "16px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "NeueHaasGrotesk-Roman"
+     },
+     {
+      "t": "About",
+      "fs": "16px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "NeueHaasGrotesk-Roman"
+     },
+     {
+      "t": "Contact",
+      "fs": "16px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "NeueHaasGrotesk-Roman"
+     },
+     {
+      "t": "Join us",
+      "fs": "16px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "NeueHaasGrotesk-Roman"
+     },
+     {
+      "t": "Knowledge",
+      "fs": "16px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "NeueHaasGrotesk-Roman"
+     },
+     {
+      "t": "Home",
+      "fs": "16px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "NeueHaasGrotesk-Roman"
+     },
+     {
+      "t": "Work",
+      "fs": "16px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "NeueHaasGrotesk-Roman"
+     },
+     {
+      "t": "Expertise",
+      "fs": "16px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "NeueHaasGrotesk-Roman"
+     },
+     {
+      "t": "About",
+      "fs": "16px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "NeueHaasGrotesk-Roman"
+     },
+     {
+      "t": "Contact",
+      "fs": "16px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "NeueHaasGrotesk-Roman"
+     },
+     {
+      "t": "Join us",
+      "fs": "16px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "NeueHaasGrotesk-Roman"
+     },
+     {
+      "t": "Knowledge",
+      "fs": "16px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "NeueHaasGrotesk-Roman"
+     }
+    ]
+   },
+   "afterClose": {
+    "bodyOverflow": "visible"
+   }
+  },
+  "mobile": {
+   "initial": {
+    "found": true,
+    "selectorTag": "DIV",
+    "selectorCls": "sc-50569ac5-2 dUjRGd",
+    "score": -30,
+    "container": {
+     "rect": {
+      "x": 62.3,
+      "y": 168.8,
+      "w": 265.4,
+      "h": 54.8
+     },
+     "font": "NHaasGroteskDSPro",
+     "fontSize": "64.48px",
+     "fontWeight": "400",
+     "lineHeight": "54.808px",
+     "letterSpacing": "-2.5792px",
+     "textTransform": "uppercase",
+     "color": "rgb(0, 0, 0)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "radius": "0px",
+     "border": "0px none rgb(0, 0, 0)",
+     "padding": "0px",
+     "transition": "all",
+     "mixBlendMode": "normal",
+     "opacity": "1",
+     "transform": "none",
+     "position": "relative",
+     "top": "0px",
+     "left": "0px",
+     "right": "0px",
+     "zIndex": "auto",
+     "backdropFilter": "none",
+     "boxShadow": "none",
+     "display": "inline-block",
+     "justifyContent": "normal",
+     "alignItems": "normal",
+     "gap": "normal",
+     "width": "265.375px",
+     "height": "54.7969px",
+     "paddingTop": "0px",
+     "paddingRight": "0px",
+     "paddingBottom": "0px",
+     "paddingLeft": "0px"
+    },
+    "interactive": [],
+    "logo": null,
+    "fonts": [
+     "NHaasGroteskDSPro"
+    ],
+    "docBg": "rgba(0, 0, 0, 0)",
+    "interactiveCount": 0
+   },
+   "scrolled": {
+    "found": false
+   },
+   "menuToggle": {
+    "label": "",
+    "cls": "sc-d6217fba-2 kheHnr"
+   },
+   "menuOpen": {
+    "overlayFound": true,
+    "bodyOverflow": "visible",
+    "bodyPosition": "relative",
+    "bg": "rgb(0, 0, 0)",
+    "w": 390,
+    "h": 400,
+    "x": 0,
+    "y": 844,
+    "transform": "matrix(1, 0, 0, 1, 0, 400)",
+    "transition": "transform 0.65s cubic-bezier(0.45, 0.02, 0.09, 0.98)",
+    "backdropFilter": "none",
+    "zIndex": "8",
+    "links": [
+     {
+      "t": "Home",
+      "fs": "16px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "NeueHaasGrotesk-Roman"
+     },
+     {
+      "t": "Work",
+      "fs": "16px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "NeueHaasGrotesk-Roman"
+     },
+     {
+      "t": "Expertise",
+      "fs": "16px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "NeueHaasGrotesk-Roman"
+     },
+     {
+      "t": "About",
+      "fs": "16px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "NeueHaasGrotesk-Roman"
+     },
+     {
+      "t": "Contact",
+      "fs": "16px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "NeueHaasGrotesk-Roman"
+     },
+     {
+      "t": "Join us",
+      "fs": "16px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "NeueHaasGrotesk-Roman"
+     },
+     {
+      "t": "Knowledge",
+      "fs": "16px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "NeueHaasGrotesk-Roman"
+     },
+     {
+      "t": "Home",
+      "fs": "16px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "NeueHaasGrotesk-Roman"
+     },
+     {
+      "t": "Work",
+      "fs": "16px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "NeueHaasGrotesk-Roman"
+     },
+     {
+      "t": "Expertise",
+      "fs": "16px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "NeueHaasGrotesk-Roman"
+     },
+     {
+      "t": "About",
+      "fs": "16px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "NeueHaasGrotesk-Roman"
+     },
+     {
+      "t": "Contact",
+      "fs": "16px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "NeueHaasGrotesk-Roman"
+     },
+     {
+      "t": "Join us",
+      "fs": "16px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "NeueHaasGrotesk-Roman"
+     },
+     {
+      "t": "Knowledge",
+      "fs": "16px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "NeueHaasGrotesk-Roman"
+     }
+    ]
+   },
+   "afterClose": {
+    "bodyOverflow": "visible"
+   }
+  }
+ },
+ "errors": [],
+ "status": 200,
+ "finalUrl": "https://www.buildinamsterdam.com/",
+ "cookieDismissed": false,
+ "title": "Build in Amsterdam",
+ "consoleErrors": [
+  "It looks like the video you're trying to play will not work on this system! If possible, try upgrading to the newest versions of your browse",
+  "It looks like the video you're trying to play will not work on this system! If possible, try upgrading to the newest versions of your browse"
+ ],
+ "ok": true
+}

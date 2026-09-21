@@ -1,0 +1,189 @@
+/*
+ * Reconstructed from evidence/studiodumbar/inspection.json.
+ * Signature trait: the links are not gap-spaced, they are JUSTIFIED. The row
+ * occupies a fixed fraction of the bar (starting at ~51% of the width and
+ * running to the trailing gutter) and distributes its items with
+ * space-between, which is why the measured gaps are 96px at 1440 and 52px at
+ * 1024 - the spacing is whatever is left over, not a set value. The rail
+ * inverts against the page with mix-blend-mode: difference and carries a
+ * wide lockup at the leading edge.
+ */
+
+.root,
+.overlay {
+  --nb-h: 67px;
+  --nb-padY: 15px;
+  --nb-pad: 10px;
+  /* Fluid, solved from 20px at 1440 and 18.579px at 1024. */
+  --nb-type: clamp(15px, 15.086px + 0.3414vw, 20px);
+  /* Where the justified row begins, as a fraction of the bar. */
+  --nb-row-start: 51%;
+  --nb-ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.root {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 3;
+  height: var(--nb-h);
+  padding: var(--nb-padY) var(--nb-pad);
+  background: transparent;
+  color: #fff;
+  mix-blend-mode: difference;
+  font-family: var(--nb-font, inherit);
+}
+.root[data-open='true'] { mix-blend-mode: normal; color: var(--nb-overlay-fg, #111); z-index: 6; }
+
+.inner { height: 100%; display: flex; align-items: center; gap: 12px; }
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+  flex: 0 0 auto;
+  max-width: 38vw;
+  overflow: hidden;
+}
+.brandImg { height: 37px; width: auto; display: block; max-width: 100%; object-fit: contain; }
+.brandText {
+  font-size: calc(var(--nb-type) * 1.25);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* The row is sized, then justified inside itself. */
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0 0 0 auto;
+  padding: 0;
+  flex: 0 0 auto;
+  width: calc(100% - var(--nb-row-start));
+  min-width: 0;
+  gap: 8px;
+}
+.item { position: relative; min-width: 0; flex: 0 1 auto; }
+
+.link {
+  display: block;
+  font-size: var(--nb-type);
+  font-weight: 400;
+  line-height: 1.1;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity 0.25s var(--nb-ease);
+}
+.link:hover { opacity: 0.55; }
+.link[data-current='true'] { text-decoration: underline; text-underline-offset: 0.2em; }
+.badge { margin-inline-start: 0.35em; font-size: 0.6em; vertical-align: super; opacity: 0.7; }
+
+.sub {
+  position: absolute;
+  inset-inline-start: 0;
+  top: calc(100% + 12px);
+  min-width: 180px;
+  margin: 0;
+  padding: 10px 0;
+  list-style: none;
+  isolation: isolate;
+  mix-blend-mode: normal;
+  background: #111;
+  color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-5px);
+  transition: opacity 0.28s var(--nb-ease), transform 0.28s var(--nb-ease), visibility 0.28s;
+}
+.item[data-open='true'] > .sub { opacity: 1; visibility: visible; transform: none; }
+.subLink { display: block; padding: 6px 16px; font-size: 15px; color: inherit; text-decoration: none; white-space: nowrap; }
+.subLink:hover { opacity: 0.65; }
+
+.toggle { display: none; }
+.overlay { display: none; }
+
+@media (max-width: 900px) {
+  /* The reference's phone bar is 40px overall, with the mark overflowing it. */
+  .root, .overlay { --nb-padY: 8px; --nb-pad: 10px; --nb-h: 40px; }
+  .list { display: none; }
+  .toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 20px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+    position: relative;
+    margin-inline-start: auto;
+    flex: 0 0 auto;
+  }
+  .toggleBar {
+    position: absolute;
+    width: 26px;
+    height: 2px;
+    background: currentColor;
+    /* "Squeeze": the bars rotate into a cross about the centre. */
+    transition: transform 0.3s var(--nb-ease), opacity 0.15s var(--nb-ease);
+  }
+  .toggleBar:nth-child(1) { transform: translateY(-7px); }
+  .toggleBar:nth-child(2) { opacity: 1; }
+  .toggleBar:nth-child(3) { transform: translateY(7px); }
+  .toggle[aria-expanded='true'] .toggleBar:nth-child(1) { transform: rotate(45deg); }
+  .toggle[aria-expanded='true'] .toggleBar:nth-child(2) { opacity: 0; }
+  .toggle[aria-expanded='true'] .toggleBar:nth-child(3) { transform: rotate(-45deg); }
+  .brandImg { height: 23px; }
+
+  .overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 5;
+    background: var(--nb-overlay-bg, #fff);
+    color: var(--nb-overlay-fg, #111);
+    padding: calc(var(--nb-h) + 24px) 18px 32px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s linear, visibility 0.3s;
+  }
+  .overlay[data-theme='dark'] { --nb-overlay-bg: #0d0d0d; --nb-overlay-fg: #f2f2f2; }
+  .overlay[data-open='true'] { opacity: 1; visibility: visible; }
+  .overlayList { list-style: none; margin: 0; padding: 0; }
+  .overlayLink {
+    display: block;
+    padding: 2px 0;
+    /* The reference jumps to 60px here — the menu is the design, not a list. */
+    font-size: clamp(34px, 15vw, 60px);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.12;
+    color: inherit;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.4s var(--nb-ease), transform 0.4s var(--nb-ease);
+    transition-delay: calc(var(--i, 0) * 50ms + 120ms);
+  }
+  .overlay[data-open='true'] .overlayLink { opacity: 1; transform: none; }
+  .overlaySub { list-style: none; margin: 0 0 8px; padding-inline-start: 14px; }
+  .overlaySubLink { display: block; padding: 2px 0; font-size: 17px; color: inherit; text-decoration: none; opacity: 0.72; }
+  .overlayFoot { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 10px 20px; font-size: 14px; }
+  .overlayFoot a { color: inherit; text-decoration: none; opacity: 0.8; }
+}
+
+@media (prefers-reduced-motion: reduce) { .root, .root *, .overlay, .overlay * { transition-duration: 0.01ms !important; } }

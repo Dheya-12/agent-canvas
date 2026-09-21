@@ -1,0 +1,7 @@
+{
+  "_doc": "Per-reference navbar selectors, used where the generic scorer picks the wrong element or none. Each was found with scripts/probe-nav.mjs (an unfiltered DOM scan), not guessed. The measurement is otherwise identical.",
+  "koto": "div.flex.h-12",
+  "griflan": "header.sh",
+  "gardeneight": "ul",
+  "monks": "nav.is-visible"
+}

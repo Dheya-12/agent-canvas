@@ -1,0 +1,461 @@
+{
+ "generatedAt": "2026-09-21T13:37:36.400Z",
+ "counts": {
+  "USABLE": 35,
+  "NAV-WEAK": 5,
+  "NAV-NOT-FOUND": 4,
+  "BLOCKED": 5,
+  "ERROR": 1
+ },
+ "rows": [
+  {
+   "id": "antinomy",
+   "name": "Antinomy Studio",
+   "url": "https://antinomy.studio/",
+   "verdict": "USABLE",
+   "detail": "56px fixed, 5 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "area17",
+   "name": "AREA 17",
+   "url": "https://area17.com/",
+   "verdict": "USABLE",
+   "detail": "64px sticky, 5 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "bakkenbaeck",
+   "name": "Bakken & Baeck",
+   "url": "https://bakkenbaeck.com/",
+   "verdict": "USABLE",
+   "detail": "48px fixed, 7 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "basicdept",
+   "name": "BASIC/DEPT",
+   "url": "https://www.basicagency.com/",
+   "verdict": "USABLE",
+   "detail": "126px fixed, 8 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "bonhomme",
+   "name": "Bonhomme",
+   "url": "https://bonhomme.fr/",
+   "verdict": "USABLE",
+   "detail": "104px absolute, 8 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "codeandtheory",
+   "name": "Code and Theory",
+   "url": "https://codeandtheory.com/",
+   "verdict": "USABLE",
+   "detail": "71px fixed, 6 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "cuberto",
+   "name": "Cuberto",
+   "url": "https://cuberto.com/",
+   "verdict": "USABLE",
+   "detail": "72px fixed, 6 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "dogstudio",
+   "name": "Dogstudio",
+   "url": "https://dogstudio.co/",
+   "verdict": "USABLE",
+   "detail": "129px absolute, 2 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "fantasy",
+   "name": "Fantasy",
+   "url": "https://fantasy.co/",
+   "verdict": "USABLE",
+   "detail": "108px fixed, 2 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "gardeneight",
+   "name": "Garden Eight",
+   "url": "https://garden-eight.com/",
+   "verdict": "USABLE",
+   "detail": "90px static, 5 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "griflan",
+   "name": "Griflan Design",
+   "url": "https://griflan.com/",
+   "verdict": "USABLE",
+   "detail": "36px fixed, 10 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "houseofspoils",
+   "name": "House of Spoils",
+   "url": "https://houseofspoils.com/",
+   "verdict": "USABLE",
+   "detail": "64px fixed, 22 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "instrument",
+   "name": "Instrument",
+   "url": "https://www.instrument.com/",
+   "verdict": "USABLE",
+   "detail": "50px sticky, 8 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "jam3",
+   "name": "Jam3",
+   "url": "https://www.jam3.com/",
+   "verdict": "USABLE",
+   "detail": "100px absolute, 7 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "koto",
+   "name": "Koto",
+   "url": "https://koto.studio/",
+   "verdict": "USABLE",
+   "detail": "48px static, 6 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "lando",
+   "name": "Lando Norris",
+   "url": "https://landonorris.com/",
+   "verdict": "USABLE",
+   "detail": "83px fixed, 4 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "locomotive",
+   "name": "Locomotive",
+   "url": "https://locomotive.ca/",
+   "verdict": "USABLE",
+   "detail": "60px fixed, 6 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "lusion",
+   "name": "Lusion",
+   "url": "https://lusion.co/",
+   "verdict": "USABLE",
+   "detail": "146px fixed, 10 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "makemepulse",
+   "name": "Makemepulse",
+   "url": "https://makemepulse.com/",
+   "verdict": "USABLE",
+   "detail": "88px fixed, 8 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "mambomambo",
+   "name": "MamboMambo",
+   "url": "https://mambomambo.ca/",
+   "verdict": "USABLE",
+   "detail": "75px fixed, 5 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "mercimichel",
+   "name": "Merci-Michel",
+   "url": "https://merci-michel.com/",
+   "verdict": "USABLE",
+   "detail": "60px absolute, 4 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "monks",
+   "name": "Media.Monks",
+   "url": "https://www.monks.com/",
+   "verdict": "USABLE",
+   "detail": "100px absolute, 7 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "mvsm",
+   "name": "ManvsMachine",
+   "url": "https://mvsm.com/",
+   "verdict": "USABLE",
+   "detail": "128px fixed, 4 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "northkingdom",
+   "name": "North Kingdom",
+   "url": "https://www.northkingdom.com/",
+   "verdict": "USABLE",
+   "detail": "80px fixed, 5 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "obys",
+   "name": "Obys",
+   "url": "https://obys.agency/",
+   "verdict": "USABLE",
+   "detail": "65px fixed, 4 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "offf",
+   "name": "OFFF Barcelona",
+   "url": "https://www.offf.barcelona/",
+   "verdict": "USABLE",
+   "detail": "167px fixed, 7 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "readymag",
+   "name": "Readymag",
+   "url": "https://readymag.com/",
+   "verdict": "USABLE",
+   "detail": "72px absolute, 9 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "rejouice",
+   "name": "Rejouice",
+   "url": "https://www.rejouice.com/",
+   "verdict": "USABLE",
+   "detail": "62px fixed, 7 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "stinkstudios",
+   "name": "Stink Studios",
+   "url": "https://www.stinkstudios.com/",
+   "verdict": "USABLE",
+   "detail": "30px static, 5 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "studiodumbar",
+   "name": "Studio Dumbar",
+   "url": "https://studiodumbar.com/",
+   "verdict": "USABLE",
+   "detail": "67px fixed, 6 interactive, 3/4 viewports",
+   "status": 200,
+   "vpCount": 3
+  },
+  {
+   "id": "studiofreight",
+   "name": "Studio Freight",
+   "url": "https://studiofreight.com/",
+   "verdict": "USABLE",
+   "detail": "40px fixed, 6 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "ueno",
+   "name": "Ueno",
+   "url": "https://ueno.co/",
+   "verdict": "USABLE",
+   "detail": "86px absolute, 6 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "uncommon",
+   "name": "Uncommon",
+   "url": "https://www.uncommon.london/",
+   "verdict": "USABLE",
+   "detail": "90px relative, 1 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "unseen",
+   "name": "Unseen Studio",
+   "url": "https://unseen.co/",
+   "verdict": "USABLE",
+   "detail": "82px fixed, 5 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "zajno",
+   "name": "Zajno",
+   "url": "https://zajno.com/",
+   "verdict": "USABLE",
+   "detail": "45px absolute, 6 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "activetheory",
+   "name": "Active Theory",
+   "url": "https://activetheory.net/",
+   "verdict": "NAV-WEAK",
+   "detail": "container found (244px static) but 0 interactive children detected",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "akqa",
+   "name": "AKQA",
+   "url": "https://www.akqa.com/",
+   "verdict": "NAV-WEAK",
+   "detail": "container found (100px static) but 0 interactive children detected",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "breel",
+   "name": "B-Reel",
+   "url": "https://www.b-reel.com/",
+   "verdict": "NAV-WEAK",
+   "detail": "container found (104px fixed) but 0 interactive children detected",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "buildinamsterdam",
+   "name": "Build in Amsterdam",
+   "url": "https://www.buildinamsterdam.com/",
+   "verdict": "NAV-WEAK",
+   "detail": "container found (73px relative) but 0 interactive children detected",
+   "status": 200,
+   "vpCount": 3
+  },
+  {
+   "id": "hellomonday",
+   "name": "Hello Monday",
+   "url": "https://hellomonday.com/",
+   "verdict": "NAV-WEAK",
+   "detail": "container found (101px absolute) but 0 interactive children detected",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "brunosimon",
+   "name": "Bruno Simon",
+   "url": "https://bruno-simon.com/",
+   "verdict": "NAV-NOT-FOUND",
+   "detail": "page loaded (HTTP 200) but no navbar candidate scored above threshold",
+   "status": 200,
+   "vpCount": 0
+  },
+  {
+   "id": "caffedesign",
+   "name": "Caffe Design",
+   "url": "https://caffe.design/",
+   "verdict": "NAV-NOT-FOUND",
+   "detail": "page loaded (HTTP 200) but no navbar candidate scored above threshold",
+   "status": 200,
+   "vpCount": 0
+  },
+  {
+   "id": "immersivegarden",
+   "name": "Immersive Garden",
+   "url": "https://immersive-g.com/",
+   "verdict": "NAV-NOT-FOUND",
+   "detail": "page loaded (HTTP 200) but no navbar candidate scored above threshold",
+   "status": 200,
+   "vpCount": 0
+  },
+  {
+   "id": "resn",
+   "name": "Resn",
+   "url": "https://resn.co.nz/",
+   "verdict": "NAV-NOT-FOUND",
+   "detail": "page loaded (HTTP 200) but no navbar candidate scored above threshold",
+   "status": 200,
+   "vpCount": 1
+  },
+  {
+   "id": "aquest",
+   "name": "AQuest",
+   "url": "https://www.aquest.it/",
+   "verdict": "BLOCKED",
+   "detail": "HTTP 403",
+   "status": 403,
+   "vpCount": 4
+  },
+  {
+   "id": "awwwards",
+   "name": "Awwwards",
+   "url": "https://www.awwwards.com/",
+   "verdict": "BLOCKED",
+   "detail": "HTTP 502",
+   "status": 502,
+   "vpCount": 0
+  },
+  {
+   "id": "offbrand",
+   "name": "OFF+BRAND",
+   "url": "https://offbrand.agency/",
+   "verdict": "BLOCKED",
+   "detail": "HTTP 502",
+   "status": 502,
+   "vpCount": 0
+  },
+  {
+   "id": "springio",
+   "name": "Spring I/O",
+   "url": "https://springio.net/",
+   "verdict": "BLOCKED",
+   "detail": "HTTP 502",
+   "status": 502,
+   "vpCount": 0
+  },
+  {
+   "id": "vogueadria",
+   "name": "Vogue Adria",
+   "url": "https://vogueadria.com/",
+   "verdict": "BLOCKED",
+   "detail": "HTTP 403",
+   "status": 403,
+   "vpCount": 4
+  },
+  {
+   "id": "function",
+   "name": "Locomotive FUNCTION",
+   "url": "https://function.locomotive.ca/",
+   "verdict": "ERROR",
+   "detail": "page.goto: net::ERR_TUNNEL_CONNECTION_FAILED at https://function.locomotive.ca/\nCall log:\n\u001b[2m  - navigating to \"https://function.locomotive.ca/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+   "vpCount": 0
+  }
+ ]
+}

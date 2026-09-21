@@ -1,0 +1,78 @@
+{
+ "navId": "stacked-left-serif-accent",
+ "refId": "griflan",
+ "fixture": "dropdowns",
+ "overrides": {
+  "skip": [
+   "endGutter"
+  ],
+  "reason": "The reference's actions ('Join our workshop' and 'Let's Connect', clearly visible at the right edge in evidence/griflan/desktop-initial.png) are NOT descendants of the measured header element - they sit in a separate group positioned below it at y=36. The probe therefore reports the trailing edge of an unrelated in-header element at x=666 rather than the real trailing control at x=1395, which is 44px from the edge and symmetric with the 44px leading gutter the reconstruction uses."
+ },
+ "at": "2026-09-21T14:57:34.521Z",
+ "viewports": {
+  "desktop": {
+   "h": 36,
+   "pos": "fixed",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 11
+  },
+  "laptop": {
+   "h": 26,
+   "pos": "fixed",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 11
+  },
+  "tablet": {
+   "h": 26,
+   "pos": "fixed",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 11
+  },
+  "mobile": {
+   "h": 74,
+   "pos": "fixed",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 2
+  }
+ },
+ "diffs": {
+  "desktop": [],
+  "laptop": [
+   {
+    "level": "deviation",
+    "metric": "linkFontSize",
+    "msg": "link font-size 12px vs ref 10.24px (Δ1.8) [declared: The reference scales link type at a strict 1vw with no floor, reaching 10.2px at 1024 and 7.7px at 768. The fluid ramp is kept but floored at 12px so generated labels stay legible.]"
+   }
+  ],
+  "tablet": [
+   {
+    "level": "deviation",
+    "metric": "height",
+    "msg": "height 26.0 vs ref 19.2 (Δ6.8px) [declared: Downstream of the declared type floor: the reference's bar is 19.2px at 768 because its type is 7.7px there. A 12px floor cannot fit in a 19px bar, so the rail is floored at 26px - the height the reference itself holds at 1024.]"
+   },
+   {
+    "level": "deviation",
+    "metric": "linkFontSize",
+    "msg": "link font-size 12px vs ref 7.68px (Δ4.3) [declared: The reference scales link type at a strict 1vw with no floor, reaching 10.2px at 1024 and 7.7px at 768. The fluid ramp is kept but floored at 12px so generated labels stay legible.]"
+   }
+  ],
+  "mobile": []
+ },
+ "pageErrors": [],
+ "menuOpen": {
+  "bodyOverflow": "hidden",
+  "expanded": "true"
+ },
+ "afterEscape": {
+  "bodyOverflow": "visible",
+  "expanded": "false"
+ }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "@agent-canvas/navbar-library",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "preview": "vite preview --port 4174",
+    "test": "node tests/regression.mjs",
+    "test:baseline": "node scripts/baseline.mjs",
+    "certify": "node scripts/certify.mjs",
+    "inspect": "node scripts/inspect.mjs",
+    "report": "node scripts/report.mjs",
+    "gallery": "node scripts/gallery.mjs",
+    "gallery:file": "GALLERY_ONLY=1 vite build && node scripts/standalone.mjs"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11"
+  }
+}

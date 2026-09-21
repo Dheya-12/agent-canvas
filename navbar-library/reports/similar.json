@@ -1,0 +1,19 @@
+{
+  "_doc": "References judged MATERIALLY SIMILAR to a component already in the library. Recorded instead of shipping a near-duplicate to reach a count. Each entry names the component it duplicates, what the two share, and the one or two traits that differ - so the judgement can be challenged.",
+  "rejouice": {
+    "reference": "Rejouice (https://www.rejouice.com/)",
+    "duplicates": "blend-difference-trizone",
+    "shared": "Fixed full-bleed rail with mix-blend-mode: difference and no background of its own; three-zone composition (mark hard-left, link cluster set off-centre at ~51% of the width, single action hard-right); no scroll response; 14px links on slightly negative tracking; symmetric 40px gutters.",
+    "differs": "The rail is 62px rather than 40px, and the brand slot holds a 440px-wide lockup (mark plus descriptor line) rather than a mark alone. The CTA carries an arrow glyph on both sides.",
+    "verdict": "Not shipped as a separate component. Both differences are reachable through the existing contract: a longer brand.name renders the descriptor lockup, and cta.icon supplies the arrow. Shipping it would add a second difference-blend tri-zone rail distinguished only by 22px of height.",
+    "evidence": "evidence/rejouice/inspection.json"
+  },
+  "jam3": {
+    "reference": "Jam3 (https://www.jam3.com/)",
+    "duplicates": "(same site as) Media.Monks \u2014 https://www.monks.com/",
+    "shared": "jam3.com issues a redirect to www.monks.com and serves the Media.Monks site, page title 'Monks'. Jam3 was absorbed into Media.Monks, so two entries in the 50-site reference list resolve to a single live site and a single navbar.",
+    "differs": "Nothing \u2014 it is the same document, not a similar design.",
+    "verdict": "Not a duplicate design judgement but a redirect: the reference list effectively contains 49 distinct sites, not 50. Any reconstruction of 'Jam3' would in fact be a reconstruction of Media.Monks.",
+    "evidence": "evidence/jam3/inspection.json (finalUrl https://www.monks.com/, title 'Monks')"
+  }
+}

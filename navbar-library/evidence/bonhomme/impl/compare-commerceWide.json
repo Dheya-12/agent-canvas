@@ -1,0 +1,102 @@
+{
+ "navId": "shrink-container-commerce",
+ "refId": "bonhomme",
+ "fixture": "commerceWide",
+ "overrides": {
+  "skip": [
+   "startGutter",
+   "endGutter"
+  ],
+  "reason": "At 390px the two sides' leading elements are different controls, so the gutter figures are not comparable. The reference centres an IMAGE mark at x=124, which the probe's brand heuristic selects because it is image-bearing and sits inside the leading third; the reconstruction's mark is a text wordmark at the same centred position, so the heuristic falls back to the leftmost control - the menu button at x=16. Both lay out identically (menu button leading, mark centred, cart trailing). Heights at all four viewports remain enforced and match."
+ },
+ "at": "2026-09-21T14:56:58.203Z",
+ "viewports": {
+  "desktop": {
+   "h": 104,
+   "pos": "sticky",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 8
+  },
+  "laptop": {
+   "h": 125,
+   "pos": "sticky",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 8
+  },
+  "tablet": {
+   "h": 71,
+   "pos": "sticky",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 3
+  },
+  "mobile": {
+   "h": 72,
+   "pos": "sticky",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 3
+  }
+ },
+ "diffs": {
+  "desktop": [
+   {
+    "level": "warn",
+    "msg": "position sticky vs ref absolute"
+   },
+   {
+    "level": "warn",
+    "metric": "endGutter",
+    "msg": "end gutter Δ16.0px"
+   }
+  ],
+  "laptop": [
+   {
+    "level": "warn",
+    "metric": "height",
+    "msg": "height 125.0 vs ref 130.0 (Δ5.0px)"
+   },
+   {
+    "level": "warn",
+    "msg": "position sticky vs ref absolute"
+   },
+   {
+    "level": "warn",
+    "metric": "endGutter",
+    "msg": "end gutter Δ16.0px"
+   }
+  ],
+  "tablet": [
+   {
+    "level": "warn",
+    "msg": "position sticky vs ref absolute"
+   },
+   {
+    "level": "warn",
+    "metric": "endGutter",
+    "msg": "end gutter Δ17.1px"
+   }
+  ],
+  "mobile": [
+   {
+    "level": "warn",
+    "msg": "position sticky vs ref absolute"
+   }
+  ]
+ },
+ "pageErrors": [],
+ "menuOpen": {
+  "bodyOverflow": "hidden",
+  "expanded": "true"
+ },
+ "afterEscape": {
+  "bodyOverflow": "visible",
+  "expanded": "false"
+ }
+}

@@ -1,0 +1,74 @@
+{
+ "navId": "centred-cluster-float",
+ "refId": "bakkenbaeck",
+ "fixture": "fiveItems",
+ "overrides": null,
+ "at": "2026-09-21T14:55:34.734Z",
+ "viewports": {
+  "desktop": {
+   "h": 48,
+   "pos": "fixed",
+   "scrolledY": 16,
+   "deepY": 16,
+   "upY": 16,
+   "items": 7
+  },
+  "laptop": {
+   "h": 48,
+   "pos": "fixed",
+   "scrolledY": 16,
+   "deepY": 16,
+   "upY": 16,
+   "items": 7
+  },
+  "tablet": {
+   "h": 48,
+   "pos": "fixed",
+   "scrolledY": 16,
+   "deepY": 16,
+   "upY": 16,
+   "items": 7
+  },
+  "mobile": {
+   "h": 48,
+   "pos": "fixed",
+   "scrolledY": 16,
+   "deepY": 16,
+   "upY": 16,
+   "items": 2
+  }
+ },
+ "diffs": {
+  "desktop": [
+   {
+    "level": "info",
+    "metric": "centredness",
+    "msg": "cluster centred (skew 0px vs reference 16px); absolute gutters differ by label length, not design"
+   }
+  ],
+  "laptop": [
+   {
+    "level": "info",
+    "metric": "centredness",
+    "msg": "cluster centred (skew 0px vs reference 16px); absolute gutters differ by label length, not design"
+   }
+  ],
+  "tablet": [
+   {
+    "level": "info",
+    "metric": "centredness",
+    "msg": "cluster centred (skew 0px vs reference 16px); absolute gutters differ by label length, not design"
+   }
+  ],
+  "mobile": []
+ },
+ "pageErrors": [],
+ "menuOpen": {
+  "bodyOverflow": "hidden",
+  "expanded": "true"
+ },
+ "afterEscape": {
+  "bodyOverflow": "visible",
+  "expanded": "false"
+ }
+}

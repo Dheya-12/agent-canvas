@@ -1,0 +1,48 @@
+{
+ "navId": "fluid-clamp-inline",
+ "refId": "northkingdom",
+ "fixture": "noCta",
+ "overrides": null,
+ "at": "2026-09-21T14:56:12.673Z",
+ "viewports": {
+  "desktop": {
+   "h": 80,
+   "pos": "fixed",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 4
+  },
+  "laptop": {
+   "h": 80,
+   "pos": "fixed",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 4
+  },
+  "tablet": {
+   "h": 80,
+   "pos": "fixed",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 4
+  },
+  "mobile": {
+   "h": 80,
+   "pos": "fixed",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 4
+  }
+ },
+ "diffs": {
+  "desktop": [],
+  "laptop": [],
+  "tablet": [],
+  "mobile": []
+ },
+ "pageErrors": []
+}

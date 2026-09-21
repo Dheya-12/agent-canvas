@@ -1,0 +1,20 @@
+/*
+ * Shared accessibility primitives.
+ *
+ * `tapTarget` expands a control's HIT AREA to 44x44 without changing how it
+ * looks. Several of these designs use a deliberately small glyph (a 15px
+ * "Menu" word, a 26px burger); enlarging the visible control to satisfy the
+ * touch-target floor would break fidelity, so the hit area is grown with a
+ * centred pseudo-element instead.
+ */
+.tapTarget { position: relative; }
+.tapTarget::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: max(100%, 44px);
+  height: max(100%, 44px);
+  /* Purely a hit area: never paints, never affects layout. */
+}

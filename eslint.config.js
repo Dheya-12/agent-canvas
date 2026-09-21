@@ -61,6 +61,9 @@ export default [
       "test-results-live/**",
       "public/mockServiceWorker.js",
       "src/i18n/declaration.d.ts",
+      // Standalone package with its own toolchain and lint rules; it is not
+      // part of the app build and does not follow the app's i18n conventions.
+      "navbar-library/**",
     ],
   },
 

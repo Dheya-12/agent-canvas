@@ -1,0 +1,21 @@
+{
+  "_doc": "References the generic probe could not resolve, classified after a deliberately unfiltered DOM scan (scripts/probe-nav.mjs) at rest AND after scrolling 900px. The scan ignores tag and class entirely and accepts any visible element near the top that contains a link, so a nil result is evidence of absence rather than a heuristic failure.",
+  "noInspectableNavbar": {
+    "_note": "No navigation container exists in the DOM at 1440x900, at rest or after scroll. These sites draw their interface in WebGL/canvas or present no persistent bar on the homepage. They are NOT reconstructed: there is nothing to measure, and inventing one would be fabrication.",
+    "akqa": { "url": "https://www.akqa.com/", "detail": "Nil at rest and after scroll. evidence/akqa/probe-top.png and probe-scrolled.png show full-bleed type with no bar." },
+    "activetheory": { "url": "https://activetheory.net/", "detail": "Nil at rest and after scroll; the interface is WebGL-rendered." },
+    "resn": { "url": "https://resn.co.nz/", "detail": "Nil at rest and after scroll; WebGL-rendered." },
+    "immersivegarden": { "url": "https://immersive-g.com/", "detail": "Nil at rest and after scroll; WebGL-rendered." },
+    "caffedesign": { "url": "https://caffe.design/", "detail": "Nil at rest and after scroll." },
+    "breel": { "url": "https://www.b-reel.com/", "detail": "Only a 400x213 'GET IN TOUCH' callout after scroll; no navigation bar." },
+    "buildinamsterdam": { "url": "https://www.buildinamsterdam.com/", "detail": "Only a 202x80 header carrying a single link and no navigation items." },
+    "brunosimon": { "url": "https://bruno-simon.com/", "detail": "A WebGL driving game; the screenshot pass timed out against its continuous render loop and no DOM navigation exists." }
+  },
+  "recoverableWithSelector": {
+    "_note": "A navigation container DOES exist; the generic scorer missed it. Each entry names the selector the diagnostic found, so these can be reconstructed.",
+    "koto": { "url": "https://koto.studio/", "selector": "div.flex.h-12", "detail": "Three separate floating groups inset 16px, each 48px tall: brand+toggle at 151x48@16,16; nav at 452x48@132,16 (Work|About|Services|Latest|Careers|Contact); a city list at 370x48@1428,16 with backdrop blur. The nav group translates left on scroll (x=132 to x=-123)." },
+    "griflan": { "url": "https://griflan.com/", "selector": "header.sh.sh-blended", "detail": "1440x36 fixed z=100 with 10 links, plus a separate 324x52 action group at y=36 below the bar." },
+    "gardeneight": { "url": "https://garden-eight.com/", "selector": "ul", "detail": "351x90@920,0 with six links (Home|Cases|About|Archives|Contact|AI), revealed after scroll." },
+    "monks": { "url": "https://www.monks.com/", "selector": "nav.is-visible", "detail": "1440x100@0,110 with 30 links. At rest it sits behind a language-selection overlay (div.fixed-wrapper, English/Spanish/Portuguese) which the generic dismiss patterns do not match; that overlay is what the first sweep measured." }
+  }
+}

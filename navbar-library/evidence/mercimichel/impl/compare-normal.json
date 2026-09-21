@@ -1,0 +1,41 @@
+{
+ "navId": "inset-rail-text-roll",
+ "refId": "mercimichel",
+ "fixture": "normal",
+ "overrides": {
+  "skip": [
+   "startGutter"
+  ],
+  "reason": "At desktop, laptop and tablet the reference's brand mark is not an <a>/<button>/[role=button], so the probe reports the FIRST NAV LINK ('About', x=1123 at 1440) as the leading element. The reference's own mobile viewport, where the mark IS a link, puts it at x=45 - which is exactly the inset this reconstruction uses at every width."
+ },
+ "at": "2026-09-21T14:56:13.267Z",
+ "viewports": {
+  "desktop": {
+   "h": 60,
+   "pos": "absolute",
+   "items": 5
+  },
+  "laptop": {
+   "h": 60,
+   "pos": "absolute",
+   "items": 5
+  },
+  "tablet": {
+   "h": 60,
+   "pos": "absolute",
+   "items": 5
+  },
+  "mobile": {
+   "h": 60,
+   "pos": "absolute",
+   "items": 5
+  }
+ },
+ "diffs": {
+  "desktop": [],
+  "laptop": [],
+  "tablet": [],
+  "mobile": []
+ },
+ "pageErrors": []
+}

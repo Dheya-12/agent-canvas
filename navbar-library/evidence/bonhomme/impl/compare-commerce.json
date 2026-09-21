@@ -1,0 +1,111 @@
+{
+ "navId": "shrink-container-commerce",
+ "refId": "bonhomme",
+ "fixture": "commerce",
+ "overrides": null,
+ "at": "2026-09-21T11:06:01.631Z",
+ "viewports": {
+  "desktop": {
+   "h": 104,
+   "pos": "sticky",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 10
+  },
+  "laptop": {
+   "h": 104,
+   "pos": "sticky",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 10
+  },
+  "tablet": {
+   "h": 71,
+   "pos": "sticky",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 6
+  },
+  "mobile": {
+   "h": 72,
+   "pos": "sticky",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 6
+  }
+ },
+ "diffs": {
+  "desktop": [
+   {
+    "level": "warn",
+    "msg": "position sticky vs ref absolute"
+   },
+   {
+    "level": "fail",
+    "metric": "startGutter",
+    "msg": "start gutter 140.0 vs ref 110.0 (Δ30.0px)"
+   },
+   {
+    "level": "fail",
+    "metric": "endGutter",
+    "msg": "end gutter Δ46.0px"
+   }
+  ],
+  "laptop": [
+   {
+    "level": "fail",
+    "metric": "height",
+    "msg": "height 104.0 vs ref 130.0 (Δ26.0px)"
+   },
+   {
+    "level": "warn",
+    "msg": "position sticky vs ref absolute"
+   },
+   {
+    "level": "warn",
+    "metric": "endGutter",
+    "msg": "end gutter Δ16.0px"
+   }
+  ],
+  "tablet": [
+   {
+    "level": "warn",
+    "msg": "position sticky vs ref absolute"
+   },
+   {
+    "level": "warn",
+    "metric": "endGutter",
+    "msg": "end gutter Δ17.0px"
+   }
+  ],
+  "mobile": [
+   {
+    "level": "warn",
+    "msg": "position sticky vs ref absolute"
+   },
+   {
+    "level": "fail",
+    "metric": "startGutter",
+    "msg": "start gutter 16.0 vs ref 124.2 (Δ108.2px)"
+   },
+   {
+    "level": "fail",
+    "metric": "endGutter",
+    "msg": "end gutter Δ153.1px"
+   }
+  ]
+ },
+ "pageErrors": [],
+ "menuOpen": {
+  "bodyOverflow": "hidden",
+  "expanded": "true"
+ },
+ "afterEscape": {
+  "bodyOverflow": "visible",
+  "expanded": "false"
+ }
+}

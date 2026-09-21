@@ -1,0 +1,199 @@
+/*
+ * Reconstructed from evidence/mvsm/inspection.json.
+ * Signature traits: the rail's height comes from generous VERTICAL PADDING
+ * (48px above and below a 32px row, giving 128px) rather than from a set
+ * height; gutters are symmetric with the type (54px); links are mixed-case
+ * 20px on slightly negative tracking with an inline social glyph beside
+ * them; and the menu slides DOWN FROM ABOVE the viewport rather than fading
+ * or sliding in from a side.
+ */
+
+.root,
+.sheet {
+  --nb-padY: 48px;
+  --nb-pad: 54px;
+  --nb-type: 20px;
+  --nb-row: 32px;
+  --nb-fg: #111;
+  --nb-surface: #fff;
+  --nb-ease: cubic-bezier(0.65, 0, 0.35, 1);
+}
+.root[data-theme='dark'],
+.sheet[data-theme='dark'] { --nb-fg: #f2f2f2; --nb-surface: #0e0e0e; }
+
+.root {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 20;
+  padding: var(--nb-padY) var(--nb-pad);
+  background: transparent;
+  color: var(--nb-fg);
+  transition: opacity 0.3s ease-in-out, color 0.3s ease-in-out;
+  font-family: var(--nb-font, inherit);
+}
+.root[data-open='true'] { z-index: 40; }
+
+.inner { display: flex; align-items: center; gap: 24px; min-height: var(--nb-row); }
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 40vw;
+  overflow: hidden;
+}
+.brandText {
+  font-size: var(--nb-type);
+  font-weight: 400;
+  /* Tighter tracking on the mark than on the links. */
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.brandImg { height: var(--nb-row); width: auto; display: block; max-width: 100%; object-fit: contain; }
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+  margin: 0 0 0 auto;
+  padding: 0;
+  min-width: 0;
+  overflow: hidden;
+}
+.item { position: relative; min-width: 0; flex: 0 1 auto; }
+
+.link {
+  display: block;
+  font-size: var(--nb-type);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity 0.28s var(--nb-ease);
+}
+.link:hover { opacity: 0.5; }
+.link[data-current='true'] { text-decoration: underline; text-underline-offset: 4px; }
+.badge { margin-inline-start: 5px; font-size: 11px; vertical-align: super; opacity: 0.7; }
+
+.sub {
+  position: absolute;
+  inset-inline-start: 0;
+  top: calc(100% + 10px);
+  min-width: 180px;
+  margin: 0;
+  padding: 10px 0;
+  list-style: none;
+  background: var(--nb-surface);
+  border: 1px solid color-mix(in srgb, var(--nb-fg) 16%, transparent);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-5px);
+  transition: opacity 0.28s var(--nb-ease), transform 0.28s var(--nb-ease), visibility 0.28s;
+}
+.item[data-open='true'] > .sub { opacity: 1; visibility: visible; transform: none; }
+.subLink { display: block; padding: 5px 16px; font-size: 16px; color: inherit; text-decoration: none; white-space: nowrap; }
+.subLink:hover { opacity: 0.6; }
+
+.tail { display: flex; align-items: center; gap: 22px; flex: 0 0 auto; }
+.cta, .secondary {
+  font-size: var(--nb-type);
+  letter-spacing: -0.01em;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.28s var(--nb-ease);
+}
+.cta:hover, .secondary:hover { opacity: 0.5; }
+.secondary { opacity: 0.68; font-size: 16px; }
+
+/* A social glyph sits in the bar beside the links, not in a footer. */
+.socials { display: flex; align-items: center; gap: 14px; flex: 0 0 auto; }
+.social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--nb-type);
+  line-height: 1;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.28s var(--nb-ease);
+}
+.social:hover { opacity: 0.5; }
+
+.toggle { display: none; }
+
+/* The sheet is parked above the viewport and pushes down into it. */
+.sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: var(--nb-surface);
+  color: var(--nb-fg);
+  padding: calc(var(--nb-padY) + var(--nb-row) + 28px) var(--nb-pad) 40px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  transform: translateY(-100%);
+  visibility: hidden;
+  transition: transform 0.6s var(--nb-ease), visibility 0.6s;
+}
+.sheet[data-open='true'] { transform: none; visibility: visible; }
+
+.sheetList { list-style: none; margin: 0; padding: 0; }
+.sheetLink {
+  display: block;
+  padding: 4px 0;
+  font-size: clamp(28px, 7vw, 46px);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.18;
+  color: inherit;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  opacity: 0;
+  transform: translateY(-12px);
+  transition: opacity 0.42s var(--nb-ease), transform 0.42s var(--nb-ease);
+  transition-delay: calc(var(--i, 0) * 50ms + 220ms);
+}
+.sheet[data-open='true'] .sheetLink { opacity: 1; transform: none; }
+.sheetSub { list-style: none; margin: 0 0 8px; padding-inline-start: 16px; }
+.sheetSubLink { display: block; padding: 2px 0; font-size: 17px; color: inherit; text-decoration: none; opacity: 0.72; }
+.sheetFoot { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 16px; }
+.sheetFoot a { color: inherit; text-decoration: none; opacity: 0.8; }
+
+/* Tiers follow the reference's measured heights: 128 / 115 / 102. The
+ * previous 1023px edge excluded 1024 itself, which is exactly where the
+ * reference steps down. */
+@media (max-width: 1200px) { .root, .sheet { --nb-padY: 40px; --nb-pad: 44px; --nb-type: 18px; --nb-row: 35px; } }
+@media (max-width: 860px) {
+  .root, .sheet { --nb-pad: 31px; --nb-type: 16px; --nb-row: 22px; }
+  .list, .cta, .secondary, .socials { display: none; }
+  .toggle {
+    display: inline-flex;
+    align-items: center;
+    margin-inline-start: auto;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    font-size: var(--nb-type);
+    letter-spacing: -0.01em;
+    flex: 0 0 auto;
+  }
+}
+@media (max-width: 767px) { .root, .sheet { --nb-padY: 30px; --nb-pad: 21px; --nb-type: 14px; --nb-row: 20px; } }
+
+@media (prefers-reduced-motion: reduce) { .root, .root *, .sheet, .sheet * { transition-duration: 0.01ms !important; } }

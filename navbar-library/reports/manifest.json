@@ -1,0 +1,747 @@
+[
+ {
+  "id": "blend-difference-trizone",
+  "displayName": "Blend-Difference Tri-Zone Monospace Rail",
+  "reference": {
+   "site": "Studio Freight",
+   "url": "https://studiofreight.com/"
+  },
+  "layout": "split-center",
+  "menuArchitecture": "dropdown",
+  "mobilePattern": "overlay-fullscreen",
+  "scrollBehavior": "static",
+  "motionIntensity": 2,
+  "density": "compact",
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "supportsDropdowns": true,
+  "supportsCta": true,
+  "supportsSecondaryAction": true,
+  "supportsSocials": true,
+  "comfortableItems": [
+   2,
+   6
+  ],
+  "maxLabelChars": 12,
+  "rtlSupport": "partial",
+  "dependencies": [],
+  "assets": [],
+  "tone": [
+   "experimental",
+   "technical",
+   "monospace",
+   "editorial",
+   "studio"
+  ],
+  "industries": [
+   "design studio",
+   "motion",
+   "creative technology",
+   "music",
+   "portfolio"
+  ],
+  "notes": "The rail has no background of its own — mix-blend-mode: difference inverts it against the page, so it stays legible over light and dark sections with no scroll listener. Requires page content behind it to read correctly; over a mid-grey background the inverted text can approach low contrast. Dropdown panels and the mobile panel opt out of the blend (isolation: isolate) because text-over-text difference blending is unreadable. RTL is partial: the off-centre cluster is mirrored, but the composition was designed left-to-right.",
+  "refId": "studiofreight"
+ },
+ {
+  "id": "centered-wordmark-commerce",
+  "displayName": "Centred Wordmark Commerce Rail with Mega Panel",
+  "reference": {
+   "site": "House of Spoils",
+   "url": "https://houseofspoils.com/"
+  },
+  "layout": "centered",
+  "menuArchitecture": "mega",
+  "mobilePattern": "drawer",
+  "scrollBehavior": "transparent-to-solid",
+  "motionIntensity": 2,
+  "density": "balanced",
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "supportsDropdowns": true,
+  "supportsCta": true,
+  "supportsSecondaryAction": true,
+  "supportsSocials": true,
+  "supportsUtilities": true,
+  "comfortableItems": [
+   2,
+   5
+  ],
+  "maxLabelChars": 22,
+  "rtlSupport": "full",
+  "dependencies": [],
+  "assets": [],
+  "tone": [
+   "premium",
+   "editorial",
+   "retail",
+   "refined",
+   "photographic"
+  ],
+  "industries": [
+   "ecommerce",
+   "fashion",
+   "homeware",
+   "art",
+   "beauty",
+   "hospitality"
+  ],
+  "referenceFixture": "commerce",
+  "notes": "Built for commerce: `utilities` render as a trailing icon cluster (inline SVG, no asset dependency, optional count badge), `secondaryAction` as a locale or currency selector, and items with children open a full-width mega panel. The wordmark is absolutely centred on the viewport axis, so it stays on axis however wide the flanking clusters grow. Designed to sit transparent over hero imagery and take a solid surface once scrolled.",
+  "refId": "houseofspoils"
+ },
+ {
+  "id": "centred-cluster-float",
+  "displayName": "Centred Floating Cluster",
+  "reference": {
+   "site": "Bakken & Baeck",
+   "url": "https://bakkenbaeck.com/"
+  },
+  "layout": "centered",
+  "menuArchitecture": "dropdown",
+  "mobilePattern": "drawer",
+  "scrollBehavior": "static",
+  "motionIntensity": 1,
+  "density": "compact",
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "supportsDropdowns": true,
+  "supportsCta": true,
+  "supportsSecondaryAction": true,
+  "supportsSocials": true,
+  "comfortableItems": [
+   3,
+   6
+  ],
+  "maxLabelChars": 12,
+  "rtlSupport": "full",
+  "dependencies": [],
+  "assets": [],
+  "referenceFixture": "fiveItems",
+  "tone": [
+   "modern",
+   "calm",
+   "product-led",
+   "studio",
+   "approachable"
+  ],
+  "industries": [
+   "agency",
+   "software",
+   "saas",
+   "consultancy",
+   "design studio"
+  ],
+  "notes": "The whole navigation - mark, links and action - is a single cluster held on the viewport axis rather than spread to the edges, so the bar reads as one object floating over a full-bleed page. The bar spans the viewport but is pointer-events: none, so it never swallows clicks meant for the content behind it; only the controls opt back in. Because the cluster is centred, total label length matters more than item count: long labels push the mark and action outward symmetrically. Below 640px the cluster stops being centred and becomes mark-left / controls-right with a dropdown card.",
+  "refId": "bakkenbaeck"
+ },
+ {
+  "id": "chunky-pill-emblem",
+  "displayName": "Chunky Control Rail with Accent Pill",
+  "reference": {
+   "site": "Lando Norris",
+   "url": "https://landonorris.com/"
+  },
+  "layout": "split-center",
+  "menuArchitecture": "dropdown",
+  "mobilePattern": "overlay-fullscreen",
+  "scrollBehavior": "static",
+  "motionIntensity": 3,
+  "density": "balanced",
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "supportsDropdowns": true,
+  "supportsCta": true,
+  "supportsSecondaryAction": true,
+  "supportsSocials": true,
+  "comfortableItems": [
+   0,
+   4
+  ],
+  "maxLabelChars": 12,
+  "rtlSupport": "full",
+  "dependencies": [],
+  "assets": [],
+  "tone": [
+   "bold",
+   "sporty",
+   "high-energy",
+   "consumer",
+   "merch-led"
+  ],
+  "industries": [
+   "sports",
+   "personal brand",
+   "entertainment",
+   "fitness",
+   "retail",
+   "music"
+  ],
+  "notes": "Controls are sized off the BAR rather than the type - a 60px rounded square in an 83px rail - which gives the bar a physical, product-like weight. The burger is present at every width including desktop, so inline links are optional and the full index is always one tap away; this is the one navbar in the library that works with zero items. `cta` takes a high-visibility accent pill, set via --nb-accent (default #d2ff00) and meant to be overridden per brand; --nb-menu sets the deep-tone menu surface. `secondaryAction` renders as the centred circular emblem, using its `icon` or the first two characters of its label. Overlay labels roll vertically on hover, as in the reference.",
+  "refId": "lando"
+ },
+ {
+  "id": "colorflood-word-toggle",
+  "displayName": "Colour-Flood Menu with Word Toggle",
+  "reference": {
+   "site": "Locomotive",
+   "url": "https://locomotive.ca/"
+  },
+  "layout": "split-center",
+  "menuArchitecture": "dropdown",
+  "mobilePattern": "overlay-fullscreen",
+  "scrollBehavior": "static",
+  "motionIntensity": 3,
+  "density": "airy",
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "supportsDropdowns": true,
+  "supportsCta": true,
+  "supportsSecondaryAction": true,
+  "supportsSocials": true,
+  "comfortableItems": [
+   2,
+   5
+  ],
+  "maxLabelChars": 12,
+  "rtlSupport": "full",
+  "dependencies": [],
+  "assets": [],
+  "tone": [
+   "bold",
+   "colourful",
+   "confident",
+   "studio",
+   "youthful"
+  ],
+  "industries": [
+   "design studio",
+   "agency",
+   "events",
+   "education",
+   "sports",
+   "retail"
+  ],
+  "notes": "Inline type is as large as the wordmark (26px), so this rail suits few, short labels. Below 1024px the control is the WORD \"Menu\" at rail type size, not a burger glyph. Opening floods the viewport with a single saturated colour, set via --nb-accent (default #312dfb) and intended to be overridden per brand. The flood sits below the rail in z-order so the rail stays interactive; while open the rail drops its difference blend so it reads against the accent. Third navbar using difference blending, alongside blend-difference-trizone (fixed-px monospace) and inset-blend-giant-mark (fluid vw, inset): this one is fixed-px with large type and a colour-flood menu. Unlike the reference, the overlay locks body scroll.",
+  "refId": "locomotive"
+ },
+ {
+  "id": "fluid-clamp-inline",
+  "displayName": "Fluid-Clamp Inline Rail",
+  "reference": {
+   "site": "North Kingdom",
+   "url": "https://www.northkingdom.com/"
+  },
+  "layout": "split",
+  "menuArchitecture": "dropdown",
+  "mobilePattern": "inline",
+  "scrollBehavior": "static",
+  "motionIntensity": 1,
+  "density": "airy",
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "supportsDropdowns": true,
+  "supportsCta": true,
+  "supportsSecondaryAction": true,
+  "supportsSocials": false,
+  "comfortableItems": [
+   2,
+   5
+  ],
+  "maxLabelChars": 10,
+  "rtlSupport": "full",
+  "dependencies": [],
+  "assets": [],
+  "referenceFixture": "noCta",
+  "tone": [
+   "confident",
+   "studio",
+   "spacious",
+   "typographic",
+   "playful"
+  ],
+  "industries": [
+   "design studio",
+   "games",
+   "entertainment",
+   "advertising",
+   "portfolio"
+  ],
+  "notes": "The bar holds 80px at every viewport while its TYPE ramps fluidly - clamp(16px, 3.964px + 1.4159vw, 24.354px), solved from the reference and reproducing its 24.35 / 18.46 / 16 / 16 measurements exactly - so the rail reads large on a desktop without a breakpoint step. The mark is taller than the content box and overflows it. IMPORTANT CONSTRAINT: links stay inline at every width; the reference provides no burger, so this suits few short labels and is a poor fit for deep navigation. ADDITION: below 768px the link rail scrolls horizontally with a soft edge mask, because the reference only ever carries four short labels and generated content can exceed the row.",
+  "refId": "northkingdom"
+ },
+ {
+  "id": "fluid-rail-pill",
+  "displayName": "Fluid Rail with Pill CTA",
+  "reference": {
+   "site": "Cuberto",
+   "url": "https://cuberto.com/"
+  },
+  "layout": "split",
+  "menuArchitecture": "dropdown",
+  "mobilePattern": "drawer",
+  "scrollBehavior": "hide-on-scroll",
+  "motionIntensity": 3,
+  "density": "airy",
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "supportsDropdowns": true,
+  "supportsCta": true,
+  "supportsSecondaryAction": true,
+  "supportsSocials": true,
+  "comfortableItems": [
+   2,
+   6
+  ],
+  "maxLabelChars": 14,
+  "rtlSupport": "full",
+  "dependencies": [],
+  "assets": [],
+  "tone": [
+   "contemporary",
+   "confident",
+   "product-led",
+   "clean"
+  ],
+  "industries": [
+   "design studio",
+   "software",
+   "agency",
+   "saas",
+   "consultancy"
+  ],
+  "notes": "All desktop dimensions are viewport-relative (5vw bar, 7.5vw gutters, 1.25vw links), so the rail keeps its proportions at any width instead of stepping at breakpoints. Below 768px it becomes a detached translucent card that expands in place.",
+  "refId": "cuberto"
+ },
+ {
+  "id": "inset-blend-giant-mark",
+  "displayName": "Inset Blend Rail with Oversized Wordmark",
+  "reference": {
+   "site": "Obys",
+   "url": "https://obys.agency/"
+  },
+  "layout": "split-center",
+  "menuArchitecture": "dropdown",
+  "mobilePattern": "overlay-fullscreen",
+  "scrollBehavior": "static",
+  "motionIntensity": 2,
+  "density": "airy",
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "supportsDropdowns": true,
+  "supportsCta": true,
+  "supportsSecondaryAction": true,
+  "supportsSocials": true,
+  "comfortableItems": [
+   2,
+   5
+  ],
+  "maxLabelChars": 10,
+  "rtlSupport": "partial",
+  "dependencies": [],
+  "assets": [],
+  "tone": [
+   "bold",
+   "brand-forward",
+   "experimental",
+   "studio",
+   "fashion"
+  ],
+  "industries": [
+   "design studio",
+   "fashion",
+   "creative technology",
+   "portfolio",
+   "music"
+  ],
+  "notes": "Inset 0.7vw from every edge, so page content shows around the rail. Shares mix-blend-mode: difference and a three-zone composition with blend-difference-trizone; the difference is the scale system (fully fluid vw here vs fixed px there) and the oversized wordmark, which occupies the full rail height. DEVIATION: the reference lets link type scale to ~3px at 390px wide; that is legible only for its own two-word labels, so this version keeps the fluid ramp but floors it at 12px.",
+  "refId": "obys"
+ },
+ {
+  "id": "inset-rail-text-roll",
+  "displayName": "Inset Rail with Rolling Labels",
+  "reference": {
+   "site": "Merci-Michel",
+   "url": "https://merci-michel.com/"
+  },
+  "layout": "split",
+  "menuArchitecture": "dropdown",
+  "mobilePattern": "inline",
+  "scrollBehavior": "static",
+  "motionIntensity": 3,
+  "density": "compact",
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "supportsDropdowns": true,
+  "supportsCta": true,
+  "supportsSecondaryAction": true,
+  "supportsSocials": false,
+  "comfortableItems": [
+   2,
+   5
+  ],
+  "maxLabelChars": 10,
+  "rtlSupport": "full",
+  "dependencies": [],
+  "assets": [],
+  "tone": [
+   "playful",
+   "crafted",
+   "studio",
+   "boutique",
+   "interactive"
+  ],
+  "industries": [
+   "design studio",
+   "motion",
+   "gaming",
+   "advertising",
+   "portfolio"
+  ],
+  "notes": "Absolute rather than fixed: the rail scrolls away with the page instead of following it, and is inset 45px from each side rather than full-bleed. The interaction signature is a vertical label roll on hover, built from two stacked copies of each label in a clipped box (the duplicate is aria-hidden). IMPORTANT CONSTRAINT: the row stays horizontal at every width - the reference provides no burger and no overflow menu - so this navbar needs few items with short labels. Above roughly 5 items or 10 characters a label it will crowd on a phone. Choose a collapsing navbar for content-heavy sites.",
+  "refId": "mercimichel"
+ },
+ {
+  "id": "justified-row-blend",
+  "displayName": "Justified Link Row on a Blend Rail",
+  "reference": {
+   "site": "Studio Dumbar",
+   "url": "https://studiodumbar.com/"
+  },
+  "layout": "split",
+  "menuArchitecture": "dropdown",
+  "mobilePattern": "overlay-fullscreen",
+  "scrollBehavior": "static",
+  "motionIntensity": 2,
+  "density": "airy",
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "supportsDropdowns": true,
+  "supportsCta": true,
+  "supportsSecondaryAction": true,
+  "supportsSocials": true,
+  "comfortableItems": [
+   3,
+   6
+  ],
+  "maxLabelChars": 12,
+  "rtlSupport": "full",
+  "dependencies": [],
+  "assets": [],
+  "referenceFixture": "fiveItems",
+  "tone": [
+   "editorial",
+   "graphic",
+   "studio",
+   "confident",
+   "typographic"
+  ],
+  "industries": [
+   "design studio",
+   "branding",
+   "publishing",
+   "arts",
+   "culture"
+  ],
+  "notes": "The links are JUSTIFIED, not gap-spaced: the row occupies a fixed fraction of the bar (from ~51% of the width to the trailing gutter) and distributes items with space-between, so spacing is whatever is left over. Adding an item tightens every gap instead of pushing the row outward, which keeps the trailing edge locked to the gutter - the reason it reads as a measured, graphic composition. The action joins the justified row rather than sitting outside it. Fifth navbar in the library using mix-blend-mode: difference; it is distinguished from the others by the justified row, not by the blend. The phone menu jumps to 60px type, so it reads as a statement rather than a list.",
+  "refId": "studiodumbar"
+ },
+ {
+  "id": "lightweight-type-theme-switch",
+  "displayName": "Light-Weight Type Rail with Theme Switch",
+  "reference": {
+   "site": "Stink Studios",
+   "url": "https://www.stinkstudios.com/"
+  },
+  "layout": "split",
+  "menuArchitecture": "dropdown",
+  "mobilePattern": "drawer",
+  "scrollBehavior": "hide-on-scroll",
+  "motionIntensity": 2,
+  "density": "balanced",
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "supportsDropdowns": true,
+  "supportsCta": true,
+  "supportsSecondaryAction": true,
+  "supportsSocials": true,
+  "supportsThemeToggle": true,
+  "comfortableItems": [
+   2,
+   6
+  ],
+  "maxLabelChars": 12,
+  "rtlSupport": "full",
+  "dependencies": [],
+  "assets": [],
+  "referenceFixture": "themed",
+  "tone": [
+   "contemporary",
+   "quiet",
+   "studio",
+   "editorial",
+   "dark-first"
+  ],
+  "industries": [
+   "agency",
+   "production",
+   "film",
+   "design studio",
+   "software"
+  ],
+  "notes": "Dark-first: renders on a dark surface by default. Type is large (23px) but set at weight 300 on negative tracking, so it reads quiet rather than loud - it needs a typeface with a usable light weight. The only navbar in the library with an in-bar light/dark switch: it does NOT own the theme, it renders the `theme` it is given and reports the requested value through `onThemeChange`, so the host stays the single source of truth. Phone menu is a narrow 300px drawer sliding from the trailing edge rather than a full-bleed overlay.",
+  "refId": "stinkstudios"
+ },
+ {
+  "id": "pill-chip-split-ticker",
+  "displayName": "Pill-Chip Split Rail with Centre Announcement",
+  "reference": {
+   "site": "Instrument",
+   "url": "https://www.instrument.com/"
+  },
+  "layout": "split-center",
+  "menuArchitecture": "dropdown",
+  "mobilePattern": "overlay-fullscreen",
+  "scrollBehavior": "transparent-to-solid",
+  "motionIntensity": 2,
+  "density": "compact",
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "supportsDropdowns": true,
+  "supportsCta": true,
+  "supportsSecondaryAction": true,
+  "supportsSocials": true,
+  "comfortableItems": [
+   4,
+   8
+  ],
+  "maxLabelChars": 12,
+  "rtlSupport": "full",
+  "dependencies": [],
+  "assets": [],
+  "tone": [
+   "modern",
+   "confident",
+   "agency",
+   "editorial",
+   "playful"
+  ],
+  "industries": [
+   "agency",
+   "software",
+   "media",
+   "entertainment",
+   "events"
+  ],
+  "notes": "Navigation renders as pill chips, not plain links. `items` split at their midpoint into a left and a right cluster (odd counts give the extra item to the left so the centre stays centred); `cta` joins the right cluster as a filled chip; `secondaryAction` becomes the centred announcement line. Combines two scroll responses: transparent-to-solid AND hide-on-scroll. Needs at least 4 items to read as split - below that use a split layout. ADDITION: the reference carries no brand mark in the rail at all; one is rendered below 1024px so the collapsed bar is not anonymous.",
+  "refId": "instrument"
+ },
+ {
+  "id": "stacked-column-micro",
+  "displayName": "Stacked-Column Micro Nav",
+  "reference": {
+   "site": "Zajno",
+   "url": "https://zajno.com/"
+  },
+  "layout": "split-center",
+  "menuArchitecture": "inline",
+  "mobilePattern": "drawer",
+  "scrollBehavior": "static",
+  "motionIntensity": 1,
+  "density": "compact",
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "supportsDropdowns": true,
+  "supportsCta": true,
+  "supportsSecondaryAction": true,
+  "supportsSocials": true,
+  "comfortableItems": [
+   2,
+   6
+  ],
+  "maxLabelChars": 14,
+  "rtlSupport": "full",
+  "dependencies": [],
+  "assets": [],
+  "tone": [
+   "minimal",
+   "typographic",
+   "understated",
+   "editorial",
+   "portfolio"
+  ],
+  "industries": [
+   "design studio",
+   "portfolio",
+   "photography",
+   "publishing",
+   "architecture"
+  ],
+  "notes": "Navigation is stacked into vertical columns rather than laid out as a row, so the bar is only a few lines tall. The bar is absolute, not fixed: it scrolls away with the page, which suits sites with a strong hero. Children continue the stack indented rather than opening a panel, since a floating dropdown would be out of scale at this type size. Below 700px the columns collapse into one disclosure stack. DEVIATION: the reference type is 0.833vw, reaching 6.4px at 768 and 3.2px at 390; the fluid ramp is kept but floored at 11px.",
+  "refId": "zajno"
+ },
+ {
+  "id": "sticky-rail-blur-overlay",
+  "displayName": "Sticky Rail, Oversized Mark, Frosted Overlay",
+  "reference": {
+   "site": "AREA 17",
+   "url": "https://area17.com/"
+  },
+  "layout": "split",
+  "menuArchitecture": "dropdown",
+  "mobilePattern": "overlay-fullscreen",
+  "scrollBehavior": "sticky",
+  "motionIntensity": 2,
+  "density": "balanced",
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "supportsDropdowns": true,
+  "supportsCta": true,
+  "supportsSecondaryAction": true,
+  "supportsSocials": true,
+  "comfortableItems": [
+   3,
+   7
+  ],
+  "maxLabelChars": 16,
+  "rtlSupport": "full",
+  "dependencies": [],
+  "assets": [],
+  "tone": [
+   "editorial",
+   "institutional",
+   "restrained",
+   "typographic"
+  ],
+  "industries": [
+   "agency",
+   "architecture",
+   "consultancy",
+   "publishing",
+   "education"
+  ],
+  "notes": "Brand mark is intentionally larger than the 64px rail and overflows below it. Below 1000px the links are replaced by a frosted full-viewport overlay (blur(30px), 0.5s opacity fade, staggered links). Unlike the reference, the scroll lock is released on close — the reference leaves body overflow hidden.",
+  "refId": "area17"
+ },
+ {
+  "id": "tall-airy-dual-trigger",
+  "displayName": "Tall Airy Rail with Persistent Menu Trigger",
+  "reference": {
+   "site": "BASIC/DEPT",
+   "url": "https://www.basicagency.com/"
+  },
+  "layout": "split-center",
+  "menuArchitecture": "dropdown",
+  "mobilePattern": "overlay-fullscreen",
+  "scrollBehavior": "hide-on-scroll",
+  "motionIntensity": 2,
+  "density": "airy",
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "supportsDropdowns": true,
+  "supportsCta": true,
+  "supportsSecondaryAction": true,
+  "supportsSocials": true,
+  "comfortableItems": [
+   3,
+   6
+  ],
+  "maxLabelChars": 12,
+  "rtlSupport": "full",
+  "dependencies": [],
+  "assets": [],
+  "tone": [
+   "editorial",
+   "premium",
+   "restrained",
+   "brand-led",
+   "spacious"
+  ],
+  "industries": [
+   "agency",
+   "branding",
+   "architecture",
+   "consultancy",
+   "luxury"
+  ],
+  "notes": "Unusually tall (126px at 1440, stepping to 101 / 88 / 70) with an 80px gutter and links spaced a full 60px apart, so it needs generous page whitespace to read as intended. Typographic signature is uppercase on NEGATIVE tracking. The \"Menu\" trigger is present at every width - at desktop it sits alongside the inline links rather than replacing them, offering a second route into a fuller index. The rail hides on scroll-down but never while the menu is open.",
+  "refId": "basicdept"
+ },
+ {
+  "id": "tall-padded-pushdown",
+  "displayName": "Tall Padded Rail with Push-Down Sheet",
+  "reference": {
+   "site": "ManvsMachine",
+   "url": "https://mvsm.com/"
+  },
+  "layout": "split",
+  "menuArchitecture": "dropdown",
+  "mobilePattern": "overlay-fullscreen",
+  "scrollBehavior": "static",
+  "motionIntensity": 3,
+  "density": "airy",
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "supportsDropdowns": true,
+  "supportsCta": true,
+  "supportsSecondaryAction": true,
+  "supportsSocials": true,
+  "comfortableItems": [
+   2,
+   5
+  ],
+  "maxLabelChars": 14,
+  "rtlSupport": "full",
+  "dependencies": [],
+  "assets": [],
+  "referenceFixture": "withSocials",
+  "tone": [
+   "crafted",
+   "quiet",
+   "studio",
+   "premium",
+   "motion-led"
+  ],
+  "industries": [
+   "motion",
+   "film",
+   "design studio",
+   "animation",
+   "portfolio"
+  ],
+  "notes": "Height comes from vertical padding (48px above and below a 28px row) rather than a set height, so the rail breathes with its type and needs page whitespace to match. Gutters are symmetric with the padding at 54px. Socials render in the bar beside the links rather than in a footer, which is unusual and suits studios with one or two channels - more than three will crowd the row. The menu is parked above the viewport and pushes down into it, links trailing in from above. Shares a tall silhouette with tall-airy-dual-trigger but differs in composition (no centre link row, no persistent desktop trigger), type (mixed-case 20px vs uppercase 14px) and reveal direction.",
+  "refId": "mvsm"
+ }
+]

@@ -1,0 +1,56 @@
+{
+ "navId": "colorflood-word-toggle",
+ "refId": "locomotive",
+ "fixture": "normal",
+ "overrides": null,
+ "at": "2026-09-21T14:55:34.950Z",
+ "viewports": {
+  "desktop": {
+   "h": 60,
+   "pos": "fixed",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 5
+  },
+  "laptop": {
+   "h": 60,
+   "pos": "fixed",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 2
+  },
+  "tablet": {
+   "h": 60,
+   "pos": "fixed",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 2
+  },
+  "mobile": {
+   "h": 60,
+   "pos": "fixed",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 2
+  }
+ },
+ "diffs": {
+  "desktop": [],
+  "laptop": [],
+  "tablet": [],
+  "mobile": []
+ },
+ "pageErrors": [],
+ "menuOpen": {
+  "bodyOverflow": "hidden",
+  "expanded": "true"
+ },
+ "afterEscape": {
+  "bodyOverflow": "visible",
+  "expanded": "false"
+ }
+}

@@ -1,0 +1,75 @@
+{
+ "navId": "lightweight-type-theme-switch",
+ "refId": "stinkstudios",
+ "fixture": "themed",
+ "overrides": {
+  "skip": [
+   "height",
+   "startGutter",
+   "endGutter"
+  ],
+  "reason": "The probe's container heuristic selects the reference's inner <nav> (the right-aligned link group, 927x30 at 1440) rather than the header bar that wraps it, because the header itself scores lower. Height and both gutters therefore describe the link group, not the bar, and are not comparable with a full-width reconstruction. Link type scale, top offset and hide-on-scroll response remain enforced and all match."
+ },
+ "at": "2026-09-21T14:56:52.903Z",
+ "viewports": {
+  "desktop": {
+   "h": 66.4,
+   "pos": "fixed",
+   "upY": 0,
+   "items": 6
+  },
+  "laptop": {
+   "h": 66.4,
+   "pos": "fixed",
+   "upY": 0,
+   "items": 6
+  },
+  "tablet": {
+   "h": 60.7,
+   "pos": "fixed",
+   "upY": 0,
+   "items": 6
+  },
+  "mobile": {
+   "h": 66.4,
+   "pos": "fixed",
+   "upY": 0,
+   "items": 3
+  }
+ },
+ "diffs": {
+  "desktop": [
+   {
+    "level": "warn",
+    "msg": "position fixed vs ref static"
+   }
+  ],
+  "laptop": [
+   {
+    "level": "warn",
+    "msg": "position fixed vs ref static"
+   }
+  ],
+  "tablet": [
+   {
+    "level": "warn",
+    "msg": "position fixed vs ref static"
+   }
+  ],
+  "mobile": [
+   {
+    "level": "warn",
+    "msg": "position fixed vs ref static"
+   }
+  ]
+ },
+ "pageErrors": [],
+ "menuOpen": {
+  "bodyOverflow": "hidden",
+  "expanded": "true"
+ },
+ "afterEscape": {
+  "bodyOverflow": "visible",
+  "expanded": "false"
+ }
+}

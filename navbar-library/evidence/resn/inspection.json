@@ -1,0 +1,179 @@
+{
+ "id": "resn",
+ "name": "Resn",
+ "url": "https://resn.co.nz/",
+ "at": "2026-09-21T06:45:39.394Z",
+ "viewports": {
+  "desktop": {
+   "initial": {
+    "found": false
+   },
+   "scrolled": {
+    "found": false
+   }
+  },
+  "laptop": {
+   "initial": {
+    "found": false
+   },
+   "scrolled": {
+    "found": false
+   }
+  },
+  "tablet": {
+   "initial": {
+    "found": false
+   },
+   "scrolled": {
+    "found": false
+   },
+   "menuToggle": {
+    "label": "Discover",
+    "cls": "js-shell__button--menu shell__button--menu shell__button"
+   },
+   "menuOpen": {
+    "overlayFound": false,
+    "bodyOverflow": "visible",
+    "bodyPosition": "relative"
+   },
+   "afterClose": {
+    "bodyOverflow": "visible"
+   }
+  },
+  "mobile": {
+   "initial": {
+    "found": true,
+    "selectorTag": "DIV",
+    "selectorCls": "button__hitarea",
+    "score": -10,
+    "container": {
+     "rect": {
+      "x": 247,
+      "y": -100,
+      "w": 200,
+      "h": 200
+     },
+     "font": "Fort-Book",
+     "fontSize": "16px",
+     "fontWeight": "400",
+     "lineHeight": "16px",
+     "letterSpacing": "normal",
+     "textTransform": "none",
+     "color": "rgb(255, 255, 255)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "radius": "50%",
+     "border": "0px none rgb(255, 255, 255)",
+     "padding": "0px",
+     "transition": "all",
+     "mixBlendMode": "normal",
+     "opacity": "1",
+     "transform": "none",
+     "position": "absolute",
+     "top": "-120px",
+     "left": "-102px",
+     "right": "-80px",
+     "zIndex": "auto",
+     "backdropFilter": "none",
+     "boxShadow": "none",
+     "display": "block",
+     "justifyContent": "normal",
+     "alignItems": "normal",
+     "gap": "normal",
+     "width": "200px",
+     "height": "200px",
+     "paddingTop": "0px",
+     "paddingRight": "0px",
+     "paddingBottom": "0px",
+     "paddingLeft": "0px"
+    },
+    "interactive": [],
+    "logo": null,
+    "fonts": [],
+    "docBg": "rgb(0, 0, 0)",
+    "interactiveCount": 0
+   },
+   "scrolled": {
+    "found": true,
+    "selectorTag": "DIV",
+    "selectorCls": "button__hitarea",
+    "score": -10,
+    "container": {
+     "rect": {
+      "x": 247,
+      "y": -100,
+      "w": 200,
+      "h": 200
+     },
+     "font": "Fort-Book",
+     "fontSize": "16px",
+     "fontWeight": "400",
+     "lineHeight": "16px",
+     "letterSpacing": "normal",
+     "textTransform": "none",
+     "color": "rgb(255, 255, 255)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "radius": "50%",
+     "border": "0px none rgb(255, 255, 255)",
+     "padding": "0px",
+     "transition": "all",
+     "mixBlendMode": "normal",
+     "opacity": "1",
+     "transform": "none",
+     "position": "absolute",
+     "top": "-120px",
+     "left": "-102px",
+     "right": "-80px",
+     "zIndex": "auto",
+     "backdropFilter": "none",
+     "boxShadow": "none",
+     "display": "block",
+     "justifyContent": "normal",
+     "alignItems": "normal",
+     "gap": "normal",
+     "width": "200px",
+     "height": "200px",
+     "paddingTop": "0px",
+     "paddingRight": "0px",
+     "paddingBottom": "0px",
+     "paddingLeft": "0px"
+    },
+    "interactive": [],
+    "logo": null,
+    "fonts": [],
+    "docBg": "rgb(0, 0, 0)",
+    "interactiveCount": 0
+   },
+   "deepScroll": {
+    "x": 247,
+    "y": -100,
+    "w": 200,
+    "h": 200
+   },
+   "scrollUp": {
+    "x": 247,
+    "y": -100,
+    "w": 200,
+    "h": 200
+   },
+   "menuToggle": {
+    "label": "Discover",
+    "cls": "js-shell__button--menu shell__button--menu shell__button"
+   },
+   "menuOpen": {
+    "overlayFound": false,
+    "bodyOverflow": "visible",
+    "bodyPosition": "relative"
+   },
+   "afterClose": {
+    "bodyOverflow": "visible"
+   }
+  }
+ },
+ "errors": [],
+ "status": 200,
+ "finalUrl": "https://resn.co.nz/",
+ "cookieDismissed": false,
+ "title": "Resn - Creative Digital Agency | Ideation, Design, and Development",
+ "consoleErrors": [],
+ "ok": true
+}

@@ -1,0 +1,11 @@
+{
+ "id": "function",
+ "name": "Locomotive FUNCTION",
+ "url": "https://function.locomotive.ca/",
+ "at": "2026-09-21T07:11:07.650Z",
+ "viewports": {},
+ "errors": [
+  "page.goto: net::ERR_TUNNEL_CONNECTION_FAILED at https://function.locomotive.ca/\nCall log:\n\u001b[2m  - navigating to \"https://function.locomotive.ca/\", waiting until \"domcontentloaded\"\u001b[22m\n"
+ ],
+ "ok": false
+}

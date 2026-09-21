@@ -1,0 +1,56 @@
+{
+ "navId": "pill-chip-split-ticker",
+ "refId": "instrument",
+ "fixture": "normal",
+ "overrides": null,
+ "at": "2026-09-21T14:56:58.283Z",
+ "viewports": {
+  "desktop": {
+   "h": 50,
+   "pos": "sticky",
+   "scrolledY": -50,
+   "deepY": -50,
+   "upY": 0,
+   "items": 4
+  },
+  "laptop": {
+   "h": 50,
+   "pos": "sticky",
+   "scrolledY": -50,
+   "deepY": -50,
+   "upY": 0,
+   "items": 4
+  },
+  "tablet": {
+   "h": 64,
+   "pos": "sticky",
+   "scrolledY": -64,
+   "deepY": -64,
+   "upY": 0,
+   "items": 4
+  },
+  "mobile": {
+   "h": 53,
+   "pos": "sticky",
+   "scrolledY": -53,
+   "deepY": -53,
+   "upY": 0,
+   "items": 2
+  }
+ },
+ "diffs": {
+  "desktop": [],
+  "laptop": [],
+  "tablet": [],
+  "mobile": []
+ },
+ "pageErrors": [],
+ "menuOpen": {
+  "bodyOverflow": "hidden",
+  "expanded": "true"
+ },
+ "afterEscape": {
+  "bodyOverflow": "visible",
+  "expanded": "false"
+ }
+}

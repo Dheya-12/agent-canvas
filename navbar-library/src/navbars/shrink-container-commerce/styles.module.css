@@ -1,0 +1,243 @@
+/*
+ * Reconstructed from evidence/bonhomme/inspection.json.
+ * Signature trait: the bar SHRINKS as the page moves - the reference measures
+ * 104px at rest and 91px once scrolled (130 -> 117 at 1024), with a 0.15s
+ * linear transition. It also starts below a promotional strip and rises to
+ * the top edge as that strip scrolls away. Unlike the other rails here it
+ * carries a solid surface rather than sitting transparent over content, and
+ * its contents are held in a max-width container rather than running to the
+ * viewport edges.
+ */
+
+.root,
+.panel {
+  --nb-h: 104px;
+  --nb-h-scrolled: 91px;
+  --nb-max: 1220px;
+  --nb-pad: 30px;
+  --nb-type: 16px;
+  --nb-fg: #14120f;
+  --nb-surface: #fff;
+  --nb-rule: rgba(20, 18, 15, 0.12);
+  --nb-ease: linear;
+}
+.root[data-theme='dark'],
+.panel[data-theme='dark'] {
+  --nb-fg: #f2efe9;
+  --nb-surface: #14120f;
+  --nb-rule: rgba(242, 239, 233, 0.16);
+}
+
+.root {
+  position: sticky;
+  top: 0;
+  z-index: 1002;
+  /* min-height, not height: the row is allowed to wrap, and the bar has to
+   * grow with it. A fixed height leaves wrapped rows spilling out of the
+   * bar - which is exactly why the reference is taller at 1024 than 1440. */
+  min-height: var(--nb-h);
+  /* The only rail in the library with a surface of its own at rest. */
+  background: var(--nb-surface);
+  color: var(--nb-fg);
+  transition: min-height 0.15s var(--nb-ease), box-shadow 0.15s var(--nb-ease);
+}
+.root[data-past='true'] {
+  min-height: var(--nb-h-scrolled);
+  box-shadow: 0 1px 0 var(--nb-rule);
+}
+
+.inner {
+  min-height: inherit;
+  /* The max-width bounds the CONTENT, so the gutter padding has to sit
+   * outside it - otherwise the contents start one gutter too far in. */
+  max-width: calc(var(--nb-max) + var(--nb-pad) * 2);
+  margin-inline: auto;
+  padding-inline: var(--nb-pad);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  min-width: 0;
+  padding-block: 8px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+  flex: 0 0 auto;
+  max-width: 34%;
+  overflow: hidden;
+}
+/* The mark shrinks with the bar rather than staying put. */
+.brandImg {
+  height: 70px;
+  width: auto;
+  display: block;
+  max-width: 100%;
+  object-fit: contain;
+  transition: height 0.15s var(--nb-ease);
+}
+.root[data-past='true'] .brandImg { height: 58px; }
+.brandText {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: font-size 0.15s var(--nb-ease);
+}
+.root[data-past='true'] .brandText { font-size: 22px; }
+
+/* Items sit flush against one another; their spacing is internal padding,
+ * not a gap, which is why the reference's links are contiguous. */
+.list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0 0 0 auto;
+  padding: 0;
+  min-width: 0;
+}
+.item { position: relative; min-width: 0; }
+
+.link {
+  display: block;
+  padding: 12px 15px;
+  font-size: var(--nb-type);
+  font-weight: 400;
+  line-height: 1.5;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity 0.2s var(--nb-ease);
+}
+.link:hover { opacity: 0.6; }
+.link[data-current='true'] { text-decoration: underline; text-underline-offset: 4px; }
+.badge { margin-inline-start: 5px; font-size: 10px; vertical-align: super; opacity: 0.7; }
+
+.sub {
+  position: absolute;
+  inset-inline-start: 0;
+  top: 100%;
+  min-width: 200px;
+  margin: 0;
+  padding: 8px 0;
+  list-style: none;
+  background: var(--nb-surface);
+  border: 1px solid var(--nb-rule);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 0.2s var(--nb-ease), transform 0.2s var(--nb-ease), visibility 0.2s;
+}
+.item[data-open='true'] > .sub { opacity: 1; visibility: visible; transform: none; }
+.subLink { display: block; padding: 8px 15px; font-size: var(--nb-type); color: inherit; text-decoration: none; white-space: nowrap; }
+.subLink:hover { opacity: 0.6; }
+
+.tail { display: flex; align-items: center; flex: 0 0 auto; margin-inline-start: 12px; }
+.secondary, .cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 15px;
+  font-size: var(--nb-type);
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s var(--nb-ease);
+}
+.secondary:hover, .cta:hover { opacity: 0.6; }
+.cta { font-weight: 600; }
+
+.utils { display: flex; align-items: center; }
+.util {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 10px;
+  font-size: var(--nb-type);
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s var(--nb-ease);
+}
+.util:hover { opacity: 0.6; }
+.utilCount { font-variant-numeric: tabular-nums; }
+
+.toggle { display: none; }
+.panel { display: none; }
+
+@media (max-width: 1023px) {
+  .root, .panel { --nb-h: 71px; --nb-h-scrolled: 71px; --nb-pad: 16px; }
+  .brandImg { height: 50px; }
+  .root[data-past='true'] .brandImg { height: 50px; }
+  .brandText { font-size: 20px; }
+  .root[data-past='true'] .brandText { font-size: 20px; }
+  .list, .secondary, .cta { display: none; }
+  .inner { gap: 10px; }
+  .toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+    position: relative;
+    flex: 0 0 auto;
+    order: -1;
+  }
+  .toggleBar { position: absolute; width: 22px; height: 2px; background: currentColor; transition: transform 0.2s var(--nb-ease), opacity 0.15s; }
+  .toggleBar:nth-child(1) { transform: translateY(-6px); }
+  .toggleBar:nth-child(3) { transform: translateY(6px); }
+  .toggle[aria-expanded='true'] .toggleBar:nth-child(1) { transform: rotate(45deg); }
+  .toggle[aria-expanded='true'] .toggleBar:nth-child(2) { opacity: 0; }
+  .toggle[aria-expanded='true'] .toggleBar:nth-child(3) { transform: rotate(-45deg); }
+  .brand { margin-inline: auto; max-width: 50%; }
+  .tail { margin-inline-start: 0; }
+
+  .panel {
+    display: block;
+    position: fixed;
+    inset: var(--nb-h) 0 0 0;
+    z-index: 1001;
+    background: var(--nb-surface);
+    color: var(--nb-fg);
+    padding: 12px 16px 28px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition: transform 0.28s ease-out, visibility 0.28s;
+  }
+  [dir='rtl'] .panel { transform: translateX(100%); }
+  .panel[data-open='true'] { transform: none; visibility: visible; }
+  .panelList { list-style: none; margin: 0; padding: 0; }
+  .panelLink {
+    display: block;
+    padding: 14px 2px;
+    border-bottom: 1px solid var(--nb-rule);
+    font-size: 17px;
+    color: inherit;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+  .panelSub { list-style: none; margin: 0; padding: 0 0 8px 14px; }
+  .panelSubLink { display: block; padding: 8px 0; font-size: 15px; color: inherit; text-decoration: none; opacity: 0.75; }
+  .panelFoot { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px 18px; font-size: 14px; }
+  .panelFoot a { color: inherit; text-decoration: none; }
+}
+@media (max-width: 767px) { .root, .panel { --nb-h: 72px; --nb-h-scrolled: 72px; } }
+@media (min-width: 1024px) { .toggle { display: none; } }
+
+@media (prefers-reduced-motion: reduce) { .root, .root *, .panel, .panel * { transition-duration: 0.01ms !important; } }

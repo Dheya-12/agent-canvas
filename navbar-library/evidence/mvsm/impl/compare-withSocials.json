@@ -1,0 +1,73 @@
+{
+ "navId": "tall-padded-pushdown",
+ "refId": "mvsm",
+ "fixture": "withSocials",
+ "overrides": {
+  "skip": [
+   "height",
+   "startGutter",
+   "endGutter"
+  ],
+  "reason": "At 390px the probe selects the reference's inner <nav class=main-nav> (374x20 at y=96) rather than the header that wraps it, because the header scores lower once its links wrap. Height and gutters at that viewport therefore describe the link row, not the bar. Desktop, laptop and tablet all measure the header and remain enforced."
+ },
+ "at": "2026-09-21T14:57:39.992Z",
+ "viewports": {
+  "desktop": {
+   "h": 128,
+   "pos": "fixed",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 7
+  },
+  "laptop": {
+   "h": 115,
+   "pos": "fixed",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 7
+  },
+  "tablet": {
+   "h": 102.4,
+   "pos": "fixed",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 2
+  },
+  "mobile": {
+   "h": 80,
+   "pos": "fixed",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 2
+  }
+ },
+ "diffs": {
+  "desktop": [],
+  "laptop": [],
+  "tablet": [],
+  "mobile": [
+   {
+    "level": "warn",
+    "msg": "position fixed vs ref relative"
+   },
+   {
+    "level": "info",
+    "metric": "centredness",
+    "msg": "cluster centred (skew 0px vs reference 16px); absolute gutters differ by label length, not design"
+   }
+  ]
+ },
+ "pageErrors": [],
+ "menuOpen": {
+  "bodyOverflow": "hidden",
+  "expanded": "true"
+ },
+ "afterEscape": {
+  "bodyOverflow": "visible",
+  "expanded": "false"
+ }
+}

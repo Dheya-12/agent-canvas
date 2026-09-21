@@ -1,0 +1,147 @@
+/*
+ * Reconstructed from evidence/northkingdom/inspection.json.
+ * Signature traits: an 80px rail holding the same height at every viewport
+ * while its TYPE ramps fluidly - the reference measures 24.354px at 1440,
+ * 18.4637px at 1024 and 16px at both 768 and 390, which is exactly
+ * clamp(16px, 3.964px + 1.4159vw, 24.354px). The mark is taller than the
+ * content box and overflows it, and the links stay inline at every width:
+ * there is no burger anywhere in the reference.
+ */
+
+.root {
+  --nb-h: 80px;
+  --nb-pad: 24px;
+  /* Solved from the reference's own measurements; reproduces 24.35 / 18.46 /
+   * 16 / 16 at 1440 / 1024 / 768 / 390. */
+  --nb-type: clamp(16px, 3.964px + 1.4159vw, 24.354px);
+  --nb-gap: 24px;
+  --nb-fg: #111;
+  --nb-surface: #fff;
+  --nb-ease: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 999;
+  height: var(--nb-h);
+  padding-inline: var(--nb-pad);
+  background: transparent;
+  color: var(--nb-fg);
+  transition: background-color 0.25s, opacity 0.25s, border-color 0.25s,
+    transform 0.35s var(--nb-ease);
+  font-family: var(--nb-font, inherit);
+}
+.root[data-theme='dark'] { --nb-fg: #f3f3f3; --nb-surface: #121212; }
+
+.inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--nb-gap);
+  min-width: 0;
+}
+
+/* The mark exceeds the content box and overflows it, as in the reference
+ * (43px tall inside a 32px box). */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+  flex: 0 0 auto;
+  max-width: 34vw;
+  overflow: hidden;
+}
+.brandImg { height: 43px; width: auto; display: block; max-width: 100%; object-fit: contain; }
+.brandText {
+  font-size: var(--nb-type);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: var(--nb-gap);
+  list-style: none;
+  margin: 0 0 0 auto;
+  padding: 0;
+  min-width: 0;
+  /*
+   * ADDITION, not in the reference: the reference carries four short labels
+   * and never overflows, but generated content can exceed the row at ANY
+   * width - a 1440 bar overruns just as readily as a phone. The rail scrolls
+   * horizontally with a soft edge mask rather than colliding or spilling off
+   * the viewport. The design character - inline links, no burger - is kept.
+   */
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+  mask-image: linear-gradient(to right, transparent 0, #000 12px, #000 calc(100% - 12px), transparent 100%);
+}
+.list::-webkit-scrollbar { display: none; }
+.item { scroll-snap-align: end; }
+.item { position: relative; flex: 0 0 auto; }
+
+.link {
+  display: block;
+  font-size: var(--nb-type);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.16;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.25s var(--nb-ease);
+}
+.link:hover { opacity: 0.55; }
+.link[data-current='true'] { text-decoration: underline; text-underline-offset: 0.22em; }
+.badge { margin-inline-start: 0.35em; font-size: 0.55em; vertical-align: super; opacity: 0.7; }
+
+.sub {
+  position: absolute;
+  inset-inline-start: 0;
+  top: calc(100% + 10px);
+  min-width: 190px;
+  margin: 0;
+  padding: 10px 0;
+  list-style: none;
+  background: var(--nb-surface);
+  box-shadow: 0 12px 38px rgba(0, 0, 0, 0.14);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-5px);
+  transition: opacity 0.28s var(--nb-ease), transform 0.28s var(--nb-ease), visibility 0.28s;
+}
+.item[data-open='true'] > .sub { opacity: 1; visibility: visible; transform: none; }
+.subLink { display: block; padding: 6px 16px; font-size: 16px; color: inherit; text-decoration: none; white-space: nowrap; }
+.subLink:hover { opacity: 0.6; }
+
+.cta, .secondary {
+  font-size: var(--nb-type);
+  letter-spacing: -0.01em;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  flex: 0 0 auto;
+  transition: opacity 0.25s var(--nb-ease);
+}
+.cta { text-decoration: underline; text-underline-offset: 0.22em; }
+.cta:hover, .secondary:hover { opacity: 0.55; }
+.secondary { opacity: 0.68; }
+
+.socials { display: none; }
+
+@media (max-width: 767px) {
+  .root { --nb-pad: 16px; --nb-gap: 18px; }
+  .brandImg { height: 34px; }
+
+}
+
+@media (prefers-reduced-motion: reduce) { .root, .root * { transition-duration: 0.01ms !important; } }

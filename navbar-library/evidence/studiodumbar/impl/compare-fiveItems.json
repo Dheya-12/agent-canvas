@@ -1,0 +1,66 @@
+{
+ "navId": "justified-row-blend",
+ "refId": "studiodumbar",
+ "fixture": "fiveItems",
+ "overrides": null,
+ "at": "2026-09-21T14:56:52.345Z",
+ "viewports": {
+  "desktop": {
+   "h": 67,
+   "pos": "fixed",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 7
+  },
+  "laptop": {
+   "h": 67,
+   "pos": "fixed",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 7
+  },
+  "tablet": {
+   "h": 40,
+   "pos": "fixed",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 2
+  },
+  "mobile": {
+   "h": 40,
+   "pos": "fixed",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 2
+  }
+ },
+ "diffs": {
+  "desktop": [],
+  "laptop": [],
+  "tablet": [
+   {
+    "level": "info",
+    "msg": "no reference measurement at tablet"
+   }
+  ],
+  "mobile": [
+   {
+    "level": "warn",
+    "msg": "position fixed vs ref absolute"
+   }
+  ]
+ },
+ "pageErrors": [],
+ "menuOpen": {
+  "bodyOverflow": "hidden",
+  "expanded": "true"
+ },
+ "afterEscape": {
+  "bodyOverflow": "visible",
+  "expanded": "false"
+ }
+}

@@ -1,0 +1,56 @@
+{
+ "navId": "tall-airy-dual-trigger",
+ "refId": "basicdept",
+ "fixture": "fiveItems",
+ "overrides": null,
+ "at": "2026-09-21T07:59:09.858Z",
+ "viewports": {
+  "desktop": {
+   "h": 126,
+   "pos": "fixed",
+   "scrolledY": -126,
+   "deepY": -126,
+   "upY": 0,
+   "items": 8
+  },
+  "laptop": {
+   "h": 101,
+   "pos": "fixed",
+   "scrolledY": -101,
+   "deepY": -101,
+   "upY": 0,
+   "items": 8
+  },
+  "tablet": {
+   "h": 88,
+   "pos": "fixed",
+   "scrolledY": -88,
+   "deepY": -88,
+   "upY": 0,
+   "items": 2
+  },
+  "mobile": {
+   "h": 70,
+   "pos": "fixed",
+   "scrolledY": -70,
+   "deepY": -70,
+   "upY": 0,
+   "items": 2
+  }
+ },
+ "diffs": {
+  "desktop": [],
+  "laptop": [],
+  "tablet": [],
+  "mobile": []
+ },
+ "pageErrors": [],
+ "menuOpen": {
+  "bodyOverflow": "hidden",
+  "expanded": "true"
+ },
+ "afterEscape": {
+  "bodyOverflow": "visible",
+  "expanded": "false"
+ }
+}

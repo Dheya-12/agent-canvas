@@ -1,0 +1,71 @@
+{
+ "navId": "centered-wordmark-commerce",
+ "refId": "houseofspoils",
+ "fixture": "commerce",
+ "overrides": {
+  "skip": [
+   "startGutter"
+  ],
+  "reason": "The reference's first navigation trigger ('Shop', clearly visible at the left edge in evidence/houseofspoils/desktop-initial.png) is not an <a>, <button> or [role=button], so the probe never sees it and reports the SECOND item ('Artists', x=92) as the leading element. The leading gutter therefore measures the wrong element on this reference. The trailing gutter, which ends at a real link, remains enforced."
+ },
+ "at": "2026-09-21T14:55:34.725Z",
+ "viewports": {
+  "desktop": {
+   "h": 64,
+   "pos": "fixed",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 10
+  },
+  "laptop": {
+   "h": 64,
+   "pos": "fixed",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 10
+  },
+  "tablet": {
+   "h": 64,
+   "pos": "fixed",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 6
+  },
+  "mobile": {
+   "h": 64,
+   "pos": "fixed",
+   "scrolledY": 0,
+   "deepY": 0,
+   "upY": 0,
+   "items": 6
+  }
+ },
+ "diffs": {
+  "desktop": [],
+  "laptop": [],
+  "tablet": [
+   {
+    "level": "info",
+    "msg": "z-index 999 vs ref 50"
+   }
+  ],
+  "mobile": [
+   {
+    "level": "info",
+    "msg": "z-index 999 vs ref 50"
+   }
+  ]
+ },
+ "pageErrors": [],
+ "menuOpen": {
+  "bodyOverflow": "hidden",
+  "expanded": "true"
+ },
+ "afterEscape": {
+  "bodyOverflow": "visible",
+  "expanded": "false"
+ }
+}
