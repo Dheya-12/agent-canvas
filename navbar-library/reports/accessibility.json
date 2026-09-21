@@ -1,10 +1,10 @@
 {
- "generatedAt": "2026-09-21T07:02:26.959Z",
+ "generatedAt": "2026-09-21T07:07:08.669Z",
  "counts": {
-  "USABLE": 32,
+  "USABLE": 33,
   "NAV-WEAK": 6,
   "NAV-NOT-FOUND": 3,
-  "BLOCKED": 6,
+  "BLOCKED": 5,
   "ERROR": 3
  },
  "rows": [
@@ -50,6 +50,15 @@
    "url": "https://bonhomme.fr/",
    "verdict": "USABLE",
    "detail": "104px absolute, 8 interactive, 4/4 viewports",
+   "status": 200,
+   "vpCount": 4
+  },
+  {
+   "id": "codeandtheory",
+   "name": "Code and Theory",
+   "url": "https://codeandtheory.com/",
+   "verdict": "USABLE",
+   "detail": "71px fixed, 6 interactive, 4/4 viewports",
    "status": 200,
    "vpCount": 4
   },
@@ -390,15 +399,6 @@
    "id": "awwwards",
    "name": "Awwwards",
    "url": "https://www.awwwards.com/",
-   "verdict": "BLOCKED",
-   "detail": "HTTP 502",
-   "status": 502,
-   "vpCount": 0
-  },
-  {
-   "id": "codeandtheory",
-   "name": "Code and Theory",
-   "url": "https://codeandtheory.com/",
    "verdict": "BLOCKED",
    "detail": "HTTP 502",
    "status": 502,
