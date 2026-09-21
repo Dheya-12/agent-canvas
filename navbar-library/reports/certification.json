@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-21T09:15:36.509Z",
+ "generatedAt": "2026-09-21T10:26:29.271Z",
  "results": [
   {
    "id": "blend-difference-trizone",
@@ -1186,6 +1186,241 @@
    "status": "PASS"
   },
   {
+   "id": "fluid-clamp-inline",
+   "refId": "northkingdom",
+   "displayName": "Fluid-Clamp Inline Rail",
+   "stress": {
+    "short@desktop": {
+     "headerH": 80,
+     "links": 4,
+     "issues": 0
+    },
+    "short@mobile": {
+     "headerH": 80,
+     "links": 4,
+     "issues": 0
+    },
+    "normal@desktop": {
+     "headerH": 80,
+     "links": 5,
+     "issues": 0
+    },
+    "normal@mobile": {
+     "headerH": 80,
+     "links": 5,
+     "issues": 0
+    },
+    "long@desktop": {
+     "headerH": 80,
+     "links": 5,
+     "issues": 0
+    },
+    "long@mobile": {
+     "headerH": 80,
+     "links": 5,
+     "issues": 0
+    },
+    "oneItem@desktop": {
+     "headerH": 80,
+     "links": 2,
+     "issues": 0
+    },
+    "oneItem@mobile": {
+     "headerH": 80,
+     "links": 2,
+     "issues": 0
+    },
+    "fiveItems@desktop": {
+     "headerH": 80,
+     "links": 7,
+     "issues": 0
+    },
+    "fiveItems@mobile": {
+     "headerH": 80,
+     "links": 7,
+     "issues": 0
+    },
+    "manyItems@desktop": {
+     "headerH": 80,
+     "links": 11,
+     "issues": 0
+    },
+    "manyItems@mobile": {
+     "headerH": 80,
+     "links": 11,
+     "issues": 0
+    },
+    "noCta@desktop": {
+     "headerH": 80,
+     "links": 4,
+     "issues": 0
+    },
+    "noCta@mobile": {
+     "headerH": 80,
+     "links": 4,
+     "issues": 0
+    },
+    "dropdowns@desktop": {
+     "headerH": 80,
+     "links": 6,
+     "issues": 0
+    },
+    "dropdowns@mobile": {
+     "headerH": 80,
+     "links": 6,
+     "issues": 0
+    },
+    "imageLogo@desktop": {
+     "headerH": 80,
+     "links": 5,
+     "issues": 0
+    },
+    "imageLogo@mobile": {
+     "headerH": 80,
+     "links": 5,
+     "issues": 0
+    },
+    "brokenLogo@desktop": {
+     "headerH": 80,
+     "links": 4,
+     "issues": 0
+    },
+    "brokenLogo@mobile": {
+     "headerH": 80,
+     "links": 4,
+     "issues": 0
+    },
+    "empty@desktop": {
+     "headerH": 80,
+     "links": 0,
+     "issues": 0
+    },
+    "empty@mobile": {
+     "headerH": 80,
+     "links": 0,
+     "issues": 0
+    },
+    "arabic@desktop": {
+     "headerH": 80,
+     "links": 5,
+     "issues": 0
+    },
+    "arabic@mobile": {
+     "headerH": 80,
+     "links": 5,
+     "issues": 0
+    },
+    "mixed@desktop": {
+     "headerH": 80,
+     "links": 5,
+     "issues": 0
+    },
+    "mixed@mobile": {
+     "headerH": 80,
+     "links": 5,
+     "issues": 0
+    },
+    "accents@desktop": {
+     "headerH": 80,
+     "links": 5,
+     "issues": 0
+    },
+    "accents@mobile": {
+     "headerH": 80,
+     "links": 5,
+     "issues": 0
+    },
+    "longWords@desktop": {
+     "headerH": 80,
+     "links": 4,
+     "issues": 0
+    },
+    "longWords@mobile": {
+     "headerH": 80,
+     "links": 4,
+     "issues": 0
+    },
+    "numeric@desktop": {
+     "headerH": 80,
+     "links": 5,
+     "issues": 0
+    },
+    "numeric@mobile": {
+     "headerH": 80,
+     "links": 5,
+     "issues": 0
+    },
+    "darkTheme@desktop": {
+     "headerH": 80,
+     "links": 5,
+     "issues": 0
+    },
+    "darkTheme@mobile": {
+     "headerH": 80,
+     "links": 5,
+     "issues": 0
+    },
+    "withSocials@desktop": {
+     "headerH": 80,
+     "links": 4,
+     "issues": 0
+    },
+    "withSocials@mobile": {
+     "headerH": 80,
+     "links": 4,
+     "issues": 0
+    }
+   },
+   "issues": [],
+   "pageErrors": [],
+   "fatigue": {
+    "cycles": 10,
+    "issues": [],
+    "mode": "inline"
+   },
+   "fidelity": {
+    "fixture": "noCta",
+    "fails": [],
+    "warns": [],
+    "deviations": [],
+    "viewports": {
+     "desktop": {
+      "h": 80,
+      "pos": "fixed",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 4
+     },
+     "laptop": {
+      "h": 80,
+      "pos": "fixed",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 4
+     },
+     "tablet": {
+      "h": 80,
+      "pos": "fixed",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 4
+     },
+     "mobile": {
+      "h": 80,
+      "pos": "fixed",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 4
+     }
+    }
+   },
+   "status": "PASS"
+  },
+  {
    "id": "fluid-rail-pill",
    "refId": "cuberto",
    "displayName": "Fluid Rail with Pill CTA",
@@ -1884,6 +2119,244 @@
     }
    },
    "status": "PASS"
+  },
+  {
+   "id": "justified-row-blend",
+   "refId": "studiodumbar",
+   "displayName": "Justified Link Row on a Blend Rail",
+   "stress": {
+    "short@desktop": {
+     "headerH": 67,
+     "links": 4,
+     "issues": 0
+    },
+    "short@mobile": {
+     "headerH": 40,
+     "links": 2,
+     "issues": 0
+    },
+    "normal@desktop": {
+     "headerH": 67,
+     "links": 5,
+     "issues": 0
+    },
+    "normal@mobile": {
+     "headerH": 40,
+     "links": 2,
+     "issues": 0
+    },
+    "long@desktop": {
+     "headerH": 67,
+     "links": 5,
+     "issues": 0
+    },
+    "long@mobile": {
+     "headerH": 40,
+     "links": 2,
+     "issues": 0
+    },
+    "oneItem@desktop": {
+     "headerH": 67,
+     "links": 2,
+     "issues": 0
+    },
+    "oneItem@mobile": {
+     "headerH": 40,
+     "links": 2,
+     "issues": 0
+    },
+    "fiveItems@desktop": {
+     "headerH": 67,
+     "links": 7,
+     "issues": 0
+    },
+    "fiveItems@mobile": {
+     "headerH": 40,
+     "links": 2,
+     "issues": 0
+    },
+    "manyItems@desktop": {
+     "headerH": 67,
+     "links": 11,
+     "issues": 0
+    },
+    "manyItems@mobile": {
+     "headerH": 40,
+     "links": 2,
+     "issues": 0
+    },
+    "noCta@desktop": {
+     "headerH": 67,
+     "links": 4,
+     "issues": 0
+    },
+    "noCta@mobile": {
+     "headerH": 40,
+     "links": 2,
+     "issues": 0
+    },
+    "dropdowns@desktop": {
+     "headerH": 67,
+     "links": 5,
+     "issues": 0
+    },
+    "dropdowns@mobile": {
+     "headerH": 40,
+     "links": 2,
+     "issues": 0
+    },
+    "imageLogo@desktop": {
+     "headerH": 67,
+     "links": 5,
+     "issues": 0
+    },
+    "imageLogo@mobile": {
+     "headerH": 40,
+     "links": 2,
+     "issues": 0
+    },
+    "brokenLogo@desktop": {
+     "headerH": 67,
+     "links": 4,
+     "issues": 0
+    },
+    "brokenLogo@mobile": {
+     "headerH": 40,
+     "links": 2,
+     "issues": 0
+    },
+    "empty@desktop": {
+     "headerH": 67,
+     "links": 0,
+     "issues": 0
+    },
+    "empty@mobile": {
+     "headerH": 40,
+     "links": 1,
+     "issues": 0
+    },
+    "arabic@desktop": {
+     "headerH": 67,
+     "links": 5,
+     "issues": 0
+    },
+    "arabic@mobile": {
+     "headerH": 40,
+     "links": 2,
+     "issues": 0
+    },
+    "mixed@desktop": {
+     "headerH": 67,
+     "links": 5,
+     "issues": 0
+    },
+    "mixed@mobile": {
+     "headerH": 40,
+     "links": 2,
+     "issues": 0
+    },
+    "accents@desktop": {
+     "headerH": 67,
+     "links": 5,
+     "issues": 0
+    },
+    "accents@mobile": {
+     "headerH": 40,
+     "links": 2,
+     "issues": 0
+    },
+    "longWords@desktop": {
+     "headerH": 67,
+     "links": 4,
+     "issues": 0
+    },
+    "longWords@mobile": {
+     "headerH": 40,
+     "links": 2,
+     "issues": 0
+    },
+    "numeric@desktop": {
+     "headerH": 67,
+     "links": 5,
+     "issues": 0
+    },
+    "numeric@mobile": {
+     "headerH": 40,
+     "links": 2,
+     "issues": 0
+    },
+    "darkTheme@desktop": {
+     "headerH": 67,
+     "links": 5,
+     "issues": 0
+    },
+    "darkTheme@mobile": {
+     "headerH": 40,
+     "links": 2,
+     "issues": 0
+    },
+    "withSocials@desktop": {
+     "headerH": 67,
+     "links": 4,
+     "issues": 0
+    },
+    "withSocials@mobile": {
+     "headerH": 40,
+     "links": 2,
+     "issues": 0
+    }
+   },
+   "issues": [],
+   "pageErrors": [],
+   "fatigue": {
+    "cycles": 10,
+    "issues": [],
+    "resizeClosed": true,
+    "restingTop": 0
+   },
+   "fidelity": {
+    "fixture": "fiveItems",
+    "fails": [],
+    "warns": [
+     "position fixed vs ref absolute"
+    ],
+    "deviations": [],
+    "viewports": {
+     "desktop": {
+      "h": 67,
+      "pos": "fixed",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 7
+     },
+     "laptop": {
+      "h": 67,
+      "pos": "fixed",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 7
+     },
+     "tablet": {
+      "h": 40,
+      "pos": "fixed",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 2
+     },
+     "mobile": {
+      "h": 40,
+      "pos": "fixed",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 2
+     }
+    }
+   },
+   "status": "PASS WITH OBSERVATIONS"
   },
   {
    "id": "lightweight-type-theme-switch",

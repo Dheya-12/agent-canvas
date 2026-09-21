@@ -1,6 +1,6 @@
 # Navbar library — certification matrix
 
-Generated 2026-09-21T09:15:47Z from `reports/certification.json`.
+Generated 2026-09-21T10:26:29Z from `reports/certification.json`.
 
 Every entry is measured, not asserted. A component is certified only after its
 reconstruction has been rendered, captured and numerically compared against the
@@ -21,9 +21,11 @@ live reference, then put through the content, fatigue and damage-tolerance passe
 | `centred-cluster-float` | Bakken & Baeck | PASS | 48px | 48px | 48px | 48px | static | 10/10 | 0 |
 | `chunky-pill-emblem` | Lando Norris | PASS WITH OBSERVATIONS | 83px | 59px | 56px | 78px | static | 10/10 | 0 |
 | `colorflood-word-toggle` | Locomotive | PASS | 60px | 60px | 60px | 60px | static | 10/10 | 0 |
+| `fluid-clamp-inline` | North Kingdom | PASS | 80px | 80px | 80px | 80px | static | 10/10 | 0 |
 | `fluid-rail-pill` | Cuberto | PASS | 72px | 51px | 38px | 50px | hide-on-scroll | 10/10 | 0 |
 | `inset-blend-giant-mark` | Obys | PASS WITH OBSERVATIONS | 65px | 46px | 46px | 46px | static | 10/10 | 4 |
 | `inset-rail-text-roll` | Merci-Michel | PASS | 60px | 60px | 60px | 60px | static | 10/10 | 0 |
+| `justified-row-blend` | Studio Dumbar | PASS WITH OBSERVATIONS | 67px | 67px | 40px | 40px | static | 10/10 | 0 |
 | `lightweight-type-theme-switch` | Stink Studios | PASS WITH OBSERVATIONS | 66px | 66px | 61px | 66px | hide-on-scroll | 10/10 | 0 |
 | `pill-chip-split-ticker` | Instrument | PASS | 50px | 50px | 64px | 53px | transparent-to-solid | 10/10 | 0 |
 | `stacked-column-micro` | Zajno | PASS WITH OBSERVATIONS | 45px | 41px | 41px | 26px | static | 10/10 | 5 |
@@ -118,6 +120,21 @@ live reference, then put through the content, fatigue and damage-tolerance passe
 - **Runtime status:** no page errors across all render conditions
 - **Certification:** PASS
 
+#### `fluid-clamp-inline` — Fluid-Clamp Inline Rail
+
+- **Reference:** North Kingdom (https://www.northkingdom.com/)
+- **Captures:** `evidence/northkingdom/` (reference) and `evidence/northkingdom/impl/` (reconstruction)
+- **Viewports tested:** 1440×900, 1024×768, 768×1024, 390×844
+- **Content variants tested:** 18 fixtures × 2 viewports = 36 render conditions
+- **Interactions tested:** open/close ×10 (alternating Escape and toggle), resize while open, scroll churn ×6, hover, dropdown open/close
+- **Dependencies:** none beyond react
+- **Assets:** none — self-contained
+- **Fidelity fixture:** `noCta`
+- **Limitations / notes:** The bar holds 80px at every viewport while its TYPE ramps fluidly - clamp(16px, 3.964px + 1.4159vw, 24.354px), solved from the reference and reproducing its 24.35 / 18.46 / 16 / 16 measurements exactly - so the rail reads large on a desktop without a breakpoint step. The mark is taller than the content box and overflows it. IMPORTANT CONSTRAINT: links stay inline at every width; the reference provides no burger, so this suits few short labels and is a poor fit for deep navigation. ADDITION: below 768px the link rail scrolls horizontally with a soft edge mask, because the reference only ever carries four short labels and generated content can exceed the row.
+- **Build status:** included in the production build (`npm run build`)
+- **Runtime status:** no page errors across all render conditions
+- **Certification:** PASS
+
 #### `fluid-rail-pill` — Fluid Rail with Pill CTA
 
 - **Reference:** Cuberto (https://cuberto.com/)
@@ -169,6 +186,23 @@ live reference, then put through the content, fatigue and damage-tolerance passe
 - **Build status:** included in the production build (`npm run build`)
 - **Runtime status:** no page errors across all render conditions
 - **Certification:** PASS
+
+#### `justified-row-blend` — Justified Link Row on a Blend Rail
+
+- **Reference:** Studio Dumbar (https://studiodumbar.com/)
+- **Captures:** `evidence/studiodumbar/` (reference) and `evidence/studiodumbar/impl/` (reconstruction)
+- **Viewports tested:** 1440×900, 1024×768, 768×1024, 390×844
+- **Content variants tested:** 18 fixtures × 2 viewports = 36 render conditions
+- **Interactions tested:** open/close ×10 (alternating Escape and toggle), resize while open, scroll churn ×6, hover, dropdown open/close
+- **Dependencies:** none beyond react
+- **Assets:** none — self-contained
+- **Fidelity fixture:** `fiveItems`
+- **Known differences (non-blocking):**
+  - position fixed vs ref absolute
+- **Limitations / notes:** The links are JUSTIFIED, not gap-spaced: the row occupies a fixed fraction of the bar (from ~51% of the width to the trailing gutter) and distributes items with space-between, so spacing is whatever is left over. Adding an item tightens every gap instead of pushing the row outward, which keeps the trailing edge locked to the gutter - the reason it reads as a measured, graphic composition. The action joins the justified row rather than sitting outside it. Fifth navbar in the library using mix-blend-mode: difference; it is distinguished from the others by the justified row, not by the blend. The phone menu jumps to 60px type, so it reads as a statement rather than a list.
+- **Build status:** included in the production build (`npm run build`)
+- **Runtime status:** no page errors across all render conditions
+- **Certification:** PASS WITH OBSERVATIONS
 
 #### `lightweight-type-theme-switch` — Light-Weight Type Rail with Theme Switch
 
@@ -303,11 +337,9 @@ These are recorded rather than worked around. No component claims a reference it
 | Makemepulse | https://makemepulse.com/ | USABLE | 88px fixed, 8 interactive, 4/4 viewports |
 | MamboMambo | https://mambomambo.ca/ | USABLE | 75px fixed, 5 interactive, 4/4 viewports |
 | Media.Monks | https://www.monks.com/ | USABLE | 100px absolute, 7 interactive, 4/4 viewports |
-| North Kingdom | https://www.northkingdom.com/ | USABLE | 80px fixed, 5 interactive, 4/4 viewports |
 | OFFF Barcelona | https://www.offf.barcelona/ | USABLE | 167px fixed, 7 interactive, 4/4 viewports |
 | Readymag | https://readymag.com/ | USABLE | 72px absolute, 9 interactive, 4/4 viewports |
 | Rejouice | https://www.rejouice.com/ | USABLE | 62px fixed, 7 interactive, 4/4 viewports |
-| Studio Dumbar | https://studiodumbar.com/ | USABLE | 67px fixed, 6 interactive, 3/4 viewports |
 | Ueno | https://ueno.co/ | USABLE | 86px absolute, 6 interactive, 4/4 viewports |
 | Uncommon | https://www.uncommon.london/ | USABLE | 90px relative, 1 interactive, 4/4 viewports |
 | Active Theory | https://activetheory.net/ | NAV-WEAK | container found (244px static) but 0 interactive children detected |
@@ -337,12 +369,14 @@ Components sharing a structural trait, and what actually separates them.
   - `chunky-pill-emblem`: balanced density, motion 3, mobile overlay-fullscreen, comfortable 0–4 items
   - `colorflood-word-toggle`: airy density, motion 3, mobile overlay-fullscreen, comfortable 2–5 items
   - `inset-blend-giant-mark`: airy density, motion 2, mobile overlay-fullscreen, comfortable 2–5 items
+- **split / dropdown / static** — `fluid-clamp-inline`, `inset-rail-text-roll`, `justified-row-blend`, `tall-padded-pushdown`
+  - `fluid-clamp-inline`: airy density, motion 1, mobile inline, comfortable 2–5 items
+  - `inset-rail-text-roll`: compact density, motion 3, mobile inline, comfortable 2–5 items
+  - `justified-row-blend`: airy density, motion 2, mobile overlay-fullscreen, comfortable 3–6 items
+  - `tall-padded-pushdown`: airy density, motion 3, mobile overlay-fullscreen, comfortable 2–5 items
 - **split / dropdown / hide-on-scroll** — `fluid-rail-pill`, `lightweight-type-theme-switch`
   - `fluid-rail-pill`: airy density, motion 3, mobile drawer, comfortable 2–6 items
   - `lightweight-type-theme-switch`: balanced density, motion 2, mobile drawer, comfortable 2–6 items
-- **split / dropdown / static** — `inset-rail-text-roll`, `tall-padded-pushdown`
-  - `inset-rail-text-roll`: compact density, motion 3, mobile inline, comfortable 2–5 items
-  - `tall-padded-pushdown`: airy density, motion 3, mobile overlay-fullscreen, comfortable 2–5 items
 
 ### References judged materially similar, and not shipped
 
@@ -350,9 +384,14 @@ Components sharing a structural trait, and what actually separates them.
   - Shared: Fixed full-bleed rail with mix-blend-mode: difference and no background of its own; three-zone composition (mark hard-left, link cluster set off-centre at ~51% of the width, single action hard-right); no scroll response; 14px links on slightly negative tracking; symmetric 40px gutters.
   - Differs: The rail is 62px rather than 40px, and the brand slot holds a 440px-wide lockup (mark plus descriptor line) rather than a mark alone. The CTA carries an arrow glyph on both sides.
   - Verdict: Not shipped as a separate component. Both differences are reachable through the existing contract: a longer brand.name renders the descriptor lockup, and cta.icon supplies the arrow. Shipping it would add a second difference-blend tri-zone rail distinguished only by 22px of height.
+- **Jam3 (https://www.jam3.com/)** — duplicates `(same site as) Media.Monks — https://www.monks.com/`
+  - Shared: jam3.com issues a redirect to www.monks.com and serves the Media.Monks site, page title 'Monks'. Jam3 was absorbed into Media.Monks, so two entries in the 50-site reference list resolve to a single live site and a single navbar.
+  - Differs: Nothing — it is the same document, not a similar design.
+  - Verdict: Not a duplicate design judgement but a redirect: the reference list effectively contains 49 distinct sites, not 50. Any reconstruction of 'Jam3' would in fact be a reconstruction of Media.Monks.
 
 Components using `mix-blend-mode: difference` (a shared technique, not a shared design):
 
 - `blend-difference-trizone` — Blend-Difference Tri-Zone Monospace Rail
 - `colorflood-word-toggle` — Colour-Flood Menu with Word Toggle
 - `inset-blend-giant-mark` — Inset Blend Rail with Oversized Wordmark
+- `justified-row-blend` — Justified Link Row on a Blend Rail

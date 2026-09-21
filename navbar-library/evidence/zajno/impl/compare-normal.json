@@ -9,7 +9,7 @@
   ],
   "reason": "At tablet and mobile the reference header expands to wrap unrelated page content (148px tall at 390 with position:relative), so its container box is not the nav bar and its gutters are not comparable. Desktop and laptop gutters remain enforced."
  },
- "at": "2026-09-21T09:13:14.205Z",
+ "at": "2026-09-21T10:25:38.232Z",
  "viewports": {
   "desktop": {
    "h": 45,

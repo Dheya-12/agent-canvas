@@ -9,7 +9,7 @@
   ],
   "reason": "CAPTURE ARTEFACT, not a property of the reference. The tablet pass opened the reference's menu, which does not close on Escape, and the original harness did not reload between viewports - so the tablet and mobile 'initial' records contain the OPEN menu (their item lists include the menu's own links and a Close control). Gutters at those two viewports therefore measure menu content rather than the bar. The harness now reloads between viewports after any pass that opened a menu; this reference's stored evidence predates that fix. Heights, which are unaffected, remain enforced and match exactly at all four viewports."
  },
- "at": "2026-09-21T09:08:28.692Z",
+ "at": "2026-09-21T10:24:15.422Z",
  "viewports": {
   "desktop": {
    "h": 83,

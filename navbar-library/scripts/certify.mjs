@@ -97,8 +97,19 @@ const AUDIT = () => {
     const t = (el.textContent || '').trim().slice(0, 24) || (el.querySelector('img') ? '<image>' : '<empty>');
     out.issues.push({ kind: 'content-overflows', detail: `"${t}" content ${Math.round(cw)}px > box ${el.clientWidth}px` });
   }
-  // Elements escaping the header horizontally
+  // Elements escaping the header horizontally. A child of a horizontally
+  // scrollable rail is REACHABLE by scrolling, so it is not escaping - that
+  // is the rail doing its job.
+  const inScrollRail = el => {
+    for (let n = el.parentElement; n; n = n.parentElement) {
+      const c = getComputedStyle(n);
+      if ((c.overflowX === 'auto' || c.overflowX === 'scroll') && n.scrollWidth > n.clientWidth + 2) return true;
+      if (n === header) break;
+    }
+    return false;
+  };
   for (const el of links) {
+    if (inScrollRail(el)) continue;
     const r = el.getBoundingClientRect();
     if (r.right > window.innerWidth + 2 || r.left < -2) {
       const t = (el.textContent || '').trim().slice(0, 24);
@@ -287,18 +298,19 @@ async function certifyOne(page, m) {
   return entry;
 }
 
-const only = process.argv.slice(2);
+const only = process.argv.slice(2).filter(a => !a.startsWith('--'));
+const CONCURRENCY = Number(process.env.CERTIFY_WORKERS || 4);
 const metas = (await buildManifest()).filter(m => !only.length || only.includes(m.id));
-const browser = await chromium.launch({ args: ['--no-sandbox'] });
-const page = await browser.newPage();
 const results = [];
 
-for (const m of metas) {
+/** One component's full pass, on a browser the worker owns. */
+async function certifyWith(browser, m) {
+  const page = await browser.newPage();
   const e = await certifyOne(page, m);
-  // fidelity against the live reference (skipped when there is no evidence)
+  // fidelity against the reference measurements (skipped when absent)
   if (m.refId && fs.existsSync(`evidence/${m.refId}/inspection.json`)) {
     try {
-      const cmp = await runCompare(m.id, m.refId, m.referenceFixture || 'normal');
+      const cmp = await runCompare(m.id, m.refId, m.referenceFixture || 'normal', { browser });
       const flat = Object.values(cmp.diffs).flat();
       e.fidelity = {
         fixture: m.referenceFixture || 'normal',
@@ -317,14 +329,41 @@ for (const m of metas) {
   e.status = (blocking.length === 0 && fidFails === 0 && e.pageErrors.length === 0)
     ? ((e.fidelity?.deviations?.length || e.fidelity?.warns?.length || e.issues.length) ? 'PASS WITH OBSERVATIONS' : 'PASS')
     : 'FAIL';
-  results.push(e);
-  console.log(`${e.status.padEnd(23)} ${e.id.padEnd(28)} issues=${e.issues.length} fidFail=${fidFails} dev=${e.fidelity?.deviations?.length || 0} err=${e.pageErrors.length} fatigue=${e.fatigue.cycles}/10`);
-  for (const i of e.issues.slice(0, 6)) console.log(`    - [${i.kind}] ${i.where}: ${i.detail}`);
-  for (const f of (e.fidelity?.fails || []).slice(0, 4)) console.log(`    - [fidelity] ${f}`);
-  for (const p of e.pageErrors.slice(0, 3)) console.log(`    - [pageerror] ${p}`);
+  await page.close().catch(() => {});
+  return e;
 }
 
-await browser.close();
+// Components are independent, so they are certified in parallel across a few
+// browsers. A serial pass took roughly three minutes per component, which does
+// not scale to a library this size.
+const queue = [...metas];
+await Promise.all(
+  Array.from({ length: Math.min(CONCURRENCY, queue.length) }, async () => {
+    const browser = await chromium.launch({ args: ['--no-sandbox', '--disable-dev-shm-usage'] });
+    try {
+      for (;;) {
+        const m = queue.shift();
+        if (!m) break;
+        let e;
+        try {
+          e = await certifyWith(browser, m);
+        } catch (err) {
+          e = { id: m.id, refId: m.refId, displayName: m.displayName, stress: {}, issues: [{ where: 'runner', kind: 'certify-threw', detail: String(err.message).split('\n')[0].slice(0, 160) }], pageErrors: [], fatigue: { cycles: 0, issues: [] }, fidelity: { error: 'not run' }, status: 'FAIL' };
+        }
+        results.push(e);
+        const fidFails = e.fidelity?.fails?.length || 0;
+        console.log(`${e.status.padEnd(23)} ${e.id.padEnd(28)} issues=${e.issues.length} fidFail=${fidFails} dev=${e.fidelity?.deviations?.length || 0} err=${e.pageErrors.length} fatigue=${e.fatigue.cycles}/10`);
+        for (const i of e.issues.slice(0, 6)) console.log(`    - [${i.kind}] ${i.where}: ${i.detail}`);
+        for (const f of (e.fidelity?.fails || []).slice(0, 4)) console.log(`    - [fidelity] ${f}`);
+        for (const p of e.pageErrors.slice(0, 3)) console.log(`    - [pageerror] ${p}`);
+      }
+    } finally {
+      await browser.close().catch(() => {});
+    }
+  }),
+);
+
+results.sort((a, b) => a.id.localeCompare(b.id));
 fs.mkdirSync('reports', { recursive: true });
 fs.writeFileSync('reports/certification.json', JSON.stringify({ generatedAt: new Date().toISOString(), results }, null, 1));
 const tally = {};

@@ -1,41 +1,41 @@
 {
- "navId": "colorflood-word-toggle",
- "refId": "locomotive",
- "fixture": "normal",
+ "navId": "fluid-clamp-inline",
+ "refId": "northkingdom",
+ "fixture": "noCta",
  "overrides": null,
- "at": "2026-09-21T10:24:14.834Z",
+ "at": "2026-09-21T10:24:52.281Z",
  "viewports": {
   "desktop": {
-   "h": 60,
+   "h": 80,
    "pos": "fixed",
    "scrolledY": 0,
    "deepY": 0,
    "upY": 0,
-   "items": 5
+   "items": 4
   },
   "laptop": {
-   "h": 60,
+   "h": 80,
    "pos": "fixed",
    "scrolledY": 0,
    "deepY": 0,
    "upY": 0,
-   "items": 2
+   "items": 4
   },
   "tablet": {
-   "h": 60,
+   "h": 80,
    "pos": "fixed",
    "scrolledY": 0,
    "deepY": 0,
    "upY": 0,
-   "items": 2
+   "items": 4
   },
   "mobile": {
-   "h": 60,
+   "h": 80,
    "pos": "fixed",
    "scrolledY": 0,
    "deepY": 0,
    "upY": 0,
-   "items": 2
+   "items": 4
   }
  },
  "diffs": {
@@ -44,13 +44,5 @@
   "tablet": [],
   "mobile": []
  },
- "pageErrors": [],
- "menuOpen": {
-  "bodyOverflow": "hidden",
-  "expanded": "true"
- },
- "afterEscape": {
-  "bodyOverflow": "visible",
-  "expanded": "false"
- }
+ "pageErrors": []
 }

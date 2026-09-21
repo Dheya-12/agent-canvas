@@ -1,28 +1,28 @@
 {
- "navId": "colorflood-word-toggle",
- "refId": "locomotive",
- "fixture": "normal",
+ "navId": "justified-row-blend",
+ "refId": "studiodumbar",
+ "fixture": "fiveItems",
  "overrides": null,
- "at": "2026-09-21T10:24:14.834Z",
+ "at": "2026-09-21T10:24:57.061Z",
  "viewports": {
   "desktop": {
-   "h": 60,
+   "h": 67,
    "pos": "fixed",
    "scrolledY": 0,
    "deepY": 0,
    "upY": 0,
-   "items": 5
+   "items": 7
   },
   "laptop": {
-   "h": 60,
+   "h": 67,
    "pos": "fixed",
    "scrolledY": 0,
    "deepY": 0,
    "upY": 0,
-   "items": 2
+   "items": 7
   },
   "tablet": {
-   "h": 60,
+   "h": 40,
    "pos": "fixed",
    "scrolledY": 0,
    "deepY": 0,
@@ -30,7 +30,7 @@
    "items": 2
   },
   "mobile": {
-   "h": 60,
+   "h": 40,
    "pos": "fixed",
    "scrolledY": 0,
    "deepY": 0,
@@ -41,8 +41,18 @@
  "diffs": {
   "desktop": [],
   "laptop": [],
-  "tablet": [],
-  "mobile": []
+  "tablet": [
+   {
+    "level": "info",
+    "msg": "no reference measurement at tablet"
+   }
+  ],
+  "mobile": [
+   {
+    "level": "warn",
+    "msg": "position fixed vs ref absolute"
+   }
+  ]
  },
  "pageErrors": [],
  "menuOpen": {

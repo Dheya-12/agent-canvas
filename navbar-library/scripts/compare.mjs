@@ -139,13 +139,15 @@ async function capture(page, navId, fixture, vp, dir, extra = {}) {
   return { initial, scrolled, deepScroll, scrollUp, clipH };
 }
 
-export async function runCompare(navId, refId, fixture = 'normal') {
+export async function runCompare(navId, refId, fixture = 'normal', opts = {}) {
   const dir = path.join(OUT, refId, 'impl');
   fs.mkdirSync(dir, { recursive: true });
   const refPath = path.join(OUT, refId, 'inspection.json');
   const ref = fs.existsSync(refPath) ? JSON.parse(fs.readFileSync(refPath, 'utf8')) : null;
 
-  const browser = await chromium.launch({ args: ['--no-sandbox'] });
+  // A batch runner supplies its own browser; a one-off call launches one.
+  const ownsBrowser = !opts.browser;
+  const browser = opts.browser || (await chromium.launch({ args: ['--no-sandbox'] }));
   const page = await browser.newPage();
   const errs = [];
   page.on('pageerror', e => errs.push(String(e.message).slice(0, 140)));
@@ -187,7 +189,8 @@ export async function runCompare(navId, refId, fixture = 'normal') {
     }));
   }
   report.pageErrors = [...new Set(errs)].slice(0, 8);
-  await browser.close();
+  await page.close().catch(() => {});
+  if (ownsBrowser) await browser.close().catch(() => {});
   fs.writeFileSync(path.join(dir, `compare-${fixture}.json`), JSON.stringify(report, null, 1));
   return report;
 }
