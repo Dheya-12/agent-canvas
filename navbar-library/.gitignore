@@ -5,3 +5,5 @@ logs/
 # content-hashed, so committing them churns a new pair of files on every
 # rebuild. Regenerate with: npm run build && npm run gallery
 gallery/
+dist-gallery/
+navbar-specimen-book.html

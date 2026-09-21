@@ -1,0 +1,107 @@
+/* Offline specimen gallery. Cool technical neutrals with one deep teal
+   accent; Archivo for UI, IBM Plex Mono for every measured number. Fonts are
+   declared with full fallback stacks because this file ships offline and
+   must not depend on a font host. */
+.gal {
+  --paper: #eef0f2; --surface: #ffffff; --ink: #12151a; --muted: #5e6873;
+  --rule: #d3d8de; --accent: #0d6d63; --ok: #2f6b3a; --warn: #a2650c; --bad: #a3322a;
+  --shadow: 0 1px 0 rgba(18,21,26,.06), 0 8px 26px rgba(18,21,26,.06);
+  --ui: Archivo, 'Helvetica Neue', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  background: var(--paper); color: var(--ink);
+  font-family: var(--ui); font-size: 15px; line-height: 1.55; min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+@media (prefers-color-scheme: dark) {
+  .gal {
+    --paper: #0f1216; --surface: #171b21; --ink: #e7ebf0; --muted: #929ca8;
+    --rule: #272d35; --accent: #46bcac; --ok: #62b36f; --warn: #d3a04a; --bad: #e08078;
+    --shadow: 0 1px 0 rgba(0,0,0,.4), 0 8px 26px rgba(0,0,0,.35);
+  }
+}
+.gal *, .gal *::before, .gal *::after { box-sizing: border-box; }
+.wrap { max-width: 1180px; margin-inline: auto; padding-inline: 20px; }
+
+.mast { padding-block: 44px 26px; border-bottom: 1px solid var(--rule); }
+.eyebrow { font-family: var(--mono); font-size: 11.5px; letter-spacing: .13em; text-transform: uppercase; color: var(--accent); margin: 0 0 12px; }
+.mast h1 { margin: 0 0 12px; font-size: clamp(30px, 5vw, 46px); font-weight: 700; letter-spacing: -.028em; line-height: 1.05; text-wrap: balance; }
+.lede { margin: 0; max-width: 62ch; color: var(--muted); font-size: 16px; }
+.lede strong { color: var(--ink); font-weight: 600; }
+.tally { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 18px; font-family: var(--mono); font-size: 12.5px; color: var(--muted); }
+.tally b { color: var(--ink); font-weight: 500; }
+
+.rail { position: sticky; top: 0; z-index: 30; background: var(--paper); border-bottom: 1px solid var(--rule); }
+.rail-in { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding-block: 12px; }
+.rail-label { font-family: var(--mono); font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); flex: 0 0 auto; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { appearance: none; cursor: pointer; font: inherit; font-size: 13px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--rule); background: var(--surface); color: var(--ink); transition: border-color .18s, color .18s; }
+.chip:hover { border-color: var(--accent); }
+.chip[aria-pressed='true'] { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+.chip small { display: block; font-family: var(--mono); font-size: 10px; opacity: .72; letter-spacing: .04em; }
+.chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.book { padding-block: 30px 70px; display: flex; flex-direction: column; gap: 34px; }
+.spec { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; box-shadow: var(--shadow); overflow: hidden; }
+.spec-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 18px 20px 14px; }
+.spec-id { display: flex; gap: 14px; align-items: baseline; min-width: 0; }
+.num { font-family: var(--mono); font-size: 12px; color: var(--accent); letter-spacing: .08em; flex: 0 0 auto; }
+.spec h2 { margin: 0; font-size: 19px; font-weight: 600; letter-spacing: -.015em; line-height: 1.25; text-wrap: balance; }
+.ref { margin: 3px 0 0; font-size: 13px; color: var(--muted); }
+.ref span { color: var(--ink); }
+.ref code { font-family: var(--mono); font-size: 12px; }
+.badge { font-family: var(--mono); font-size: 10.5px; letter-spacing: .09em; text-transform: uppercase; padding: 4px 9px; border-radius: 4px; border: 1px solid currentColor; white-space: nowrap; flex: 0 0 auto; }
+.badge.ok { color: var(--ok); } .badge.obs { color: var(--warn); } .badge.bad { color: var(--bad); }
+
+/*
+ * The transform is load-bearing, not decorative: it makes this element the
+ * containing block for the navbar's `position: fixed` root, so twenty fixed
+ * navbars sit in their own stages instead of stacking at the viewport top.
+ */
+.stage {
+  position: relative;
+  transform: translateZ(0);
+  height: 210px;
+  overflow: hidden;
+  border-block: 1px solid var(--rule);
+  container-type: inline-size;
+}
+.bed { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 1fr 1fr; }
+
+/* Plain ground: the surface the navbar was designed to sit on. */
+.stage[data-bed='plain'] .bed span { background: #ffffff; }
+.stage[data-bed='plain'][data-theme='dark'] .bed span { background: #0b0b0d; }
+
+/* Banded ground, only for navbars that invert against the page. */
+.stage[data-bed='bands'] .bed span:nth-child(1) { background: #ffffff; }
+.stage[data-bed='bands'] .bed span:nth-child(2) { background: #c8ccd2; }
+.stage[data-bed='bands'] .bed span:nth-child(3) { background: #16181c; }
+.stage[data-bed='bands'][data-theme='dark'] .bed span:nth-child(1) { background: #0b0b0d; }
+.stage[data-bed='bands'][data-theme='dark'] .bed span:nth-child(2) { background: #3a3f46; }
+.stage[data-bed='bands'][data-theme='dark'] .bed span:nth-child(3) { background: #e9ecf0; }
+
+/* Names the ground so the banded ones are not mistaken for a rendering bug. */
+.stage[data-bed='bands']::after {
+  content: 'inverts against the page';
+  position: absolute; right: 8px; bottom: 6px; z-index: 5;
+  font-family: var(--mono); font-size: 10px; letter-spacing: .04em;
+  color: #6b7280; background: rgba(255,255,255,.82);
+  padding: 2px 6px; border-radius: 3px; pointer-events: none;
+}
+
+.measures { display: flex; flex-wrap: wrap; margin: 0; padding: 14px 20px 4px; }
+.measures > div { flex: 0 0 auto; min-width: 84px; padding-right: 22px; margin-bottom: 10px; }
+.measures > div.wide { min-width: 168px; }
+.measures dt { font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.measures dd { margin: 1px 0 0; font-family: var(--mono); font-size: 16px; font-variant-numeric: tabular-nums; }
+.measures dd i { font-style: normal; font-size: 11px; color: var(--muted); margin-left: 1px; }
+.measures dd.t { font-size: 13px; }
+.note { margin: 0; padding: 4px 20px 18px; font-size: 13.5px; color: var(--muted); max-width: 88ch; }
+.gal footer { border-top: 1px solid var(--rule); padding-block: 26px 44px; color: var(--muted); font-size: 13px; }
+
+@media (max-width: 640px) {
+  .spec-head { padding: 15px 15px 12px; }
+  .measures { padding-inline: 15px; }
+  .note { padding-inline: 15px; }
+  .stage { height: 180px; }
+}
+@media (prefers-reduced-motion: reduce) { .gal * { transition-duration: .01ms !important; } }

@@ -152,9 +152,22 @@ Arabic/RTL, submenus, empty. That control is the point of the library made
 operable — the same data goes into every component and each keeps its own
 design character.
 
-`gallery/` is gitignored: it is derived from `dist/`, and the asset
-filenames are content-hashed, so committing it would churn a new pair of
-files on every rebuild.
+`npm run gallery:file` instead produces `navbar-specimen-book.html` — the
+same gallery folded into ONE self-contained file (~390 kB). No server, no
+network, nothing to install: open it straight off the filesystem. It renders
+every navbar inline rather than in an iframe, which works because each stage
+sets `transform: translateZ(0)` and so becomes the containing block for the
+navbar's `position: fixed` root — otherwise twenty fixed navbars would stack
+at the top of the viewport.
+
+Stages show a plain ground by default. The five navbars using
+`mix-blend-mode: difference` are detected at runtime and given a banded
+ground instead, because they have no background of their own and cannot be
+shown honestly over a single flat colour.
+
+Both outputs are gitignored: they are derived from a build, and their asset
+filenames are content-hashed, so committing them would churn new files on
+every rebuild.
 
 ## Reports
 

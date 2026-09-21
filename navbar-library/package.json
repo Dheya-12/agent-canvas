@@ -13,7 +13,8 @@
     "certify": "node scripts/certify.mjs",
     "inspect": "node scripts/inspect.mjs",
     "report": "node scripts/report.mjs",
-    "gallery": "node scripts/gallery.mjs"
+    "gallery": "node scripts/gallery.mjs",
+    "gallery:file": "GALLERY_ONLY=1 vite build && node scripts/standalone.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",
