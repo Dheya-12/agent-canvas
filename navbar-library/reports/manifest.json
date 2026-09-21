@@ -1,0 +1,230 @@
+[
+ {
+  "id": "blend-difference-trizone",
+  "displayName": "Blend-Difference Tri-Zone Monospace Rail",
+  "reference": {
+   "site": "Studio Freight",
+   "url": "https://studiofreight.com/"
+  },
+  "layout": "split-center",
+  "menuArchitecture": "dropdown",
+  "mobilePattern": "overlay-fullscreen",
+  "scrollBehavior": "static",
+  "motionIntensity": 2,
+  "density": "compact",
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "supportsDropdowns": true,
+  "supportsCta": true,
+  "supportsSecondaryAction": true,
+  "supportsSocials": true,
+  "comfortableItems": [
+   2,
+   6
+  ],
+  "maxLabelChars": 12,
+  "rtlSupport": "partial",
+  "dependencies": [],
+  "assets": [],
+  "tone": [
+   "experimental",
+   "technical",
+   "monospace",
+   "editorial",
+   "studio"
+  ],
+  "industries": [
+   "design studio",
+   "motion",
+   "creative technology",
+   "music",
+   "portfolio"
+  ],
+  "notes": "The rail has no background of its own — mix-blend-mode: difference inverts it against the page, so it stays legible over light and dark sections with no scroll listener. Requires page content behind it to read correctly; over a mid-grey background the inverted text can approach low contrast. Dropdown panels and the mobile panel opt out of the blend (isolation: isolate) because text-over-text difference blending is unreadable. RTL is partial: the off-centre cluster is mirrored, but the composition was designed left-to-right.",
+  "refId": "studiofreight"
+ },
+ {
+  "id": "fluid-rail-pill",
+  "displayName": "Fluid Rail with Pill CTA",
+  "reference": {
+   "site": "Cuberto",
+   "url": "https://cuberto.com/"
+  },
+  "layout": "split",
+  "menuArchitecture": "dropdown",
+  "mobilePattern": "drawer",
+  "scrollBehavior": "hide-on-scroll",
+  "motionIntensity": 3,
+  "density": "airy",
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "supportsDropdowns": true,
+  "supportsCta": true,
+  "supportsSecondaryAction": true,
+  "supportsSocials": true,
+  "comfortableItems": [
+   2,
+   6
+  ],
+  "maxLabelChars": 14,
+  "rtlSupport": "full",
+  "dependencies": [],
+  "assets": [],
+  "tone": [
+   "contemporary",
+   "confident",
+   "product-led",
+   "clean"
+  ],
+  "industries": [
+   "design studio",
+   "software",
+   "agency",
+   "saas",
+   "consultancy"
+  ],
+  "notes": "All desktop dimensions are viewport-relative (5vw bar, 7.5vw gutters, 1.25vw links), so the rail keeps its proportions at any width instead of stepping at breakpoints. Below 768px it becomes a detached translucent card that expands in place.",
+  "refId": "cuberto"
+ },
+ {
+  "id": "inset-blend-giant-mark",
+  "displayName": "Inset Blend Rail with Oversized Wordmark",
+  "reference": {
+   "site": "Obys",
+   "url": "https://obys.agency/"
+  },
+  "layout": "split-center",
+  "menuArchitecture": "dropdown",
+  "mobilePattern": "overlay-fullscreen",
+  "scrollBehavior": "static",
+  "motionIntensity": 2,
+  "density": "airy",
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "supportsDropdowns": true,
+  "supportsCta": true,
+  "supportsSecondaryAction": true,
+  "supportsSocials": true,
+  "comfortableItems": [
+   2,
+   5
+  ],
+  "maxLabelChars": 10,
+  "rtlSupport": "partial",
+  "dependencies": [],
+  "assets": [],
+  "tone": [
+   "bold",
+   "brand-forward",
+   "experimental",
+   "studio",
+   "fashion"
+  ],
+  "industries": [
+   "design studio",
+   "fashion",
+   "creative technology",
+   "portfolio",
+   "music"
+  ],
+  "notes": "Inset 0.7vw from every edge, so page content shows around the rail. Shares mix-blend-mode: difference and a three-zone composition with blend-difference-trizone; the difference is the scale system (fully fluid vw here vs fixed px there) and the oversized wordmark, which occupies the full rail height. DEVIATION: the reference lets link type scale to ~3px at 390px wide; that is legible only for its own two-word labels, so this version keeps the fluid ramp but floors it at 12px.",
+  "refId": "obys"
+ },
+ {
+  "id": "pill-chip-split-ticker",
+  "displayName": "Pill-Chip Split Rail with Centre Announcement",
+  "reference": {
+   "site": "Instrument",
+   "url": "https://www.instrument.com/"
+  },
+  "layout": "split-center",
+  "menuArchitecture": "dropdown",
+  "mobilePattern": "overlay-fullscreen",
+  "scrollBehavior": "transparent-to-solid",
+  "motionIntensity": 2,
+  "density": "compact",
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "supportsDropdowns": true,
+  "supportsCta": true,
+  "supportsSecondaryAction": true,
+  "supportsSocials": true,
+  "comfortableItems": [
+   4,
+   8
+  ],
+  "maxLabelChars": 12,
+  "rtlSupport": "full",
+  "dependencies": [],
+  "assets": [],
+  "tone": [
+   "modern",
+   "confident",
+   "agency",
+   "editorial",
+   "playful"
+  ],
+  "industries": [
+   "agency",
+   "software",
+   "media",
+   "entertainment",
+   "events"
+  ],
+  "notes": "Navigation renders as pill chips, not plain links. `items` split at their midpoint into a left and a right cluster (odd counts give the extra item to the left so the centre stays centred); `cta` joins the right cluster as a filled chip; `secondaryAction` becomes the centred announcement line. Combines two scroll responses: transparent-to-solid AND hide-on-scroll. Needs at least 4 items to read as split - below that use a split layout. ADDITION: the reference carries no brand mark in the rail at all; one is rendered below 1024px so the collapsed bar is not anonymous.",
+  "refId": "instrument"
+ },
+ {
+  "id": "sticky-rail-blur-overlay",
+  "displayName": "Sticky Rail, Oversized Mark, Frosted Overlay",
+  "reference": {
+   "site": "AREA 17",
+   "url": "https://area17.com/"
+  },
+  "layout": "split",
+  "menuArchitecture": "dropdown",
+  "mobilePattern": "overlay-fullscreen",
+  "scrollBehavior": "sticky",
+  "motionIntensity": 2,
+  "density": "balanced",
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "supportsDropdowns": true,
+  "supportsCta": true,
+  "supportsSecondaryAction": true,
+  "supportsSocials": true,
+  "comfortableItems": [
+   3,
+   7
+  ],
+  "maxLabelChars": 16,
+  "rtlSupport": "full",
+  "dependencies": [],
+  "assets": [],
+  "tone": [
+   "editorial",
+   "institutional",
+   "restrained",
+   "typographic"
+  ],
+  "industries": [
+   "agency",
+   "architecture",
+   "consultancy",
+   "publishing",
+   "education"
+  ],
+  "notes": "Brand mark is intentionally larger than the 64px rail and overflows below it. Below 1000px the links are replaced by a frosted full-viewport overlay (blur(30px), 0.5s opacity fade, staggered links). Unlike the reference, the scroll lock is released on close — the reference leaves body overflow hidden.",
+  "refId": "area17"
+ }
+]

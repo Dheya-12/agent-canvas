@@ -23,12 +23,17 @@
   position: sticky;
   top: 0;
   z-index: 99;
+  /* The rail creates a stacking context, so the toggle's own z-index cannot
+   * lift it above the overlay - the whole rail has to rise instead, or the
+   * close control ends up underneath and unclickable. */
   height: var(--nb-h);
   background: transparent;
   color: var(--nb-fg);
   transition: 0.3s var(--nb-ease);
   font-family: var(--nb-font, inherit);
 }
+.root[data-open='true'] { z-index: 10000000; }
+
 .root[data-theme='dark'],
 .overlay[data-theme='dark'] { --nb-fg: #f5f5f5; --nb-overlay: rgba(18, 18, 18, 0.8); }
 
@@ -63,7 +68,10 @@
   max-width: min(46vw, 620px);
   display: block;
 }
-.brandImg { height: min(64px, 6.4vw); width: auto; display: block; }
+.brandImg { height: min(64px, 6.4vw); width: auto; display: block; 
+  max-width: 100%;
+  object-fit: contain;
+}
 
 .list {
   display: flex;
@@ -210,7 +218,6 @@
     color: inherit;
     cursor: pointer;
     position: relative;
-    z-index: 10000000;
     flex: 0 0 auto;
   }
   .toggleBar {

@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react';
 import type { NavItem, NavbarProps } from '../../core/types';
 import { Brand, Link, hasCta, menuLabels, useSafeContent } from '../../core/primitives';
 import { useCloseOnDesktop, useDisclosure, useEscape, useScrollLock } from '../../core/hooks';
+import a11y from '../../core/a11y.module.css';
 import s from './styles.module.css';
 
 /**
@@ -46,6 +47,7 @@ export default function StickyRailBlurOverlay({ content, className, style, onNav
         className={[s.root, className].filter(Boolean).join(' ')}
         style={style}
         data-theme={c.theme ?? 'light'}
+        data-open={open ? 'true' : 'false'}
         dir={c.dir ?? 'ltr'}
       >
         <div className={s.inner}>
@@ -102,7 +104,7 @@ export default function StickyRailBlurOverlay({ content, className, style, onNav
 
           <button
             type="button"
-            className={s.toggle}
+            className={`${s.toggle} ${a11y.tapTarget}`}
             aria-expanded={open}
             aria-label={open ? labels.close : labels.open}
             onClick={onToggle}

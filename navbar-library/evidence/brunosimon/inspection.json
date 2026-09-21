@@ -2,14 +2,316 @@
  "id": "brunosimon",
  "name": "Bruno Simon",
  "url": "https://bruno-simon.com/",
- "at": "2026-09-21T06:45:39.761Z",
- "viewports": {},
- "errors": [
-  "page.screenshot: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
- ],
+ "at": "2026-09-21T07:02:35.376Z",
+ "viewports": {
+  "desktop": {
+   "initial": {
+    "found": false
+   },
+   "scrolled": {
+    "found": false
+   }
+  },
+  "laptop": {
+   "initial": {
+    "found": false
+   },
+   "scrolled": {
+    "found": false
+   }
+  },
+  "tablet": {
+   "initial": {
+    "found": false
+   },
+   "scrolled": {
+    "found": false
+   },
+   "menuToggle": {
+    "label": "",
+    "cls": "js-menu-trigger menu-trigger"
+   },
+   "menuOpen": {
+    "overlayFound": true,
+    "bodyOverflow": "hidden",
+    "bodyPosition": "fixed",
+    "bg": "rgba(0, 0, 0, 0)",
+    "w": 768,
+    "h": 1024,
+    "x": 0,
+    "y": 0,
+    "transform": "none",
+    "transition": "all",
+    "backdropFilter": "none",
+    "zIndex": "auto",
+    "links": [
+     {
+      "t": "Three.js",
+      "fs": "20px",
+      "fw": "700",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "Nunito"
+     },
+     {
+      "t": "X",
+      "fs": "20px",
+      "fw": "700",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "Nunito"
+     },
+     {
+      "t": "GitHub",
+      "fs": "20px",
+      "fw": "700",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "Nunito"
+     },
+     {
+      "t": "X",
+      "fs": "20px",
+      "fw": "700",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "Nunito"
+     },
+     {
+      "t": "GitHub",
+      "fs": "20px",
+      "fw": "700",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "Nunito"
+     },
+     {
+      "t": "TSL",
+      "fs": "20px",
+      "fw": "700",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "Nunito"
+     },
+     {
+      "t": "huge course",
+      "fs": "20px",
+      "fw": "700",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "Nunito"
+     },
+     {
+      "t": "Youtube channel",
+      "fs": "20px",
+      "fw": "700",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "Nunito"
+     },
+     {
+      "t": "GitHub",
+      "fs": "20px",
+      "fw": "700",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "Nunito"
+     },
+     {
+      "t": "MIT license",
+      "fs": "20px",
+      "fw": "700",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "Nunito"
+     },
+     {
+      "t": "Linktree",
+      "fs": "20px",
+      "fw": "700",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "Nunito"
+     },
+     {
+      "t": "CC0 license",
+      "fs": "20px",
+      "fw": "700",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "Nunito"
+     },
+     {
+      "t": "here",
+      "fs": "20px",
+      "fw": "700",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "Nunito"
+     },
+     {
+      "t": "Rapier",
+      "fs": "20px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "Nunito"
+     }
+    ]
+   },
+   "afterClose": {
+    "bodyOverflow": "hidden"
+   }
+  },
+  "mobile": {
+   "initial": {
+    "found": false
+   },
+   "scrolled": {
+    "found": false
+   },
+   "menuToggle": {
+    "label": "",
+    "cls": "js-menu-trigger menu-trigger"
+   },
+   "menuOpen": {
+    "overlayFound": true,
+    "bodyOverflow": "hidden",
+    "bodyPosition": "fixed",
+    "bg": "rgba(0, 0, 0, 0)",
+    "w": 390,
+    "h": 844,
+    "x": 0,
+    "y": 0,
+    "transform": "none",
+    "transition": "all",
+    "backdropFilter": "none",
+    "zIndex": "auto",
+    "links": [
+     {
+      "t": "Three.js",
+      "fs": "16px",
+      "fw": "700",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "Nunito"
+     },
+     {
+      "t": "X",
+      "fs": "16px",
+      "fw": "700",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "Nunito"
+     },
+     {
+      "t": "GitHub",
+      "fs": "16px",
+      "fw": "700",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "Nunito"
+     },
+     {
+      "t": "X",
+      "fs": "16px",
+      "fw": "700",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "Nunito"
+     },
+     {
+      "t": "GitHub",
+      "fs": "16px",
+      "fw": "700",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "Nunito"
+     },
+     {
+      "t": "TSL",
+      "fs": "16px",
+      "fw": "700",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "Nunito"
+     },
+     {
+      "t": "huge course",
+      "fs": "16px",
+      "fw": "700",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "Nunito"
+     },
+     {
+      "t": "Youtube channel",
+      "fs": "16px",
+      "fw": "700",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "Nunito"
+     },
+     {
+      "t": "GitHub",
+      "fs": "16px",
+      "fw": "700",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "Nunito"
+     },
+     {
+      "t": "MIT license",
+      "fs": "16px",
+      "fw": "700",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "Nunito"
+     },
+     {
+      "t": "Linktree",
+      "fs": "16px",
+      "fw": "700",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "Nunito"
+     },
+     {
+      "t": "CC0 license",
+      "fs": "16px",
+      "fw": "700",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "Nunito"
+     },
+     {
+      "t": "here",
+      "fs": "16px",
+      "fw": "700",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "Nunito"
+     },
+     {
+      "t": "Rapier",
+      "fs": "16px",
+      "fw": "400",
+      "tt": "none",
+      "ls": "normal",
+      "ff": "Nunito"
+     }
+    ]
+   },
+   "afterClose": {
+    "bodyOverflow": "hidden"
+   }
+  }
+ },
+ "errors": [],
  "status": 200,
  "finalUrl": "https://bruno-simon.com/",
  "cookieDismissed": false,
  "title": "Bruno's",
- "ok": false
+ "consoleErrors": [],
+ "ok": true
 }

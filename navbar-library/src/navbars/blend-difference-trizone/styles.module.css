@@ -51,7 +51,10 @@
   max-width: 34vw;
   overflow: hidden;
 }
-.brandImg { height: var(--nb-mark); width: auto; display: block; }
+.brandImg { height: var(--nb-mark); width: auto; display: block; 
+  max-width: 100%;
+  object-fit: contain;
+}
 .brandText {
   font-size: 15px;
   font-weight: 500;
@@ -169,8 +172,10 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 24px;
+    /* Width is content-driven: this control carries a word, not a glyph,
+     * and the label is translatable, so a fixed width clips it. */
+    width: auto;
+    min-height: 24px;
     padding: 0;
     border: 0;
     background: none;

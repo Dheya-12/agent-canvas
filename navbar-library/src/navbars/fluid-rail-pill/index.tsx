@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import type { NavItem, NavbarProps } from '../../core/types';
 import { Brand, Link, hasCta, menuLabels, useSafeContent } from '../../core/primitives';
 import { useCloseOnDesktop, useDisclosure, useEscape, useMedia, useScrollLock, useScrollState } from '../../core/hooks';
+import a11y from '../../core/a11y.module.css';
 import s from './styles.module.css';
 
 /**
@@ -69,7 +70,7 @@ export default function FluidRailPill({ content, className, style, onNavigate }:
           />
           <button
             type="button"
-            className={s.toggle}
+            className={`${s.toggle} ${a11y.tapTarget}`}
             aria-expanded={open}
             aria-label={open ? labels.close : labels.open}
             onClick={onToggle}

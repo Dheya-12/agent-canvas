@@ -8,7 +8,7 @@
   ],
   "reason": "At tablet and mobile the reference header exposes exactly one detectable interactive element (the logo) - its menu control is not an <a>/<button>/[role=button], so the probe's rightmost-interactive figure is the logo's right edge (x=36) rather than the real trailing control. End-gutter is therefore not comparable at those two viewports. Desktop and laptop end-gutter remain enforced."
  },
- "at": "2026-09-21T07:01:53.071Z",
+ "at": "2026-09-21T07:29:40.029Z",
  "viewports": {
   "desktop": {
    "h": 40,

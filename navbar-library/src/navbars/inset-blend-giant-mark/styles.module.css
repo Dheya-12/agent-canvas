@@ -49,7 +49,10 @@
   max-width: 42vw;
   overflow: hidden;
 }
-.brandImg { height: 100%; width: auto; display: block; }
+.brandImg { height: 100%; width: auto; display: block; 
+  max-width: 100%;
+  object-fit: contain;
+}
 .brandText {
   font-size: min(3.4vw, 46px);
   font-weight: 700;

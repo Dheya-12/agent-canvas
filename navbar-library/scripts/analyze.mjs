@@ -75,12 +75,18 @@ export const ANALYZE = () => {
         ...styleOf(e),
       };
     })
-    .filter(o => o.rect.w > 0 && o.rect.h > 0)
+    // Skip links and visually-hidden controls are real navigation but they
+    // are not part of the bar's visible geometry. Excluding them stops them
+    // being read as the brand (they are always the leftmost element).
+    .filter(o => o.rect.w > 2 && o.rect.h > 2 && o.rect.x + o.rect.w > 0)
     .slice(0, 28);
 
-  // logo guess = leftmost interactive with image, or first
+  // Brand guess: the leftmost image-bearing link, but only if it actually
+  // sits in the leading third. A centred announcement or a mid-bar promo can
+  // carry an image too, and must not be mistaken for the mark.
   const byX = [...inter].sort((a, b) => a.rect.x - b.rect.x);
-  const logo = byX.find(o => o.hasImg) || byX[0] || null;
+  const lead = rect.width * 0.33;
+  const logo = byX.find(o => o.hasImg && o.rect.x <= lead) || byX[0] || null;
 
   // fonts actually used
   const fonts = [...new Set([...el.querySelectorAll('*')].slice(0, 200)

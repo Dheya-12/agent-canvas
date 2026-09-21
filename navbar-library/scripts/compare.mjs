@@ -21,6 +21,18 @@ const VIEWPORTS = [
 const TOL = { height: 4, x: 8, fontSize: 1.2 };
 const numeric = v => parseFloat(String(v)) || 0;
 
+/* Evidence captured before the probe learned to ignore visually-hidden
+ * controls still lists them. Re-filter on read so old and new records are
+ * measured by the same rule, and re-derive the brand from what remains. */
+function normalize(m) {
+  if (!m?.found || !Array.isArray(m.interactive)) return m;
+  const kept = m.interactive.filter(o => o.rect.w > 2 && o.rect.h > 2 && o.rect.x + o.rect.w > 0);
+  const byX = [...kept].sort((a, b) => a.rect.x - b.rect.x);
+  const lead = (m.container?.rect?.w || 0) * 0.33;
+  const logo = byX.find(o => o.hasImg && o.rect.x <= lead) || byX[0] || null;
+  return { ...m, interactive: kept, logo, interactiveCount: kept.length };
+}
+
 function diffOne(ref, impl, vp, refId) {
   const o = OVERRIDES[refId];
   // An override may be scoped to specific viewports; elsewhere the metric stands.
@@ -117,7 +129,7 @@ export async function runCompare(navId, refId, fixture = 'normal') {
       upY: got.scrollUp?.y,
       items: got.initial?.interactiveCount,
     };
-    report.diffs[vp.k] = diffOne(ref?.viewports?.[vp.k]?.initial, got.initial, vp.k, refId);
+    report.diffs[vp.k] = diffOne(normalize(ref?.viewports?.[vp.k]?.initial), normalize(got.initial), vp.k, refId);
   }
 
   // mobile menu open

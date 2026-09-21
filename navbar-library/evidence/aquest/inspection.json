@@ -2,7 +2,7 @@
  "id": "aquest",
  "name": "AQuest",
  "url": "https://www.aquest.it/",
- "at": "2026-09-21T06:55:27.817Z",
+ "at": "2026-09-21T07:11:46.711Z",
  "viewports": {
   "desktop": {
    "initial": {
@@ -487,7 +487,7 @@
  },
  "errors": [],
  "status": 403,
- "finalUrl": "https://www.aquest.it/?__cf_chl_rt_tk=haWJJ3WHvUDqh9m6bbemy3lvCuc0QW5LwriGJtm1Afo-1789973729-1.0.1.1-3xQytPWaSulhg5T0ejMRiLTy26hgXHqD0WrRm40K7R8",
+ "finalUrl": "https://www.aquest.it/?__cf_chl_rt_tk=.9U3sjYYsQA4EGvvV55DtVJZ_Yxbp_C1qdJwbinShC0-1789974707-1.0.1.1-YpXgGQshi_YqjnpbmbD96fMAFJISSEnc.qNHfqVNCaA",
  "cookieDismissed": false,
  "title": "Just a moment...",
  "consoleErrors": [
