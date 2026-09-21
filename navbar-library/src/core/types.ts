@@ -75,6 +75,13 @@ export interface NavbarContent {
   utilities?: NavUtility[];
   /** Labels for the mobile/overlay menu toggle. */
   menuLabel?: { open: string; close: string };
+  /**
+   * Opt-in light/dark switch rendered inside the bar. Honoured only by
+   * navbars whose metadata reports `supportsThemeToggle`. The navbar does
+   * not own the theme: it reports the requested value through
+   * `NavbarProps.onThemeChange` and renders whatever `theme` it is given.
+   */
+  themeToggle?: { toLight: string; toDark: string };
   theme?: ThemeName;
   dir?: Direction;
   locale?: string;
@@ -86,6 +93,8 @@ export interface NavbarProps {
   style?: React.CSSProperties;
   /** Called instead of navigating, so a host router can take over. */
   onNavigate?: (href: string, item?: NavItem) => void;
+  /** Called when the in-bar theme switch is used. The host owns the theme. */
+  onThemeChange?: (theme: ThemeName) => void;
 }
 
 /* ------------------------------------------------------------------ */
@@ -141,6 +150,8 @@ export interface NavbarMeta {
   supportsSocials: boolean;
   /** Renders `content.utilities` as a control cluster. */
   supportsUtilities?: boolean;
+  /** Renders `content.themeToggle` as an in-bar light/dark switch. */
+  supportsThemeToggle?: boolean;
   /** Item count the design holds without degrading at 1440px. */
   comfortableItems: [min: number, max: number];
   /** Longest single label (chars) that fits at 1440px without wrapping. */

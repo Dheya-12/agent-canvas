@@ -1,0 +1,275 @@
+# Navbar library — certification matrix
+
+Generated 2026-09-21T08:16:53Z from `reports/certification.json`.
+
+Every entry is measured, not asserted. A component is certified only after its
+reconstruction has been rendered, captured and numerically compared against the
+live reference, then put through the content, fatigue and damage-tolerance passes.
+
+| status | meaning |
+| --- | --- |
+| PASS | no blocking diff, no structural issue, no page error, 10/10 fatigue cycles |
+| PASS WITH OBSERVATIONS | as above, plus one or more **declared deviations** from the reference |
+| FAIL | a blocking fidelity diff, a structural issue, or a page error |
+
+## Certified components
+
+| id | reference | status | 1440 | 1024 | 768 | 390 | scroll | fatigue | deviations |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `blend-difference-trizone` | Studio Freight | PASS | 40px | 40px | 48px | 48px | static | 10/10 | 0 |
+| `centered-wordmark-commerce` | House of Spoils | PASS | 64px | 64px | 64px | 64px | transparent-to-solid | 10/10 | 0 |
+| `colorflood-word-toggle` | Locomotive | PASS | 60px | 60px | 60px | 60px | static | 10/10 | 0 |
+| `fluid-rail-pill` | Cuberto | PASS | 72px | 51px | 38px | 50px | hide-on-scroll | 10/10 | 0 |
+| `inset-blend-giant-mark` | Obys | PASS WITH OBSERVATIONS | 65px | 46px | 46px | 46px | static | 10/10 | 4 |
+| `lightweight-type-theme-switch` | Stink Studios | PASS WITH OBSERVATIONS | 66px | 66px | 61px | 66px | hide-on-scroll | 10/10 | 0 |
+| `pill-chip-split-ticker` | Instrument | PASS | 50px | 50px | 64px | 53px | transparent-to-solid | 10/10 | 0 |
+| `stacked-column-micro` | Zajno | PASS WITH OBSERVATIONS | 45px | 41px | 41px | 26px | static | 10/10 | 5 |
+| `sticky-rail-blur-overlay` | AREA 17 | PASS | 64px | 64px | 56px | 56px | sticky | 10/10 | 0 |
+| `tall-airy-dual-trigger` | BASIC/DEPT | PASS | 126px | 101px | 88px | 70px | hide-on-scroll | 10/10 | 0 |
+
+### Evidence per component
+
+#### `blend-difference-trizone` — Blend-Difference Tri-Zone Monospace Rail
+
+- **Reference:** Studio Freight (https://studiofreight.com/)
+- **Captures:** `evidence/studiofreight/` (reference) and `evidence/studiofreight/impl/` (reconstruction)
+- **Viewports tested:** 1440×900, 1024×768, 768×1024, 390×844
+- **Content variants tested:** 18 fixtures × 2 viewports = 36 render conditions
+- **Interactions tested:** open/close ×10 (alternating Escape and toggle), resize while open, scroll churn ×6, hover, dropdown open/close
+- **Dependencies:** none beyond react
+- **Assets:** none — self-contained
+- **Fidelity fixture:** `normal`
+- **Measurement skips** (probe mis-measures this reference, tablet + mobile only): endGutter
+  - At tablet and mobile the reference header exposes exactly one detectable interactive element (the logo) - its menu control is not an <a>/<button>/[role=button], so the probe's rightmost-interactive figure is the logo's right edge (x=36) rather than the real trailing control. End-gutter is therefore not comparable at those two viewports. Desktop and laptop end-gutter remain enforced.
+- **Limitations / notes:** The rail has no background of its own — mix-blend-mode: difference inverts it against the page, so it stays legible over light and dark sections with no scroll listener. Requires page content behind it to read correctly; over a mid-grey background the inverted text can approach low contrast. Dropdown panels and the mobile panel opt out of the blend (isolation: isolate) because text-over-text difference blending is unreadable. RTL is partial: the off-centre cluster is mirrored, but the composition was designed left-to-right.
+- **Build status:** included in the production build (`npm run build`)
+- **Runtime status:** no page errors across all render conditions
+- **Certification:** PASS
+
+#### `centered-wordmark-commerce` — Centred Wordmark Commerce Rail with Mega Panel
+
+- **Reference:** House of Spoils (https://houseofspoils.com/)
+- **Captures:** `evidence/houseofspoils/` (reference) and `evidence/houseofspoils/impl/` (reconstruction)
+- **Viewports tested:** 1440×900, 1024×768, 768×1024, 390×844
+- **Content variants tested:** 18 fixtures × 2 viewports = 36 render conditions
+- **Interactions tested:** open/close ×10 (alternating Escape and toggle), resize while open, scroll churn ×6, hover, dropdown open/close
+- **Dependencies:** none beyond react
+- **Assets:** none — self-contained
+- **Fidelity fixture:** `commerce`
+- **Measurement skips** (probe mis-measures this reference): startGutter
+  - The reference's first navigation trigger ('Shop', clearly visible at the left edge in evidence/houseofspoils/desktop-initial.png) is not an <a>, <button> or [role=button], so the probe never sees it and reports the SECOND item ('Artists', x=92) as the leading element. The leading gutter therefore measures the wrong element on this reference. The trailing gutter, which ends at a real link, remains enforced.
+- **Limitations / notes:** Built for commerce: `utilities` render as a trailing icon cluster (inline SVG, no asset dependency, optional count badge), `secondaryAction` as a locale or currency selector, and items with children open a full-width mega panel. The wordmark is absolutely centred on the viewport axis, so it stays on axis however wide the flanking clusters grow. Designed to sit transparent over hero imagery and take a solid surface once scrolled.
+- **Build status:** included in the production build (`npm run build`)
+- **Runtime status:** no page errors across all render conditions
+- **Certification:** PASS
+
+#### `colorflood-word-toggle` — Colour-Flood Menu with Word Toggle
+
+- **Reference:** Locomotive (https://locomotive.ca/)
+- **Captures:** `evidence/locomotive/` (reference) and `evidence/locomotive/impl/` (reconstruction)
+- **Viewports tested:** 1440×900, 1024×768, 768×1024, 390×844
+- **Content variants tested:** 18 fixtures × 2 viewports = 36 render conditions
+- **Interactions tested:** open/close ×10 (alternating Escape and toggle), resize while open, scroll churn ×6, hover, dropdown open/close
+- **Dependencies:** none beyond react
+- **Assets:** none — self-contained
+- **Fidelity fixture:** `normal`
+- **Limitations / notes:** Inline type is as large as the wordmark (26px), so this rail suits few, short labels. Below 1024px the control is the WORD "Menu" at rail type size, not a burger glyph. Opening floods the viewport with a single saturated colour, set via --nb-accent (default #312dfb) and intended to be overridden per brand. The flood sits below the rail in z-order so the rail stays interactive; while open the rail drops its difference blend so it reads against the accent. Third navbar using difference blending, alongside blend-difference-trizone (fixed-px monospace) and inset-blend-giant-mark (fluid vw, inset): this one is fixed-px with large type and a colour-flood menu. Unlike the reference, the overlay locks body scroll.
+- **Build status:** included in the production build (`npm run build`)
+- **Runtime status:** no page errors across all render conditions
+- **Certification:** PASS
+
+#### `fluid-rail-pill` — Fluid Rail with Pill CTA
+
+- **Reference:** Cuberto (https://cuberto.com/)
+- **Captures:** `evidence/cuberto/` (reference) and `evidence/cuberto/impl/` (reconstruction)
+- **Viewports tested:** 1440×900, 1024×768, 768×1024, 390×844
+- **Content variants tested:** 18 fixtures × 2 viewports = 36 render conditions
+- **Interactions tested:** open/close ×10 (alternating Escape and toggle), resize while open, scroll churn ×6, hover, dropdown open/close
+- **Dependencies:** none beyond react
+- **Assets:** none — self-contained
+- **Fidelity fixture:** `normal`
+- **Limitations / notes:** All desktop dimensions are viewport-relative (5vw bar, 7.5vw gutters, 1.25vw links), so the rail keeps its proportions at any width instead of stepping at breakpoints. Below 768px it becomes a detached translucent card that expands in place.
+- **Build status:** included in the production build (`npm run build`)
+- **Runtime status:** no page errors across all render conditions
+- **Certification:** PASS
+
+#### `inset-blend-giant-mark` — Inset Blend Rail with Oversized Wordmark
+
+- **Reference:** Obys (https://obys.agency/)
+- **Captures:** `evidence/obys/` (reference) and `evidence/obys/impl/` (reconstruction)
+- **Viewports tested:** 1440×900, 1024×768, 768×1024, 390×844
+- **Content variants tested:** 18 fixtures × 2 viewports = 36 render conditions
+- **Interactions tested:** open/close ×10 (alternating Escape and toggle), resize while open, scroll churn ×6, hover, dropdown open/close
+- **Dependencies:** none beyond react
+- **Assets:** none — self-contained
+- **Fidelity fixture:** `normal`
+- **Declared deviations:**
+  - link font-size 12px vs ref 7.82222px (Δ4.2) [declared: The reference scales link type strictly with viewport width, reaching 7.8px at 1024, 5.9px at 768 and 3.0px at 390. That is legible only for its own two-word uppercase labels and fails WCAG for arbitrary generated content. This reconstruction keeps the fluid ramp but floors it at 12px.]
+  - height 46.0 vs ref 34.4 (Δ11.6px) [declared: The reference rail is 34px tall at 768 and 17.5px at 390 because its height is also pure vw. A 17.5px bar cannot hold a touch target (44px minimum). This reconstruction floors the rail at 46px below 860px and moves the links into a panel.]
+  - link font-size 16px vs ref 5.86666px (Δ10.1) [declared: The reference scales link type strictly with viewport width, reaching 7.8px at 1024, 5.9px at 768 and 3.0px at 390. That is legible only for its own two-word uppercase labels and fails WCAG for arbitrary generated content. This reconstruction keeps the fluid ramp but floors it at 12px.]
+  - height 46.0 vs ref 17.5 (Δ28.5px) [declared: The reference rail is 34px tall at 768 and 17.5px at 390 because its height is also pure vw. A 17.5px bar cannot hold a touch target (44px minimum). This reconstruction floors the rail at 46px below 860px and moves the links into a panel.]
+- **Limitations / notes:** Inset 0.7vw from every edge, so page content shows around the rail. Shares mix-blend-mode: difference and a three-zone composition with blend-difference-trizone; the difference is the scale system (fully fluid vw here vs fixed px there) and the oversized wordmark, which occupies the full rail height. DEVIATION: the reference lets link type scale to ~3px at 390px wide; that is legible only for its own two-word labels, so this version keeps the fluid ramp but floors it at 12px.
+- **Build status:** included in the production build (`npm run build`)
+- **Runtime status:** no page errors across all render conditions
+- **Certification:** PASS WITH OBSERVATIONS
+
+#### `lightweight-type-theme-switch` — Light-Weight Type Rail with Theme Switch
+
+- **Reference:** Stink Studios (https://www.stinkstudios.com/)
+- **Captures:** `evidence/stinkstudios/` (reference) and `evidence/stinkstudios/impl/` (reconstruction)
+- **Viewports tested:** 1440×900, 1024×768, 768×1024, 390×844
+- **Content variants tested:** 18 fixtures × 2 viewports = 36 render conditions
+- **Interactions tested:** open/close ×10 (alternating Escape and toggle), resize while open, scroll churn ×6, hover, dropdown open/close
+- **Dependencies:** none beyond react
+- **Assets:** none — self-contained
+- **Fidelity fixture:** `themed`
+- **Measurement skips** (probe mis-measures this reference): height, startGutter, endGutter
+  - The probe's container heuristic selects the reference's inner <nav> (the right-aligned link group, 927x30 at 1440) rather than the header bar that wraps it, because the header itself scores lower. Height and both gutters therefore describe the link group, not the bar, and are not comparable with a full-width reconstruction. Link type scale, top offset and hide-on-scroll response remain enforced and all match.
+- **Known differences (non-blocking):**
+  - position fixed vs ref static
+  - position fixed vs ref static
+  - position fixed vs ref static
+  - position fixed vs ref static
+- **Limitations / notes:** Dark-first: renders on a dark surface by default. Type is large (23px) but set at weight 300 on negative tracking, so it reads quiet rather than loud - it needs a typeface with a usable light weight. The only navbar in the library with an in-bar light/dark switch: it does NOT own the theme, it renders the `theme` it is given and reports the requested value through `onThemeChange`, so the host stays the single source of truth. Phone menu is a narrow 300px drawer sliding from the trailing edge rather than a full-bleed overlay.
+- **Build status:** included in the production build (`npm run build`)
+- **Runtime status:** no page errors across all render conditions
+- **Certification:** PASS WITH OBSERVATIONS
+
+#### `pill-chip-split-ticker` — Pill-Chip Split Rail with Centre Announcement
+
+- **Reference:** Instrument (https://www.instrument.com/)
+- **Captures:** `evidence/instrument/` (reference) and `evidence/instrument/impl/` (reconstruction)
+- **Viewports tested:** 1440×900, 1024×768, 768×1024, 390×844
+- **Content variants tested:** 18 fixtures × 2 viewports = 36 render conditions
+- **Interactions tested:** open/close ×10 (alternating Escape and toggle), resize while open, scroll churn ×6, hover, dropdown open/close
+- **Dependencies:** none beyond react
+- **Assets:** none — self-contained
+- **Fidelity fixture:** `normal`
+- **Limitations / notes:** Navigation renders as pill chips, not plain links. `items` split at their midpoint into a left and a right cluster (odd counts give the extra item to the left so the centre stays centred); `cta` joins the right cluster as a filled chip; `secondaryAction` becomes the centred announcement line. Combines two scroll responses: transparent-to-solid AND hide-on-scroll. Needs at least 4 items to read as split - below that use a split layout. ADDITION: the reference carries no brand mark in the rail at all; one is rendered below 1024px so the collapsed bar is not anonymous.
+- **Build status:** included in the production build (`npm run build`)
+- **Runtime status:** no page errors across all render conditions
+- **Certification:** PASS
+
+#### `stacked-column-micro` — Stacked-Column Micro Nav
+
+- **Reference:** Zajno (https://zajno.com/)
+- **Captures:** `evidence/zajno/` (reference) and `evidence/zajno/impl/` (reconstruction)
+- **Viewports tested:** 1440×900, 1024×768, 768×1024, 390×844
+- **Content variants tested:** 18 fixtures × 2 viewports = 36 render conditions
+- **Interactions tested:** open/close ×10 (alternating Escape and toggle), resize while open, scroll churn ×6, hover, dropdown open/close
+- **Dependencies:** none beyond react
+- **Assets:** none — self-contained
+- **Fidelity fixture:** `normal`
+- **Measurement skips** (probe mis-measures this reference, tablet + mobile only): endGutter, startGutter
+  - At tablet and mobile the reference header expands to wrap unrelated page content (148px tall at 390 with position:relative), so its container box is not the nav bar and its gutters are not comparable. Desktop and laptop gutters remain enforced.
+- **Declared deviations:**
+  - end gutter Δ25.2px [declared: Downstream of the declared type floor: at 1024 the reference renders 8.5px labels while this reconstruction renders 11px, so the trailing column is ~25px wider and the trailing gutter is correspondingly narrower. The column PLACEMENT (50.5% / 67% tracks) matches; only the label width differs.]
+  - link font-size 11px vs ref 8.53299px (Δ2.5) [declared: Reference type is 0.833vw with no floor: 8.5px at 1024, 6.4px at 768 and 3.25px at 390. The fluid ramp is kept but floored at 11px (13px below 700px) so arbitrary generated labels stay legible.]
+  - height 41.3 vs ref 24.0 (Δ17.3px) [declared: Height follows from the type floor: the reference bar is 24px at 768 and its columns render at 3.25px. Below 700px this reconstruction collapses the columns into a single disclosure stack with a tappable control, which the reference does not provide at all.]
+  - link font-size 11px vs ref 6.39974px (Δ4.6) [declared: Reference type is 0.833vw with no floor: 8.5px at 1024, 6.4px at 768 and 3.25px at 390. The fluid ramp is kept but floored at 11px (13px below 700px) so arbitrary generated labels stay legible.]
+  - height 26.3 vs ref 147.9 (Δ121.6px) [declared: Height follows from the type floor: the reference bar is 24px at 768 and its columns render at 3.25px. Below 700px this reconstruction collapses the columns into a single disclosure stack with a tappable control, which the reference does not provide at all.]
+- **Known differences (non-blocking):**
+  - end gutter Δ15.0px
+  - height 41.3 vs ref 32.0 (Δ9.3px)
+  - position absolute vs ref relative
+- **Limitations / notes:** Navigation is stacked into vertical columns rather than laid out as a row, so the bar is only a few lines tall. The bar is absolute, not fixed: it scrolls away with the page, which suits sites with a strong hero. Children continue the stack indented rather than opening a panel, since a floating dropdown would be out of scale at this type size. Below 700px the columns collapse into one disclosure stack. DEVIATION: the reference type is 0.833vw, reaching 6.4px at 768 and 3.2px at 390; the fluid ramp is kept but floored at 11px.
+- **Build status:** included in the production build (`npm run build`)
+- **Runtime status:** no page errors across all render conditions
+- **Certification:** PASS WITH OBSERVATIONS
+
+#### `sticky-rail-blur-overlay` — Sticky Rail, Oversized Mark, Frosted Overlay
+
+- **Reference:** AREA 17 (https://area17.com/)
+- **Captures:** `evidence/area17/` (reference) and `evidence/area17/impl/` (reconstruction)
+- **Viewports tested:** 1440×900, 1024×768, 768×1024, 390×844
+- **Content variants tested:** 18 fixtures × 2 viewports = 36 render conditions
+- **Interactions tested:** open/close ×10 (alternating Escape and toggle), resize while open, scroll churn ×6, hover, dropdown open/close
+- **Dependencies:** none beyond react
+- **Assets:** none — self-contained
+- **Fidelity fixture:** `normal`
+- **Measurement skips** (probe mis-measures this reference): startGutter
+  - The probe's brand heuristic picks the leftmost interactive element inside the measured <header>, but AREA 17's brand mark is an oversized graphic that overflows the rail and is not among the header's interactive children. The probe therefore reports the first NAV LINK (x=942 at 1440) as the brand. evidence/area17/desktop-initial.png shows the actual mark at x=16, which is what the reconstruction renders.
+- **Limitations / notes:** Brand mark is intentionally larger than the 64px rail and overflows below it. Below 1000px the links are replaced by a frosted full-viewport overlay (blur(30px), 0.5s opacity fade, staggered links). Unlike the reference, the scroll lock is released on close — the reference leaves body overflow hidden.
+- **Build status:** included in the production build (`npm run build`)
+- **Runtime status:** no page errors across all render conditions
+- **Certification:** PASS
+
+#### `tall-airy-dual-trigger` — Tall Airy Rail with Persistent Menu Trigger
+
+- **Reference:** BASIC/DEPT (https://www.basicagency.com/)
+- **Captures:** `evidence/basicdept/` (reference) and `evidence/basicdept/impl/` (reconstruction)
+- **Viewports tested:** 1440×900, 1024×768, 768×1024, 390×844
+- **Content variants tested:** 18 fixtures × 2 viewports = 36 render conditions
+- **Interactions tested:** open/close ×10 (alternating Escape and toggle), resize while open, scroll churn ×6, hover, dropdown open/close
+- **Dependencies:** none beyond react
+- **Assets:** none — self-contained
+- **Fidelity fixture:** `normal`
+- **Limitations / notes:** Unusually tall (126px at 1440, stepping to 101 / 88 / 70) with an 80px gutter and links spaced a full 60px apart, so it needs generous page whitespace to read as intended. Typographic signature is uppercase on NEGATIVE tracking. The "Menu" trigger is present at every width - at desktop it sits alongside the inline links rather than replacing them, offering a second route into a fuller index. The rail hides on scroll-down but never while the menu is open.
+- **Build status:** included in the production build (`npm run build`)
+- **Runtime status:** no page errors across all render conditions
+- **Certification:** PASS
+
+## References not reconstructed
+
+These are recorded rather than worked around. No component claims a reference it could not measure.
+
+| reference | url | state | detail |
+| --- | --- | --- | --- |
+| Antinomy Studio | https://antinomy.studio/ | USABLE | 56px fixed, 5 interactive, 4/4 viewports |
+| Bakken & Baeck | https://bakkenbaeck.com/ | USABLE | 48px fixed, 7 interactive, 4/4 viewports |
+| Bonhomme | https://bonhomme.fr/ | USABLE | 104px absolute, 8 interactive, 4/4 viewports |
+| Code and Theory | https://codeandtheory.com/ | USABLE | 71px fixed, 6 interactive, 4/4 viewports |
+| Dogstudio | https://dogstudio.co/ | USABLE | 129px absolute, 2 interactive, 4/4 viewports |
+| Fantasy | https://fantasy.co/ | USABLE | 108px fixed, 2 interactive, 4/4 viewports |
+| Griflan Design | https://griflan.com/ | USABLE | 36px fixed, 10 interactive, 4/4 viewports |
+| Jam3 | https://www.jam3.com/ | USABLE | 100px absolute, 7 interactive, 4/4 viewports |
+| Koto | https://koto.studio/ | USABLE | 48px static, 6 interactive, 4/4 viewports |
+| Lando Norris | https://landonorris.com/ | USABLE | 83px fixed, 4 interactive, 4/4 viewports |
+| Lusion | https://lusion.co/ | USABLE | 146px fixed, 10 interactive, 4/4 viewports |
+| Makemepulse | https://makemepulse.com/ | USABLE | 88px fixed, 8 interactive, 4/4 viewports |
+| MamboMambo | https://mambomambo.ca/ | USABLE | 75px fixed, 5 interactive, 4/4 viewports |
+| Merci-Michel | https://merci-michel.com/ | USABLE | 60px absolute, 4 interactive, 4/4 viewports |
+| Media.Monks | https://www.monks.com/ | USABLE | 100px absolute, 7 interactive, 4/4 viewports |
+| ManvsMachine | https://mvsm.com/ | USABLE | 128px fixed, 4 interactive, 4/4 viewports |
+| North Kingdom | https://www.northkingdom.com/ | USABLE | 80px fixed, 5 interactive, 4/4 viewports |
+| OFFF Barcelona | https://www.offf.barcelona/ | USABLE | 167px fixed, 7 interactive, 4/4 viewports |
+| Readymag | https://readymag.com/ | USABLE | 72px absolute, 9 interactive, 4/4 viewports |
+| Rejouice | https://www.rejouice.com/ | USABLE | 62px fixed, 7 interactive, 4/4 viewports |
+| Studio Dumbar | https://studiodumbar.com/ | USABLE | 67px fixed, 6 interactive, 3/4 viewports |
+| Ueno | https://ueno.co/ | USABLE | 86px absolute, 6 interactive, 4/4 viewports |
+| Uncommon | https://www.uncommon.london/ | USABLE | 90px relative, 1 interactive, 4/4 viewports |
+| Active Theory | https://activetheory.net/ | NAV-WEAK | container found (244px static) but 0 interactive children detected |
+| AKQA | https://www.akqa.com/ | NAV-WEAK | container found (100px static) but 0 interactive children detected |
+| B-Reel | https://www.b-reel.com/ | NAV-WEAK | container found (104px fixed) but 0 interactive children detected |
+| Build in Amsterdam | https://www.buildinamsterdam.com/ | NAV-WEAK | container found (73px relative) but 0 interactive children detected |
+| Garden Eight | https://garden-eight.com/ | NAV-WEAK | container found (60px absolute) but 0 interactive children detected |
+| Hello Monday | https://hellomonday.com/ | NAV-WEAK | container found (101px absolute) but 0 interactive children detected |
+| Caffe Design | https://caffe.design/ | NAV-NOT-FOUND | page loaded (HTTP 200) but no navbar candidate scored above threshold |
+| Immersive Garden | https://immersive-g.com/ | NAV-NOT-FOUND | page loaded (HTTP 200) but no navbar candidate scored above threshold |
+| Resn | https://resn.co.nz/ | NAV-NOT-FOUND | page loaded (HTTP 200) but no navbar candidate scored above threshold |
+| AQuest | https://www.aquest.it/ | BLOCKED | HTTP 403 |
+| Awwwards | https://www.awwwards.com/ | BLOCKED | HTTP 502 |
+| OFF+BRAND | https://offbrand.agency/ | BLOCKED | HTTP 502 |
+| Spring I/O | https://springio.net/ | BLOCKED | HTTP 502 |
+| Vogue Adria | https://vogueadria.com/ | BLOCKED | HTTP 403 |
+| Bruno Simon | https://bruno-simon.com/ | ERROR | page.screenshot: Timeout 30000ms exceeded. Call log: [2m - taking page screenshot[22m [2m - waiting for fonts to load...[22m [2m - fonts loaded[22m  |
+| Locomotive FUNCTION | https://function.locomotive.ca/ | ERROR | page.goto: net::ERR_TUNNEL_CONNECTION_FAILED at https://function.locomotive.ca/ Call log: [2m - navigating to "https://function.locomotive.ca/", waiting until  |
+| Unseen Studio | https://unseen.co/ | ERROR | page.screenshot: Timeout 30000ms exceeded. Call log: [2m - taking page screenshot[22m [2m - waiting for fonts to load...[22m [2m - fonts loaded[22m  |
+
+## Duplicate detection
+
+Components sharing a structural trait, and what actually separates them.
+
+- **split-center / dropdown / static** — `blend-difference-trizone`, `colorflood-word-toggle`, `inset-blend-giant-mark`
+  - `blend-difference-trizone`: compact density, motion 2, mobile overlay-fullscreen, comfortable 2–6 items
+  - `colorflood-word-toggle`: airy density, motion 3, mobile overlay-fullscreen, comfortable 2–5 items
+  - `inset-blend-giant-mark`: airy density, motion 2, mobile overlay-fullscreen, comfortable 2–5 items
+- **split / dropdown / hide-on-scroll** — `fluid-rail-pill`, `lightweight-type-theme-switch`
+  - `fluid-rail-pill`: airy density, motion 3, mobile drawer, comfortable 2–6 items
+  - `lightweight-type-theme-switch`: balanced density, motion 2, mobile drawer, comfortable 2–6 items
+
+Components using `mix-blend-mode: difference` (a shared technique, not a shared design):
+
+- `blend-difference-trizone` — Blend-Difference Tri-Zone Monospace Rail
+- `colorflood-word-toggle` — Colour-Flood Menu with Word Toggle
+- `inset-blend-giant-mark` — Inset Blend Rail with Oversized Wordmark

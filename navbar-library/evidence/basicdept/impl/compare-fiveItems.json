@@ -1,40 +1,40 @@
 {
- "navId": "fluid-rail-pill",
- "refId": "cuberto",
- "fixture": "normal",
+ "navId": "tall-airy-dual-trigger",
+ "refId": "basicdept",
+ "fixture": "fiveItems",
  "overrides": null,
- "at": "2026-09-21T08:11:57.676Z",
+ "at": "2026-09-21T07:59:09.858Z",
  "viewports": {
   "desktop": {
-   "h": 72,
+   "h": 126,
    "pos": "fixed",
-   "scrolledY": -72,
-   "deepY": -72,
+   "scrolledY": -126,
+   "deepY": -126,
    "upY": 0,
-   "items": 5
+   "items": 8
   },
   "laptop": {
-   "h": 51.2,
+   "h": 101,
    "pos": "fixed",
-   "scrolledY": -51.2,
-   "deepY": -51.2,
+   "scrolledY": -101,
+   "deepY": -101,
    "upY": 0,
-   "items": 5
+   "items": 8
   },
   "tablet": {
-   "h": 38.4,
+   "h": 88,
    "pos": "fixed",
-   "scrolledY": -38.4,
-   "deepY": -38.4,
+   "scrolledY": -88,
+   "deepY": -88,
    "upY": 0,
-   "items": 5
+   "items": 2
   },
   "mobile": {
-   "h": 50,
+   "h": 70,
    "pos": "fixed",
-   "scrolledY": 10,
-   "deepY": 10,
-   "upY": 10,
+   "scrolledY": -70,
+   "deepY": -70,
+   "upY": 0,
    "items": 2
   }
  },

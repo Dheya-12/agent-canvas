@@ -177,14 +177,26 @@ async function fatigue(page, navId) {
     res.cycles++;
   }
 
-  // Resize while open must not strand the lock
+  // Resize while open must not STRAND the lock. Two outcomes are both valid:
+  // a menu that closes at the new width must release the lock, and a menu
+  // that legitimately stays open across breakpoints must keep it and then
+  // release on close. Only an unclosable lock is a defect.
   try { await toggle.click({ timeout: 4000 }); } catch { /* reported above */ }
   await page.waitForTimeout(400);
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.waitForTimeout(700);
   const afterResize = await page.evaluate(() => ({ ov: getComputedStyle(document.body).overflow, exp: document.querySelector('button[aria-expanded]')?.getAttribute('aria-expanded') }));
-  if (afterResize.ov !== baseline) res.issues.push({ kind: 'resize-lock-leak', detail: `body overflow "${afterResize.ov}" after resizing with the menu open` });
   res.resizeClosed = afterResize.exp === 'false';
+  if (res.resizeClosed) {
+    if (afterResize.ov !== baseline) res.issues.push({ kind: 'resize-lock-leak', detail: `menu closed on resize but body overflow stayed "${afterResize.ov}" (baseline "${baseline}")` });
+  } else {
+    // Still open by design: close it and require the lock to come back.
+    await page.keyboard.press('Escape').catch(() => {});
+    await page.waitForTimeout(600);
+    const afterClose = await page.evaluate(() => ({ ov: getComputedStyle(document.body).overflow, exp: document.querySelector('button[aria-expanded]')?.getAttribute('aria-expanded') }));
+    if (afterClose.exp !== 'false') res.issues.push({ kind: 'unclosable-after-resize', detail: `menu still reports aria-expanded=${afterClose.exp} after Escape at the new width` });
+    else if (afterClose.ov !== baseline) res.issues.push({ kind: 'resize-lock-leak', detail: `body overflow "${afterClose.ov}" after closing at the new width (baseline "${baseline}")` });
+  }
 
   // Scroll churn must not desync the scroll-reactive state
   for (let i = 0; i < 6; i++) {

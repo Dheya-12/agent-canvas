@@ -154,6 +154,17 @@ export const fixtures: Record<string, NavbarContent> = {
     ],
     socials: [{ label: 'Instagram', href: '#' }, { label: 'Spotify', href: '#' }],
   },
+  themed: {
+    brand: { name: 'Stone & Ridge' },
+    items: [
+      { label: 'Work', href: '/work' },
+      { label: 'About', href: '/about' },
+      { label: 'News', href: '/news' },
+      { label: 'Contact', href: '/contact' },
+    ],
+    themeToggle: { toLight: 'Switch to light mode', toDark: 'Switch to dark mode' },
+    theme: 'dark',
+  },
   withSocials: {
     brand: { name: 'Field Notes' },
     items: [{ label: 'Archive', href: '/a' }, { label: 'About', href: '/ab' }],

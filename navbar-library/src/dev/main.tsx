@@ -1,4 +1,4 @@
-import { StrictMode, useEffect } from 'react';
+import { StrictMode, useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { getNavbar, navbars } from '../registry';
 import { fixtures } from './fixtures';
@@ -15,7 +15,9 @@ function App() {
   const entry = id ? getNavbar(id) : undefined;
 
   const base = fixtures[fixtureName] ?? fixtures.normal;
-  const theme = (q.get('theme') as 'light' | 'dark' | null) ?? base.theme ?? 'light';
+  const initialTheme = (q.get('theme') as 'light' | 'dark' | null) ?? base.theme ?? 'light';
+  const [theme, setTheme] = useState<'light' | 'dark'>(initialTheme);
+  useEffect(() => { setTheme(initialTheme); }, [initialTheme]);
   const dir = (q.get('dir') as 'ltr' | 'rtl' | null) ?? base.dir ?? 'ltr';
   const content = { ...base, theme, dir };
 
@@ -37,7 +39,7 @@ function App() {
   const { Component } = entry;
   return (
     <>
-      <Component content={content} />
+      <Component content={content} onThemeChange={setTheme} />
       <div className="spacer" />
       <div className="filler" id="filler">
         {['ONE', 'TWO', 'THREE', 'FOUR'].map(t => <section key={t}>{t}</section>)}
