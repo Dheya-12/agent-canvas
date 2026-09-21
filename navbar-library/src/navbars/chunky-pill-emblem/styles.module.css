@@ -1,0 +1,245 @@
+/*
+ * Reconstructed from evidence/lando/inspection.json.
+ * Signature traits: chunky rounded-square controls sized off the bar (a 60px
+ * control in an 83px rail), a HIGH-VISIBILITY accent pill for the primary
+ * action, a burger button present at EVERY width including desktop, a
+ * centred circular emblem, and a solid deep-tone full-screen menu whose
+ * labels roll on hover.
+ */
+
+.root,
+.overlay {
+  --nb-h: 83px;
+  --nb-control: 60px;
+  --nb-pad: 17px;
+  --nb-radius: 9.87px;
+  --nb-fg: #12140e;
+  /* The high-visibility action colour. Override per brand. */
+  --nb-accent: #d2ff00;
+  --nb-accent-fg: #12140e;
+  --nb-menu: #282c20;
+  --nb-menu-fg: #f2f4ea;
+  --nb-ease: cubic-bezier(0.62, 0.05, 0.01, 0.99);
+}
+.root[data-theme='dark'],
+.overlay[data-theme='dark'] { --nb-fg: #f2f4ea; }
+
+.root {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 120;
+  height: var(--nb-h);
+  background: transparent;
+  color: var(--nb-fg);
+  font-family: var(--nb-font, inherit);
+}
+.root[data-open='true'] { z-index: 140; color: var(--nb-menu-fg); }
+
+.inner {
+  height: 100%;
+  padding-inline: var(--nb-pad);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 34vw;
+  overflow: hidden;
+}
+.brandImg { height: var(--nb-control); width: auto; display: block; max-width: 100%; object-fit: contain; }
+.brandText {
+  font-size: calc(var(--nb-control) * 0.36);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* A centred circular control, held on the viewport axis. */
+.emblem {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--nb-control) * 0.62);
+  height: calc(var(--nb-control) * 0.62);
+  border-radius: 999px;
+  border: 1.5px solid currentColor;
+  color: inherit;
+  text-decoration: none;
+  font-size: calc(var(--nb-control) * 0.22);
+  line-height: 1;
+  transition: background-color 0.3s var(--nb-ease), color 0.3s var(--nb-ease);
+}
+.emblem:hover { background: currentColor; }
+.emblemText { mix-blend-mode: difference; }
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  list-style: none;
+  margin: 0 0 0 auto;
+  padding: 0;
+  min-width: 0;
+  overflow: hidden;
+}
+.item { position: relative; min-width: 0; flex: 0 1 auto; }
+.link {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity 0.25s var(--nb-ease);
+}
+.link:hover { opacity: 0.55; }
+.link[data-current='true'] { text-decoration: underline; text-underline-offset: 5px; }
+.badge { margin-inline-start: 5px; font-size: 10px; vertical-align: super; opacity: 0.7; }
+
+.sub {
+  position: absolute;
+  inset-inline-start: 0;
+  top: calc(100% + 10px);
+  min-width: 180px;
+  margin: 0;
+  padding: 8px 0;
+  list-style: none;
+  background: var(--nb-menu);
+  color: var(--nb-menu-fg);
+  border-radius: var(--nb-radius);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-5px);
+  transition: opacity 0.28s var(--nb-ease), transform 0.28s var(--nb-ease), visibility 0.28s;
+}
+.item[data-open='true'] > .sub { opacity: 1; visibility: visible; transform: none; }
+.subLink { display: block; padding: 7px 16px; font-size: 15px; font-weight: 600; color: inherit; text-decoration: none; white-space: nowrap; }
+.subLink:hover { opacity: 0.7; }
+
+.tail { display: flex; align-items: center; gap: 9px; flex: 0 0 auto; margin-inline-start: auto; }
+.list ~ .tail { margin-inline-start: 12px; }
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--nb-control);
+  padding-inline: calc(var(--nb-control) * 0.36);
+  border-radius: calc(var(--nb-radius) * 0.73);
+  background: var(--nb-accent);
+  color: var(--nb-accent-fg);
+  font-size: calc(var(--nb-control) * 0.27);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  max-width: 34vw;
+  overflow: hidden;
+  transition: filter 0.25s var(--nb-ease), transform 0.25s var(--nb-ease);
+}
+.ctaLabel { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cta:hover { filter: brightness(0.93); transform: translateY(-1px); }
+
+/* Present at every width, including desktop. */
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--nb-control);
+  height: var(--nb-control);
+  padding: 0;
+  border: 0;
+  border-radius: var(--nb-radius);
+  background: color-mix(in srgb, currentColor 12%, transparent);
+  color: inherit;
+  cursor: pointer;
+  position: relative;
+  flex: 0 0 auto;
+  transition: background-color 0.25s var(--nb-ease);
+}
+.toggle:hover { background: color-mix(in srgb, currentColor 22%, transparent); }
+.toggleBar {
+  position: absolute;
+  width: calc(var(--nb-control) * 0.37);
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform 0.42s var(--nb-ease);
+}
+.toggleBar:nth-child(1) { transform: translateY(-5px); }
+.toggleBar:nth-child(2) { transform: translateY(5px); }
+.toggle[aria-expanded='true'] .toggleBar:nth-child(1) { transform: rotate(45deg); }
+.toggle[aria-expanded='true'] .toggleBar:nth-child(2) { transform: rotate(-45deg); }
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 125;
+  background: var(--nb-menu);
+  color: var(--nb-menu-fg);
+  padding: calc(var(--nb-h) + 28px) var(--nb-pad) 36px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.42s var(--nb-ease), visibility 0.42s;
+}
+.overlay[data-open='true'] { opacity: 1; visibility: visible; }
+.overlayList { list-style: none; margin: 0; padding: 0; }
+
+/* Labels roll vertically, as in the reference. */
+.rollLink { display: block; overflow: hidden; color: inherit; text-decoration: none; }
+.roll { display: block; transition: transform 0.5s var(--nb-ease); }
+.rollLink:hover .roll, .rollLink:focus-visible .roll { transform: translateY(-50%); }
+.rollLine {
+  display: block;
+  font-size: clamp(30px, 8vw, 58px);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+  overflow-wrap: anywhere;
+}
+.overlayItem {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.45s var(--nb-ease), transform 0.45s var(--nb-ease);
+  transition-delay: calc(var(--i, 0) * 55ms + 140ms);
+}
+.overlay[data-open='true'] .overlayItem { opacity: 1; transform: none; }
+.overlaySub { list-style: none; margin: 0 0 10px; padding-inline-start: 18px; }
+.overlaySubLink { display: block; padding: 2px 0; font-size: 17px; font-weight: 600; color: inherit; text-decoration: none; opacity: 0.75; }
+.overlayFoot { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 14px; font-weight: 600; }
+.overlayFoot a { color: inherit; text-decoration: none; opacity: 0.82; }
+
+@media (max-width: 1200px) { .root, .overlay { --nb-h: 59px; --nb-control: 43px; --nb-pad: 12px; --nb-radius: 7.02px; } }
+@media (max-width: 860px) {
+  .root, .overlay { --nb-h: 56px; --nb-control: 40px; --nb-pad: 11px; --nb-radius: 6.58px; }
+  .list { display: none; }
+  /* Out of flow, so it cannot be pushed aside by the trailing controls -
+   * it has to leave the bar rather than sit on top of them. */
+  .emblem { display: none; }
+}
+@media (max-width: 767px) { .root, .overlay { --nb-h: 78px; --nb-control: 51px; --nb-pad: 14px; --nb-radius: 8.02px; } }
+
+@media (prefers-reduced-motion: reduce) { .root, .root *, .overlay, .overlay * { transition-duration: 0.01ms !important; } }

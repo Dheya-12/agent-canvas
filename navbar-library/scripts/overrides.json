@@ -113,5 +113,17 @@
   ],
   "reason": "At 390px the probe selects the reference's inner <nav class=main-nav> (374x20 at y=96) rather than the header that wraps it, because the header scores lower once its links wrap. Height and gutters at that viewport therefore describe the link row, not the bar. Desktop, laptop and tablet all measure the header and remain enforced.",
   "verifiedBy": "evidence/mvsm/inspection.json (mobile container is NAV.main-nav at y=96 while the other viewports are HEADER.header at y=0)"
+ },
+ "lando": {
+  "skip": [
+   "startGutter",
+   "endGutter"
+  ],
+  "skipViewports": [
+   "tablet",
+   "mobile"
+  ],
+  "reason": "CAPTURE ARTEFACT, not a property of the reference. The tablet pass opened the reference's menu, which does not close on Escape, and the original harness did not reload between viewports - so the tablet and mobile 'initial' records contain the OPEN menu (their item lists include the menu's own links and a Close control). Gutters at those two viewports therefore measure menu content rather than the bar. The harness now reloads between viewports after any pass that opened a menu; this reference's stored evidence predates that fix. Heights, which are unaffected, remain enforced and match exactly at all four viewports.",
+  "verifiedBy": "evidence/lando/inspection.json (mobile initial items include 'HomeHome', 'On TrackOn Track' and 'Close menu')"
  }
 }

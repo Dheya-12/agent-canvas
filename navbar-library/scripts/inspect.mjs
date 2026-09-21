@@ -58,8 +58,20 @@ async function run(site) {
     await page.waitForTimeout(600);
     rec.title = (await page.title()).slice(0, 90);
 
+    let dirty = false;   // set once a viewport pass has opened a menu
     for (const vp of VIEWPORTS) {
       await page.setViewportSize({ width: vp.width, height: vp.height });
+      // A menu opened in the previous pass may not close on Escape, and a
+      // viewport change does not reset it. Without a reload the next pass
+      // measures the OPEN state as if it were the initial one.
+      if (dirty) {
+        try {
+          await page.reload({ waitUntil: 'domcontentloaded', timeout: 45000 });
+          await page.waitForTimeout(4200);
+          await dismiss(page);
+        } catch { /* keep going; the pass records what it can */ }
+        dirty = false;
+      }
       await page.waitForTimeout(1600);
       await page.evaluate(() => window.scrollTo(0, 0));
       await page.waitForTimeout(900);
@@ -111,6 +123,7 @@ async function run(site) {
         });
         await page.waitForTimeout(1500);
         if (opened) {
+          dirty = true;
           v.menuToggle = opened;
           await shot(page, path.join(dir, `${vp.k}-menu-open.png`), { fullPage: false });
           v.menuOpen = await page.evaluate(() => {
