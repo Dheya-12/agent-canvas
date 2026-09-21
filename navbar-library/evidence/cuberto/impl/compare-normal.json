@@ -1,0 +1,55 @@
+{
+ "navId": "fluid-rail-pill",
+ "refId": "cuberto",
+ "fixture": "normal",
+ "at": "2026-09-21T06:54:48.397Z",
+ "viewports": {
+  "desktop": {
+   "h": 72,
+   "pos": "fixed",
+   "scrolledY": -72,
+   "deepY": -72,
+   "upY": 0,
+   "items": 5
+  },
+  "laptop": {
+   "h": 51.2,
+   "pos": "fixed",
+   "scrolledY": -51.2,
+   "deepY": -51.2,
+   "upY": 0,
+   "items": 5
+  },
+  "tablet": {
+   "h": 38.4,
+   "pos": "fixed",
+   "scrolledY": -38.4,
+   "deepY": -38.4,
+   "upY": 0,
+   "items": 5
+  },
+  "mobile": {
+   "h": 50,
+   "pos": "fixed",
+   "scrolledY": 10,
+   "deepY": 10,
+   "upY": 10,
+   "items": 2
+  }
+ },
+ "diffs": {
+  "desktop": [],
+  "laptop": [],
+  "tablet": [],
+  "mobile": []
+ },
+ "pageErrors": [],
+ "menuOpen": {
+  "bodyOverflow": "hidden",
+  "expanded": "true"
+ },
+ "afterEscape": {
+  "bodyOverflow": "visible",
+  "expanded": "false"
+ }
+}

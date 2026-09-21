@@ -1,0 +1,74 @@
+{
+ "id": "caffedesign",
+ "name": "Caffe Design",
+ "url": "https://caffe.design/",
+ "at": "2026-09-21T06:55:14.931Z",
+ "viewports": {
+  "desktop": {
+   "initial": {
+    "found": false
+   },
+   "scrolled": {
+    "found": false
+   }
+  },
+  "laptop": {
+   "initial": {
+    "found": false
+   },
+   "scrolled": {
+    "found": false
+   }
+  },
+  "tablet": {
+   "initial": {
+    "found": false
+   },
+   "scrolled": {
+    "found": false
+   },
+   "menuToggle": {
+    "label": "",
+    "cls": "marker menu tracking"
+   },
+   "menuOpen": {
+    "overlayFound": false,
+    "bodyOverflow": "visible",
+    "bodyPosition": "static"
+   },
+   "afterClose": {
+    "bodyOverflow": "visible"
+   }
+  },
+  "mobile": {
+   "initial": {
+    "found": false
+   },
+   "scrolled": {
+    "found": false
+   },
+   "menuToggle": {
+    "label": "",
+    "cls": "marker menu tracking"
+   },
+   "menuOpen": {
+    "overlayFound": false,
+    "bodyOverflow": "visible",
+    "bodyPosition": "static"
+   },
+   "afterClose": {
+    "bodyOverflow": "visible"
+   }
+  }
+ },
+ "errors": [],
+ "status": 200,
+ "finalUrl": "https://www.caffe.design/",
+ "cookieDismissed": false,
+ "title": "Caffè Design",
+ "consoleErrors": [
+  "Failed to load resource: net::ERR_TUNNEL_CONNECTION_FAILED",
+  "requestStorageAccess: Permission denied."
+ ],
+ "ok": true
+}

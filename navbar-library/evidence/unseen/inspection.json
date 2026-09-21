@@ -1,0 +1,15 @@
+{
+ "id": "unseen",
+ "name": "Unseen Studio",
+ "url": "https://unseen.co/",
+ "at": "2026-09-21T06:48:18.553Z",
+ "viewports": {},
+ "errors": [
+  "page.screenshot: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+ ],
+ "status": 200,
+ "finalUrl": "https://unseen.co/",
+ "cookieDismissed": false,
+ "title": "Unseen Studio® – Brand, Digital & Motion",
+ "ok": false
+}

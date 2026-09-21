@@ -1,0 +1,231 @@
+/*
+ * Reconstructed from evidence/studiofreight/inspection.json.
+ * Signature traits: a 40px fixed rail with 12px inset padding and
+ * mix-blend-mode: difference, so the bar inverts against whatever scrolls
+ * beneath it instead of carrying its own background. Monospace type at
+ * 14px / 0.01em. Three horizontal zones: mark hard-left, a link cluster
+ * set at roughly two-thirds across, and one action pinned hard-right.
+ */
+
+.root {
+  --nb-h: 40px;
+  --nb-pad: 12px;
+  --nb-mark: 40px;
+  --nb-type: 14px;
+  --nb-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  height: var(--nb-h);
+  box-sizing: border-box;
+  padding: var(--nb-pad);
+  /* The rail is only as tall as its 16px line box; the brand mark is larger
+   * and deliberately overflows below it, as in the reference. */
+  overflow: visible;
+  background: transparent;
+  color: #fff;
+  /* The defining trait: the rail has no background of its own and inverts
+   * against the page. Blend isolation is therefore deliberately NOT set. */
+  mix-blend-mode: difference;
+  font-family: var(--nb-mono, ui-monospace, 'SFMono-Regular', Menlo, monospace);
+}
+/* difference blending already adapts to both themes; the attribute is
+ * accepted so the contract is uniform, but it must not add a background. */
+.root[data-theme='dark'] { color: #fff; }
+
+.inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--nb-mark);
+  color: inherit;
+  text-decoration: none;
+  flex: 0 0 auto;
+  max-width: 34vw;
+  overflow: hidden;
+}
+.brandImg { height: var(--nb-mark); width: auto; display: block; }
+.brandText {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Zone 2: link cluster sitting at ~67% of the rail, not centred and not
+ * flush right — the asymmetry is the composition. */
+.cluster {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-inline-start: auto;
+  flex: 0 1 auto;
+  min-width: 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.item { position: relative; }
+
+.link {
+  display: block;
+  font-size: var(--nb-type);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 1px 0;
+  transition: opacity 0.25s var(--nb-ease);
+}
+.link::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 0.4s var(--nb-ease);
+}
+.link:hover::after,
+.link[data-current='true']::after { transform: scaleX(1); }
+.badge { margin-inline-start: 5px; font-size: 10px; vertical-align: super; opacity: 0.7; }
+
+/* Submenus cannot blend (text over text becomes unreadable), so the panel
+ * opts out of the difference blend and carries its own surface. */
+.sub {
+  position: absolute;
+  inset-inline-start: 0;
+  top: calc(100% + 10px);
+  min-width: 170px;
+  margin: 0;
+  padding: 8px 0;
+  list-style: none;
+  isolation: isolate;
+  mix-blend-mode: normal;
+  background: #111;
+  color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 0.3s var(--nb-ease), transform 0.3s var(--nb-ease), visibility 0.3s;
+}
+.item[data-open='true'] > .sub { opacity: 1; visibility: visible; transform: none; }
+.subLink { display: block; padding: 6px 14px; font-size: 13px; color: inherit; text-decoration: none; white-space: nowrap; }
+.subLink:hover { opacity: 0.65; }
+
+/* Zone 3: single action, hard right. */
+.tail {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 0 0 auto;
+  margin-inline-start: 6vw;
+}
+.cta, .secondary {
+  font-size: var(--nb-type);
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 1px 0;
+}
+.cta::after, .secondary::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 0.4s var(--nb-ease);
+}
+.cta:hover::after, .secondary:hover::after { transform: scaleX(1); }
+.secondary { opacity: 0.7; }
+
+.toggle { display: none; }
+.panel { display: none; }
+.socials { display: none; }
+
+@media (max-width: 860px) {
+  .root { --nb-h: 48px; --nb-mark: 24px; padding: 12px 12px 18px; }
+  .cluster, .tail { display: none; }
+
+  .toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 24px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+    position: relative;
+    margin-inline-start: auto;
+    flex: 0 0 auto;
+    font-family: inherit;
+    font-size: var(--nb-type);
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+  }
+
+  /* The panel carries its own surface and opts out of the rail's blend. */
+  .panel {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 49;
+    isolation: isolate;
+    mix-blend-mode: normal;
+    background: #0d0d0d;
+    color: #fefdfc;
+    padding: 76px 12px 28px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path 0.66s var(--nb-ease);
+  }
+  .panel[data-open='true'] { clip-path: inset(0 0 0 0); }
+
+  .panelList { list-style: none; margin: 0; padding: 0; }
+  .panelLink {
+    display: block;
+    padding: 7px 0;
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    color: inherit;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s var(--nb-ease), transform 0.5s var(--nb-ease);
+    transition-delay: calc(var(--i, 0) * 55ms + 180ms);
+  }
+  .panel[data-open='true'] .panelLink { opacity: 1; transform: none; }
+  .panelSub { list-style: none; margin: 0 0 6px; padding-inline-start: 12px; }
+  .panelSubLink { display: block; padding: 3px 0; font-size: 15px; color: inherit; text-decoration: none; opacity: 0.7; }
+  .panelFoot { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 13px; }
+  .panelFoot a { color: inherit; text-decoration: none; opacity: 0.75; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root *, .panel, .panel * { transition-duration: 0.01ms !important; }
+}

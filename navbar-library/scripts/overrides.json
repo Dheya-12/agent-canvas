@@ -1,0 +1,21 @@
+{
+ "_doc": "Per-reference corrections to the automated probe. Each entry records a metric the probe measures wrongly on that site, why, and the visual evidence that settles it. Overrides suppress a metric; they never assert a pass.",
+ "area17": {
+  "skip": [
+   "startGutter"
+  ],
+  "reason": "The probe's brand heuristic picks the leftmost interactive element inside the measured <header>, but AREA 17's brand mark is an oversized graphic that overflows the rail and is not among the header's interactive children. The probe therefore reports the first NAV LINK (x=942 at 1440) as the brand. evidence/area17/desktop-initial.png shows the actual mark at x=16, which is what the reconstruction renders.",
+  "verifiedBy": "evidence/area17/desktop-initial.png"
+ },
+ "studiofreight": {
+  "skip": [
+   "endGutter"
+  ],
+  "skipViewports": [
+   "tablet",
+   "mobile"
+  ],
+  "reason": "At tablet and mobile the reference header exposes exactly one detectable interactive element (the logo) - its menu control is not an <a>/<button>/[role=button], so the probe's rightmost-interactive figure is the logo's right edge (x=36) rather than the real trailing control. End-gutter is therefore not comparable at those two viewports. Desktop and laptop end-gutter remain enforced.",
+  "verifiedBy": "evidence/studiofreight/inspection.json (tablet/mobile items(1)); evidence/studiofreight/mobile-initial.png"
+ }
+}

@@ -1,0 +1,49 @@
+{
+ "id": "springio",
+ "name": "Spring I/O",
+ "url": "https://springio.net/",
+ "at": "2026-09-21T06:50:54.200Z",
+ "viewports": {
+  "desktop": {
+   "initial": {
+    "found": false
+   },
+   "scrolled": {
+    "found": false
+   }
+  },
+  "laptop": {
+   "initial": {
+    "found": false
+   },
+   "scrolled": {
+    "found": false
+   }
+  },
+  "tablet": {
+   "initial": {
+    "found": false
+   },
+   "scrolled": {
+    "found": false
+   }
+  },
+  "mobile": {
+   "initial": {
+    "found": false
+   },
+   "scrolled": {
+    "found": false
+   }
+  }
+ },
+ "errors": [],
+ "status": 502,
+ "finalUrl": "https://springio.net/",
+ "cookieDismissed": false,
+ "title": "",
+ "consoleErrors": [
+  "Failed to load resource: the server responded with a status of 502 (Bad Gateway)"
+ ],
+ "ok": true
+}

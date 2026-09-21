@@ -1,0 +1,15 @@
+{
+ "id": "brunosimon",
+ "name": "Bruno Simon",
+ "url": "https://bruno-simon.com/",
+ "at": "2026-09-21T06:45:39.761Z",
+ "viewports": {},
+ "errors": [
+  "page.screenshot: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+ ],
+ "status": 200,
+ "finalUrl": "https://bruno-simon.com/",
+ "cookieDismissed": false,
+ "title": "Bruno's",
+ "ok": false
+}

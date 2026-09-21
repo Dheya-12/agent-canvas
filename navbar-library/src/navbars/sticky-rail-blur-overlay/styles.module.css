@@ -1,0 +1,236 @@
+/*
+ * Reconstructed from evidence/area17/inspection.json.
+ * Signature traits: a 64px sticky transparent rail whose brand mark is
+ * deliberately oversized and overflows below the bar; right-aligned 16px
+ * links with 4px focus radii; and a full-viewport frosted overlay
+ * (rgba(242,242,242,.8) + blur(30px), opacity 0.5s cubic-bezier(.4,0,.2,1))
+ * below 1000px.
+ */
+
+/* The overlay is a sibling of the rail, not a descendant, so the token block
+ * must be declared on BOTH. Custom properties inherit down the tree only;
+ * declaring them on .root alone left every var() in .overlay invalid. */
+.root,
+.overlay {
+  --nb-h: 64px;
+  --nb-pad: 16px;
+  --nb-fg: #111;
+  --nb-overlay: rgba(242, 242, 242, 0.8);
+  --nb-ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.root {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  height: var(--nb-h);
+  background: transparent;
+  color: var(--nb-fg);
+  transition: 0.3s var(--nb-ease);
+  font-family: var(--nb-font, inherit);
+}
+.root[data-theme='dark'],
+.overlay[data-theme='dark'] { --nb-fg: #f5f5f5; --nb-overlay: rgba(18, 18, 18, 0.8); }
+
+.inner {
+  height: var(--nb-h);
+  padding-inline: var(--nb-pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* The brand deliberately exceeds the rail height — the mark reads as a
+ * graphic anchored to the page corner rather than as a bar element. */
+.brand {
+  display: inline-flex;
+  align-items: flex-start;
+  color: inherit;
+  text-decoration: none;
+  flex: 0 1 auto;
+  min-width: 0;
+  z-index: 2;
+}
+.brandText {
+  font-size: min(64px, 6.4vw);
+  font-weight: 800;
+  line-height: 0.82;
+  letter-spacing: -0.045em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: min(46vw, 620px);
+  display: block;
+}
+.brandImg { height: min(64px, 6.4vw); width: auto; display: block; }
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.item { position: relative; }
+
+.link {
+  display: block;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.004em;
+  line-height: 1.25;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.3s var(--nb-ease);
+}
+.link:hover { opacity: 0.55; }
+.link[data-current='true'] { text-decoration: underline; text-underline-offset: 4px; }
+.badge { margin-inline-start: 6px; font-size: 11px; vertical-align: super; opacity: 0.6; }
+
+.sub {
+  position: absolute;
+  inset-inline-start: 0;
+  top: calc(100% + 8px);
+  min-width: 180px;
+  margin: 0;
+  padding: 8px 0;
+  list-style: none;
+  background: var(--nb-panel, #fff);
+  border-radius: 6px;
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 0.3s var(--nb-ease), transform 0.3s var(--nb-ease), visibility 0.3s;
+}
+.root[data-theme='dark'] .sub { --nb-panel: #1a1a1a; }
+.item[data-open='true'] > .sub { opacity: 1; visibility: visible; transform: none; }
+.subLink { display: block; padding: 7px 16px; font-size: 15px; color: inherit; text-decoration: none; white-space: nowrap; }
+.subLink:hover { opacity: 0.6; }
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  font-size: 16px;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.3s var(--nb-ease), color 0.3s var(--nb-ease);
+}
+.cta:hover { background: currentColor; }
+.cta:hover > * { mix-blend-mode: difference; }
+.secondary { font-size: 16px; color: inherit; text-decoration: none; opacity: 0.6; white-space: nowrap; }
+.secondary:hover { opacity: 1; }
+
+.toggle { display: none; }
+.socials { display: none; }
+
+/* ---------------- Frosted full-viewport overlay ---------------- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999999;
+  background: var(--nb-overlay);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  color: var(--nb-fg);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s var(--nb-ease), visibility 0.5s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: calc(var(--nb-h) + 24px) var(--nb-pad) 32px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.overlay[data-open='true'] { opacity: 1; visibility: visible; }
+
+.overlayList { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.overlayLink {
+  display: block;
+  padding: 6px 0;
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: inherit;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.45s var(--nb-ease), transform 0.45s var(--nb-ease);
+  transition-delay: calc(var(--i, 0) * 50ms + 140ms);
+}
+.overlay[data-open='true'] .overlayLink { opacity: 1; transform: none; }
+.overlaySub { list-style: none; margin: 0 0 6px; padding-inline-start: 14px; }
+.overlaySubLink { display: block; padding: 3px 0; font-size: 17px; color: inherit; text-decoration: none; opacity: 0.68; }
+
+.overlayFoot { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 14px; margin-top: 32px; }
+.overlayFoot a { color: inherit; text-decoration: none; opacity: 0.75; }
+.overlayCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 11px 18px;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  font-size: 17px;
+  color: inherit;
+  text-decoration: none;
+  align-self: flex-start;
+  margin-top: 22px;
+}
+
+@media (max-width: 999px) {
+  .root, .overlay { --nb-h: 56px; }
+  .list, .cta, .secondary { display: none; }
+  .toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 0;
+    border-radius: 8px;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+    position: relative;
+    z-index: 10000000;
+    flex: 0 0 auto;
+  }
+  .toggleBar {
+    position: absolute;
+    width: 20px;
+    height: 1.5px;
+    background: currentColor;
+    transition: transform 0.4s var(--nb-ease), opacity 0.2s;
+  }
+  .toggleBar:nth-child(1) { transform: translateY(-4px); }
+  .toggleBar:nth-child(2) { transform: translateY(4px); }
+  .toggle[aria-expanded='true'] .toggleBar:nth-child(1) { transform: rotate(45deg); }
+  .toggle[aria-expanded='true'] .toggleBar:nth-child(2) { transform: rotate(-45deg); }
+  /* Long brand names must still read as a mark rather than an ellipsis,
+   * so the mobile wordmark shrinks harder and is given more room. */
+  .brandText { font-size: min(30px, 7.5vw); max-width: 64vw; }
+  .brandImg { height: 36px; }
+}
+@media (min-width: 1000px) { .overlay { display: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .root, .root *, .overlay, .overlay * { transition-duration: 0.01ms !important; }
+}
