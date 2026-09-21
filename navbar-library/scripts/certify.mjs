@@ -145,14 +145,56 @@ const AUDIT = () => {
 };
 
 /* ---------------- fatigue ---------------- */
-async function fatigue(page, navId) {
+/** Navbars whose menu never collapses have no disclosure to fatigue. Their
+ *  repeated-use surface is the dropdown, so that is cycled instead. */
+async function fatigueInline(page, navId) {
+  const res = { cycles: 0, issues: [], mode: 'inline' };
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto(`${BASE}/?nav=${navId}&fixture=dropdowns`, { waitUntil: 'load' });
+  await page.waitForTimeout(500);
+  const trigger = page.locator('[aria-haspopup="true"]').first();
+  if (!(await trigger.count())) {
+    res.issues.push({ kind: 'no-disclosure', detail: 'no [aria-expanded] control and no [aria-haspopup] trigger to exercise' });
+    return res;
+  }
+  for (let i = 0; i < 10; i++) {
+    await trigger.hover({ timeout: 4000 }).catch(() => {});
+    await page.waitForTimeout(260);
+    const openState = await page.evaluate(() => document.querySelector('[aria-haspopup="true"]')?.getAttribute('aria-expanded'));
+    if (openState !== 'true') { res.issues.push({ kind: 'dropdown-open-failed', detail: `cycle ${i + 1}: aria-expanded=${openState}` }); break; }
+    await page.mouse.move(8, 700);
+    await page.waitForTimeout(260);
+    const st = await page.evaluate(() => ({
+      exp: document.querySelector('[aria-haspopup="true"]')?.getAttribute('aria-expanded'),
+      headers: document.querySelectorAll('header').length,
+    }));
+    if (st.exp !== 'false') { res.issues.push({ kind: 'dropdown-stuck-open', detail: `cycle ${i + 1}: aria-expanded=${st.exp}` }); break; }
+    if (st.headers > 1) { res.issues.push({ kind: 'duplicate-header', detail: `${st.headers} <header> elements` }); break; }
+    res.cycles++;
+  }
+  for (let i = 0; i < 6; i++) {
+    await page.evaluate(y => window.scrollTo({ top: y, behavior: 'instant' }), 1400 + i * 300);
+    await page.waitForTimeout(110);
+    await page.evaluate(() => window.scrollTo({ top: 200, behavior: 'instant' }));
+    await page.waitForTimeout(110);
+  }
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.waitForTimeout(400);
+  return res;
+}
+
+async function fatigue(page, navId, meta) {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(`${BASE}/?nav=${navId}&fixture=dropdowns`, { waitUntil: 'load' });
   await page.waitForTimeout(500);
   const res = { cycles: 0, issues: [] };
   const baseline = await page.evaluate(() => getComputedStyle(document.body).overflow);
   const toggle = page.locator('button[aria-expanded]').first();
-  if (!(await toggle.count())) { res.issues.push({ kind: 'no-toggle', detail: 'no [aria-expanded] control at 390px' }); return res; }
+  if (!(await toggle.count())) {
+    if (meta?.mobilePattern === 'inline') return fatigueInline(page, navId);
+    res.issues.push({ kind: 'no-toggle', detail: 'no [aria-expanded] control at 390px, and the metadata does not declare an inline mobile pattern' });
+    return res;
+  }
 
   for (let i = 0; i < 10; i++) {
     try { await toggle.click({ timeout: 4000 }); }
@@ -235,7 +277,7 @@ async function certifyOne(page, m) {
     }
   }
 
-  try { entry.fatigue = await fatigue(page, m.id); }
+  try { entry.fatigue = await fatigue(page, m.id, m); }
   catch (err) { entry.fatigue = { cycles: 0, issues: [{ kind: 'fatigue-threw', detail: String(err.message).split('\n')[0].slice(0, 140) }] }; }
   for (const is of entry.fatigue.issues) entry.issues.push({ where: 'fatigue', ...is });
 

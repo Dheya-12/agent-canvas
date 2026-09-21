@@ -1,0 +1,155 @@
+/*
+ * Reconstructed from evidence/mercimichel/inspection.json.
+ * Signature traits: an ABSOLUTE header inset 45px from each side and held
+ * 35px down the page, so it scrolls away rather than following; a square
+ * brand mark at the leading edge; and right-aligned 11px uppercase links on
+ * +0.09em tracking whose labels are duplicated and roll vertically on hover
+ * (the probe reads each label twice - "ContactContact" - because both copies
+ * are in the DOM). The row stays horizontal at every width.
+ */
+
+.root {
+  --nb-top: 35px;
+  --nb-inset: 45px;
+  --nb-h: 60px;
+  --nb-type: 11px;
+  --nb-line: 35px;
+  --nb-fg: #111;
+  --nb-ease: cubic-bezier(0.62, 0.05, 0.01, 0.99);
+
+  position: absolute;
+  top: var(--nb-top);
+  inset-inline: var(--nb-inset);
+  z-index: 999;
+  height: var(--nb-h);
+  color: var(--nb-fg);
+  font-family: var(--nb-font, inherit);
+}
+.root[data-theme='dark'] { --nb-fg: #f4f4f4; }
+
+.inner { height: 100%; display: flex; align-items: center; gap: 16px; }
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  text-decoration: none;
+  flex: 0 0 auto;
+  max-width: 34vw;
+  overflow: hidden;
+}
+.brandImg { height: 60px; width: auto; display: block; max-width: 100%; object-fit: contain; }
+.brandText {
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0 0 0 auto;
+  padding: 0;
+  min-width: 0;
+  overflow: hidden;
+}
+.item { position: relative; min-width: 0; flex: 0 1 auto; }
+
+/* The roll: two stacked copies of the label inside a clipped box. On hover
+ * both translate up one line, so the second copy replaces the first. */
+.link {
+  display: block;
+  height: var(--nb-line);
+  padding-inline: 8px;
+  overflow: hidden;
+  font-size: var(--nb-type);
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.3s var(--nb-ease);
+}
+.roll {
+  display: block;
+  transition: transform 0.55s var(--nb-ease);
+}
+.link:hover .roll,
+.link:focus-visible .roll { transform: translateY(calc(var(--nb-line) * -1)); }
+.rollLine {
+  display: flex;
+  align-items: center;
+  height: var(--nb-line);
+  font-size: inherit;
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.link[data-current='true'] .rollLine { text-decoration: underline; text-underline-offset: 4px; }
+.badge { margin-inline-start: 5px; font-size: 8px; vertical-align: super; opacity: 0.7; }
+
+.sub {
+  position: absolute;
+  inset-inline-end: 0;
+  top: 100%;
+  min-width: 170px;
+  margin: 0;
+  padding: 8px 0;
+  list-style: none;
+  background: color-mix(in srgb, var(--nb-fg) 96%, transparent);
+  color: color-mix(in srgb, var(--nb-fg) 4%, #fff);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 0.3s var(--nb-ease), transform 0.3s var(--nb-ease), visibility 0.3s;
+}
+.item[data-open='true'] > .sub { opacity: 1; visibility: visible; transform: none; }
+.subLink {
+  display: block;
+  padding: 6px 14px;
+  font-size: var(--nb-type);
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.subLink:hover { opacity: 0.65; }
+
+.cta, .secondary {
+  display: block;
+  height: var(--nb-line);
+  padding-inline: 8px;
+  overflow: hidden;
+  font-size: var(--nb-type);
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: inherit;
+  text-decoration: none;
+}
+.secondary { opacity: 0.7; }
+
+.socials { display: none; }
+
+@media (max-width: 767px) {
+  /* The reference holds its 45px inset and 60px height at phone width too,
+   * so the rail stays a floating row rather than reaching the edges. */
+  .root { --nb-top: 20px; --nb-inset: 45px; }
+  .brandImg { height: 40px; }
+  .brandText { font-size: 13px; }
+  .list { gap: 0; }
+  .link, .cta, .secondary { padding-inline: 5px; }
+  .rollLine { letter-spacing: 0.06em; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root, .root * { transition-duration: 0.01ms !important; }
+}

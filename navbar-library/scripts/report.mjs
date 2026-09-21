@@ -102,6 +102,19 @@ for (const [k, g] of groups) {
 }
 if (!any) p('_No two components currently share a layout/menu/scroll signature._');
 p('');
+const similar = JSON.parse(fs.readFileSync('reports/similar.json', 'utf8'));
+const simRows = Object.entries(similar).filter(([k]) => !k.startsWith('_'));
+if (simRows.length) {
+  p('### References judged materially similar, and not shipped');
+  p('');
+  for (const [id, v] of simRows) {
+    p(`- **${v.reference}** — duplicates \`${v.duplicates}\``);
+    p(`  - Shared: ${v.shared}`);
+    p(`  - Differs: ${v.differs}`);
+    p(`  - Verdict: ${v.verdict}`);
+  }
+  p('');
+}
 p('Components using `mix-blend-mode: difference` (a shared technique, not a shared design):');
 p('');
 for (const m of metas.filter(m => (m.notes || '').includes('difference'))) p(`- \`${m.id}\` — ${m.displayName}`);

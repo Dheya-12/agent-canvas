@@ -94,5 +94,12 @@
   ],
   "reason": "The probe's container heuristic selects the reference's inner <nav> (the right-aligned link group, 927x30 at 1440) rather than the header bar that wraps it, because the header itself scores lower. Height and both gutters therefore describe the link group, not the bar, and are not comparable with a full-width reconstruction. Link type scale, top offset and hide-on-scroll response remain enforced and all match.",
   "verifiedBy": "evidence/stinkstudios/inspection.json (container 927x30 while its first link sits at x=1076); evidence/stinkstudios/desktop-initial.png"
+ },
+ "mercimichel": {
+  "skip": [
+   "startGutter"
+  ],
+  "reason": "At desktop, laptop and tablet the reference's brand mark is not an <a>/<button>/[role=button], so the probe reports the FIRST NAV LINK ('About', x=1123 at 1440) as the leading element. The reference's own mobile viewport, where the mark IS a link, puts it at x=45 - which is exactly the inset this reconstruction uses at every width.",
+  "verifiedBy": "evidence/mercimichel/inspection.json (mobile items include the mark at x=45 while desktop items do not)"
  }
 }
