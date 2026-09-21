@@ -1,6 +1,1427 @@
 {
- "generatedAt": "2026-09-21T07:43:42.252Z",
+ "generatedAt": "2026-09-21T07:56:58.228Z",
  "results": [
+  {
+   "id": "blend-difference-trizone",
+   "refId": "studiofreight",
+   "displayName": "Blend-Difference Tri-Zone Monospace Rail",
+   "stress": {
+    "short@desktop": {
+     "headerH": 40,
+     "links": 4,
+     "issues": 0
+    },
+    "short@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "normal@desktop": {
+     "headerH": 40,
+     "links": 5,
+     "issues": 0
+    },
+    "normal@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "long@desktop": {
+     "headerH": 40,
+     "links": 5,
+     "issues": 0
+    },
+    "long@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "oneItem@desktop": {
+     "headerH": 40,
+     "links": 2,
+     "issues": 0
+    },
+    "oneItem@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "fiveItems@desktop": {
+     "headerH": 40,
+     "links": 7,
+     "issues": 0
+    },
+    "fiveItems@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "manyItems@desktop": {
+     "headerH": 40,
+     "links": 11,
+     "issues": 0
+    },
+    "manyItems@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "noCta@desktop": {
+     "headerH": 40,
+     "links": 4,
+     "issues": 0
+    },
+    "noCta@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "dropdowns@desktop": {
+     "headerH": 40,
+     "links": 6,
+     "issues": 0
+    },
+    "dropdowns@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "imageLogo@desktop": {
+     "headerH": 40,
+     "links": 5,
+     "issues": 0
+    },
+    "imageLogo@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "brokenLogo@desktop": {
+     "headerH": 40,
+     "links": 4,
+     "issues": 0
+    },
+    "brokenLogo@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "empty@desktop": {
+     "headerH": 40,
+     "links": 0,
+     "issues": 0
+    },
+    "empty@mobile": {
+     "headerH": 48,
+     "links": 1,
+     "issues": 0
+    },
+    "arabic@desktop": {
+     "headerH": 40,
+     "links": 5,
+     "issues": 0
+    },
+    "arabic@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "mixed@desktop": {
+     "headerH": 40,
+     "links": 5,
+     "issues": 0
+    },
+    "mixed@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "accents@desktop": {
+     "headerH": 40,
+     "links": 5,
+     "issues": 0
+    },
+    "accents@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "longWords@desktop": {
+     "headerH": 40,
+     "links": 4,
+     "issues": 0
+    },
+    "longWords@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "numeric@desktop": {
+     "headerH": 40,
+     "links": 5,
+     "issues": 0
+    },
+    "numeric@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "darkTheme@desktop": {
+     "headerH": 40,
+     "links": 5,
+     "issues": 0
+    },
+    "darkTheme@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    },
+    "withSocials@desktop": {
+     "headerH": 40,
+     "links": 4,
+     "issues": 0
+    },
+    "withSocials@mobile": {
+     "headerH": 48,
+     "links": 2,
+     "issues": 0
+    }
+   },
+   "issues": [],
+   "pageErrors": [],
+   "fatigue": {
+    "cycles": 10,
+    "issues": [],
+    "resizeClosed": true,
+    "restingTop": 0
+   },
+   "fidelity": {
+    "fixture": "normal",
+    "fails": [],
+    "warns": [],
+    "deviations": [],
+    "viewports": {
+     "desktop": {
+      "h": 40,
+      "pos": "fixed",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 5
+     },
+     "laptop": {
+      "h": 40,
+      "pos": "fixed",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 5
+     },
+     "tablet": {
+      "h": 48,
+      "pos": "fixed",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 2
+     },
+     "mobile": {
+      "h": 48,
+      "pos": "fixed",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 2
+     }
+    }
+   },
+   "status": "PASS"
+  },
+  {
+   "id": "centered-wordmark-commerce",
+   "refId": "houseofspoils",
+   "displayName": "Centred Wordmark Commerce Rail with Mega Panel",
+   "stress": {
+    "short@desktop": {
+     "headerH": 64,
+     "links": 4,
+     "issues": 0
+    },
+    "short@mobile": {
+     "headerH": 64,
+     "links": 2,
+     "issues": 0
+    },
+    "normal@desktop": {
+     "headerH": 64,
+     "links": 5,
+     "issues": 0
+    },
+    "normal@mobile": {
+     "headerH": 64,
+     "links": 2,
+     "issues": 0
+    },
+    "long@desktop": {
+     "headerH": 64,
+     "links": 5,
+     "issues": 0
+    },
+    "long@mobile": {
+     "headerH": 64,
+     "links": 2,
+     "issues": 0
+    },
+    "oneItem@desktop": {
+     "headerH": 64,
+     "links": 2,
+     "issues": 0
+    },
+    "oneItem@mobile": {
+     "headerH": 64,
+     "links": 2,
+     "issues": 0
+    },
+    "fiveItems@desktop": {
+     "headerH": 64,
+     "links": 7,
+     "issues": 0
+    },
+    "fiveItems@mobile": {
+     "headerH": 64,
+     "links": 2,
+     "issues": 0
+    },
+    "manyItems@desktop": {
+     "headerH": 64,
+     "links": 11,
+     "issues": 0
+    },
+    "manyItems@mobile": {
+     "headerH": 64,
+     "links": 2,
+     "issues": 0
+    },
+    "noCta@desktop": {
+     "headerH": 64,
+     "links": 4,
+     "issues": 0
+    },
+    "noCta@mobile": {
+     "headerH": 64,
+     "links": 2,
+     "issues": 0
+    },
+    "dropdowns@desktop": {
+     "headerH": 64,
+     "links": 6,
+     "issues": 0
+    },
+    "dropdowns@mobile": {
+     "headerH": 64,
+     "links": 2,
+     "issues": 0
+    },
+    "imageLogo@desktop": {
+     "headerH": 64,
+     "links": 5,
+     "issues": 0
+    },
+    "imageLogo@mobile": {
+     "headerH": 64,
+     "links": 2,
+     "issues": 0
+    },
+    "brokenLogo@desktop": {
+     "headerH": 64,
+     "links": 4,
+     "issues": 0
+    },
+    "brokenLogo@mobile": {
+     "headerH": 64,
+     "links": 2,
+     "issues": 0
+    },
+    "empty@desktop": {
+     "headerH": 64,
+     "links": 0,
+     "issues": 0
+    },
+    "empty@mobile": {
+     "headerH": 64,
+     "links": 1,
+     "issues": 0
+    },
+    "arabic@desktop": {
+     "headerH": 64,
+     "links": 5,
+     "issues": 0
+    },
+    "arabic@mobile": {
+     "headerH": 64,
+     "links": 2,
+     "issues": 0
+    },
+    "mixed@desktop": {
+     "headerH": 64,
+     "links": 5,
+     "issues": 0
+    },
+    "mixed@mobile": {
+     "headerH": 64,
+     "links": 2,
+     "issues": 0
+    },
+    "accents@desktop": {
+     "headerH": 64,
+     "links": 5,
+     "issues": 0
+    },
+    "accents@mobile": {
+     "headerH": 64,
+     "links": 2,
+     "issues": 0
+    },
+    "longWords@desktop": {
+     "headerH": 64,
+     "links": 4,
+     "issues": 0
+    },
+    "longWords@mobile": {
+     "headerH": 64,
+     "links": 2,
+     "issues": 0
+    },
+    "numeric@desktop": {
+     "headerH": 64,
+     "links": 5,
+     "issues": 0
+    },
+    "numeric@mobile": {
+     "headerH": 64,
+     "links": 2,
+     "issues": 0
+    },
+    "darkTheme@desktop": {
+     "headerH": 64,
+     "links": 5,
+     "issues": 0
+    },
+    "darkTheme@mobile": {
+     "headerH": 64,
+     "links": 2,
+     "issues": 0
+    },
+    "withSocials@desktop": {
+     "headerH": 64,
+     "links": 4,
+     "issues": 0
+    },
+    "withSocials@mobile": {
+     "headerH": 64,
+     "links": 2,
+     "issues": 0
+    }
+   },
+   "issues": [],
+   "pageErrors": [],
+   "fatigue": {
+    "cycles": 10,
+    "issues": [],
+    "resizeClosed": true,
+    "restingTop": 0
+   },
+   "fidelity": {
+    "fixture": "commerce",
+    "fails": [],
+    "warns": [],
+    "deviations": [],
+    "viewports": {
+     "desktop": {
+      "h": 64,
+      "pos": "fixed",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 10
+     },
+     "laptop": {
+      "h": 64,
+      "pos": "fixed",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 10
+     },
+     "tablet": {
+      "h": 64,
+      "pos": "fixed",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 6
+     },
+     "mobile": {
+      "h": 64,
+      "pos": "fixed",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 6
+     }
+    }
+   },
+   "status": "PASS"
+  },
+  {
+   "id": "colorflood-word-toggle",
+   "refId": "locomotive",
+   "displayName": "Colour-Flood Menu with Word Toggle",
+   "stress": {
+    "short@desktop": {
+     "headerH": 60,
+     "links": 4,
+     "issues": 0
+    },
+    "short@mobile": {
+     "headerH": 60,
+     "links": 2,
+     "issues": 0
+    },
+    "normal@desktop": {
+     "headerH": 60,
+     "links": 5,
+     "issues": 0
+    },
+    "normal@mobile": {
+     "headerH": 60,
+     "links": 2,
+     "issues": 0
+    },
+    "long@desktop": {
+     "headerH": 60,
+     "links": 5,
+     "issues": 0
+    },
+    "long@mobile": {
+     "headerH": 60,
+     "links": 2,
+     "issues": 0
+    },
+    "oneItem@desktop": {
+     "headerH": 60,
+     "links": 2,
+     "issues": 0
+    },
+    "oneItem@mobile": {
+     "headerH": 60,
+     "links": 2,
+     "issues": 0
+    },
+    "fiveItems@desktop": {
+     "headerH": 60,
+     "links": 7,
+     "issues": 0
+    },
+    "fiveItems@mobile": {
+     "headerH": 60,
+     "links": 2,
+     "issues": 0
+    },
+    "manyItems@desktop": {
+     "headerH": 60,
+     "links": 11,
+     "issues": 0
+    },
+    "manyItems@mobile": {
+     "headerH": 60,
+     "links": 2,
+     "issues": 0
+    },
+    "noCta@desktop": {
+     "headerH": 60,
+     "links": 4,
+     "issues": 0
+    },
+    "noCta@mobile": {
+     "headerH": 60,
+     "links": 2,
+     "issues": 0
+    },
+    "dropdowns@desktop": {
+     "headerH": 60,
+     "links": 6,
+     "issues": 0
+    },
+    "dropdowns@mobile": {
+     "headerH": 60,
+     "links": 2,
+     "issues": 0
+    },
+    "imageLogo@desktop": {
+     "headerH": 60,
+     "links": 5,
+     "issues": 0
+    },
+    "imageLogo@mobile": {
+     "headerH": 60,
+     "links": 2,
+     "issues": 0
+    },
+    "brokenLogo@desktop": {
+     "headerH": 60,
+     "links": 4,
+     "issues": 0
+    },
+    "brokenLogo@mobile": {
+     "headerH": 60,
+     "links": 2,
+     "issues": 0
+    },
+    "empty@desktop": {
+     "headerH": 60,
+     "links": 0,
+     "issues": 0
+    },
+    "empty@mobile": {
+     "headerH": 60,
+     "links": 1,
+     "issues": 0
+    },
+    "arabic@desktop": {
+     "headerH": 60,
+     "links": 5,
+     "issues": 0
+    },
+    "arabic@mobile": {
+     "headerH": 60,
+     "links": 2,
+     "issues": 0
+    },
+    "mixed@desktop": {
+     "headerH": 60,
+     "links": 5,
+     "issues": 0
+    },
+    "mixed@mobile": {
+     "headerH": 60,
+     "links": 2,
+     "issues": 0
+    },
+    "accents@desktop": {
+     "headerH": 60,
+     "links": 5,
+     "issues": 0
+    },
+    "accents@mobile": {
+     "headerH": 60,
+     "links": 2,
+     "issues": 0
+    },
+    "longWords@desktop": {
+     "headerH": 60,
+     "links": 4,
+     "issues": 0
+    },
+    "longWords@mobile": {
+     "headerH": 60,
+     "links": 2,
+     "issues": 0
+    },
+    "numeric@desktop": {
+     "headerH": 60,
+     "links": 5,
+     "issues": 0
+    },
+    "numeric@mobile": {
+     "headerH": 60,
+     "links": 2,
+     "issues": 0
+    },
+    "darkTheme@desktop": {
+     "headerH": 60,
+     "links": 5,
+     "issues": 0
+    },
+    "darkTheme@mobile": {
+     "headerH": 60,
+     "links": 2,
+     "issues": 0
+    },
+    "withSocials@desktop": {
+     "headerH": 60,
+     "links": 4,
+     "issues": 0
+    },
+    "withSocials@mobile": {
+     "headerH": 60,
+     "links": 2,
+     "issues": 0
+    }
+   },
+   "issues": [],
+   "pageErrors": [],
+   "fatigue": {
+    "cycles": 10,
+    "issues": [],
+    "resizeClosed": true,
+    "restingTop": 0
+   },
+   "fidelity": {
+    "fixture": "normal",
+    "fails": [],
+    "warns": [],
+    "deviations": [],
+    "viewports": {
+     "desktop": {
+      "h": 60,
+      "pos": "fixed",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 5
+     },
+     "laptop": {
+      "h": 60,
+      "pos": "fixed",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 2
+     },
+     "tablet": {
+      "h": 60,
+      "pos": "fixed",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 2
+     },
+     "mobile": {
+      "h": 60,
+      "pos": "fixed",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 2
+     }
+    }
+   },
+   "status": "PASS"
+  },
+  {
+   "id": "fluid-rail-pill",
+   "refId": "cuberto",
+   "displayName": "Fluid Rail with Pill CTA",
+   "stress": {
+    "short@desktop": {
+     "headerH": 72,
+     "links": 4,
+     "issues": 0
+    },
+    "short@mobile": {
+     "headerH": 50,
+     "links": 2,
+     "issues": 0
+    },
+    "normal@desktop": {
+     "headerH": 72,
+     "links": 5,
+     "issues": 0
+    },
+    "normal@mobile": {
+     "headerH": 50,
+     "links": 2,
+     "issues": 0
+    },
+    "long@desktop": {
+     "headerH": 72,
+     "links": 5,
+     "issues": 0
+    },
+    "long@mobile": {
+     "headerH": 50,
+     "links": 2,
+     "issues": 0
+    },
+    "oneItem@desktop": {
+     "headerH": 72,
+     "links": 2,
+     "issues": 0
+    },
+    "oneItem@mobile": {
+     "headerH": 50,
+     "links": 2,
+     "issues": 0
+    },
+    "fiveItems@desktop": {
+     "headerH": 72,
+     "links": 7,
+     "issues": 0
+    },
+    "fiveItems@mobile": {
+     "headerH": 50,
+     "links": 2,
+     "issues": 0
+    },
+    "manyItems@desktop": {
+     "headerH": 72,
+     "links": 11,
+     "issues": 0
+    },
+    "manyItems@mobile": {
+     "headerH": 50,
+     "links": 2,
+     "issues": 0
+    },
+    "noCta@desktop": {
+     "headerH": 72,
+     "links": 4,
+     "issues": 0
+    },
+    "noCta@mobile": {
+     "headerH": 50,
+     "links": 2,
+     "issues": 0
+    },
+    "dropdowns@desktop": {
+     "headerH": 72,
+     "links": 6,
+     "issues": 0
+    },
+    "dropdowns@mobile": {
+     "headerH": 50,
+     "links": 8,
+     "issues": 0
+    },
+    "imageLogo@desktop": {
+     "headerH": 72,
+     "links": 5,
+     "issues": 0
+    },
+    "imageLogo@mobile": {
+     "headerH": 50,
+     "links": 2,
+     "issues": 0
+    },
+    "brokenLogo@desktop": {
+     "headerH": 72,
+     "links": 4,
+     "issues": 0
+    },
+    "brokenLogo@mobile": {
+     "headerH": 50,
+     "links": 2,
+     "issues": 0
+    },
+    "empty@desktop": {
+     "headerH": 72,
+     "links": 0,
+     "issues": 0
+    },
+    "empty@mobile": {
+     "headerH": 50,
+     "links": 1,
+     "issues": 0
+    },
+    "arabic@desktop": {
+     "headerH": 72,
+     "links": 5,
+     "issues": 0
+    },
+    "arabic@mobile": {
+     "headerH": 50,
+     "links": 2,
+     "issues": 0
+    },
+    "mixed@desktop": {
+     "headerH": 72,
+     "links": 5,
+     "issues": 0
+    },
+    "mixed@mobile": {
+     "headerH": 50,
+     "links": 2,
+     "issues": 0
+    },
+    "accents@desktop": {
+     "headerH": 72,
+     "links": 5,
+     "issues": 0
+    },
+    "accents@mobile": {
+     "headerH": 50,
+     "links": 2,
+     "issues": 0
+    },
+    "longWords@desktop": {
+     "headerH": 72,
+     "links": 4,
+     "issues": 0
+    },
+    "longWords@mobile": {
+     "headerH": 50,
+     "links": 2,
+     "issues": 0
+    },
+    "numeric@desktop": {
+     "headerH": 72,
+     "links": 5,
+     "issues": 0
+    },
+    "numeric@mobile": {
+     "headerH": 50,
+     "links": 2,
+     "issues": 0
+    },
+    "darkTheme@desktop": {
+     "headerH": 72,
+     "links": 5,
+     "issues": 0
+    },
+    "darkTheme@mobile": {
+     "headerH": 50,
+     "links": 2,
+     "issues": 0
+    },
+    "withSocials@desktop": {
+     "headerH": 72,
+     "links": 4,
+     "issues": 0
+    },
+    "withSocials@mobile": {
+     "headerH": 50,
+     "links": 5,
+     "issues": 0
+    }
+   },
+   "issues": [],
+   "pageErrors": [],
+   "fatigue": {
+    "cycles": 10,
+    "issues": [],
+    "resizeClosed": true,
+    "restingTop": 0
+   },
+   "fidelity": {
+    "fixture": "normal",
+    "fails": [],
+    "warns": [],
+    "deviations": [],
+    "viewports": {
+     "desktop": {
+      "h": 72,
+      "pos": "fixed",
+      "scrolledY": -72,
+      "deepY": -72,
+      "upY": 0,
+      "items": 5
+     },
+     "laptop": {
+      "h": 51.2,
+      "pos": "fixed",
+      "scrolledY": -51.2,
+      "deepY": -51.2,
+      "upY": 0,
+      "items": 5
+     },
+     "tablet": {
+      "h": 38.4,
+      "pos": "fixed",
+      "scrolledY": -38.4,
+      "deepY": -38.4,
+      "upY": 0,
+      "items": 5
+     },
+     "mobile": {
+      "h": 50,
+      "pos": "fixed",
+      "scrolledY": 10,
+      "deepY": 10,
+      "upY": 10,
+      "items": 2
+     }
+    }
+   },
+   "status": "PASS"
+  },
+  {
+   "id": "inset-blend-giant-mark",
+   "refId": "obys",
+   "displayName": "Inset Blend Rail with Oversized Wordmark",
+   "stress": {
+    "short@desktop": {
+     "headerH": 64.8,
+     "links": 4,
+     "issues": 0
+    },
+    "short@mobile": {
+     "headerH": 46,
+     "links": 2,
+     "issues": 0
+    },
+    "normal@desktop": {
+     "headerH": 64.8,
+     "links": 5,
+     "issues": 0
+    },
+    "normal@mobile": {
+     "headerH": 46,
+     "links": 2,
+     "issues": 0
+    },
+    "long@desktop": {
+     "headerH": 64.8,
+     "links": 5,
+     "issues": 0
+    },
+    "long@mobile": {
+     "headerH": 46,
+     "links": 2,
+     "issues": 0
+    },
+    "oneItem@desktop": {
+     "headerH": 64.8,
+     "links": 2,
+     "issues": 0
+    },
+    "oneItem@mobile": {
+     "headerH": 46,
+     "links": 2,
+     "issues": 0
+    },
+    "fiveItems@desktop": {
+     "headerH": 64.8,
+     "links": 7,
+     "issues": 0
+    },
+    "fiveItems@mobile": {
+     "headerH": 46,
+     "links": 2,
+     "issues": 0
+    },
+    "manyItems@desktop": {
+     "headerH": 64.8,
+     "links": 11,
+     "issues": 0
+    },
+    "manyItems@mobile": {
+     "headerH": 46,
+     "links": 2,
+     "issues": 0
+    },
+    "noCta@desktop": {
+     "headerH": 64.8,
+     "links": 4,
+     "issues": 0
+    },
+    "noCta@mobile": {
+     "headerH": 46,
+     "links": 2,
+     "issues": 0
+    },
+    "dropdowns@desktop": {
+     "headerH": 64.8,
+     "links": 6,
+     "issues": 0
+    },
+    "dropdowns@mobile": {
+     "headerH": 46,
+     "links": 2,
+     "issues": 0
+    },
+    "imageLogo@desktop": {
+     "headerH": 64.8,
+     "links": 5,
+     "issues": 0
+    },
+    "imageLogo@mobile": {
+     "headerH": 46,
+     "links": 2,
+     "issues": 0
+    },
+    "brokenLogo@desktop": {
+     "headerH": 64.8,
+     "links": 4,
+     "issues": 0
+    },
+    "brokenLogo@mobile": {
+     "headerH": 46,
+     "links": 2,
+     "issues": 0
+    },
+    "empty@desktop": {
+     "headerH": 64.8,
+     "links": 0,
+     "issues": 0
+    },
+    "empty@mobile": {
+     "headerH": 46,
+     "links": 1,
+     "issues": 0
+    },
+    "arabic@desktop": {
+     "headerH": 64.8,
+     "links": 5,
+     "issues": 0
+    },
+    "arabic@mobile": {
+     "headerH": 46,
+     "links": 2,
+     "issues": 0
+    },
+    "mixed@desktop": {
+     "headerH": 64.8,
+     "links": 5,
+     "issues": 0
+    },
+    "mixed@mobile": {
+     "headerH": 46,
+     "links": 2,
+     "issues": 0
+    },
+    "accents@desktop": {
+     "headerH": 64.8,
+     "links": 5,
+     "issues": 0
+    },
+    "accents@mobile": {
+     "headerH": 46,
+     "links": 2,
+     "issues": 0
+    },
+    "longWords@desktop": {
+     "headerH": 64.8,
+     "links": 4,
+     "issues": 0
+    },
+    "longWords@mobile": {
+     "headerH": 46,
+     "links": 2,
+     "issues": 0
+    },
+    "numeric@desktop": {
+     "headerH": 64.8,
+     "links": 5,
+     "issues": 0
+    },
+    "numeric@mobile": {
+     "headerH": 46,
+     "links": 2,
+     "issues": 0
+    },
+    "darkTheme@desktop": {
+     "headerH": 64.8,
+     "links": 5,
+     "issues": 0
+    },
+    "darkTheme@mobile": {
+     "headerH": 46,
+     "links": 2,
+     "issues": 0
+    },
+    "withSocials@desktop": {
+     "headerH": 64.8,
+     "links": 4,
+     "issues": 0
+    },
+    "withSocials@mobile": {
+     "headerH": 46,
+     "links": 2,
+     "issues": 0
+    }
+   },
+   "issues": [],
+   "pageErrors": [],
+   "fatigue": {
+    "cycles": 10,
+    "issues": [],
+    "resizeClosed": true,
+    "restingTop": 10.1
+   },
+   "fidelity": {
+    "fixture": "normal",
+    "fails": [],
+    "warns": [],
+    "deviations": [
+     "link font-size 12px vs ref 7.82222px (Δ4.2) [declared: The reference scales link type strictly with viewport width, reaching 7.8px at 1024, 5.9px at 768 and 3.0px at 390. That is legible only for its own two-word uppercase labels and fails WCAG for arbitrary generated content. This reconstruction keeps the fluid ramp but floors it at 12px.]",
+     "height 46.0 vs ref 34.4 (Δ11.6px) [declared: The reference rail is 34px tall at 768 and 17.5px at 390 because its height is also pure vw. A 17.5px bar cannot hold a touch target (44px minimum). This reconstruction floors the rail at 46px below 860px and moves the links into a panel.]",
+     "link font-size 16px vs ref 5.86666px (Δ10.1) [declared: The reference scales link type strictly with viewport width, reaching 7.8px at 1024, 5.9px at 768 and 3.0px at 390. That is legible only for its own two-word uppercase labels and fails WCAG for arbitrary generated content. This reconstruction keeps the fluid ramp but floors it at 12px.]",
+     "height 46.0 vs ref 17.5 (Δ28.5px) [declared: The reference rail is 34px tall at 768 and 17.5px at 390 because its height is also pure vw. A 17.5px bar cannot hold a touch target (44px minimum). This reconstruction floors the rail at 46px below 860px and moves the links into a panel.]"
+    ],
+    "viewports": {
+     "desktop": {
+      "h": 64.8,
+      "pos": "fixed",
+      "scrolledY": 10.1,
+      "deepY": 10.1,
+      "upY": 10.1,
+      "items": 5
+     },
+     "laptop": {
+      "h": 46.1,
+      "pos": "fixed",
+      "scrolledY": 7.2,
+      "deepY": 7.2,
+      "upY": 7.2,
+      "items": 5
+     },
+     "tablet": {
+      "h": 46,
+      "pos": "fixed",
+      "scrolledY": 10,
+      "deepY": 10,
+      "upY": 10,
+      "items": 2
+     },
+     "mobile": {
+      "h": 46,
+      "pos": "fixed",
+      "scrolledY": 10,
+      "deepY": 10,
+      "upY": 10,
+      "items": 2
+     }
+    }
+   },
+   "status": "PASS WITH OBSERVATIONS"
+  },
+  {
+   "id": "pill-chip-split-ticker",
+   "refId": "instrument",
+   "displayName": "Pill-Chip Split Rail with Centre Announcement",
+   "stress": {
+    "short@desktop": {
+     "headerH": 50,
+     "links": 3,
+     "issues": 0
+    },
+    "short@mobile": {
+     "headerH": 53,
+     "links": 2,
+     "issues": 0
+    },
+    "normal@desktop": {
+     "headerH": 50,
+     "links": 4,
+     "issues": 0
+    },
+    "normal@mobile": {
+     "headerH": 53,
+     "links": 2,
+     "issues": 0
+    },
+    "long@desktop": {
+     "headerH": 50,
+     "links": 4,
+     "issues": 0
+    },
+    "long@mobile": {
+     "headerH": 53,
+     "links": 2,
+     "issues": 0
+    },
+    "oneItem@desktop": {
+     "headerH": 50,
+     "links": 1,
+     "issues": 0
+    },
+    "oneItem@mobile": {
+     "headerH": 53,
+     "links": 2,
+     "issues": 0
+    },
+    "fiveItems@desktop": {
+     "headerH": 50,
+     "links": 6,
+     "issues": 0
+    },
+    "fiveItems@mobile": {
+     "headerH": 53,
+     "links": 2,
+     "issues": 0
+    },
+    "manyItems@desktop": {
+     "headerH": 50,
+     "links": 10,
+     "issues": 0
+    },
+    "manyItems@mobile": {
+     "headerH": 53,
+     "links": 2,
+     "issues": 0
+    },
+    "noCta@desktop": {
+     "headerH": 50,
+     "links": 3,
+     "issues": 0
+    },
+    "noCta@mobile": {
+     "headerH": 53,
+     "links": 2,
+     "issues": 0
+    },
+    "dropdowns@desktop": {
+     "headerH": 50,
+     "links": 5,
+     "issues": 0
+    },
+    "dropdowns@mobile": {
+     "headerH": 53,
+     "links": 2,
+     "issues": 0
+    },
+    "imageLogo@desktop": {
+     "headerH": 50,
+     "links": 4,
+     "issues": 0
+    },
+    "imageLogo@mobile": {
+     "headerH": 53,
+     "links": 2,
+     "issues": 0
+    },
+    "brokenLogo@desktop": {
+     "headerH": 50,
+     "links": 3,
+     "issues": 0
+    },
+    "brokenLogo@mobile": {
+     "headerH": 53,
+     "links": 2,
+     "issues": 0
+    },
+    "empty@desktop": {
+     "headerH": 50,
+     "links": 0,
+     "issues": 0
+    },
+    "empty@mobile": {
+     "headerH": 53,
+     "links": 1,
+     "issues": 0
+    },
+    "arabic@desktop": {
+     "headerH": 50,
+     "links": 4,
+     "issues": 0
+    },
+    "arabic@mobile": {
+     "headerH": 53,
+     "links": 2,
+     "issues": 0
+    },
+    "mixed@desktop": {
+     "headerH": 50,
+     "links": 4,
+     "issues": 0
+    },
+    "mixed@mobile": {
+     "headerH": 53,
+     "links": 2,
+     "issues": 0
+    },
+    "accents@desktop": {
+     "headerH": 50,
+     "links": 4,
+     "issues": 0
+    },
+    "accents@mobile": {
+     "headerH": 53,
+     "links": 2,
+     "issues": 0
+    },
+    "longWords@desktop": {
+     "headerH": 50,
+     "links": 3,
+     "issues": 0
+    },
+    "longWords@mobile": {
+     "headerH": 53,
+     "links": 2,
+     "issues": 0
+    },
+    "numeric@desktop": {
+     "headerH": 50,
+     "links": 4,
+     "issues": 0
+    },
+    "numeric@mobile": {
+     "headerH": 53,
+     "links": 2,
+     "issues": 0
+    },
+    "darkTheme@desktop": {
+     "headerH": 50,
+     "links": 4,
+     "issues": 0
+    },
+    "darkTheme@mobile": {
+     "headerH": 53,
+     "links": 2,
+     "issues": 0
+    },
+    "withSocials@desktop": {
+     "headerH": 50,
+     "links": 3,
+     "issues": 0
+    },
+    "withSocials@mobile": {
+     "headerH": 53,
+     "links": 2,
+     "issues": 0
+    }
+   },
+   "issues": [],
+   "pageErrors": [],
+   "fatigue": {
+    "cycles": 10,
+    "issues": [],
+    "resizeClosed": true,
+    "restingTop": 0
+   },
+   "fidelity": {
+    "fixture": "normal",
+    "fails": [],
+    "warns": [],
+    "deviations": [],
+    "viewports": {
+     "desktop": {
+      "h": 50,
+      "pos": "sticky",
+      "scrolledY": -50,
+      "deepY": -50,
+      "upY": 0,
+      "items": 4
+     },
+     "laptop": {
+      "h": 50,
+      "pos": "sticky",
+      "scrolledY": -50,
+      "deepY": -50,
+      "upY": 0,
+      "items": 4
+     },
+     "tablet": {
+      "h": 64,
+      "pos": "sticky",
+      "scrolledY": -64,
+      "deepY": -64,
+      "upY": 0,
+      "items": 4
+     },
+     "mobile": {
+      "h": 53,
+      "pos": "sticky",
+      "scrolledY": -53,
+      "deepY": -53,
+      "upY": 0,
+      "items": 2
+     }
+    }
+   },
+   "status": "PASS"
+  },
   {
    "id": "stacked-column-micro",
    "refId": "zajno",
@@ -196,6 +1617,7 @@
     "restingTop": 16
    },
    "fidelity": {
+    "fixture": "normal",
     "fails": [],
     "warns": [
      "end gutter Δ15.0px",
@@ -233,6 +1655,242 @@
     }
    },
    "status": "PASS WITH OBSERVATIONS"
+  },
+  {
+   "id": "sticky-rail-blur-overlay",
+   "refId": "area17",
+   "displayName": "Sticky Rail, Oversized Mark, Frosted Overlay",
+   "stress": {
+    "short@desktop": {
+     "headerH": 64,
+     "links": 4,
+     "issues": 0
+    },
+    "short@mobile": {
+     "headerH": 56,
+     "links": 2,
+     "issues": 0
+    },
+    "normal@desktop": {
+     "headerH": 64,
+     "links": 5,
+     "issues": 0
+    },
+    "normal@mobile": {
+     "headerH": 56,
+     "links": 2,
+     "issues": 0
+    },
+    "long@desktop": {
+     "headerH": 64,
+     "links": 5,
+     "issues": 0
+    },
+    "long@mobile": {
+     "headerH": 56,
+     "links": 2,
+     "issues": 0
+    },
+    "oneItem@desktop": {
+     "headerH": 64,
+     "links": 2,
+     "issues": 0
+    },
+    "oneItem@mobile": {
+     "headerH": 56,
+     "links": 2,
+     "issues": 0
+    },
+    "fiveItems@desktop": {
+     "headerH": 64,
+     "links": 7,
+     "issues": 0
+    },
+    "fiveItems@mobile": {
+     "headerH": 56,
+     "links": 2,
+     "issues": 0
+    },
+    "manyItems@desktop": {
+     "headerH": 64,
+     "links": 11,
+     "issues": 0
+    },
+    "manyItems@mobile": {
+     "headerH": 56,
+     "links": 2,
+     "issues": 0
+    },
+    "noCta@desktop": {
+     "headerH": 64,
+     "links": 4,
+     "issues": 0
+    },
+    "noCta@mobile": {
+     "headerH": 56,
+     "links": 2,
+     "issues": 0
+    },
+    "dropdowns@desktop": {
+     "headerH": 64,
+     "links": 6,
+     "issues": 0
+    },
+    "dropdowns@mobile": {
+     "headerH": 56,
+     "links": 2,
+     "issues": 0
+    },
+    "imageLogo@desktop": {
+     "headerH": 64,
+     "links": 5,
+     "issues": 0
+    },
+    "imageLogo@mobile": {
+     "headerH": 56,
+     "links": 2,
+     "issues": 0
+    },
+    "brokenLogo@desktop": {
+     "headerH": 64,
+     "links": 4,
+     "issues": 0
+    },
+    "brokenLogo@mobile": {
+     "headerH": 56,
+     "links": 2,
+     "issues": 0
+    },
+    "empty@desktop": {
+     "headerH": 64,
+     "links": 0,
+     "issues": 0
+    },
+    "empty@mobile": {
+     "headerH": 56,
+     "links": 1,
+     "issues": 0
+    },
+    "arabic@desktop": {
+     "headerH": 64,
+     "links": 5,
+     "issues": 0
+    },
+    "arabic@mobile": {
+     "headerH": 56,
+     "links": 2,
+     "issues": 0
+    },
+    "mixed@desktop": {
+     "headerH": 64,
+     "links": 5,
+     "issues": 0
+    },
+    "mixed@mobile": {
+     "headerH": 56,
+     "links": 2,
+     "issues": 0
+    },
+    "accents@desktop": {
+     "headerH": 64,
+     "links": 5,
+     "issues": 0
+    },
+    "accents@mobile": {
+     "headerH": 56,
+     "links": 2,
+     "issues": 0
+    },
+    "longWords@desktop": {
+     "headerH": 64,
+     "links": 4,
+     "issues": 0
+    },
+    "longWords@mobile": {
+     "headerH": 56,
+     "links": 2,
+     "issues": 0
+    },
+    "numeric@desktop": {
+     "headerH": 64,
+     "links": 5,
+     "issues": 0
+    },
+    "numeric@mobile": {
+     "headerH": 56,
+     "links": 2,
+     "issues": 0
+    },
+    "darkTheme@desktop": {
+     "headerH": 64,
+     "links": 5,
+     "issues": 0
+    },
+    "darkTheme@mobile": {
+     "headerH": 56,
+     "links": 2,
+     "issues": 0
+    },
+    "withSocials@desktop": {
+     "headerH": 64,
+     "links": 4,
+     "issues": 0
+    },
+    "withSocials@mobile": {
+     "headerH": 56,
+     "links": 2,
+     "issues": 0
+    }
+   },
+   "issues": [],
+   "pageErrors": [],
+   "fatigue": {
+    "cycles": 10,
+    "issues": [],
+    "resizeClosed": true,
+    "restingTop": 0
+   },
+   "fidelity": {
+    "fixture": "normal",
+    "fails": [],
+    "warns": [],
+    "deviations": [],
+    "viewports": {
+     "desktop": {
+      "h": 64,
+      "pos": "sticky",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 5
+     },
+     "laptop": {
+      "h": 64,
+      "pos": "sticky",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 5
+     },
+     "tablet": {
+      "h": 56,
+      "pos": "sticky",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 2
+     },
+     "mobile": {
+      "h": 56,
+      "pos": "sticky",
+      "scrolledY": 0,
+      "deepY": 0,
+      "upY": 0,
+      "items": 2
+     }
+    }
+   },
+   "status": "PASS"
   }
  ]
 }

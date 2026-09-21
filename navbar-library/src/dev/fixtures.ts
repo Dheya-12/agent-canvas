@@ -133,6 +133,27 @@ export const fixtures: Record<string, NavbarContent> = {
     cta: { label: 'Get in touch', href: '/c', icon: '→' },
     theme: 'dark',
   },
+  commerce: {
+    brand: { name: 'House of Linen' },
+    items: [
+      { label: 'Shop', href: '/shop', children: [
+        { label: 'Best Sellers', href: '/shop/best' },
+        { label: 'New Arrivals', href: '/shop/new' },
+        { label: 'All Prints', href: '/shop/all' },
+      ] },
+      { label: 'Artists', href: '/artists' },
+      { label: 'Gallery Wall Builder', href: '/builder', badge: 'New' },
+    ],
+    cta: { label: 'Membership', href: '/membership' },
+    secondaryAction: { label: 'US / $', href: '/locale' },
+    utilities: [
+      { label: 'Search', href: '/search', icon: 'search' },
+      { label: 'Wishlist', href: '/wishlist', icon: 'wishlist' },
+      { label: 'Account', href: '/account', icon: 'account' },
+      { label: 'Cart', href: '/cart', icon: 'cart', count: 0 },
+    ],
+    socials: [{ label: 'Instagram', href: '#' }, { label: 'Spotify', href: '#' }],
+  },
   withSocials: {
     brand: { name: 'Field Notes' },
     items: [{ label: 'Archive', href: '/a' }, { label: 'About', href: '/ab' }],

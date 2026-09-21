@@ -78,5 +78,12 @@
    }
   ],
   "verifiedBy": "evidence/zajno/inspection.json (mobile items at 3.25px); evidence/zajno/mobile-initial.png"
+ },
+ "houseofspoils": {
+  "skip": [
+   "startGutter"
+  ],
+  "reason": "The reference's first navigation trigger ('Shop', clearly visible at the left edge in evidence/houseofspoils/desktop-initial.png) is not an <a>, <button> or [role=button], so the probe never sees it and reports the SECOND item ('Artists', x=92) as the leading element. The leading gutter therefore measures the wrong element on this reference. The trailing gutter, which ends at a real link, remains enforced.",
+  "verifiedBy": "evidence/houseofspoils/desktop-initial.png"
  }
 }

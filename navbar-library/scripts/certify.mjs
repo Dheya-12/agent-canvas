@@ -30,8 +30,50 @@ const AUDIT = () => {
     out.issues.push({ kind: 'header-too-tall', detail: `header ${Math.round(hr.height)}px exceeds 55% of viewport` });
 
   const vis = e => { const c = getComputedStyle(e); const r = e.getBoundingClientRect(); return c.visibility !== 'hidden' && c.display !== 'none' && parseFloat(c.opacity) > 0.05 && r.width > 2 && r.height > 2; };
+
+  /* Contrast. A navbar that renders white-on-white is geometrically perfect
+   * and completely unusable, so legibility is checked directly.
+   * Elements painted with a blend mode are skipped: difference blending is
+   * legible by construction and its computed colour says nothing. */
+  const parseRgb = v => {
+    const m = String(v).match(/-?[\d.]+/g);
+    return m && m.length >= 3 ? [+m[0], +m[1], +m[2], m.length > 3 ? +m[3] : 1] : null;
+  };
+  const lum = ([r, g, b]) => {
+    const f = c => { c /= 255; return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); };
+    return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b);
+  };
+  const blended = e => {
+    for (let n = e; n && n !== document.documentElement; n = n.parentElement) {
+      if (getComputedStyle(n).mixBlendMode !== 'normal') return true;
+    }
+    return false;
+  };
+  const backdrop = e => {
+    for (let n = e; n; n = n.parentElement) {
+      const c = parseRgb(getComputedStyle(n).backgroundColor);
+      if (c && c[3] > 0.55) return c;
+      if (n === document.body) break;
+    }
+    const c = parseRgb(getComputedStyle(document.body).backgroundColor);
+    return c && c[3] > 0.55 ? c : [255, 255, 255, 1];
+  };
   const links = [...header.querySelectorAll('a,button')].filter(vis);
   out.linkCount = links.length;
+
+  if (!blended(header)) {
+    for (const el of links) {
+      const fg = parseRgb(getComputedStyle(el).color);
+      if (!fg || fg[3] < 0.5) continue;
+      const bg = backdrop(el);
+      const l1 = lum(fg), l2 = lum(bg);
+      const ratio = (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
+      if (ratio < 2) {
+        out.issues.push({ kind: 'invisible-text', detail: `"${(el.getAttribute('aria-label') || el.textContent || '').trim().slice(0, 20)}" contrast ${ratio.toFixed(2)}:1 against its backdrop` });
+        break;
+      }
+    }
+  }
 
   // Text overflowing its own box. An explicit ellipsis is a deliberate
   // truncation rule, not a defect, so only unmanaged overflow is reported.
@@ -202,9 +244,10 @@ for (const m of metas) {
   // fidelity against the live reference (skipped when there is no evidence)
   if (m.refId && fs.existsSync(`evidence/${m.refId}/inspection.json`)) {
     try {
-      const cmp = await runCompare(m.id, m.refId, 'normal');
+      const cmp = await runCompare(m.id, m.refId, m.referenceFixture || 'normal');
       const flat = Object.values(cmp.diffs).flat();
       e.fidelity = {
+        fixture: m.referenceFixture || 'normal',
         fails: flat.filter(x => x.level === 'fail').map(x => x.msg),
         warns: flat.filter(x => x.level === 'warn').map(x => x.msg),
         deviations: flat.filter(x => x.level === 'deviation').map(x => x.msg),

@@ -1,0 +1,276 @@
+/*
+ * Reconstructed from evidence/houseofspoils/inspection.json + capture.
+ * Signature traits: a 64px transparent rail laid over hero imagery, with a
+ * display wordmark centred exactly on the viewport axis, uppercase 11px/600
+ * micro-type nav at the left, and a trailing cluster of 20px utility icons
+ * (search / wishlist / account / cart) spaced 34px apart with a locale
+ * selector before them. Category navigation opens a full-width mega panel.
+ */
+
+.root {
+  --nb-h: 64px;
+  --nb-pad: 30px;
+  --nb-pad-end: 20px;
+  /* `light` means a light PAGE, so the rail's ink is dark. A rail laid over
+   * dark hero imagery is `theme: 'dark'`. Defaulting to white ink made the
+   * bar invisible on any page without a dark hero behind it. */
+  --nb-fg: #14110f;
+  --nb-surface: #fff;
+  --nb-surface-fg: #14110f;
+  --nb-micro: 11px;
+  --nb-ease: cubic-bezier(0.32, 0.72, 0, 1);
+
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 999;
+  height: var(--nb-h);
+  background: transparent;
+  color: var(--nb-fg);
+  transition: background-color 0.4s var(--nb-ease), color 0.4s var(--nb-ease);
+  font-family: var(--nb-font, inherit);
+}
+/* Over imagery the rail is light; once scrolled onto the page it takes a
+ * surface and inverts, as a commerce rail must stay legible on content. */
+.root[data-past='true'] { background-color: var(--nb-surface); color: var(--nb-surface-fg); }
+.root[data-theme='dark'] {
+  --nb-fg: #fff;
+  --nb-surface: #14110f;
+  --nb-surface-fg: #f5f2ef;
+}
+
+.inner {
+  height: 100%;
+  padding-inline: var(--nb-pad) var(--nb-pad-end);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  position: relative;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  flex: 1 1 0;
+  /* Must stop short of the centred wordmark, which is absolutely placed and
+   * therefore cannot push these clusters out of the way. */
+  max-width: calc(50% - 15vw - 14px);
+  overflow: hidden;
+}
+.item { min-width: 0; }
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  max-width: 100%;
+  min-width: 0;
+  font-size: var(--nb-micro);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.036em;
+  line-height: 1.2;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: opacity 0.25s var(--nb-ease);
+}
+.label { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.link:hover { opacity: 0.62; }
+.link[data-current='true'] { text-decoration: underline; text-underline-offset: 4px; }
+.caret { flex: 0 0 auto; display: inline-block; width: 0; height: 0; border: 3px solid transparent; border-top-color: currentColor; margin-top: 2px; transition: transform 0.25s var(--nb-ease); }
+.item[data-open='true'] .caret { transform: rotate(180deg); }
+.badge {
+  flex: 0 0 auto;
+  margin-inline-start: 5px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  font-size: 8px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+/* The wordmark is centred on the VIEWPORT, not on the leftover space, so it
+ * stays on axis regardless of how wide the flanking clusters become. */
+.brand {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  text-decoration: none;
+  max-width: 30vw;
+  overflow: hidden;
+  pointer-events: auto;
+}
+.brandText {
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.brandImg { height: 20px; width: auto; display: block; max-width: 100%; object-fit: contain; }
+
+.tail {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: calc(50% - 15vw - 14px);
+  /* Capped flex items stop growing, so the cluster must be pushed to the
+   * trailing edge explicitly or it sits next to the leading cluster. */
+  margin-inline-start: auto;
+}
+.cta, .secondary {
+  font-size: var(--nb-micro);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.036em;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.25s var(--nb-ease);
+}
+.cta:hover, .secondary:hover { opacity: 0.62; }
+.secondary { font-weight: 400; letter-spacing: 0.02em; opacity: 0.85; }
+
+.utils { display: flex; align-items: center; gap: 14px; }
+.util {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.25s var(--nb-ease);
+}
+.util:hover { opacity: 0.62; }
+.util svg { width: 17px; height: 17px; display: block; }
+.count {
+  position: absolute;
+  inset-block-start: -4px;
+  inset-inline-end: -6px;
+  min-width: 14px;
+  height: 14px;
+  padding: 0 3px;
+  border-radius: 999px;
+  background: currentColor;
+  font-size: 9px;
+  line-height: 14px;
+  text-align: center;
+}
+.countText { color: var(--nb-surface); mix-blend-mode: difference; }
+
+/* ---- Mega panel ---- */
+.mega {
+  position: fixed;
+  inset: var(--nb-h) 0 auto 0;
+  z-index: 998;
+  background: var(--nb-surface);
+  color: var(--nb-surface-fg);
+  padding: 30px var(--nb-pad) 38px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 22px 40px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.35s var(--nb-ease), transform 0.35s var(--nb-ease), visibility 0.35s;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.12);
+}
+.mega[data-open='true'] { opacity: 1; visibility: visible; transform: none; }
+.megaList { list-style: none; margin: 0; padding: 0; }
+.megaLink {
+  display: block;
+  padding: 6px 0;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.012em;
+  line-height: 1.3;
+  color: inherit;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.megaLink:hover { opacity: 0.6; }
+
+.toggle { display: none; }
+.panel { display: none; }
+
+@media (max-width: 1023px) {
+  .root { --nb-pad: 18px; --nb-pad-end: 18px; }
+  .list, .cta, .secondary { display: none; }
+  .mega { display: none; }
+  .tail { flex: 0 0 auto; }
+  .lead { flex: 1 1 0; display: flex; align-items: center; }
+  .toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+    flex: 0 0 auto;
+  }
+  .toggleBar { position: absolute; width: 18px; height: 1.4px; background: currentColor; transition: transform 0.4s var(--nb-ease); }
+  .toggleBar:nth-child(1) { transform: translateY(-3.5px); }
+  .toggleBar:nth-child(2) { transform: translateY(3.5px); }
+  .toggle[aria-expanded='true'] .toggleBar:nth-child(1) { transform: rotate(45deg); }
+  .toggle[aria-expanded='true'] .toggleBar:nth-child(2) { transform: rotate(-45deg); }
+  .brandText { font-size: 15px; letter-spacing: 0.15em; }
+
+  .panel {
+    display: block;
+    position: fixed;
+    inset: var(--nb-h) 0 0 0;
+    z-index: 998;
+    background: var(--nb-surface);
+    color: var(--nb-surface-fg);
+    padding: 22px var(--nb-pad) 30px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    transform: translateX(-100%);
+    transition: transform 0.45s var(--nb-ease);
+  }
+  .panel[data-open='true'] { transform: none; }
+  .panelList { list-style: none; margin: 0; padding: 0; }
+  .panelLink {
+    display: block;
+    padding: 11px 0;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.22);
+    font-size: 17px;
+    font-weight: 500;
+    color: inherit;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+  .panelSub { list-style: none; margin: 0; padding: 0 0 8px 14px; }
+  .panelSubLink { display: block; padding: 7px 0; font-size: 15px; color: inherit; text-decoration: none; opacity: 0.75; overflow-wrap: anywhere; }
+  .panelFoot { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px 20px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .panelFoot a { color: inherit; text-decoration: none; }
+}
+@media (min-width: 1024px) { .lead { display: contents; } }
+
+@media (prefers-reduced-motion: reduce) { .root, .root *, .mega, .panel, .panel * { transition-duration: 0.01ms !important; } }

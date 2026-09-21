@@ -48,6 +48,20 @@ export interface NavSocial {
   href?: string;
 }
 
+/**
+ * A compact utility control: search, account, wishlist, cart, locale.
+ * Commerce navbars render these as an icon cluster; every other navbar
+ * ignores the field. `icon` names a built-in glyph the navbar may draw;
+ * `label` is always required and is used for the accessible name.
+ */
+export interface NavUtility {
+  label: string;
+  href?: string;
+  icon?: 'search' | 'account' | 'wishlist' | 'cart' | 'menu' | 'globe';
+  /** Small numeric indicator, e.g. cart count. */
+  count?: number;
+}
+
 export interface NavbarContent {
   brand: NavbarBrand;
   items: NavItem[];
@@ -56,6 +70,9 @@ export interface NavbarContent {
   /** Secondary action (account, cart, language, phone…). Optional. */
   secondaryAction?: NavAction | null;
   socials?: NavSocial[];
+  /** Utility controls (search, account, cart...). Honoured only by navbars
+   *  whose metadata reports `supportsUtilities`. */
+  utilities?: NavUtility[];
   /** Labels for the mobile/overlay menu toggle. */
   menuLabel?: { open: string; close: string };
   theme?: ThemeName;
@@ -122,6 +139,8 @@ export interface NavbarMeta {
   supportsCta: boolean;
   supportsSecondaryAction: boolean;
   supportsSocials: boolean;
+  /** Renders `content.utilities` as a control cluster. */
+  supportsUtilities?: boolean;
   /** Item count the design holds without degrading at 1440px. */
   comfortableItems: [min: number, max: number];
   /** Longest single label (chars) that fits at 1440px without wrapping. */
@@ -136,6 +155,14 @@ export interface NavbarMeta {
   /** Planner-facing descriptors. */
   tone: string[];
   industries: string[];
+
+  /**
+   * Fixture in src/dev/fixtures.ts whose SHAPE best matches the reference
+   * site, used for the fidelity comparison. Comparing a commerce rail with
+   * content that carries no utilities measures nothing, so the shape has to
+   * match before the geometry means anything. Defaults to 'normal'.
+   */
+  referenceFixture?: string;
 
   notes?: string;
 }
